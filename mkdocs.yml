@@ -61,6 +61,7 @@ nav:
       - "Lore check: 'Tark and Najka were duo bosses, code name Hell Scorpions' (2026-11-04)": network-test/tark-najka-duo-claim.md
       - "Network Test AI scripts for enemies the test never places: Japanese names and translations": network-test/nt-ai-labels-retail-enemies.md
       - "Network Test music: what is in the sound files (2026-10-23)": network-test/network-test-music.md
+      - "Network Test spell casting: eight cast setups, aiming catalysts and catalyst power stance (2026-11-17)": network-test/nt-casting-setups.md
       - "The 'Broken' status: what became of Break (2026-11-12)": network-test/broken-status.md
       - "The child Emerald Herald model (c7015), and whether it is the 'sparkling girl' (2026-10-26)": network-test/child-herald-c7015.md
       - "The community cut-content sheet, checked against our findings (2026-10-28)": network-test/community-cut-sheet-crossref.md

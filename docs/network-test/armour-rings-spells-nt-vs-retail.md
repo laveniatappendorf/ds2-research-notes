@@ -156,6 +156,16 @@ arms, legs).
   (the hood, the robe, and the 仮テキスト placeholders for the arms and legs), but under ids 900008400-900008403.
   Its 900008405-900008426 hold the demo's test-weapon texts 900008400-900008421, so the whole block is five ids out
   in Japanese; the English is not.
+- **Straid's homeland was オストロ (Ostro) in the demo's Japanese** (2026-11-17). The demo's Black Hood set texts
+  (test items 892001300-892001303) say Straid was the old king's sworn friend in 古き国オストロ ("the old land of
+  Ostro"), and its Dispelling Ring and Ring of Resistance texts say 古の亡国オストロ ("the lost land of Ostro"). The
+  demo's English says Olaphis in all six. Retail's Japanese mostly uses オラフィス: npcMenu 7680 オラフィスのストレイド,
+  Straid's spells, a staff (3890000), and its leftover copy of the demo's set text (now under 892001401-892001500),
+  which is the demo text with each オストロ replaced by オラフィス and nothing else changed. Three retail strings kept
+  オストロ: the Dispelling Ring and Ring of Resistance descriptions (rewritten for retail, the name left as it was) and
+  Straid's line 76801120 ("ここの様を見るに、オストロは…", English "Long enough for Olaphis to rise, fall, and fade
+  away, evidently"). PS3 Scholar's Japanese still has all three, plus the new Dispelling Ring+1, so every retail
+  build gives the land two Japanese names.
 - **Missing pieces, named before they existed.** 84 demo items point at armour ids its ArmorParam doesn't have:
   the missing parts of 32 sets, for example 12180102 / 103 for the arms and legs of the Hollow Mage set. Retail has
   none of these ids as rows and no such orphan items at all, so the sets were finished as they were (hood and robe
@@ -235,8 +245,8 @@ the retail ring under that id does. English readings of the provisional names ar
 | 40110000 | 止血の指甲 (Staunching Knuckle Ring) | Bloodbite Ring: bleed resistance (type 6) | same ring |
 | 40130000 | 阻呪の指甲 (Curse-ward Knuckle Ring) | Cursebite Ring: curse resistance (type 8) | same ring |
 | 40120000 | 防護の指甲 (Protective Knuckle Ring) | Bracing Knuckle Ring 封壊の指甲: slows equipment wear | same family (指甲 knuckle rings) |
-| 40210000 | ストレイドの知恵の指輪 (Straid's Wisdom Ring) | Ring of Knowledge: INT | same ring |
-| 40220000 | ローネスの祈りの指輪 (Rhoness's Prayer Ring) | Ring of Prayer: FTH | same ring (retail credits Ivory Rhones with the Soul Protection rings) |
+| 40210000 | ストレイドの知恵の指輪 (Straid's Wisdom Ring) | Ring of Knowledge: INT, sold by Straid (below) | same ring |
+| 40220000 | ローネスの祈りの指輪 (Rhoness's Prayer Ring) | Ring of Prayer: FTH, sold by Licia of Lindelt (below) | same ring (retail credits Ivory Rhones with the Soul Protection rings) |
 | 40160000 | 王の剣の指輪 (King's Sword Ring) | Ring of Blades: physical attack | probably the same |
 | 40310000 | 身代りの指輪 (Ring of the Scapegoat) | Ring of Life Protection: no loss on death | same ring |
 | 40320000 | 緩やかな刻の指輪 (Ring of Slow Time) | Lingering Dragoncrest Ring: longer spell effects | same ring |
@@ -262,6 +272,19 @@ the planned one. Those 9 planned rings (Guardian's, Honour, Great Spider, Innoce
 Vengeance, Handmade, Shield Crest) are best counted as cut too, although their ids survive. Some names moved rather
 than vanished: Ring of Thorns (40250000 to 40530000), and possibly the sleeping dragon and the evil eye. The names
 alone can't settle the unclear ones.
+
+**The two stat rings kept their sellers (2026-11-17).** Retail v1.00 sells the Ring of Knowledge (the demo's
+Straid's Wisdom Ring) at Straid of Olaphis himself: ShopLineupParam 76800400, vendor 7680, always in stock. The Ring
+of Prayer (the demo's Rhoness's Prayer Ring) is sold by Licia of Lindelt, the miracle vendor (76900400, vendor 7690),
+and retail's Ring of Soul Protection text calls Ivory Rhones (白のローネス) a great sage of Lindelt
+(リンデルトの大賢者). So each ring is sold by the person its demo name pointed to, or by a cleric of that person's
+land. Only the names and texts changed: both retail descriptions now credit the High Priest of Volgen instead. The
+demo has no shop rows for either ring (its ShopLineupParam stocks vendors 7540 and 7830 only), but its npcMenu
+already has both vendor slots: 7680 スペルマニア ("spell maniac", the label `nt-ai-labels-retail-enemies.md` ties to
+Straid) and 7690 奇跡の人 ("the miracle person"). That the rings were planned for these two is a reading of the
+names; nothing in the demo's data links them. Prompted by a Japanese blog post of 17 January 2014 (ebiflynageruyo
+on livedoor, via the Wayback Machine) that lists the demo's text; its 49 ring names match the demo's ItemName
+40010000-40490000 exactly.
 
 ### New in retail
 
@@ -318,6 +341,10 @@ The cast animations show which catalyst a school was built for:
   bells catalysts for "miracles and 闇術 (hexes)". Retail splits hexes: the 34xxxxxx ones use the staff animations,
   and the 35xxxxxx ones start with a chime animation.
 - The demo's hexer **Galio** (EN) is retail's **Gilleah**; the Japanese is ギリア in both.
+- **How spells are cast changed too** (2026-11-17, live): every demo spell has eight cast setups with their own
+  projectile and damage row (two-handed and heavy casts hit harder, up to ×2.1), two-handed staves and chimes get a
+  bow-style aiming mode, and catalysts have power-stance categories (though they cannot power stance in the demo).
+  Retail flattened all of it. See `nt-casting-setups.md`.
 
 ### Matched (21)
 
