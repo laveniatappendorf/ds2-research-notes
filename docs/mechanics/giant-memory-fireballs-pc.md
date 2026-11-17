@@ -1,10 +1,14 @@
 # Memory of the Giants: the fireballs and the rolling statue head (2026-11-10)
 
-!!! info "Status: From the data"
-    Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
+!!! success "Status: Confirmed live"
+    Seen working in the game or emulator, not only read from files. See [status labels](../status-labels.md).
 
 Question: the giants' memory has constant fireball bombardment and a statue head that gets knocked off and rolls.
-Can either be stopped, or never triggered? Answer from the data only (event scripts and params), **not live-tested**.
+Can either be stopped, or never triggered?
+
+**Answer: yes, both.** The answer was worked out from the data (event scripts and params), then built as a data
+change and **tested live on 10 November 2026**: the fireballs no longer fire. The work done is listed in section 5.
+The live-flag tricks in section 4 and the 5-minute limit in section 6 were not run live except where section 5 says so.
 
 Sources: `ezstate\event_m20_10_00_00.esd` + `.edd` (developer event names), `EventParam`, `MapObjectInstanceParam`,
 `EventLocation`, `SystemDamageParam` (all `_m20_10_00_00` where per-map), Forest `event_m10_10_00_00` groups
@@ -64,15 +68,15 @@ navmesh 301000 once the head lies in state 20 (fallen).
   300000.
 
 **Live flag writes (CE)**
-- 105300 = 1 while inside: each ambient launcher stops at its next loop (8-10 s). The 5-minute limit (section 5)
+- 105300 = 1 while inside: each ambient launcher stops at its next loop (8-10 s). The 5-minute limit (section 6)
   stays off for this visit, because group 12000 only reads the flag at load. The next corpse warp rewrites the flag.
 - 210000081 = 1 before the memory loads: the head stays put, **but the Giant Lord is gone too** (it is his kill
   flag; group 8000 ends at once when it is set). Good for exploring, not for the fight.
 - Front line: no flag. Clearing 210020080 mid-fight should drop the boss pattern (nothing sets it again until the
-  next fight), but this is untested, and the Boss Arena reads that flag as well.
+  next fight), but this is untested.
 
-**Mod (permanent)**, the same way the Boss Arena already switches off group 12000 (`disable_groups`, EventParam
-row deleted): delete these rows from `EventParam_m20_10_00_00`.
+**Permanent (data change):** delete these rows from `EventParam_m20_10_00_00`. This is the route that was built and
+tested (section 5).
 - Ambient fireballs: 1000, 1010, 1020, 1030, 1040, 1050, 1060, 1070.
 - Front line: 2000, 2012, 2013. 2012 and 2013 are started by 2000 (command 130003); their rows have Unk0B = 3
   where the other rows have 2, so they are probably start-on-request rows. Delete all three to be safe.
@@ -83,10 +87,38 @@ To keep the fireballs on screen but harmless, zero `damage_0` in SystemDamagePar
 220100700 (front line) and 220100400 / 410 (head shot). For the head, zero 220100000. Those rows are only used by
 these launchers in m20_10 (the ids are this map's 2201xxxxx block; not checked against other maps' objects).
 
-## 5. Related: the memories' 5-minute limit
+## 5. The work that was done, and the live test (10 November 2026)
+
+1. **Traced the scripts** (sections 1-3): which event groups launch the fireballs and the head, what starts and stops
+   each, and which damage rows they use.
+2. **Checked what must stay.** The Giant Lord's own fight script (group 8000), his summon, and the bullet immunity
+   (group 20000) were left alone, so the fight itself works as before.
+3. **Deleted 14 rows from `EventParam_m20_10_00_00`:**
+   - ambient fireballs: 1000, 1010, 1020, 1030, 1040, 1050, 1060, 1070 (8 rows);
+   - front-line fireballs: 2000, 2012, 2013 (3 rows; 2012 and 2013 are started by 2000);
+   - rolling head: 3000 and 3010 (2 rows: its fireball, the scripted fall 5.6 s later, the 9999 x10 hit, and the
+     navmesh switch after it);
+   - plus row 12000, the 5-minute limit for the Jeigh entrance (the same method; see section 6).
+   Only that one param file changes; no script, model or damage row was edited.
+4. **Offline checks.** The rebuilt file was compared with the unmodified one: exactly those rows are gone and the
+   boss, summon and immunity rows are still there; it is the only file that differs.
+5. **Live test on PC Scholar 1.0.3.0 (Steam, offline), entering the memory directly rather than through the Forest
+   corpse warp.** The checks were:
+   - on arrival and on the walk to the Giant Lord's fog: no fireballs flying or landing, and no statue head falling
+     or rolling;
+   - during the Giant Lord fight: no fireball volleys, and the fight otherwise unchanged (he wakes when you cross
+     his region, and winning works as before);
+   - dying once and coming back in: no fireballs again.
+
+   Result: **pass**. The fireballs no longer fire, and the statue head no longer rolls.
+
+Still untested: the live-flag writes in section 4, and whether the zeroed-damage option (fireballs on screen but
+harmless) behaves as described.
+
+## 6. Related: the memories' 5-minute limit
 
 Groups 12000 / 12010 / 12020 (one per entrance flag 105300 / 105301 / 105302, read at load only) run global
 timer 0. At 5 s they show mapevent 2011 "One cannot reside within memory for long". At 270 s they show 2012 "The
 ashen mist has thinned...". At 290 s they set flag 210010001. At 300 s they show 2013 "The ashen mist fades..."
 and warp you back to that corpse's point in the Forest (3700000 / 3701000 / 3702000). The Giant Lord's death
-pauses the timer for 9 s. The Boss Arena deletes row 12000.
+pauses the timer for 9 s. Deleting row 12000 (as in section 5) switches the limit off for that entrance.
