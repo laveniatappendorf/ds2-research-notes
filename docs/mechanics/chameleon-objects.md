@@ -196,6 +196,17 @@ Scholar only), a yellow-green stone figure (Gutter), an orange flower bush (Shad
 Loyce). Several stone figures share one mesh (0.51 x 1.44 x 0.47 m): o04_2020, o25_2020, o25_9300, o33_2000 and
 o35_2010, whose texture is named kokesi (kokeshi doll).
 
+Dark Souls throwbacks (17 Nov): the author found a Reddit post linking the Shaded Woods flower bush to the orange ground
+flowers of the Royal Wood (Artorias of the Abyss, the past of Darkroot Garden). Side by side with a Royal Wood
+screenshot the flowers match in colour and cup shape; the DS2 model is a 1.65 m clump on tall stems where the Royal
+Wood ones are low ground cover. Its mesh / material are named Yflower / Yflower_A (yellow flower), nothing more. With
+the Elizabeth Mushroom (Oolacile Sanctuary, next to the Royal Wood) that makes two location forms pointing at the same
+corner of the DS1 DLC. Both models are placed only as the Chameleon stock across the 28 Chameleon maps: o32_9300 six
+times in m10_32 (_0000-_0003 + _0600-_0601, the 06xx pair being Scholar's extra copies), o11_9300 six times in m20_11.
+Not compared with DS1's own files (no DS1 install here). Whether it is a lore or a thematic link is not in the data.
+Added to the Google Doc's Other observations on 17 Nov as "Possible Dark Souls throwback", worded (the author) as fair
+speculation with no hard evidence, crediting "a Reddit post".
+
 | Row | Map | Area | Scholar (PC 1.0.3.0): model, what it is (weight) | Vanilla (v1.00 to PC 1.12): model, what it is (weight) |
 |---|---|---|---|---|
 | 10020000 | m10_02 | Things Betwixt | o02_1050 stone grave tablet (3)<br>o00_1901 mossy stone pedestal (3)<br>o02_8510 wooden armchair (2)<br>o00_1030 skeleton lying on the ground (1)<br>o02_9020 large bird's nest, 3.3 m across (1) | o02_1050 stone grave tablet (4)<br>o00_1901 mossy stone pedestal (4)<br>o02_8510 wooden armchair (2) |

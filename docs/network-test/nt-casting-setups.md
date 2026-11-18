@@ -126,6 +126,10 @@ catalysts.
 re-pointed at the bow's aim animation (20010010), and no weapon uses them. Retail players aim spells with the
 binoculars, a workaround; the NT had aiming built into the catalysts.
 
+**Restoring it.** A plan for a PC Scholar mod that puts the aim back is in
+`..\..\DS2 Scholar PC\findings\catalyst-aim-mod-plan.md`. It changes one field on 23 rows; whether the PC code still
+supports aiming with a catalyst is untested (parked 17 Nov).
+
 ## 4. Catalyst power stance, and setups 4-7
 
 **Live.** Power stance works in the NT exactly as in retail (hold Triangle with a matching pair; a pair that does not
