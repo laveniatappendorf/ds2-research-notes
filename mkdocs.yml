@@ -81,6 +81,7 @@ nav:
       - "Bosses: vanilla 1.10 vs PC Scholar (with vanilla 1.00 for context)": mechanics/bosses-pc.md
       - "Chameleon: which objects you turn into (2026-11-14)": mechanics/chameleon-objects.md
       - "ChunkPhaseParam and the PlayGo doors (PC Scholar)": mechanics/chunk-phase-playgo.md
+      - "Contact margin: why a hit needs a few cm of overlap (PC Scholar 1.0.3.0, live 18 Nov 2026)": mechanics/contact-margin-pc.md
       - "Distance damage cut ('tip hit') and multi-target damage, PC Scholar (2026-11-01)": mechanics/distance-damage-cut-pc.md
       - "Earthen Peak aggro: vanilla PC 1.12 vs PC Scholar (2026-11-02)": mechanics/earthen-peak-aggro-pc.md
       - "Grab timing and i-frames (PC Scholar 1.0.3.0, live 18 Nov 2026)": mechanics/grab-timing-pc.md

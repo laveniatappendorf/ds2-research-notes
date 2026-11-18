@@ -11,6 +11,7 @@ How combat, stats and enemy behaviour work, from code and live checks.
 | [Bosses: vanilla 1.10 vs PC Scholar (with vanilla 1.00 for context)](bosses-pc.md) | From the data |
 | [Chameleon: which objects you turn into (2026-11-14)](chameleon-objects.md) | Confirmed live |
 | [ChunkPhaseParam and the PlayGo doors (PC Scholar)](chunk-phase-playgo.md) | From the data |
+| [Contact margin: why a hit needs a few cm of overlap (PC Scholar 1.0.3.0, live 18 Nov 2026)](contact-margin-pc.md) | Confirmed live |
 | [Distance damage cut ("tip hit") and multi-target damage, PC Scholar (2026-11-01)](distance-damage-cut-pc.md) | Confirmed in code |
 | [Earthen Peak aggro: vanilla PC 1.12 vs PC Scholar (2026-11-02)](earthen-peak-aggro-pc.md) | From the data |
 | [Grab timing and i-frames (PC Scholar 1.0.3.0, live 18 Nov 2026)](grab-timing-pc.md) | Confirmed live |

@@ -53,8 +53,9 @@ hitbox does.
 
 - **Drawn touch:** D = P - 1 in 8 of 10 (0 or -2 in the others).
 - **Never earlier:** no catch came before a real overlap.
-- **The 3-5 cm:** catches need about 3-5 cm of overlap in our model. That's either our hit-model geometry being
-  slightly off or a contact margin in the game; this test can't tell which.
+- **The 3-5 cm:** catches need about 3-5 cm of overlap in our model. Resolved later the same day: our geometry was
+  right. Havok, with the game's settings, reports a contact on the same frame only if the overlap passes a speed-
+  and size-dependent cut-off; otherwise it reports it one frame later. See [contact margin](contact-margin-pc.md).
 - **In the roll runs:** the 7 unprotected catches followed the same rule (on the first overlap frame, or one later
   when that overlap was 0.6 cm).
 
@@ -94,7 +95,6 @@ predicts.
   bodies, 18 Nov params) but differ in size and lifetime. A small, short grab gives the boundary less room.
 - **The grabber's side of the hand-over:** animation ids are still unknown.
 - **Part B:** player backstabs / ripostes, which start from a position zone, not a hitbox.
-- **The 3-5 cm margin:** not resolved (see 1).
 - **Offline only:** network play adds its own delay.
 
 ## Method note
