@@ -217,4 +217,11 @@ tested.
   being a frame stale.
 - A controlled i-frame hold / release (write +0x5F0) would give boundary hits on demand.
 - Leading edge (DS2 i-frames "come out early"): plan in `leading-edge-test-plan.md` (2026-11-07, not run).
+- Grabs: ANSWERED live 18 Nov ([grab timing](grab-timing-pc.md), Ogre).
+  - Same lag as normal hits: caught on the first physics frame with real overlap, 1 frame after the drawn touch.
+  - Visible hold 2 frames after the catch.
+  - I-frames respected: 25 overlaps during roll invincibility, 0 caught while protected. 1 caught on the first
+    unprotected frame, the same end-of-roll rule as section 4.
+  - Note: the 6 Nov hit timing used the ragdoll, and the hit model (layer 3) is the true hurtbox; the grab test used
+    the hit model.
 - PS3 demo: add the phantom vtables to hitboxes.py / the overlay (TODO "Phantom hitboxes" follow-up (d)).

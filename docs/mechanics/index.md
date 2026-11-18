@@ -13,6 +13,7 @@ How combat, stats and enemy behaviour work, from code and live checks.
 | [ChunkPhaseParam and the PlayGo doors (PC Scholar)](chunk-phase-playgo.md) | From the data |
 | [Distance damage cut ("tip hit") and multi-target damage, PC Scholar (2026-11-01)](distance-damage-cut-pc.md) | Confirmed in code |
 | [Earthen Peak aggro: vanilla PC 1.12 vs PC Scholar (2026-11-02)](earthen-peak-aggro-pc.md) | From the data |
+| [Grab timing and i-frames (PC Scholar 1.0.3.0, live 18 Nov 2026)](grab-timing-pc.md) | Confirmed live |
 | [Infused or uninfused at SL120? (PC Scholar, 2026-11-04)](infusion-vs-uninfused-sl120.md) | From the data |
 | [Memory of the Giants: the fireballs and the rolling statue head (2026-11-10)](giant-memory-fireballs-pc.md) | Confirmed live |
 | [Mundane at SL50 before Shrine of Winter, PS3 v1.00 (2026-11-01)](mundane-sl50-v100.md) | Not yet rated |
