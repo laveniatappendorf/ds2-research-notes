@@ -350,7 +350,7 @@ with arenactl give 31280000.
 ## Wiki write-up (15 Nov 2026)
 
 Google Doc "Chameleon transform objects: proposed wiki update"
-(https://docs.google.com/document/d/13LFAP3lArD5tQ7dWNzjVlgbgBtw9jMASZ1r_ih1M5qo/edit), for the author to discuss with the
+(link not published), for the author to discuss with the
 wiki contributors: method, table with the wiki's names and the chance of each form (weight / total), errors to remove,
 how location (‡) forms work, the seven floor maps, the bone throne as unused content. Built by
 `tools\chameleon_wiki_doc.py` (local copy `chameleon-objects\Chameleon wiki update.docx`); maps from
