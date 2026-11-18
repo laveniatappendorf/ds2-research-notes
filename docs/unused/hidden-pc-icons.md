@@ -8,6 +8,11 @@ build has: not the US or JP Network Test, PS3 v1.00, PS3 Scholar or PC Scholar. 
 any build points at them. They are byte-identical across the PC builds. Our name lists come from the PS3 builds and
 PC Scholar, so the PC indexes show these files only as path hashes. They were named by hashing every possible icon
 path (`menu\tex\Icon\IC_00` / `IC_10` + 00000000-99999999) against the ~560 unnamed entries.
+Re-run 2026-11-17 on 1.12 (18,867 entries, 569 unnamed; 200,000,000 names): 354 hashes hit, 345 are icon textures
+and 9 are other files (chance matches, dropped). Four icon hashes match two names each; the kept one is the Network
+Test boss soul (60738000, 60739000, 60748000, 60749000), the other a meaningless shield number (e.g. 11200327).
+
+**One row per icon (2026-11-17):** Google Doc "DS2: the 345 icons only vanilla PC has" (link not published): thumbnail, file name, PC hash, placeholder or drawn, Network Test name with English reading, notes. Built by `..\..\DS2 Vanilla PC\tools\hidden_icons\all345_doc.py` (python-docx; uploaded as .docx, Drive converts).
 
 How they were found: `unused-ring-icons.md` ("Vanilla PC holds the missing icons"). Sheets: `hidden-pc-icons\`
 (`A`-`F`, `C2`); every icon as PNG in `hidden-pc-icons\png\`. Scripts and tables:
