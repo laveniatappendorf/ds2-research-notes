@@ -142,12 +142,50 @@ nav:
       - "First live read of the retail table's values (2026-10-17, read only)": tools/port-live-check.md
       - "Leading edge of roll i-frames: test plan (2026-11-07, not run)": tools/leading-edge-test-plan.md
       - "Live check: attack-rating formula and the infusion split (plan, 2026-10-26; claws + dark buffs added 2026-11-03)": tools/ar-live-check-plan.md
+      - "Memory map for PC 1.0.3.0 (trainer offsets)": tools/memory-map-pc.md
       - "Player character, Havok chain and out-of-bounds check: Network Test -> retail v1.00 (2026-10-17)": tools/port-character.md
       - "Port: 'draw the whole map' chain + App / game-object globals, Network Test -> retail v1.00": tools/port-map-draw.md
       - "Porting the Network Test cheat table (DS2NT.CT) to retail v1.00: what carries over": tools/cheat-table-port.md
       - "Retail v1.00 equipment, inventory and enemy-swap layouts for the cheat table (2026-10-17)": tools/port-equipment-inventory.md
       - "Retail v1.00 layouts for the equipment / inventory, AI freeze and enemy swap entries (static, 2026-10-17)": tools/port-equip-ai-spawn.md
+      - "Teleport and facing: writing the player's position and yaw (PC Scholar 1.0.3.0, 2026-11-17)": tools/teleport-and-facing.md
       - "The missing-texture blink, and switching it off (2026-10-22)": tools/missing-texture-blink.md
       - "Ultrawide for PS3 retail DS2 (BLUS41045 v1.00), 2026-10-31": tools/ultrawide.md
+  - "Modding: bonfires, bosses and enemies":
+      - Overview: modding-world/index.md
+      - "Adding a new bonfire (PC Scholar 1.0.3.0, 2026-11-17)": modding-world/adding-a-bonfire.md
+      - "Bonfire lit state, the travel menu and the save's bonfire list (PC Scholar 1.0.3.0, 2026-11-17)": modding-world/bonfire-lit-state.md
+      - "Bringing a boss back: kill flags, kill counts and SpawnLimit (PC Scholar 1.0.3.0, 2026-11-17)": modding-world/respawning-bosses.md
+      - "Difficulty levers: making fights harder or easier (PC Scholar 1.0.3.0, 2026-11-18)": modding-world/difficulty-levers.md
+      - "GeneratorParam fields: what each did in our tests (PC Scholar 1.0.3.0, 2026-11-18)": modding-world/generatorparam-fields.md
+      - "Moving a bonfire (PC Scholar 1.0.3.0, 2026-11-17)": modding-world/moving-a-bonfire.md
+      - "NG+ near boss arenas: what changes, and how the mod copes (PC Scholar 1.0.3.0, 2026-11-17)": modding-world/ng-plus-differences.md
+      - "Quieting and removing enemies near an arena (PC Scholar 1.0.3.0, 2026-11-17)": modding-world/removing-enemies.md
+      - "The respawn point: death, Darksign, Homeward Bone, Aged Feather (PC Scholar 1.0.3.0, 2026-11-17)": modding-world/respawn-point.md
+      - "Warping the player by script: arrival points (PC Scholar 1.0.3.0, 2026-11-17)": modding-world/warping-by-script.md
+  - "Modding: menus, shops and text":
+      - Overview: modding-menus/index.md
+      - "Adding and translating game text (PC Scholar 1.0.3.0, 2026-11-18)": modding-menus/game-text-and-languages.md
+      - "Adding new dialogue options: the N-choice list window (PC Scholar 1.0.3.0, 2026-11-17)": modding-menus/adding-dialogue-options.md
+      - "Asking the player a question: YES/NO windows (PC Scholar 1.0.3.0, 2026-11-17)": modding-menus/yes-no-windows.md
+      - "Giving the player items (PC Scholar 1.0.3.0, 2026-11-17)": modding-menus/giving-items.md
+      - "NPC menus: option bits, Talk, first meetings, respec (PC Scholar 1.0.3.0, 2026-11-17)": modding-menus/npc-menus.md
+      - "Restoring HP, Estus, spells and durability by script (PC Scholar 1.0.3.0, 2026-11-17)": modding-menus/restoring-hp-and-estus.md
+      - "Text that crashes the game, and missing glyphs (PC Scholar 1.0.3.0, 2026-11-17)": modding-menus/text-length-limits.md
+      - "Vendor stock: the 64-row cap, flag pages, free items and Trade lists (PC Scholar 1.0.3.0, 2026-11-17)": modding-menus/vendor-shops.md
+  - "Modding: scripts, data and installing":
+      - Overview: modding-scripts/index.md
+      - "Detecting a player death in a script (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/detecting-death-in-scripts.md
+      - "Diagnosing crashes from minidumps (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/crash-diagnosis.md
+      - "Editing params: the encrypted regulation vs loose params (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/editing-params.md
+      - "Event and talk script commands: what we proved (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/script-command-reference.md
+      - "Event flags and choosing safe ids (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/event-flags-and-free-ids.md
+      - "Event script groups: adding, disabling and patching them (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/event-script-groups.md
+      - "Live-testing tricks and pitfalls (PC Scholar 1.0.3.0, 2026-11-18)": modding-scripts/live-testing-notes.md
+      - "Map object states (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/map-object-states.md
+      - "One save file for every install (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/saves-and-installs.md
+      - "Randomness in event scripts: the dice, the game's percentage roll, and drawing without repeats (PC Scholar 1.0.3.0, 2026-11-18)": modding-scripts/randomness-in-scripts.md
+      - "The legacy DS2 Mod Engine (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/mod-engine-ds2.md
+      - "Writing DS2 ESD files (PC Scholar 1.0.3.0, 2026-11-17)": modding-scripts/writing-esd-files.md
   - About: about.md
 # NAV-END

@@ -20,7 +20,13 @@ If you want practical advice for playing the game, the community wikis are the b
 | [Mechanics and formulas](mechanics/index.md) | Roll i-frames, damage, infusion, invasions, enemy behaviour and similar, mostly on PC *Scholar* |
 | [Builds, patches and discs](builds/index.md) | What changed between the discs, the PS3 patches and the early PC builds |
 | [Unused and hidden content](unused/index.md) | Models, icons, map pieces and items that exist but are never used |
-| [Tools and patches](tools/index.md) | Notes behind the cheat tables, the ultrawide patch and the live-test plans |
+| [Tools and patches](tools/index.md) | Notes behind the cheat tables, the ultrawide patch and the live-test plans, plus the PC memory map |
+| [Modding: bonfires, bosses and enemies](modding-world/index.md) | For modders of the PC game: adding and moving bonfires, the respawn point, bringing bosses back, removing enemies, warps, NG+ and difficulty |
+| [Modding: menus, shops and text](modding-menus/index.md) | For modders: NPC menus, new dialogue lists, YES/NO questions, shops, giving items, restoring HP and Estus, game text and its limits |
+| [Modding: scripts, data and installing](modding-scripts/index.md) | For modders: event scripts and commands, flags and free ids, params, the Mod Engine, saves, crashes and testing habits |
+
+The three *Modding* sections are different from the rest: they are notes for people making their own mods of the PC game,
+from building the Boss Arena mod. See [the modding pages](how-to-read.md#the-modding-pages) for the tags they use.
 
 ## Using these notes
 
