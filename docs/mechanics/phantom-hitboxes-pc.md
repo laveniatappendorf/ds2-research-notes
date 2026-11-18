@@ -215,6 +215,8 @@ tested.
 - Why 31617 / 31750 / 72761 hit a frame after the physics touch; what keeps a contact listed one frame after
   separation (the PXBullet hit list FUN_140bdd280 or Havok's contact persistence). Possibly one cause: the hit list
   being a frame stale.
+  - Likely explained since (18 Nov) by [contact margin](contact-margin-pc.md): Havok reports a shallow first contact
+    one frame late. Not re-checked, because these hits were measured on the ragdoll, not the hit model.
 - A controlled i-frame hold / release (write +0x5F0) would give boundary hits on demand.
 - Leading edge (DS2 i-frames "come out early"): plan in `leading-edge-test-plan.md` (2026-11-07, not run).
 - Grabs: ANSWERED live 18 Nov ([grab timing](grab-timing-pc.md), Ogre).
