@@ -3,8 +3,8 @@
 !!! info "Status: From the data"
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
-After the Tark check (`tark-najka-duo-claim.md`), the author asked whether any other boss has two souls, and whether two
-souls could belong to the cut past / present (time travel) mechanic. Sources: the NT soul names (`nt-bosses-not-in-retail.md`
+After the Tark check ([Tark and Najka duo claim](tark-najka-duo-claim.md)), the author asked whether any other boss has two souls, and whether two
+souls could belong to the cut past / present (time travel) mechanic. Sources: the NT soul names ([Network Test bosses not in retail](nt-bosses-not-in-retail.md#2-the-27-nt-boss-souls-itemname-60730000-60755000-and-50140000)
 table 2), the 2014 PC pre-release developer row names (rows the same in PS3 v1.00), the NT and v1.00 map lists, and
 v1.00 placements. Translations are mine.
 
@@ -13,7 +13,8 @@ v1.00 placements. Translations are mine.
 - **In the NT soul list, one boss clearly has two souls: Mytha**, as 幼生ナーガ "larval naga" (60734000) and 成体ナーガ
   "adult naga" (60746000). Five more pairs could be one boss in two forms or two bosses fought together (table 2).
 - **Retail has exactly one boss with two souls, and it is a past / present pair: the Giant King.** The Last Giant is
-  "Giant King (Hollow)", fought in the present Forest. The Giant Lord is "Giant King (living)", fought in the giants'
+  "Giant King (Hollow)", fought in the present Forest (the `is_hollow` flag is off on his v1.00 enemy row: see
+  [hollow bosses](../mechanics/hollow-bosses-v1.00.md)). The Giant Lord is "Giant King (living)", fought in the giants'
   memory, which is labelled past. One character, one soul per era.
 - **The NT list does not give a soul per era.** The characters the developers did split by era (King Vanclad past /
   present / transformed, the Queen past / present) have one soul each. Mytha's pair is a growth stage, and her area has
@@ -25,15 +26,15 @@ v1.00 placements. Translations are mine.
 ## 1. Retail: who has two souls
 
 From the developers' names in PC 3/14: `BossBattleParam` (fights), `ItemLotParam` (soul lots) and the soul working names
-(`nt-bosses-not-in-retail.md` section 7).
+([Network Test bosses not in retail](nt-bosses-not-in-retail.md#7-the-developers-own-names-pc-pre-release-2026-10-28) section 7).
 
 | Boss | Fight row | Soul lot | Soul |
 |---|---|---|---|
-| Last Giant | 1010010 m10_10 新・巨人上級兵士（亡者）, "new elite giant soldier (Hollow)" | 309600 朽ちた巨人の森：…（亡者）, "Forest of Fallen Giants" | 64010000, working name 巨人王亡者 "Giant King (Hollow)" |
+| Last Giant | 1010010 m10_10 [新・巨人上級兵士（亡者）, "new elite giant soldier (Hollow)"](boss-region-names.md#every-region) | 309600 朽ちた巨人の森：…（亡者）, "Forest of Fallen Giants" | 64010000, working name 巨人王亡者 "Giant King (Hollow)" |
 | Giant Lord | 2010000 m20_10 新・巨人上級兵士（生者）, "(living)" | 309700 巨人の記憶：…（生者）, "the giants' memory" | 64240000, working name 巨人王生者 "Giant King (living)" |
 
 The giants' memory's camera row is 2010000 巨人の記憶（過去）, "the giants' memory (past)". m10 maps are the present and m20
-maps the past (`e3-demo-leftovers.md` section 9). So the developers treated the Last Giant and the Giant Lord as one
+maps the past ([E3 2013 demo leftovers](e3-demo-leftovers.md#9-past-and-present-the-other-time-labelled-areas-added-2026-11-03) section 9). So the developers treated the Last Giant and the Giant Lord as one
 character in two eras. He has two bodies (c3096 / c3097) and gets a soul in each. No other retail boss does this.
 
 For comparison:
@@ -60,7 +61,7 @@ The 27 NT souls are names only. No NT `ItemParam` row exists for any of their id
 | King Vanclad / Queen Dunashandra | 60753000 / 60754000 | yes | two bosses, a married couple |
 
 **Eras.** King Vanclad has three bodies in the developers' names: past (c5130), present (c5140 / c5145) and
-transformed (c6160). He has one NT soul. The Queen has past and present bodies (7030 / 7035, 7020) and one soul. The
+transformed (c6160). He has one NT soul. The Queen has [past and present bodies (7030 / 7035, 7020)](community-cut-sheet-crossref.md#bosses) and one soul. The
 Giant King, retail's one two-soul boss, has no NT soul, unless he is 岩の巨人カノッソフ "rock giant Kanossof". So the NT
 list was not built as one soul per era.
 
@@ -74,7 +75,7 @@ That is two or three cases, so only a hint.
 - **The working name.** Giant basilisk row 222001 is named 巨大バジリスク：色②：虚ろな影の森 "Shaded Woods" in
   `EnemyParam` and 巨大バジリスク：色②：生きている森（後半） "living forest (second half)" in `EnemyDefaultLogicParam`. v1.00
   places 222001 once, in m10_32. So 生きている森 "the living forest" is probably the Shaded Woods' working name
-  (`e3-demo-leftovers.md` section 9 had it as an unknown area).
+  ([E3 2013 demo leftovers](e3-demo-leftovers.md#9-past-and-present-the-other-time-labelled-areas-added-2026-11-03) section 9 had it as an unknown area).
 - **A past visit between two halves.** The debug loadouts (`PlayerStatusItemParam`) list it three times. The list
   starts at Things Betwixt (化石の森) and reads like a route through the game:
   - 300111000 生きてる森（前半） "first half";
@@ -93,7 +94,7 @@ That is two or three cases, so only a hint.
   森の番人（検証用） "forest guardian (test)".
 
 **For the Tark comment.** The forest Tark and Najka live in did have a past stage planned. That is more than the
-"no evidence" in `tark-najka-duo-claim.md` allowed for. But nothing puts the man-scorpions in it:
+"no evidence" in [Tark and Najka duo claim](tark-najka-duo-claim.md) allowed for. But nothing puts the man-scorpions in it:
 - every man-scorpion row is named 虚ろの影の森 alone;
 - no row names one with 過去 "past" or 生きている森;
 - the two scorpion souls are tied to no body.

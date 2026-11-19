@@ -264,8 +264,8 @@ Bowman Guthry (630, Royal Rat Authority's map) or Rhoy the Explorer (640, Vangua
 times. Rhoy appears 15 m from the Vanguard's arrival, Guthry 58 m from the Authority's. [data] The mod deletes the
 `EventParam` row of group 118220 in both maps, so the group never runs; both fights still arrive, fight and win. [live B15]
 That the invaders are gone was never checked by walking into the trigger box. [untested]
-Other invaders within 45 m of an arrival that the mod leaves alone (spirit generators, `Unk84` 2, conditions not
-checked): Navlaan at the Guardian Dragon (28 m), Congregation (44 m) and the Twin Dragonriders (45 m), Forlorn at
+Other [NPC invaders](../mechanics/npc-invaders-pc.md) within 45 m of an arrival that the mod leaves alone (spirit generators, `Unk84` 2, conditions not
+checked): Navlaan at the Guardian Dragon (28 m), Congregation (44 m) and the Twin Dragonriders (45 m), [Forlorn](../mechanics/forlorn-pc.md) at
 Congregation (32 m) and Aava (32 m), Kindalur at the Demon of Song (43 m), Aurheim at Aava (27 m). [data, 5 Nov scan]
 Mytha's Forlorn (935, 21 m) and the Belfry's Bell Keeper (generator 541, 4.5 m from the arrival, group 111284) are
 switched off. See [Removing enemies](removing-enemies.md).

@@ -121,7 +121,8 @@ the covenant alone [inference].
 **What it costs.** The covenant is one field, so joining replaces any covenant the player holds, and `130381(0)` leaves
 the player with none. It cannot give the old one back [inference; 8 to 0 was seen, a character with another covenant was
 never used]. We never checked what happens to rank or progress in the covenant replaced [untested]. We measured one boss
-and three hits; ordinary enemies, spells and other bosses are not measured [untested]. We did not find where x1.5 lives.
+and three hits; ordinary enemies, spells and other bosses are not measured [untested]. We did not find where x1.5 lives. (A param value that matches, DamageAdjustParam `enemy_damage_mult_coc` 1.5, is on
+[balance: vanilla vs PS3 Scholar](../builds/balance-vanilla-vs-scholar.md#6-damage-pvp-and-new-game).)
 `VowParam` (10 rows of three small numbers and a zero) has nothing that reads as a multiplier, and we did not look in the
 exe [data, 18 Nov].
 

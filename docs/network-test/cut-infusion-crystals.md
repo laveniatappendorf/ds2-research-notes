@@ -5,7 +5,7 @@
 
 Two items in the Network Test's infusion set that retail dropped: **五色の結晶** ("five-coloured crystal", 61040000)
 and **虹色の原結晶** ("rainbow raw crystal" / "rainbow source crystal", 61050000). Background:
-`scaling-letters-and-infusion.md` (infusion in the Network Test) and `break-element.md` (the cut Break stone).
+[scaling letters and infusion](../mechanics/scaling-letters-and-infusion.md) (infusion in the Network Test) and [Break element](break-element.md) (the cut Break stone).
 Images: `cut-infusion-crystals-icons.png` (tool `tools\icon_sheet.py`), `cut-infusion-crystals-vs-magic-stone.png`.
 
 ## What the Network Test has
@@ -27,12 +27,12 @@ Images: `cut-infusion-crystals-icons.png` (tool `tools\icon_sheet.py`), `cut-inf
 
 ## What retail keeps
 
-- No item rows, names or lots. Lot 10180 (Bell Keeper reward) became **1 Titanite Chunk** in v1.00; PC widens it to
+- No item rows, names or lots. [Lot 10180 (Bell Keeper reward)](../builds/item-placements-vanilla-vs-scholar.md#online-result-rewards-resulteventparam-lots-10000-10280) became **1 Titanite Chunk** in v1.00; PC widens it to
   Titanite Chunk 90 / Slab 5 / Twinkling Titanite 3 / Petrified Dragon Bone 2.
-- Infusion in retail costs one stone and nothing else (CustomAttrCostParam: one item + amount per infusion), so
+- Infusion in retail costs one stone and nothing else ([CustomAttrCostParam](upgrade-paths-pc-dev-names.md#1-the-three-upgrade-paths): one item + amount per infusion), so
   there is no catalyst step.
 - **The icons survive** (v1.00 PS3 and PC GameData; the Network Test itself doesn't ship them): `IC_0061040000`,
-  `IC_0061050000`, plus the Break stone `IC_0061120000` and the two cut materials `IC_0061010000` / `IC_0061020000`.
+  `IC_0061050000`, plus the Break stone `IC_0061120000` and [the two cut materials](../unused/unused-material-icons.md) `IC_0061010000` / `IC_0061020000`.
   The five-coloured crystal is a small iridescent pink / blue / green gem; the rainbow crystal a larger opal-like slab.
 - **The rainbow crystal's picture is the retail Magic Stone's** (61140000, the Enchanted infusion): the same artwork
   one pixel apart (mean colour difference 74 as stored, 26 after a one-pixel shift, the rest re-encoding noise). The

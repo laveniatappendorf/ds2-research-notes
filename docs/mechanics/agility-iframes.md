@@ -12,14 +12,14 @@ the shared `tools`, params); the live evidence is the community's measured table
 **Answer.** Retail kept the demo's mechanism (same TAE windows, same 110300 handler, same "value x (1 - penalty)"
 builder) and changed three things:
 
-1. **The row.** Agility is no longer an attribute. The derived-stat builder picks the PhysicalStats row
+1. **The row.** [Agility is no longer an attribute](agility-timeline.md). The derived-stat builder picks the PhysicalStats row
    `level = (3 x ADP + ATN) / 4` (integer, rounded down; any result outside 1-99 uses row 1) from the *effective*
    attributes (base + equipment bonus, each clamped to 1-99). This is exactly the wiki's "investment".
 2. **The columns.** The demo's three Agility percentages (+0x64 / +0x68 / +0x6c) moved to +0x68 / +0x6c / +0x70
    (one resistance column was inserted before them) and were retuned to 20 -> 100 / 25 -> 100 / 25 -> 100. The demo used
    the first for both rolls and backsteps and never read the second; retail gives each evasion its own column:
    **backstep = +0x68, roll = +0x6c, landing roll = +0x70.**
-3. **The penalty.** PlayerLackOfStatsParam row 18 grew from (20, 50) to (30, 50, 0, 50): the armour-requirement term is
+3. **The penalty.** [PlayerLackOfStatsParam row 18](armour-requirement-penalties.md) grew from (20, 50) to (30, 50, 0, 50): the armour-requirement term is
    now 30-50 % (demo 20-50 %), and a new **insufficient-stamina** term takes off up to 50 % more.
 
 ```
@@ -93,7 +93,7 @@ keeps only its fixed 110100 part (4 frames, 0.133 s) and a backstep has none.
 
 `p` below = `[chr+0x368]+4` (demo) / `[chr+0x378]+4` (retail, `FUN_005b261c` returns its argument + 4). The
 eighteenth session's "pparam+0x98" is the demo's p+0x94 (index 0); the retail values are at pparam +0xac / +0xb0 /
-+0xb4 for indices 0 / 1 / 2 (useful for a later live cheat-table entry).
++0xb4 for indices 0 / 1 / 2 (useful for [a later live cheat-table entry](../tools/cheat-table-port.md#2-per-entry)).
 
 | step | demo NPUB90979 | retail BLUS41045 v1.00 |
 |---|---|---|
@@ -136,7 +136,7 @@ stamina cost into the builder.
 | Weapon swap 120 % at 93 or less, 145 % at max | column +0x74: 1.2 through row 13 (AGL 93), 1.45 at row 99 | agree (param only) |
 | Guard raise 100 % at 89 and under, 150 % at max | column +0x7c: 1.0 through row 9 (AGL 89), 1.5 at row 99 | agree (param only) |
 | Breakpoints described "at 60 frames per second" | the chart's counts are 30 fps game frames: 6 frames = 0.2 s at 85(a), 17 frames = the 0.567 s window | wording differs; the numbers are 30 fps frames |
-| Equipment that boosts Adaptability (Simpleton's Ring etc.) | the row is computed from effective attributes (base + an 11-value bonus array, clamped 1-99) | consistent; the bonus source wasn't traced to the ring |
+| Equipment that boosts Adaptability (Simpleton's Ring etc.) | the row is computed from effective attributes (base + an 11-value bonus array, clamped 1-99) | consistent; the bonus source wasn't traced to the ring (see [SL1: Large Club vs Old Knight Hammer](sl1-large-club-vs-old-knight-hammer.md#fourth-ring-simpletons-vs-royal-soldiers2-and-roll-i-frames-added-2026-11-01)) |
 | 70 % equip-load backsteps: same counts, starting at frame 10 instead of 5 | the count fits the same ratio; the 5-frame delay isn't in 110011 / 110031 (both 0.133-0.5 s). 110051 / 110071 (0.333-0.667 s) would give one frame fewer and start at frame 11 | open |
 
 ## 4. Limits and open points
@@ -151,7 +151,7 @@ stamina cost into the builder.
 - The frame rule `3 + floor(14 r)` is the observed count; it matches the handler if a frame's i-frame test uses the
   frame's end time. At r = 1 the 17th frame lies exactly on the window end, so float timing decides it. The data agree.
 - The 70 % backstep delay (section 3, last row) is unexplained.
-- Scholar (BLUS31528) not checked.
+- Scholar (BLUS31528) not checked (see [balance: vanilla vs PS3 Scholar](../builds/balance-vanilla-vs-scholar.md)).
 
 ## 5. Files
 
@@ -164,3 +164,7 @@ stamina cost into the builder.
   110031 (110300 0.133-0.5), 110051 / 110071 (0.333-0.667), 140020 (0-0.433).
 - Shared tools used: `tae.py`, `gamedata.py`, `elfread.py`, `immscan.py`, `ppcdis.py`, `tocrefs.py`; Ghidra
   `FuncAt.java` / `DefineAndDecomp.java` on DS2V and DS2NT_mac (read-only).
+
+## Related pages
+
+- [Port: player character](../tools/port-character.md): carries these retail offsets (state object, i-frame counter, roll ratio, pparam) into the full Network Test to retail character table.

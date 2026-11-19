@@ -26,7 +26,7 @@ patches; `timeline_jp_changes.tsv`), `text_diff.py`, `mapparam3.py`, `pieces3.py
   English, French, German and the rest. Same file list, same 11,452 archive names. Which language shows is not a
   data difference (presumably the console language; not checked in code).
 - PARAM.SFO: disc `VERSION` 01.02 (US 01.01, Asian 01.00), `APP_VER` 01.00 on all three; parental level 8; no 576p.
-- Build stamps: GameData index `14B31Q42` = 31 Jan 2014 16:42 (US `14B27P30` 27 Jan 15:30); InstallData 30 Jan
+- [Build stamps](../mechanics/agility-timeline.md#1-build-dates-the-binder-stamps): GameData index `14B31Q42` = 31 Jan 2014 16:42 (US `14B27P30` 27 Jan 15:30); InstallData 30 Jan
   21:10 (US 24 Jan 06:16); EBOOT file 31 Jan 08:24.
 - **Regulation version 00010100.** US v1.00 = 00010000, patch 1.01 = 00010200: the US patches skip 00010100, and this
   disc is it.
@@ -43,7 +43,7 @@ And the other way: **80 files 1.01 changed are still the US v1.00 copy here** (s
 
 ### Already in the Japanese disc (= 1.01)
 - **Balance**: 36 of 1.01's 54 changed rows plus its 4 new rows; 1.01's regulation = this one + 18 more rows. Details
-  in `..\DS2 Vanilla Patches\findings\v1.00-vs-1.01.md` section 2; names now identified (from npcMenu / charaname,
+  in [v1.00 vs patch 1.01](v1.00-vs-1.01.md#2-balance-regulation-calibrations-100-102-and-effect-scripts) section 2; names now identified (from npcMenu / charaname,
   matched by id; the attack-id prefix rule 1 + character number is inferred):
   - enemy 769000 (AI label 奇跡の人 "miracle person") = **Licia of Lindeldt** (NPC 7690): HP 2,440 -> 4,580,
     defence 338 -> 581, souls 1,000 -> 2,500, damage x1.68;
@@ -52,7 +52,7 @@ And the other way: **80 files 1.01 changed are still the US v1.00 copy here** (s
     3-shot homing volley -> one bullet that spawns two child bullets;
   - attacks 112402810 / 910 = 暗殺者（生者） "assassin (living)" (c1240): damage control id changed;
   - **Soul Geyser** (31170010-13) and the Lightning Spear family: BulletParam flags (meaning unknown). Not the
-    damage nerf the early PC build has;
+    damage nerf [the early PC build](early-pc-builds.md#31-march-pre-release) has;
   - Ladder Miniature use id; the four gesture Carvings can no longer be sold (200 -> 0 souls).
 - **Chloranthy Ring and Green Blossom stamina buffs** (both effect scripts = 1.01's).
 - **Bell Keepers' new model** c7530 and all their armour (both sexes, both detail levels).
@@ -117,8 +117,12 @@ disc plays like a half-way US 1.01.
 - What BulletParam Unk14 / 16 / 17 do (Soul Geyser, Lightning Spear).
 - Whether the EBOOT restricts menu languages by region (code not read; no Ghidra import of this EBOOT yet).
 - Code-level EBOOT diff (Japanese +12 KB code over US v1.00, 1.01 +46 KB).
-- The Asian disc (BLAS50640): done 2026-10-27, `..\..\DS2 Asia\findings\asia-disc-vs-us.md`: the US v1.00 game byte
+- The Asian disc (BLAS50640): done 2026-10-27, [Asian disc vs US disc](asia-disc-vs-us.md): the US v1.00 game byte
   for byte, mastered first (27 Jan). Its "different GameData.bdt" in the first hash pass was the showcase patches in
   the RPCS3 copy of the US ISO, not the Asian disc. The same applies to section 1 here: the hash list compared against
   that patched ISO, but the Japanese GameData.bdt differs from the original as well, and every file comparison above
   used the clean `DS2 Vanilla` copy.
+
+## Related pages
+
+- [V1.00-only content](v1.00-only-content.md): the v1.00 content that shipped only on the US and Asian discs, because this later master already had the 1.01-level files.

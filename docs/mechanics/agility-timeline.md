@@ -43,10 +43,10 @@ build date of their own (only Havok licence-key dates and a FIOS library date, 1
 
 - **Text IDs reused** (`iconHelp.fmg`): Adaptability took Resistance's ID 909012; the derived Agility took Action
   speed's ID 909038. Gaps are left exactly where NT stats were removed: 909013 (Agility attribute), 909037 (Evasion),
-  909039 (Trap disabling), 909027 / 909035 (Break ATK / resist). New stats are appended (909050 Soul Memory,
+  909039 (Trap disabling), 909027 / 909035 ([Break ATK / resist](../network-test/break-element.md#network-test)). New stats are appended (909050 [Soul Memory](soul-memory-matchmaking.md),
   909051 Curse resist, 909052 Poise).
 - **Same param types, extended:** `PhysicalStatsPerLevelStatValuesParam` 136 -> 148 bytes per row (300 -> 99 rows),
-  `MenuStatsParam` 56 -> 60, `PlayerStatusParam` 284 -> 296. The NT's Agility block (three percentages + three
+  `MenuStatsParam` 56 -> 60, `PlayerStatusParam` 284 -> 296. [The NT's Agility block](agility-iframes.md) (three percentages + three
   multipliers) is still there, retuned: 15 / 15 / 15 -> 20 / 25 / 25 at row 1, 40 / 65.7 / 40 -> 100 / 100 / 100 at 99.
 - **Same stat-to-attribute map** (`RelatePhysicalStatToLevelStatParam`, one byte per derived stat, attribute 1-11):
   NT `4 1 2 3 5 6 7 7 8 8 5 6 6 11 4 11 11 11 9 9 9 9 7 7 8 8 10 10 10 10 10 10 9 11 10 11` (36);
@@ -74,7 +74,7 @@ the param column -> vanilla data built 14-24 Jan 2014.
 
 ## 4b. The Japanese network test (added the same day)
 
-`..\..\DS2 JP Network Test\findings\jp-vs-us.md`: JP 01.00 data 23 Aug 2013, US 17 Sep 2013, JP update 01.02 regulation
+[Japanese vs Western network test](../network-test/jp-network-test-vs-us.md): JP 01.00 data 23 Aug 2013, US 17 Sep 2013, JP update 01.02 regulation
 2 Oct 2013 (menus / model 3 Oct). One line of development (JP 01.00 -> US -> JP 01.02). JP 01.02 already took in
 retail content (Aurous / Alva / Black Witch armour, Ring of Thorns, retail equip-load values, 15 retail param names as
 empty entries) yet keeps the Network Test stat system in params, text and code. Consistent with the change coming after

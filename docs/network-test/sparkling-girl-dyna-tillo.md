@@ -36,7 +36,7 @@ retail v1.00 (9,047), and over the `ezstate`, `talk` and `npcMenu` files of v1.1
 
 **Enemy row 786000** (v1.00): body `c2250`, HP 10, stamina 20, 0 souls, defence 0 against physical, petrify 100,
 `name_text_id` 7860, spawn limit 1, death item lot 78600000. `c2250` has a 28 KB model file and **no textures**, so she is
-invisible (the PC cut-content note already calls it "the invisible c2250"). Later patches touched the row: 1.02
+invisible ([the PC cut-content note](cut-content-pc.md#5-ai-scripts-51-unreferenced-ones-are-gone) already calls it "the invisible c2250"). Later patches touched the row: 1.02
 `chr_round_damage_param_id` 1 -> 21, 1.10 `coop_time_reduction` 90 -> 60.
 
 **Placement**: one generator, id 320 in `m10_02_00_00` (Things Betwixt), regist row 78600000 (enemy 786000, logic ids -1),
@@ -108,12 +108,12 @@ By that rule:
 | 7860 | キラキラ娘 "sparkling girl" | Dyna & Tillo | 78600xxx (`m10_02`, retail) |
 
 - The cut girl sits in the slot that became the Emerald Herald (as a child), and the dealer in the slot that became Gilligan.
-  Retail's unused child model c7015 belongs to that 7010 slot, not to the sparkling girl (`child-herald-c7015.md`, 2026-10-26).
+  Retail's unused child model c7015 belongs to that 7010 slot, not to the sparkling girl ([child Emerald Herald (c7015)](child-herald-c7015.md), 2026-10-26).
   Neither is the sparkling girl's slot, and `m20_04` is a village with no map in any build, while she stands in Things
   Betwixt.
 - Timing differs: the cut text is in the Network Test, the JP test and v1.00 unchanged (removed in patch 1.03,
-  `cut-talk-timeline.md`); her lines and states exist only from v1.00, her AI and name from the Network Test.
-- More NT traces of the two cut NPCs (found 2026-10-25 while cross-referencing bosses, `nt-bosses-not-in-retail.md`): NT-only AI
+  [cut talk timeline](../builds/cut-talk-timeline.md)); her lines and states exist only from v1.00, her AI and name from the Network Test.
+- More NT traces of the two cut NPCs (found 2026-10-25 while cross-referencing bosses, [Network Test bosses not in retail](nt-bosses-not-in-retail.md)): NT-only AI
   scripts `ai700500` / `ai700510` (龍の巫女 "dragon's shrine maiden", 「インゲーム用」 "in-game version") and `ai701500`
   (龍の巫女（子供） "...(child)") for NPCs 7000 / 7010, and `ai704500` / `ai704510` **奴隷商人 "slave merchant"** (in-game
   version) for NPC 7040. So the NPC whose talk ids carry the dealer's lines also had a "slave merchant" script, which fits the
@@ -131,12 +131,12 @@ nothing in the files ties the two characters together.
 - Why キラキラ ("sparkling") was chosen: no file says. A lead (found 2026-10-25): in the Network Test the body c2250 belongs to
   **光虫 "light insect"** (AI `ai225000` / `225010` / test `225090`, enemy 225000, no retail equivalent), and retail gives c2250
   (no textures) to enemy 786000. The body that was a light insect became her invisible body, which fits "sparkling"; no file says
-  it was reused on purpose.
+  it was reused on purpose (but see [the developers' row name 光虫（NPCで流用）](community-cut-sheet-crossref.md#enemies)).
 - The JP network test (NPJB90625) was not scanned; the v1.10 / Scholar / PC talk text for her was not read.
 - Network Test row 786000: its body is c8000 (first word of the row; most NT NPC rows use that body), not c2250. The rest of the
   row was not decoded (the NT's 320-byte layout does not fit the shared decoder).
 
-Related: `nt-ai-labels-retail-enemies.md` (the 306 labels; this NPC is `ai786000` / `786010`), `..\..\DS2 Scholar\findings\cut-content-scholar.md`
-and `cut-content\cut-dialogue-translation.md` (the girl and dealer), `..\..\DS2 Vanilla Patches\findings\cut-talk-timeline.md`.
+Related: [Network Test AI labels](nt-ai-labels-retail-enemies.md) (the 306 labels; this NPC is `ai786000` / `786010`), [cut content in PS3 Scholar](cut-content-scholar.md)
+and `cut-content\cut-dialogue-translation.md` (the girl and dealer), [cut talk timeline](../builds/cut-talk-timeline.md).
 Scratch scripts used (session scratchpad, not kept): a byte scan for the name over each build's archive, a state-label dump of the
 talk `.edd`, `fmg.py` reads of `npcMenu`, `ItemName` and the talk text, `bosses_pc.generators` for the placement.

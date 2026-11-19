@@ -30,7 +30,7 @@ stamina min / max (applied when stamina is short). Results are percentages.
 | 15 | 防御力 減少割合 | defence down (physical, probably) | 30-50 | 0 | not traced (li 15/16/17 cluster at 0x70ab88 / 0x70b148, receiver class unknown) |
 | 16 | 抵抗力 減少割合 | resistance down (elemental, probably) | 30-50 | 0 | not traced |
 | 17 | 耐性値 減少割合 | status resistance down | 30-50 | 0 | not traced |
-| 18 | 回避無敵期間 減少割合 | dodge i-frames down | 30-50 | 0-50 | yes: 0x849a10, mode 2 (agility-iframes.md) |
+| 18 | 回避無敵期間 減少割合 | dodge i-frames down | 30-50 | 0-50 | yes: 0x849a10, mode 2 ([roll i-frames and Agility](agility-iframes.md)) |
 | 19 | 回避消費スタミナ 増加割合 | dodge stamina cost up | 30-50 | 0-50 | called from the roll / backstep cost functions (0x83a7b4, 0x83a914) with lack 0.0 and short 0: **no effect** |
 | 20 | ローリング距離 減少割合 | roll distance down | 10-15 | 0-15 | yes: vslot +0x118 (0x7a57fc) -> +0x120 (0x84aac8, mode 2); call 0x7a41dc |
 | 21 | スタミナ切れローリング距離 減少割合 | out-of-stamina roll distance down | 10-15 | 0-15 | yes, call 0x7a40b8 |
@@ -53,4 +53,4 @@ mode 0 = +0x218 (no direct caller found). Its two callers both use mode 2. Class
 short}, +0x38 = 1 + penalty, +0x3c = 1 - penalty, +0x118 = movement helper (row in r9), +0x120 = penalty for row r4
 with the armour lack and current stamina shortfall.
 
-Open: rows 15-17, 26, 27 and the whole weapon group (how weapon shortfall is fed in). PC Scholar code not checked.
+Open: rows 15-17, 26, 27 and the whole weapon group ([how weapon shortfall is fed in](sl1-naked-damage.md#under-requirement)). PC Scholar code not checked.

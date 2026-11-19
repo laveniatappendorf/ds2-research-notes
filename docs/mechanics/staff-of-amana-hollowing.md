@@ -37,3 +37,7 @@
   damage; whether it scales the whole spell damage or only the catalyst's stat bonus needs the consumer or a live
   test (cast the same spell at hollow 0 and 10, read the damage).
 - Whether hollow level can go above 10 in SOTFS (it would not matter: the rate stays 0.1).
+
+## Related pages
+
+- [Memory map for PC](../tools/memory-map-pc.md): maps the PlayerParam object that this hollow level byte (+0x1AC) sits in, with the fields that were read live.

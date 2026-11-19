@@ -3,7 +3,7 @@
 !!! warning "Status: Plan, not run"
     A test or idea written down. Nothing here has been tried. See [status labels](../status-labels.md).
 
-Follow-up to the static trace in `mundane-sl50-v100.md` ("Bolt damage in v1.00"). The trace left these points unproven,
+Follow-up to the static trace in [Mundane at SL50](../mechanics/mundane-sl50-v100.md#bolt-damage-in-v100-traced-2026-11-01) ("Bolt damage in v1.00"). The trace left these points unproven,
 because the code that combines crossbow AR and bolt damage was not found and the reload speed fields are unexplained:
 
 1. A bolt's damage is the crossbow's AR plus the bolt's hidden flat value (Wood 20, Heavy 50, elemental 110 of its
@@ -17,17 +17,17 @@ because the code that combines crossbow AR and bolt damage was not found and the
 Side questions the same session can settle cheaply:
 
 - What physical type bolts count as. The Ogre takes x1.35 from thrust and x0.7 from slash and strike.
-- Whether the distance cut in the bolts' data (-70 % between 40 m and 70 m) works on PS3.
+- Whether [the distance cut](../mechanics/distance-damage-cut-pc.md) in the bolts' data (-70 % between 40 m and 70 m) works on PS3.
 - Whether an Avelyn shot uses one bolt or three.
 
-Formula under test (H1, from Radai's guide). Per bolt:
+Formula under test (H1, from [Radai's guide](../mechanics/damage-formula-radai.md)). Per bolt:
 0.98 x type absorption x (0.9 x (crossbow AR + physical flat) - defence / 6) + 0.98 x 0.9 x elemental flat x (100 - elemental defence) / 100.
 Predictions come from `..\tools\avelyn_predict.py`.
 
 ## What's needed
 
 - **From the author:**
-  - RPCS3 running BLUS41045 with the v1.00 Warrior loaded at a bonfire. The character was SL12 at the last read on
+  - RPCS3 running BLUS41045 with the v1.00 Warrior loaded at a bonfire. The character was SL12 at [the last read](port-live-check.md) on
     2026-10-17, with all bonfires unlocked.
   - At the controller for the in-game actions: levelling at the Herald, equipping from the menu, shooting.
   - A yes to changing the save. It's backed up first; say whether to restore it afterwards.
@@ -42,7 +42,7 @@ Predictions come from `..\tools\avelyn_predict.py`.
     - a "capped" mark when a hit killed (the drop then equals the remaining HP, so it can't be used).
   - **`vgive.py givew <weapon id> <upgrade> <infusion>` and `givea <arrow item id> <count>`.** These extend the
     goods give that worked live for the Torch (2026-10-17) to the weapon and ammunition list classes, with the known
-    layouts (`port\equipment-inventory.md`):
+    layouts ([port: equipment and inventory](port-equipment-inventory.md)):
     - weapon node tail: f32 durability, 0xff, upgrade, infusion;
     - weapon mirror entry: f32 durability at +8, upgrade at +0xc, infusion at +0xd;
     - ammunition mirror entry: u16 count at +8.
@@ -81,7 +81,7 @@ Predictions come from `..\tools\avelyn_predict.py`.
    repeat with the Mundane Avelyn +10.
 9. **Finish.**
    - Stop the logger and save its log in `..\findings\avelyn-live-test\`.
-   - Update `mundane-sl50-v100.md` and the 1.01-to-1.03 notes if needed.
+   - Update [Mundane at SL50](../mechanics/mundane-sl50-v100.md) and the [1.01-to-1.03 notes](../builds/1.01-to-1.03.md) if needed.
    - Restore the save if the author wants the character back as it was.
 
 ### Damage tests (predicted HP drop; target Undead Traveler unless named: defence 248, lightning defence 30, all type absorption 1.0)
@@ -108,7 +108,7 @@ Notes:
 - **Avelyn shots and low HP.** An Undead Traveler (160 HP) dies to most Avelyn shots. If the three bolts land on
   different frames, the first one or two drops are still clean. If they land together, use `vxbow.py tank`. Failing
   that, shoot the Ogre (1,300 HP) once D9 has given its type multiplier. A Things Betwixt Ogre hits hard, so keep
-  your distance or use CT entry 8 (Player cannot die).
+  your distance or use [CT entry 8](cheat-table-port.md#2-per-entry) (Player cannot die).
 - **What D7 proves.** At lowest stat 5, Mundane +10 (AR 165) is almost the same as plain +10 (AR 170), so D7 only
   shows whether the bonus applies at all. D11 is the real check of its size.
 
@@ -139,5 +139,5 @@ Notes:
   Chloanne's Old Mundane Stone, titanite, and a blacksmith who infuses.
 - **Assumed offsets.** Enemy HP at +0xfc is assumed (step 3 checks it). Souls at pparam +0xe8 is probable (step 4
   checks it).
-- **AI freeze is untested on retail** (CT entry 2), so the plan doesn't rely on it.
+- **[AI freeze](port-equip-ai-spawn.md#3-ai-freeze) is untested on retail** (CT entry 2), so the plan doesn't rely on it.
 - **Session length.** About 1.5-2 hours with the author at the controller, plus my hour of preparation.

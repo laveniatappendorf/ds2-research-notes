@@ -314,7 +314,9 @@ from the project's earlier toolbox.
 - **A valid tag.** The MAC is not reproduced. Doing so would make an encrypted, edited regulation load on a stock exe.
 - **Does the game accept a zlib-ng DCX stream?** Probably (the stream is valid), but the final file was only ever built on
   3.12.
-- **Are regulation params re-read at a map load, or only at boot?** Only restarts were tested.
+- **Are regulation params re-read at a map load, or only at boot?** Only restarts were tested. One live observation
+  fits "only at boot": an AreaParam row forced in memory stayed forced after its map unloaded
+  ([Chameleon objects](../mechanics/chameleon-objects.md#live-test-15-nov-2026-steam-install-no-mods)).
 - **Adding rows to the 37 refused params.** A writer that keeps name offset 0 should do it. Untested.
 - **Is the sorted row order a rule of the game or of the format?** Our files are always sorted. Untested.
 - **What `0x06` in the param header means** (0, 1 or 2), and what the 4-to-16-byte junk tail on per-map params is.

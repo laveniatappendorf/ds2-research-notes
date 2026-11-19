@@ -88,7 +88,7 @@ Notes:
 - **Added 2026-11-03:** m20_62 / m20_63 are the E3 2013 demo's two maps ("E3 Fort of Resistance" / "E3 Rock-peak Castle"
   in the 2014 PC developer rows). `sm2063`'s `m206300001` is byte-identical to retail Drangleic Castle's `m202100001`,
   and decoding gives it 2:44, not the 4:22 above; the two `sm1010` tracks decode to 2:55 / 2:24. See
-  `e3-demo-leftovers.md` (durations not resolved).
+  [E3 2013 demo leftovers](e3-demo-leftovers.md) (durations not resolved).
 - Maps with two or more tracks (for example `sm1003`: `m100300001` and `m100300011`) probably have a normal / boss or
   a quiet / combat pair, but nothing in the banks says which is which.
 - `sm1029` repeats `sm1021`'s track, `sm2003` repeats `sm1003`'s two tracks and `sm2021` repeats `sm1022`'s: the same

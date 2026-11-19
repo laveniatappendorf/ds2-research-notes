@@ -3,14 +3,14 @@
 !!! warning "Status: Plan, not run"
     A test or idea written down. Nothing here has been tried. See [status labels](../status-labels.md).
 
-PC stage 3, 2026-10-25. A shortlist from `unused-attacks-pc.md`: attacks that are set up and still have an animation
+PC stage 3, 2026-10-25. A shortlist from [unused enemy attacks](unused-attacks-pc.md): attacks that are set up and still have an animation
 path in the network, so swapping one in for an attack the enemy already uses should show it in play. That is how the
-Amana sorceress's volley was proven.
+[Amana sorceress's volley was proven](../builds/shrine-of-amana-pc.md#2-the-spellcasters-amana-shrine-maidens).
 
 Full table for all 104 playable unused attacks: `attack_swap_candidates.tsv` (tool `tools\attack_swaps_pc.py`).
 
 **12 Nov re-run:** 23 of the 104 turned out to be combo moves. The AI never asks for them alone, but a combo it does
-use plays their animations (`unused-attacks-pc.md`, "Combo moves"). The TSV now holds the remaining 81. Below, the
+use plays their animations ([unused enemy attacks](unused-attacks-pc.md#combo-moves-removed-from-the-list-on-12-nov), "Combo moves"). The TSV now holds the remaining 81. Below, the
 affected rows are marked *combo*:
 - where the combo starts with the same hit, a swap shows nothing new;
 - where it hits with its own rows (the Smelter Demon's, Lost Sinner's and Sinh's shot versions), the single version's
@@ -94,7 +94,7 @@ Basilisk's three are extra shots beside its usual one (20).
 
 **Checked 2026-10-25:**
 - **Broken on PC:** the Ogre's 20 / 21 and the Giant Acid Horn Beetle's 22.
-  - Their animations only fire projectiles, and the projectile rows (130000410 / 510, 122000410) were deleted between
+  - Their animations only fire projectiles, and the projectile rows (130000410 / 510, 122000410) (see [Shrine of Amana across builds](../builds/shrine-of-amana-pc.md#3-the-other-enemies)) were deleted between
     1.00 and PC. So the animation would play and fire nothing.
   - In 1.00 they existed: the Ogre's 20 was an invisible 0.3 s burst, its 21 a 2 s projectile with effect 1980, and
     the beetle's 22 a 0.6 s spray with effect 4025.
@@ -122,7 +122,7 @@ Basilisk's three are extra shots beside its usual one (20).
 | The Last Giant (boss) | Forest of Fallen Giants | 15 | melee | `attackswap 309600 14 15` | 2 |
 
 (12 Nov: the Last Giant's 15 is nothing new. It is the first swing of his combo 3, which he already uses, so the swap
-only makes that one swing more frequent. See unused-attacks-pc.md.)
+only makes that one swing more frequent. See [unused enemy attacks](unused-attacks-pc.md).)
 
 ### Other good ones
 
@@ -135,7 +135,7 @@ only makes that one swing more frequent. See unused-attacks-pc.md.)
 | Desert Sorceress | Earthen Peak, Drangleic Castle | 22 | shot | `attackswap 316000 21 22` | 4 |
 | Grave Warden (spear) | Undead Crypt | 18 (used in 1.00, removed in 1.10) | melee | `attackswap 312000 15 18` | 6 |
 
-**Bosses** (once per playthrough, so only if not yet killed on the test save, or in NG+):
+**Bosses** ([once per playthrough](../modding-world/respawning-bosses.md), so only if not yet killed on the test save, or in NG+):
 
 | boss | attack | kind | command |
 |---|---|---|---|

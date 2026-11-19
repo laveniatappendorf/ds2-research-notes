@@ -14,7 +14,7 @@ Tools (this folder's `tools`, run with `uv run --no-project --python 3.12 python
 scripts), `paramalign.py` (old layout -> new). Shared: `..\..\DS2 Network Test\tools\paramdef.py` (decodes any DS2 PS3
 param with the community Paramdex defs).
 
-**Re-checked 2026-10-24 (PS3 reading fixed).** Setting PS3 Scholar rows beside the PC Scholar's showed two errors in
+**Re-checked 2026-10-24 (PS3 reading fixed).** [Setting PS3 Scholar rows beside the PC Scholar's](placements-balance-pc.md#4-decoding-ps3-rows-against-pc-rows) showed two errors in
 how `paramdef.py` read PS3 params:
 - PS3 bitfields are packed from the high bit;
 - the community defs give some fields the wrong width (a u8 typed u32, a float typed as four u8 …).
@@ -48,7 +48,7 @@ types. `balance_changes.tsv` / `balance_params.tsv` are regenerated.
   Emit Force 8 -> 4); several rebuilt mechanically (homing soul arrows, heals, Soul Greatsword).
 - **System**: new PvP multipliers (backstab x0.8, riposte x0.9 vs players), Company of Champions enemy damage 1.35 ->
   1.5, resistances from stats roughly doubled, enemy hits wear equipment 20 % less, NG+ scaling reworked.
-- **Unchanged and worth knowing**: the PhysicalStats columns behind roll / backstep i-frames (agility-iframes.md)
+- **Unchanged and worth knowing**: the PhysicalStats columns behind roll / backstep i-frames ([roll i-frames and Agility](../mechanics/agility-iframes.md))
   are identical, so the retail i-frame findings hold for Scholar.
 
 ## 1. Which patch level is on the disc?
@@ -64,7 +64,7 @@ Patch notes (Fextralife's patch page and press coverage, see Sources) against th
 | 1.07 | Soul Spear casting time raised | yes: Soul Spear cast_speed 1.0 -> 0.9, startup 0.5 -> 0.75 s |
 | 1.08 (Jul 2014, with DLC 1) | many weapons more attack, spells gain / lose uses, less stamina | yes (section 3, 5); a player report of Lightning Spear "11 -> 3" uses matches 10-11 -> 3 here |
 | 1.10 / **Cal. 1.13** (Feb 2015) | Covenant of Champions: enemies deal more damage | **yes**: DamageAdjustParam enemy_damage_mult_coc 1.35 -> 1.5 |
-| 1.10 | Awestones dropped more often | **yes**: lot 6000000 Awestone 3 % -> 12.5 % (item-placements note) |
+| 1.10 | Awestones dropped more often | **yes**: lot 6000000 Awestone 3 % -> 12.5 % ([item-placements note](item-placements-vanilla-vs-scholar.md)) |
 | 1.10 | Human Effigy rewards for invader / covenant kills | **yes**: ResultEventParam rows 1100 / 1200 / 2400 + covenant lots |
 | 1.10 | Blue Sentinels devotion +1, Brotherhood of Blood +2 | **yes**: ResultEventParam 1205 flag 0x04020001 -> 0x04020101, 2510 0x04020100 -> 0x04020200 (the third byte = devotion) |
 | 1.10 | Agape Ring; Aldia (the Scholar) | **yes**: item 42000000 Agape Ring; Aldia (section 3 of the README) |
@@ -145,20 +145,20 @@ changed. 514 new rows (DLC weapons).
 
 ### Weapon types (WeaponTypeParam)
 
-`mundane_scaling_mult` 0 -> 100 on all 103 types (2 x 64, 2 x 75, 1 x 47): Mundane infusion scaling now set per type.
+`mundane_scaling_mult` 0 -> 100 on all 103 types (2 x 64, 2 x 75, 1 x 47): [Mundane infusion scaling now set per type](../mechanics/mundane-sl50-v100.md#mundane-in-v100).
 Bows / greatbows / crossbows: two unnamed factors 1.0 -> 0.7 / 0.5 / 0.15. Powerstance category changed on 11 types
 (Ultra / Curved Greatsword 110 -> 100, Great Hammer 100 -> 120).
 
 ### Attacks (WeaponAttackMotionParam, PlayerDamageParam, DamageCtrlParam)
 
-- **Tracking**: tracking_start down on 857 attacks (1.0 -> 0.7 on 521), **tracking_middle 1.0 -> 0.3 on 514**,
+- **[Tracking](1.01-to-1.03.md#101-102-a-balance-patch-calibrations-102-103)**: tracking_start down on 857 attacks (1.0 -> 0.7 on 521), **tracking_middle 1.0 -> 0.3 on 514**,
   tracking_end 0.2 -> 0.1 on 220: swings turn much less after they start. Startup / recovery speeds retuned both ways
   (887 / 658 rows).
 - **Motion values**: damage_mult changed on 555 player attack rows (316 up, 239 down, median x1.11); knockback on
   511; stamina damage on 435; **counter_damage_mult 1.0 -> 0.91 on 303 attacks and 0.8 on 31** (less counter-hit
   bonus); hitbox radius up on 156.
 - **Poise damage**: DamageCtrlParam poise_damage up on 1,041 rows (median x1.8: 52.5 -> 94.5, 37.5 -> 67.5,
-  15 -> 27), down on 174; stagger_mode 0 -> 1 on 207; posture_damage down on 176; tip-hit distances up on 166.
+  15 -> 27), down on 174; stagger_mode 0 -> 1 on 207; posture_damage down on 176; [tip-hit distances](../mechanics/distance-damage-cut-pc.md) up on 166.
 
 ## 4. Armour and rings
 
@@ -174,7 +174,7 @@ Bows / greatbows / crossbows: two unnamed factors 1.0 -> 0.7 / 0.5 / 0.15. Power
 - Gyrm Helm (max slash 179 -> 164), Smelter Demon Helm (213 -> 178), Velstadt's Helm (179 -> 172) and Black Witch
   Robe (141 -> 116) defence lowered: exactly patch 1.07's four pieces.
 - **Rings**: RingParam unchanged (23 new rows: DLC and the Agape Ring). The effects live in `SpEffectRing.emevd` (13
-  changed, 23 new): Chloranthy Ring 1.035 / 1.055 / 1.085 -> **1.15 / 1.2 / 1.25**; Ring of Steel Protection gets an
+  changed, 23 new): [Chloranthy Ring](v1.00-vs-1.01.md#2-balance-regulation-calibrations-100-102-and-effect-scripts) 1.035 / 1.055 / 1.085 -> **1.15 / 1.2 / 1.25**; Ring of Steel Protection gets an
   extra 0.9 / 0.875 factor (the 1.07 "offline only" buff); Stone Ring's packed argument 10 -> 30; Clear Bluestone
   Ring+2 0.45 -> 0.6; Redeye Ring 10 -> 2; Gower's Ring gains two factors (0.8, 0.15); Abyss Seal 1.2 -> 1.075;
   Old Sun Ring and White Ring changed. The instruction set is not decoded, so these are raw numbers.
@@ -208,8 +208,8 @@ Patterns (full list: `tools\balance_spells.py`):
 
 - **PvP** (PlayerCommonParam, new fields): pvp_backstab_damage_mult **0.8**, pvp_riposte_damage_mult **0.9**,
   pvp_guardbreak_damage_mult 1.0 (patch 1.07: "balanced fatal blows ... in online multiplayer").
-- **DamageAdjustParam**: enemy_damage_mult_coc **1.35 -> 1.5** (Company of Champions); seven unnamed factors 1.25 ->
-  1.15; 14 new values (named "*_mult_pvp" by the community but holding 6 / 10 / 12, so unclear).
+- **DamageAdjustParam**: enemy_damage_mult_coc **1.35 -> 1.5** ([Company of Champions](../modding-world/difficulty-levers.md)); seven unnamed factors 1.25 ->
+  1.15; 14 new values (named "*_mult_pvp" by the community but [holding 6 / 10 / 12](../mechanics/damage-formula-radai.md), so unclear).
 - **Resistance from stats** (PhysicalStatsPerLevelStatValuesParam, 99 levels): the magic / fire / lightning / dark /
   poison / bleed / petrify / curse columns roughly double (level 1: 5 -> 10; 17.7 -> 28.5 mid-range; median x1.84).
   MenuStatsParam's displayed defences follow (86 up, 9 down). The i-frame and other columns are unchanged.
@@ -224,7 +224,7 @@ Patterns (full list: `tools\balance_spells.py`):
 - **Equipment wear**: EnemyDamageParam durability_damage_mult down on 4,921 enemy attacks (5 -> 4 on 4,592, 10 -> 8
   on 300): enemy hits wear your gear 20 % less. damage_0 up on 375 enemy attacks (median +9 %), down on 83.
 - **Online**: EnemyParam coop_time_reduction x0.67 on 567 enemies (90 -> 60, 18 -> 12, 180 -> 120).
-- **HP** (18 rows; names = AI script labels): The Lost Sinner (忘れられた罪人) 3900 -> 3560; undead citizens
+- **HP** (18 rows; names = AI script labels): [The Lost Sinner](../mechanics/bosses-pc.md#vanilla-patches-100-110-for-context) (忘れられた罪人) 3900 -> 3560; undead citizens
   (アンデッド市民, 9 rows) about 280 -> 90; 異形の影（生者） 560 -> 330; 呪術師の罪人 770 -> 310; and NPCs doubled:
   呪術屋 "pyromancy dealer" 1280 -> 2550, 奇跡の人 "miracle person" 2440 -> 4580, 上位武器屋 "upper weapon dealer"
   1840 -> 3670.
@@ -237,7 +237,7 @@ Patterns (full list: `tools\balance_spells.py`):
 - The effect scripts' instructions are only laid out, not decoded: ring / spell / weapon buff magnitudes above are
   raw arguments. 9 of 11 scripts changed (Spell 103 events, Condition 32, Ring 13, ActiveItem 10, Weapon 9).
 - Which PlayerDamageParam / DamageCtrlParam rows belong to which weapon's moveset (needs the TAE / action links).
-- Item effects: Rusted Coin, Hush and Chameleon (1.10) did not show in params; probably in the effect scripts.
+- Item effects: Rusted Coin, Hush and Chameleon (1.10) did not show in params; [probably in the effect scripts](1.08-to-1.10.md#3-109-110-data-built-26-nov-2014-with-scholar-two-layers).
 - The 1.14 / 1.15 title updates are not on the disc.
 
 ## Sources

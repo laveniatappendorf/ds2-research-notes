@@ -4,7 +4,7 @@
     Seen working in the game or emulator, not only read from files. See [status labels](../status-labels.md).
 
 **Questions.**
-1. Do grabs land with the same one-frame lag as normal hits (`phantom-hitboxes-pc.md`)?
+1. Do grabs land with the same one-frame lag as normal hits ([phantom hitboxes](phantom-hitboxes-pc.md))?
 2. Do grabs ignore i-frames, as an online claim says?
 
 **Answers.**

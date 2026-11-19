@@ -87,7 +87,7 @@ wore weapons out faster. Not checked in code.
 
 ## 6. Ripostes deal more damage at 60 fps than at 30 fps: PLAUSIBLE (data fits the explanation)
 
-- Radai's guide (findings\damage-formula-radai.txt): every critical TAE has two damage events. Above 30 fps they can
+- [Radai's guide](damage-formula-radai.md) (findings\damage-formula-radai.txt): every critical TAE has two damage events. Above 30 fps they can
   overlap for a frame, giving 3 ticks instead of 2 (his 60 fps table: ripostes 3 ticks for daggers / straight swords /
   UGS / fists, 2 for axes / spears).
 - Player TAE c000100_pl.tae has 38 critical animations (xx0103xx, 6 weapon families). Each has two type-2201 events

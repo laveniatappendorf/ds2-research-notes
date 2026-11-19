@@ -7,7 +7,7 @@ Question (the author): what differs in the Shrine of Amana between vanilla 1.00,
 how many enemies, weapons, spells and other items, and how they changed (for example, "the PC Scholar spellcasters
 track less").
 
-"1.10" is the last vanilla PS3 patch, as in `bosses-pc.md`. Its regulation is PS3 Scholar's byte for byte, and for this
+"1.10" is the last vanilla PS3 patch, as in [bosses: vanilla vs PC Scholar](../mechanics/bosses-pc.md). Its regulation is PS3 Scholar's byte for byte, and for this
 map PS3 Scholar's generators and pickups are also identical to 1.10's (checked by the tool). So "1.10" also stands for
 PS3 Scholar here.
 
@@ -29,13 +29,13 @@ pickups). Bullets also follow their child bullets. Each 1.00 → 1.10 change is 
   places. Only the numbers changed:
   - the shrine maidens' homing orb was nerfed in 1.03 and retuned again by 1.08;
   - the maidens' spells hit about 9 % harder from 1.08;
-  - poise damage of the Aberrations' and Ogres' attacks went up ×1.8 (1.02);
+  - poise damage of the Aberrations' and Ogres' attacks [went up ×1.8 (1.02)](1.01-to-1.03.md#101-102-a-balance-patch-calibrations-102-103);
   - three Demon of Song attacks were cut (1.01);
   - co-op time per kill went down (1.10);
   - most enemies' close-range perception value (`detect_distance`) went up, game-wide (1.10), but not the maidens';
   - two beetle attacks and the Ogres' projectile attacks lost their bullet rows (1.04-1.08).
 - **1.10 → PC: the placements were reworked.**
-  - Generators 102 → 131: 43 added, 14 removed, 30 moved more than 1 m.
+  - [Generators 102 → 131](placements-balance-pc.md#1-enemies): 43 added, 14 removed, 30 moved more than 1 m.
   - More maidens (14 → 18), clerics (12 → 16) and Aberrations (48 → 52). New kinds: 4 Basilisks, 3 Pyromancers,
     3 Poison Moths, a Dragonrider, an Old Knight, a Syan Knight, a Forlorn, Lone Hunter Schmidt.
   - The one Prowling Magus is gone.
@@ -94,7 +94,7 @@ summon depend on online / event conditions.
 **1.00 → 1.10**: no generator added, removed, moved or given another enemy. One unidentified flag
 (GeneratorParam `Unk48_7`) went 0 → 1 on 91 of the 102 generators in 1.10 (not in 1.01-1.09): every ordinary enemy
 except the Giant Acid Horn Beetle and the Prowling Magus, and none of the NPCs, the boss or the singers. PC keeps it, adds
-it to the giant beetle and sets it on most new enemies (114 of 131). Its meaning is not decoded.
+it to the giant beetle and sets it on most new enemies (114 of 131). Its meaning is not decoded (see [GeneratorParam fields](../modding-world/generatorparam-fields.md#unk48-bit-7-the-exemption) for a later reading from the spawn check).
 
 **1.10 → PC**:
 - **added (43)**: Aberrations 14, maidens 6, clerics 4, Basilisks 4, Pyromancers 3, Poison Moths 3, unequipped humans 2,
@@ -232,7 +232,7 @@ control means exactly.
 - **It was used in the 2013 Network Test's script.** The NT's version of the combat routine rolls 0-20: below 10 casts
   the orb (20), otherwise the volley (21), about half each, with a timer between casts. Retail replaced it with the
   orb-only routine. The maidens weren't placed in the NT, so this is the script, not something seen in play. More cut
-  attacks like it are in `unused-attacks-pc.md`.
+  attacks like it are in [unused enemy attacks](../mechanics/unused-attacks-pc.md).
 
 **Could it be restored? Yes: only the AI's request is missing** (checked 2026-10-25, PC files):
 - **Animation network** (`c1050.nmb`, which both maiden kinds run): `SM_Attack` sends attack categories 20-29 to the
@@ -276,7 +276,7 @@ control means exactly.
     - So the finished design looks like the three visible orbs. A restore should drop slots 1-2: set
       EnemyBehaviorThirdParam 105010 `group_2_enemy_bullet_id_1/_2` (and damage ids 1-2) to -1.
   - **A real restore** keeps both spells: a second branch in state 2 (e.g. "volley ready and a random roll" → a new
-    state calling the same routine with 21). That adds states and bytecode, so it needs an ezstate writer (not built
+    state calling the same routine with 21). That adds states and bytecode, so it needs [an ezstate writer](../modding-scripts/writing-esd-files.md) (not built
     yet) or appended bytecode with repointed offsets. The roll already exists: state 1 sets slot 0 to 1-100
     (`1:1(0, 1, 100)`), which the melee choice reads as `f1(0)`.
 - PS3 networks are 32-bit and not read by `nmb.py`, so the PS3 wiring is assumed from the PC, not checked.
@@ -285,7 +285,7 @@ control means exactly.
 
 All values are v1.00 → 1.10 → PC; the patch that made a vanilla change is in brackets.
 
-**Perception (1.10, game-wide).** Patch 1.10 raised LogicComParam `detect_distance` on 122 of 395 rows (3 went down).
+**Perception (1.10, game-wide).** [Patch 1.10](1.08-to-1.10.md#3a-the-base-game-patch-archive-patchdata-109-110-independent-of-the-read-order) raised LogicComParam `detect_distance` on 122 of 395 rows (3 went down).
 On the Amana enemies: Aberration 1 → 1.1, Lindelt Cleric 1 → 1.2, Undead Supplicant 1 → 1.1, Acid Horn Beetle 1 → 1.3,
 Giant Acid Horn Beetle 1 → 2.5, Ogre 1 → 1.8, Syan Knight 1 → 1.3, Prowling Magus 1 → 1.2. Felicia and Kindalur went
 1 → 0.8. The maidens' rows were not touched, and PC kept all of these. `detect_distance` is the all-round radius in
@@ -305,7 +305,7 @@ most enemies a little harder to approach unseen from behind. Sight distances the
   elsewhere.
 - **Undead Supplicant** (HP 380): 3 = 3 = 3. PC gives three of its attacks a second damage part of 15 (type code 6, the
   code of the beetles' acid spit) and adds an AI mode.
-- **Demon of Song** (HP 6,180): three attacks cut in 1.01 (256 → 224, 496 → 352, 736 → 672). PC changed nothing but its
+- **Demon of Song** (HP 6,180): three attacks [cut in 1.01](v1.00-vs-1.01.md#2-balance-regulation-calibrations-100-102-and-effect-scripts) (256 → 224, 496 → 352, 736 → 672). PC changed nothing but its
   aggro group.
 - **Milfanito**: unchanged except PC curse defence 30 → 100 on the two real singers.
 - **Peculiar Kindalur** (invader): moved, new logic script, leash 200 m. His Priestess Gloves / Skirt and Cleric's Parma
@@ -324,9 +324,9 @@ most enemies a little harder to approach unseen from behind. Sight distances the
   - **Dragonrider (halberd)**: HP 5,730, 2,700 souls; Titanite Slab 10 %, Petrified Dragon Bone 5 %;
   - **Old Knight (great hammer)**: HP 1,600, 700 souls; Old Knight set and hammer;
   - **Syan Knight (spear)**: HP 1,010, 900 souls; this row exists in vanilla but was never placed in Amana;
-  - **Forlorn (scythe)**: HP 3,460, 16,000 souls;
+  - **[Forlorn (scythe)](../mechanics/forlorn-pc.md#2-the-15-invasion-areas)**: HP 3,460, 16,000 souls;
   - **Lone Hunter Schmidt**: HP 11,400. A small white (shade) summon sign, not an invader (corrected 2026-11-04:
-    GeneratorParam Unk84 3 and event name 小白霊：白ファントムサイン表示, see npc-invaders-pc.md);
+    GeneratorParam Unk84 3 and event name 小白霊：白ファントムサイン表示, see [NPC invaders](../mechanics/npc-invaders-pc.md));
   - **unequipped human 696000** ×2: HP 10; drops Smooth & Silky Stone 80 %;
   - **Undead Traveler** ×1: a statue.
 
@@ -365,15 +365,15 @@ unchanged in all three builds.
   would settle it (watch a maiden orb stop curving after ~1.9 s). The 60 fps question also needs a live test.
 - The generator flag `Unk48_7` (new in 1.10), the event regions 53000000 / 52001xxx on PC, and the render groups.
 - What the re-routed healer modes and the new cleric modes do in play (the ezstate functions have no names).
-- The maidens' 30 m PC sight, live (section 2); the light rule (is every floor lit by default?); whether line of sight
+- The maidens' 30 m PC sight, live (section 2); [the light rule](../mechanics/earthen-peak-aggro-pc.md#4-light-vs-dark-same-in-both-builds-checked-2026-11-02) (is every floor lit by default?); whether line of sight
   is checked anywhere outside the sight test; `Unk68` needs a co-op session.
-- Whether the beetle and Ogre attacks whose bullet rows were dropped are ever used.
+- Whether the beetle and Ogre attacks whose bullet rows were dropped are ever used (see [attack swap candidates](../mechanics/attack-swap-candidates.md#near-amana-you-are-there)).
 - The NG+ extra enemies: there is no NG+-only flag in the generator data, so which generators are NG+-only (the
-  Butcher, perhaps others) is set by events and was not traced.
+  Butcher, perhaps others) is set by events and was not traced (see [NG+ near boss arenas](../modding-world/ng-plus-differences.md#ng-content-is-extra-generator-rows-data)).
 
 ## 6. Knocked-down maidens never stand up
 
-Moved to its own note, `maidens-stay-down-pc.md` (2026-10-25). In short: the maidens' face-up fall animation
+Moved to its own note, [knocked-down Amana maidens](../mechanics/maidens-stay-down-pc.md) (2026-10-25). In short: the maidens' face-up fall animation
 (`a00_16_0740` in `c1050.nmb`) carries a stray `DownDuration` event. At the cross-fade into the lying loop its end
 switches the character's "down" flag off, so the get-up timer (1.5 s) resets after 0.8 s and never sends `SitUp`.
 Proved with a live memory watch; maidens knocked onto their face do get up. Not the AI, the params or a missing
@@ -382,3 +382,7 @@ networks, but the Skeleton Lord skeletons (c1320's network) get up, so it isn't 
 
 Source for the official 1.03 notes: GamingBolt, "Here's What Dark Souls II v1.03 Brings to the Table", 10 Apr 2014
 (machine-translated from the Japanese notes).
+
+## Related pages
+
+- [The name Amana](../network-test/shrine-of-amana-name.md): what the Network Test already holds for this map (the maidens' AI script, the Demon of Song's script, Gavlan's dropped lines) and where the name comes from.

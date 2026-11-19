@@ -4,7 +4,7 @@
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
 2026-10-24. The author's question: were bosses such as the Last Giant and the Ruin Sentinels quietly nerfed in Scholar? Compared:
-**vanilla 1.00** (BLUS41045 disc) → **vanilla 1.10** (the last vanilla patch; its regulation is also PS3 Scholar's, Cal.
+**vanilla 1.00** (BLUS41045 disc) → **vanilla 1.10** (the last vanilla patch; [its regulation is also PS3 Scholar's](../builds/1.08-to-1.10.md#3-109-110-data-built-26-nov-2014-with-scholar-two-layers), Cal.
 1.13) → **PC Scholar 1.0.3.0** (regulation 2.02). The "Scholar step" below is 1.10 → PC, so it covers the Scholar
 re-balance on the new-generation versions and the later PC patches. PS3 / 360 Scholar never got these changes.
 
@@ -25,7 +25,7 @@ Full output: `bosses_pc.txt` (every fight), `bosses_pc.tsv` (every changed field
   Ancient Dragon got lower damage-to-player multipliers, and single attacks of the Smelter Demon, Throne Watcher and
   Freja's spiders were cut.
 - **No boss's own fight AI was rewritten.** The large AI differences come from new behaviour modes for Scholar's new
-  enemy placements (extra Pursuers, Dragonriders, a second Chariot, more Gargoyles), which the boss fights never run.
+  [enemy placements](../builds/placements-balance-pc.md#1-enemies) (extra Pursuers, Dragonriders, a second Chariot, more Gargoyles), which the boss fights never run.
   The real fight-AI changes are small: Aldia gained retry / timeout fail-safes, the Lost Sinner and Sir Alonne had a
   close-range escalation counter reworked, and the Lost Sinner had a broken range check fixed.
 
@@ -81,7 +81,7 @@ builds) can reach it. Of 528 / 485 scripts, 182 have own changes in the Scholar 
 - **New modes that only Scholar's new placements use.** These look large, but the boss fights don't run them:
   - the Pursuer: groups 110 / 120 / 130 with "evading" and "evading at range" states, for the Bastille Pursuers and
     others with think ids 110–130. The boss uses think ids 10 / 100.
-  - the Dragonriders: groups 200 / 210, for the new Undead Crypt and Shrine of Amana riders.
+  - the Dragonriders: groups 200 / 210, for the new Undead Crypt and [Shrine of Amana riders](../builds/shrine-of-amana-pc.md#3-the-other-enemies).
   - the Executioner's Chariot: group 200, for a second Chariot in Drangleic Castle.
   - the Belfry Gargoyles: new modes for the gargoyles in Drangleic Castle and Belfry Sol. PC also deletes four groups
     the boss logic never called.
@@ -128,12 +128,12 @@ are identical. Parameter bytes are only compared in their first 16 bytes across 
 
 ## Vanilla patches (1.00 → 1.10), for context
 
-- Every boss attack lost weapon durability damage (5 → 4), and all bosses moved to new NG+ tables (ids +30).
+- Every boss attack [lost weapon durability damage](../builds/1.01-to-1.03.md#102-103-data-scripts-and-a-second-balance-pass-calibrations-103-104) (5 → 4), and all bosses moved to new NG+ tables (ids +30).
 - **Attack damage was tuned both ways**:
   - down: Last Giant 659 → 622 on its main attacks, Freja two attacks 880 → 697;
   - up: Smelter Demon two attacks 686 → 747 (then 515 on PC), Pursuer one attack 427 → 464, Chariot's Black Hollow
     Mages +9 %, Congregation priests and magus +9 % (with more poise damage).
-- Lost Sinner HP 3,900 → 3,560. Last Giant damage-to-player multiplier 1.0 → 0.9, Royal Rat Authority 1.0 → 0.9.
+- [Lost Sinner HP](../builds/balance-vanilla-vs-scholar.md#7-enemies) 3,900 → 3,560. Last Giant damage-to-player multiplier 1.0 → 0.9, Royal Rat Authority 1.0 → 0.9.
 - AI edits: Ruin Sentinels 4 changed lines; Looking Glass Knight 18; Freja's spiders 95; the Skeleton Lords' skeletons
   81 (`ai_compare_pc.tsv`).
 

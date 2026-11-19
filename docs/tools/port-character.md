@@ -12,7 +12,7 @@ Status: **C** = confirmed by a retail code site that is the twin of the NT site;
 ## 0. Read this first: chr+0x588 and chr+0x5f24 are not chr fields
 
 The NT player chr object is only **0x370 bytes** (allocation `li r3,0x370` at NT 0x6086bc before the ctor call
-0x6086ec); retail's is **0x380** (`li r3,0x380` at 0x80f458, ctor 0x847f84). NT "chr+0x588" and "chr+0x5f24" only work
+0x6086ec); retail's is **0x380** (`li r3,0x380` at 0x80f458, ctor 0x847f84). NT ["chr+0x588" and "chr+0x5f24"](cheat-table-port.md#2-per-entry) only work
 because the objects created after the chr sit at fixed heap distances on the demo. The NT recording proves the real
 chains: `[chr+0x98] = chr+0x500` (component C), `[C+0x88] = [chr+0x588]` (OOB object),
 `[[[chr+0xa8]+8]+8] = chr+0x5d90` (physics controller PC), `[PC+0x194] = [chr+0x5f24]` (wrapper W).
@@ -39,16 +39,16 @@ chains: `[chr+0x98] = chr+0x500` (component C), `[C+0x88] = [chr+0x588]` (OOB ob
 | posture triple | 0x188 | **0x14c** | P | 2nd float triple in ctor (PC CT also writes +0x14C) |
 | build-ups (7 triples, 0xc apart) | 0x194.. | **0x158..0x1a0** | P | triples 3-9 in ctor |
 | poise triple | 0x1e8 / 0x1ec / 0x1f0 | **0x1ac / 0x1b0 / 0x1b4** | P | 10th float triple in ctor |
-| S = state object | [chr+0x84] | **[chr+0x94]** | C | OOB check 0x8359e8 / 0x835ac8 (NT 0x62f438 / 0x62f538); agility-iframes.md |
+| S = state object | [chr+0x84] | **[chr+0x94]** | C | OOB check 0x8359e8 / 0x835ac8 (NT 0x62f438 / 0x62f538); [roll i-frames and Agility](../mechanics/agility-iframes.md) |
 | S i-frame counter | +0x3dc | **+0x5a0** | C | TAE-state enum fn 0x789b84: 0x78a1e4 `addi 0x5a0` (NT 0x59e0b8: 0x59e744 `addi 0x3dc`) |
 | S super armour | +0x3d4 | **+0x598** | C | same fn: 0x78a220 (NT 0x59e780) |
 | S ultra armour | +0x3d8 | **+0x59c** | C | same fn: 0x78a190 (NT 0x59e6f0) |
 | S OOB skip counter | +0x3b4 | **+0x56c** | C | same fn 0x78a1cc (NT 0x59e72c) and OOB check 0x835ad4 (NT 0x62f544) |
 | S fall-death sink flag | u16 S+0x2b2 bit 0x0001 | **u16 S+0x478 bit 0x1000** (byte S+0x478 bit 0x10) | C | OOB check 0x835c18 `ori 0x1000` / clear 0x835d78 (NT 0x62f670 `ori 1`) |
-| S roll ratio | +0x90 | +0xa4 | C | agility-iframes.md |
-| pparam | [chr+0x368] | **[chr+0x378]** | C | souls code 0x6610f4, agility-iframes.md |
-| pparam base attributes (11 x u16) | +0x04 | **+0x04** (effective copy +0x1a) | C | agility-iframes.md (FUN_008626b8 reads p+0x00..0x14, p = pparam+4, writes p+0x16) |
-| attribute order | VGR END VIT ATN STR DEX INT FTH RES AGL ? | **VGR END VIT ATN STR DEX INT FTH ADP ? ?** | ATN, ADP C; rest P | ATN = index 3 (+0x0a), ADP = index 8 (+0x14): Agility row code (agility-iframes.md); the rest = SOTFS PlayerParam order (VGR..ADP at SOTFS +8..+0x18) |
+| S roll ratio | +0x90 | +0xa4 | C | [Roll i-frames and Agility](../mechanics/agility-iframes.md) |
+| pparam | [chr+0x368] | **[chr+0x378]** | C | souls code 0x6610f4, [roll i-frames and Agility](../mechanics/agility-iframes.md) |
+| pparam base attributes (11 x u16) | +0x04 | **+0x04** (effective copy +0x1a) | C | [Roll i-frames and Agility](../mechanics/agility-iframes.md) (FUN_008626b8 reads p+0x00..0x14, p = pparam+4, writes p+0x16) |
+| attribute order | VGR END VIT ATN STR DEX INT FTH RES AGL ? | **VGR END VIT ATN STR DEX INT FTH ADP ? ?** | ATN, ADP C; rest P | ATN = index 3 (+0x0a), ADP = index 8 (+0x14): Agility row code ([roll i-frames and Agility](../mechanics/agility-iframes.md)); the rest = SOTFS PlayerParam order (VGR..ADP at SOTFS +8..+0x18) |
 | retail stat offsets | | VGR +0x04, END +0x06, VIT +0x08, ATN +0x0a, STR +0x0c, DEX +0x0e, INT +0x10, FTH +0x12, ADP +0x14, unused +0x16 / +0x18 | P | as above |
 | soul level | +0xb8 | **+0xcc** | P | twin script-value switch: NT 0x5029d0 (SL, p+0xb4) -> retail 0x6b1b68 (`lwz 0xcc`), retail adds a +0xe8 case before the twin of NT 0x5185b4 (= 0x6ce0f8); = SOTFS +0xD0 - 4 |
 | souls | +0xe4 | **+0xe8** (lost-on-death flag byte +0xec) | C | add souls 0x6610f4 (cap 999,999,999, same r31+0x24 amount / stb 0x20 / li r4,8 as NT 0x4c69ac); death clear 0x661268 |
@@ -75,7 +75,7 @@ chains: `[chr+0x98] = chr+0x500` (component C), `[C+0x88] = [chr+0x588]` (OOB ob
 | Havok world = [E+0x08], gravity +0x10 (y +0x14) | vt 0x019e1eb0 | **vt 0x01c581f0**, offsets unchanged | C | slot-0 twin 0x1324668 (NT 0x110d2d8) |
 | E+0x18 transform (+0x30 / +0x40 / +0x50), E+0x2c filter, E+0x1b0 / +0x1c0 velocities | | **unchanged** | C (library) | Havok code differs only in TOC offsets: 0x130c7a4, 0x1324668, 0x13368d4, 0x136e05c, 0x1413064... vs NT (`--show`) |
 | capsule layer values (1 normal, 39 no-clip) | | not checked | ? | game data / filter table; read live |
-| floor collision chr+0x35c | | skipped (other agent) | | retail ctor zeroes chr+0x368, the likely twin |
+| [floor collision](port-map-draw.md#1-table) chr+0x35c | | skipped (other agent) | | retail ctor zeroes chr+0x368, the likely twin |
 
 ## 2. Ready-made retail chains (chr = [App+0x60])
 
@@ -107,7 +107,7 @@ world         [pentity+0x08]       gravity y +0x14
 ## 4. Open
 
 - min HP / max / cap, stamina min/max, posture, build-ups, poise: layout-only (ctor order + PC vanilla); confirm with a
-  live read (HP 0xfc next to 0x100 = -1, 0x104 = max).
+  [live read](port-live-check.md) (HP 0xfc next to 0x100 = -1, 0x104 = max).
 - Attribute order other than ATN and ADP, SL +0xcc: from SOTFS and a matched switch, not from a use that names them.
 - The retail chr type at +0x1c, layer numbers, and whether retail heap neighbours put W at a fixed chr distance: live.
 - Scratch tools used (session scratchpad\agentB): `vtshort.py` (vtable getters side by side), `pairat.py` (difflib

@@ -189,7 +189,7 @@ A scan of the PC build's 28 `event_*` and 25 `talk_*` scripts (originals where t
 
 - **`1:132125`, 25 calls in 18 event scripts, none in a talk script.** Thirteen of the 18 carry the shared library group
   "inter-map warp after polygon drama" (【Lib】ポリ劇後マップ間ワープ). The calls are: entries to the memories, their exits and
-  their time limits; the Vagrant hawk's flight (ベイグラント鷹タクシー, "Vagrant hawk taxi") and the compass ship; travel
+  their time limits; the Vagrant hawk's flight (ベイグラント鷹タクシー, ["Vagrant hawk taxi"](../network-test/boss-region-names.md#the-pursuer-was-vagrant)) and the compass ship; travel
   between the main game and the DLC; the Pilgrims
   of the Dark's circles (a `132125` into m40_03); the chasm's holes; the two coffins; and bonfire-exit groups in four maps
   (m10_14, 16, 19, 25) that end at Majula's row 200000.

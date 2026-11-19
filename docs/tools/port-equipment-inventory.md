@@ -3,7 +3,7 @@
 !!! warning "Status: Not yet rated"
     Not yet given a status. Treat as a research note and check anything you plan to rely on. See [status labels](../status-labels.md).
 
-Follow-up to `equip-ai-spawn.md` (sections 1, 2 and 4), which left the inventory node layout, the mirror, what an
+Follow-up to [port: equipment, AI freeze and enemy swap](port-equip-ai-spawn.md) (sections 1, 2 and 4), which left the inventory node layout, the mirror, what an
 equipment record must hold, the 14-entry group, the generator chain and the load-wait release open. All answered here
 from the retail EBOOT (Ghidra `DefineAndDecomp` on DS2V and DS2NT_mac, capstone, `tools\xmatch.py`) and retail params,
 then **read live (read only) on the author's Warrior the same day: section 5**, which corrected one thing (the lists).
@@ -45,7 +45,7 @@ from `..\..\tools\ct_items_vanilla.py`, the entries in `..\..\cheat-tables\DS2V.
   Each list's code and index come from **MenuCategoryIconParam** (row id = code, byte 0 = index in its group; the
   store reset 0x533280 walks it): the codes are the demo's: 10-150 weapon categories, 400-430 armour, 500 rings, 600
   ammo, 700 / 720 goods, 800 spells, plus 2000 (group G). Group predicates 0x53ec98.. (code < 399, 400-498, ...).
-  (`equip-ai-spawn.md`'s "0xd2 / 0xdc / 0xe6 / 0xf0 / 0xfa" are some other code, not list codes; ItemTypeParam rows
+  ([port: equipment, AI freeze and enemy swap](port-equip-ai-spawn.md)'s "0xd2 / 0xdc / 0xe6 / 0xf0 / 0xfa" are some other code, not list codes; ItemTypeParam rows
   carry such values at +0x10 / +0x14.)
   **A list holds every owned item of its menu category, equipped or not (L)**: the Warrior's worn broadsword is in list
   20, the Iron Parma in 150, each armour list holds the worn piece next to the carried starting piece. So 0x8c / 0x96
@@ -79,12 +79,12 @@ the saves verified then). Worth fixing on the demo too, as a separate change.
 
 - Generator object vt 0x01c2d940, ctor 0x940298: +0x38 manager, +0x3c GeneratorParam row, +0x40 GeneratorRegistParam
   row (C); base class ctor 0x935030 is the demo's 0x7293f8 apart from one TOC offset, so +0x10 / +0x18 position = P.
-- Per-map params (24 maps, in the archives as `param\Generator*Param_mXX_YY_00_00.param`): GeneratorParam rows are 160
+- Per-map params (24 maps, in the archives as `param\Generator*Param_mXX_YY_00_00.param`): [GeneratorParam rows](../modding-world/generatorparam-fields.md) are 160
   bytes (demo 128) with the same first 0x80 bytes (regist id at +8); GeneratorRegistParam rows are the demo's 16 bytes
   (+0 enemy id). The table carries every map's row offsets and, per enemy, the regist row the map uses most; the map
   in memory is the one whose offsets put most objects on one base. Retail picks an **enemy id** (one dropdown row per
   map, MapName.fmg names), the demo a regist id.
-- chr +0x70 position and +0x14 id unchanged (C, `character.md`), +0x1c type 2 = enemy (P).
+- chr +0x70 position and +0x14 id unchanged (C, [port: player character](port-character.md)), +0x1c type 2 = enemy (P).
 
 ## 4. Still to check live (DS2V-README.md's first-boot list)
 
@@ -116,3 +116,8 @@ guest write refused (scratch `livelua.py`: ctmock's Run over a ReadProcessMemory
 
 Scratch scanners (session scratchpad, not kept): `straight.py` (straight-line PPC interpreter for static initialisers),
 `slotdec.py`, `tochop.py` (two-level TOC loads), `appuse.py` (code reaching App through the TOC idiom, then an offset).
+
+## Related pages
+
+- [Port: first live read](port-live-check.md): the same boot's first live read (root, character, Havok, map and AI values); it left the equipment and inventory layout unread, which section 5 here covers.
+- [Cheat table port](cheat-table-port.md): the parent note; its section 4 records how these layouts went into the retail table.

@@ -3,7 +3,7 @@
 !!! info "Status: From the data"
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
-The author pasted the community wiki's "Unknown Headpiece" (a brown hood, description "Unknown"). Question: does the
+The author pasted [the community wiki's "Unknown Headpiece"](../network-test/wiki-unused-content-crossref.md) (a brown hood, description "Unknown"). Question: does the
 Network Test point to what it is?
 
 Image: `unused-armour-icons.png` (wiki crop left of the bar, game files right; crop in `unused-armour-icons\`).
@@ -19,17 +19,17 @@ on top. Retail names it nowhere. The Network Test planned it as an item but neve
   many armour icons; the Peasant Hat has one too. Both are in v1.00, 1.01, 1.03, 1.10, PS3 Scholar and PC. Every
   other icon scored 0.44 or lower. Only the head has an icon: there is no `IC_0022481101`-`103`. **Update
   2026-11-09:** vanilla PC alone does have `IC_0022481101`-`103` and their female `IC_10` versions, but they are
-  placeholder cards reading "Body / Arm / Leg 120", not art (`hidden-pc-icons.md`). The `IC_10` prefix marks the
+  placeholder cards reading "Body / Arm / Leg 120", not art ([hidden PC icons](hidden-pc-icons.md)). The `IC_10` prefix marks the
   female icon, so `IC_1022481100` is the hood's female icon.
 - **Network Test:** ItemParam has **items 22481100-22481103 for all four pieces**. They point at armour ids
   12481100-12481103, with the head / body / arms / legs kinds (2-5), but **ArmorParam has no such rows**. They are
-  among the demo's items that point at armour it doesn't have (`armour-rings-spells-nt-vs-retail.md`, "Missing
+  among the demo's items that point at armour it doesn't have ([armour, rings and spells: Network Test vs retail](../network-test/armour-rings-spells-nt-vs-retail.md), "Missing
   pieces"). They have no name and no text, because the demo names armour only through its test items. The demo
   ships neither model 2480 nor 2481; it carries models for only 59 of its 412 armour pieces.
 - **Retail:** no item or armour rows for 2481, no text, no lot. But it ships the **complete model set**:
   `HD / BD / AM / LG_2481`, male and female, plus their `_L` versions. These are separate meshes with their own
   textures, larger than the Peasant files (head 551 KB against 417 KB, body 3.3 MB against 2.6 MB). The 2481 body has
-  no cloth simulation, where the Peasant Attire has one. `unused-models.md` already lists 2481 as one of two whole
+  no cloth simulation, where the Peasant Attire has one. [Unused models](unused-models.md) already lists 2481 as one of two whole
   unused armour sets. 2481 has since been rendered (see "Renders" below); 3190 too, on 2026-11-16 (end of this file).
 - **Nothing equips it:** no param in the Network Test, v1.00 or PC holds 12481100-103 or 22481100-103 apart from the
   demo's four item rows. The Peasant set itself (2480) has ArmorReinforceParam and EquipInterfereParam rows in all
@@ -96,7 +96,7 @@ Image: `unused-armour-2481\c1480-enemy-variants.png` (all meshes, then the hood 
   enemy's nearest ones, with only 2-10 % within 1 cm.
 - **Ordinary enemies never wear armour pieces.** Each enemy type is a self-contained model like this one. Armour
   pieces (`model\parts\`) are worn only by characters built on the player body `c0001`. The 97 generators that place
-  `c0001` are all NPCs and phantoms, summons and NPC invaders included (`unused-models.md`, characters section).
+  `c0001` are all NPCs and phantoms, summons and NPC invaders included ([unused models](unused-models.md), characters section).
 
 So the developers turned both enemy looks into player sets. The hat look shipped as the Peasant set, and the
 hood-only look (2481) was dropped.
@@ -127,3 +127,7 @@ files, bind pose, colour texture only.
 So 3190 reads as a higher-detail, shinier remake of the Alonne Knight set, dropped before v1.00 with no rows at all.
 Its name and purpose (an upgraded version, a boss or NPC look) aren't in any data. Added to the wiki-team Google Doc
 ("Renders of the unused models", R8) the same day.
+
+## Related pages
+
+- [Network Test-only equipment models](nt-only-equipment-models.md): the follow-up survey of every Network Test equipment model that retail cut; 2481 is one of the few with a real mesh.

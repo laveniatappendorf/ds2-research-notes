@@ -233,7 +233,7 @@ speculation with no hard evidence, crediting "a Reddit post".
 | 20210000 | m20_21 | Drangleic Castle & Throne of Want | o21_9051 oval mirror (1) [offset 1.5]<br>o00_2010 wooden crate (4)<br>o00_2100 large clay pot (3)<br>o21_9080 statue of a knight with a spear (1)<br>o00_2315 armour on a wooden stand (1) | o21_9051 oval mirror (1) [offset 1.5]<br>o00_2010 wooden crate (6)<br>o00_2100 large clay pot (3) |
 | 20240000 | m20_24 | Undead Crypt | o00_3001 tall pot with a rope-tied lid (3)<br>o24_9000 boulder (3)<br>o24_9002 dark grave slab (2)<br>o24_1110 dark stone statue on a plinth (1) | o00_3001 tall pot with a rope-tied lid (4)<br>o24_9000 boulder (4)<br>o24_9002 dark grave slab (2) |
 | 20260000 | m20_26 | Dragon Memories | o00_2010 wooden crate (10) | o00_2010 wooden crate (10) |
-| 20620000 | m20_62 | (E3 demo copy) | none | none |
+| 20620000 | m20_62 | ([E3 demo copy](../network-test/e3-demo-leftovers.md)) | none | none |
 | 20630000 | m20_63 | (E3 demo copy) | none | none |
 | 40030000 | m40_03 | Dark Chasm of Old | o00_1901 mossy stone pedestal (4)<br>o00_2100 large clay pot (3)<br>o00_2000 wooden barrel (3) | o00_1901 mossy stone pedestal (4)<br>o00_2100 large clay pot (3)<br>o00_2000 wooden barrel (3) |
 | 50350000 | m50_35 | Shulva, Sanctum City | o35_2010 dark stone figure (0) ‡<br>o35_0740 spine pillar (6) [offset 0.1]<br>o35_1000 fleshy egg cluster (2)<br>o35_2100 open treasure chest (1)<br>o35_3006 wide cracked pot (1) | o35_2010 dark stone figure (0) ‡<br>o35_0740 spine pillar (7) [offset 0.1]<br>o35_1000 fleshy egg cluster (3) |
@@ -343,7 +343,7 @@ with arenactl give 31280000.
 - No-man's Wharf: the author saw the 2 m clay jar o18_2040 live and says it is plainly a jar, not the wiki's "Oil Sconce".
   So the wiki's "Oil Sconce" is still unidentified (stake stand o18_1900 = its "Sconce"?); OPEN, look at it again
   with the recording.
-- Lesson: the AreaParam rows sit in the regulation, loaded once per session, so a forced row stays forced after its map
+- Lesson: the AreaParam rows sit in [the regulation, loaded once per session](../modding-scripts/editing-params.md#two-kinds-of-params), so a forced row stays forced after its map
   unloads. `restore` now checks the row at its saved address (model ids) and writes it back; the Forest row was
   restored that way and read back as 0/3/3/2/2.
 

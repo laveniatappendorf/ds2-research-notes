@@ -8,7 +8,7 @@ and objects.
 
 | Kind | Models | Unused | How "unused" was decided |
 |---|---|---|---|
-| Map pieces | 2,863 | **874** | no MSB part uses the model (749 not even listed in a map's model table); see `unused-map-pieces.md` |
+| Map pieces | 2,863 | **874** | no MSB part uses the model (749 not even listed in a map's model table); see [unused map pieces](unused-map-pieces.md) |
 | Objects | 1,261 | **355** | no MSB part places it and no other file names it; 95 more are never placed but can still appear (below) |
 | Equipment | 789 | **72** | no `WeaponParam` / `ArmorParam` row names the model |
 | Characters | 166 | **4** | no map's `GeneratorRegistParam` spawns it and no other file names it |
@@ -25,10 +25,10 @@ in the executable, so it's probably an invisible helper. The four unused ones:
 |---|---|---|
 | c1400 | 5.2 m winged woman | its own sound bank `frpg2_c1400` only |
 | c2020 | a white variant of c2010 (0.8 m) | sound banks only |
-| c7015 | a human body (`BD_c7010_F` textures); **the child Emerald Herald**, `EnemyParam` 701500, 1.21 m (`child-herald-c7015.md`, 2026-10-26) | the c2260 animation file and the c7010 sound bank |
-| c7210 | Llewellyn, the cut "royal strategist" NPC (`armour-rings-spells-nt-vs-retail.md`) | nothing |
+| c7015 | a human body (`BD_c7010_F` textures); **the child Emerald Herald**, `EnemyParam` 701500, 1.21 m ([child Emerald Herald (c7015)](../network-test/child-herald-c7015.md), 2026-10-26) | the c2260 animation file and the c7010 sound bank |
+| c7210 | [Llewellyn](../network-test/llewellyn-references.md), the cut "royal strategist" NPC ([armour, rings and spells: Network Test vs retail](../network-test/armour-rings-spells-nt-vs-retail.md)) | nothing |
 
-**Correction (2026-10-24, PC Scholar stage 1, `..\..\DS2 Scholar PC\findings\cut-content-pc.md`):** enemy id // 100 is not
+**Correction (2026-10-24, PC Scholar stage 1, [cut content in PC Scholar](../network-test/cut-content-pc.md)):** enemy id // 100 is not
 always the model; EnemyParam's `chr_id` is. Counted that way (and through GeneratorParam -> GeneratorRegistParam, so
 only enemies a generator places), **c1400 and c7210 are placed**: c1400 = enemy 776000-776002 (AI ai140000
 "ベルカの鴉人", Velka's crow-person), 4 generators in Brightstone Cove (m10_14) and the Shrine of Amana (m10_32);
@@ -39,7 +39,7 @@ generators ever fire in play (event-gated?) is not checked.
 
 The many-legged models are all spawned enemies; their AI scripts name them (`ezstate\aiNNNNNN.esd` top labels
 `aiNNNNNN_<name>`, e.g. ai205000_毒角虫 "poison horn beetle"). No model in any build is the network test's crab boss
-(`unused-map-pieces.md`, crab tower).
+([unused map pieces](unused-map-pieces.md), crab tower).
 
 ## Objects (355, plus 95 placed some other way)
 
@@ -108,9 +108,9 @@ narrower", 9810 ここ天井調整 "adjust the ceiling here", 9811 間が長い 
 | o23_9050 | the Executioner's Chariot as a static model, with two horses | `c6180` | retail's chariot is c6191 |
 | o23_0000 | 3.7 m mushroom-capped pillar | `c4140` | none |
 
-No item lot in the network test holds any of its 26 boss souls, so none of these can be tied to a soul.
+No item lot in the network test holds any of [its 26 boss souls](../network-test/nt-bosses-not-in-retail.md#2-the-27-nt-boss-souls-itemname-60730000-60755000-and-50140000), so none of these can be tied to a soul.
 
-Named 2026-10-28 by the PC pre-release's row names (`community-cut-sheet-crossref.md`). `o10_9230` = MapObjectParam
+Named 2026-10-28 by the PC pre-release's row names ([community cut-content sheet](../network-test/community-cut-sheet-crossref.md)). `o10_9230` = MapObjectParam
 109230 【抵抗の砦】巨人王 "Giant King" (enemy rows 624000 巨人王 ※没 "cut" / 624500 巨人王). `o10_9200` fits 609010
 巨人族親衛隊長（石化後） "after petrification". `o21_9200` = 219200 【王城】王妃NPC仮モデル "queen NPC temporary model".
 `o23_9050` = 239050 【拷問場】シルバーチャリオット（仮）.
@@ -126,7 +126,7 @@ with a sword. o24_2000: a dancing-figure statue. Also a rat, a bird, two fish, m
 A"), a backdrop. o10_1100: a 41 m oared galley with sail and flag, textured `kakiwari` (a painted stage backdrop).
 o00_1020: an alternative bonfire, the coiled sword in a heap of bones with decals. o00_1000: a 12 m blockout tree.
 
-**Firelink Throne.** Retail's `MapName` 10280000 = "Firelink Throne" (火継ぎの玉座), but there are no m10_28 map files
+**[Firelink Throne](../network-test/network-test-music.md).** Retail's `MapName` 10280000 = "Firelink Throne" (火継ぎの玉座), but there are [no m10_28 map files](../builds/v1.00-only-content.md)
 at all; only four o28 objects survive (o28_9000, an animated lamp stand, plus three unplaced coal-tar pots and a lamp,
 o28_9001-9003).
 
@@ -141,15 +141,15 @@ model = `ArmorParam` +0x0a u16, part +0x05 (1 head `HD_`, 2 body `BD_`, 3 arms `
 
 | Kind | Models | Unused | Which |
 |---|---|---|---|
-| Weapons | 249 | 7 | 2510 (the tongs, `weapons-nt-vs-retail.md`), 7000, 9900-9904 |
-| Shields | 79 | 6 | 1095 (a cut wooden shield, Melinda the Butcher's: retail's `NPCGenerateParam` still equips 11095000, which has no row; `weapons-nt-vs-retail.md`), 9900-9904 |
-| Head | 119 | 15 | 2481, 3190, 7521, 99xx (12) |
+| Weapons | 249 | 7 | 2510 ([the tongs](nt-only-equipment-models.md), [weapons: Network Test vs retail](../network-test/weapons-nt-vs-retail.md)), 7000, 9900-9904 |
+| Shields | 79 | 6 | 1095 (a cut wooden shield, Melinda the Butcher's: retail's `NPCGenerateParam` still equips 11095000, which has no row; [weapons: Network Test vs retail](../network-test/weapons-nt-vs-retail.md)), 9900-9904 |
+| Head | 119 | 15 | 2481, 3190, [7521](../network-test/cut-content-scholar.md), 99xx (12) |
 | Body | 125 | 18 | 2481, 3190, 9040, 99xx (15) |
 | Arms | 107 | 12 | 2481, 3190, 99xx (10) |
 | Legs | 110 | 14 | 2481, 3190, 99xx (12) |
 
 The 99xx series (9900-9918, 9950) makes up 59 of the 72; going by the numbers they're probably test models, but none
-was rendered. 2481 and 3190 are whole unused armour sets. The 14 accessory models (`AS_`) aren't counted: no param
+was rendered. 2481 and 3190 are [whole unused armour sets](unused-armour-icons.md). The 14 accessory models (`AS_`) aren't counted: no param
 was found that names them.
 
 ## Tools

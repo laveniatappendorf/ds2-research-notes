@@ -27,7 +27,7 @@ Searched every FMG (loose and inside binders) in the NT, the JP NT, v1.00, the J
 | Id | Japanese | English |
 |---|---|---|
 | MapName 20110000 | アマナの祭壇 "the altar of Amana" | Shrine of Amana |
-| Item 3810000, name | アマナの杖 | Staff of Amana |
+| Item 3810000, name | アマナの杖 | [Staff of Amana](../mechanics/staff-of-amana-hollowing.md) |
 | Item 3810000, description | アマナの巫女が用いていた杖 … 祭壇には魔物が封じられていたが 儀式はやがて失われた … 人を誘う唄を覚えた: "the staff the shrine maidens of Amana used; a demon was sealed at the altar, but the rite was lost in time; freed, the demon grew cunning and learned a song that lures people" | "Staff held by a priestess of Amana … learned to lure humans into its lair using song" |
 | Item 64190000 (Demon of Song soul) | アマナの祭壇で唄うデーモンのソウル … それを祀り、鎮める者は絶えてしまった: "soul of the demon that sings at the Altar of Amana … those who enshrined it and kept it calm have died out" | "Soul of the Demon of Song at the Shrine of Amana … the line of priestesses who looked after the shrine and appeased the creature have died off" |
 
@@ -52,7 +52,7 @@ These are UTF-16 strings, found by a byte search of every file and binder member
 | `PrefabEditor\o00_0240.pfbbin` | アニメ114：14.7m落下（アマナの祭壇） | animation 114: 14.7 m drop (Altar of Amana) |
 | developer sign, `m20_21` model `m8000`, #000 | アマナの祭壇への接続 | connection to the Altar of Amana |
 
-So the working name was already the shipped one. The bosses have earlier labels (`boss-region-names.md`); Amana has
+So the working name was already the shipped one (but see [the map list's 妖精のほとり, "the fairy waterside"](e3-demo-leftovers.md#9-past-and-present-the-other-time-labelled-areas-added-2026-11-03)). The bosses have earlier labels ([boss working names](boss-region-names.md)); Amana has
 none. The game program (EBOOT of the NT, v1.00 and Scholar) doesn't contain the name.
 
 ## Network Test (Aug 2013)
@@ -65,7 +65,7 @@ none. The game program (EBOOT of the NT, v1.00 and Scholar) doesn't contain the 
   The NT's map-name table has only two entries, so this doesn't prove the name came later.
 - **The Shrine's people were already there:**
   - `talk\m20_11_00_00.fmg` (Japanese, 92 lines) has the Milfanito's lines, almost all as retail.
-  - The AI scripts already exist for:
+  - [The AI scripts already exist](nt-ai-labels-retail-enemies.md) for:
     - the shrine maidens: `ai105000` 妖精の巫女（亡者）, plus an NT-only `ai105020` variant, 篝火罠 "bonfire trap";
     - the Milfanito: `ai760000` / `ai760100` 吟遊詩人の少女１／２ "minstrel girl 1 / 2", and `ai760200` 虜囚の少女
       "captive girl";
@@ -82,7 +82,7 @@ none. The game program (EBOOT of the NT, v1.00 and Scholar) doesn't contain the 
 
 ### The priestesses of Amana are the singing enemies
 
-Enemy 105010 (model c1050) runs the 妖精の巫女（亡者） AI, "fairy shrine maiden (Hollow)". The Staff of Amana is
+[Enemy 105010 (model c1050)](../builds/shrine-of-amana-pc.md#2-the-spellcasters-amana-shrine-maidens) runs the 妖精の巫女（亡者） AI, "fairy shrine maiden (Hollow)". The Staff of Amana is
 the first entry in its drop row 10501000, at 2 % as the param reads.
 
 The developers' signs describe what the maidens do:
@@ -184,7 +184,7 @@ Nothing in the data or the sources above supports any of these; they are the obv
 
 ## Correction made on the way
 
-`nt-bosses-not-in-retail.md` section 5 had two rows wrong because it compared lines by id:
+[Network Test bosses not in retail](nt-bosses-not-in-retail.md#5-dialogue-nt-only-talk-text-all-japanese-unless-noted) section 5 had two rows wrong because it compared lines by id:
 - The Milfanito's thanks for calming the cursed singing is in retail, renumbered to 76007000 / 76017000.
 - Gavlan's カエル？ オマエ is "You? Go home?" (retail English), not "Frog? You".
 

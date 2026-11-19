@@ -5,7 +5,7 @@
 
 Written 2026-11-03. The author asked whether the Network Test (NT) called the Looking Glass Knight "Mirror Knight", what the
 earliest reference to the Ruin Sentinels as "knight in the mirror" is, and whether any other enemy is "in the mirror".
-Builds searched: the JP NT (NPJB90625; every NT name below is in its base GameData, packed 23 Aug 2013, not only in the
+Builds searched: the JP NT (NPJB90625; every NT name below is in its base GameData, [packed 23 Aug 2013](jp-network-test-vs-us.md#1-order-of-the-builds), not only in the
 2 Oct update's loose files), the US NT (NPUB90979, 17 Sep 2013; the same hits), v1.00 (BLUS41045), PS3 Scholar
 (BLUS31528) and PC Scholar (1.0.3.0), plus the developer row names of the PC pre-release build of 31 Mar 2014.
 Translations are mine. `tools\mirror_names.py` prints everything below.
@@ -27,21 +27,21 @@ Translations are mine. `tools\mirror_names.py` prints everything below.
 |---|---|---|
 | English boss name (`talk\charaname`) | 504000 **"Mirror Knight"** | 5040 "Looking Glass Knight" |
 | Japanese boss name | 504000 鏡の戦士 "mirror warrior" | 5040 鏡の騎士 "mirror knight" |
-| Soul (`ItemName`) | 60738000 鏡の騎士のソウル, Japanese only, in no item lot | 64180000 鏡の騎士のソウル / "Looking Glass Knight Soul" |
+| Soul (`ItemName`) | [60738000 鏡の騎士のソウル](nt-bosses-not-in-retail.md#2-the-27-nt-boss-souls-itemname-60730000-60755000-and-50140000), Japanese only, in no item lot | 64180000 鏡の騎士のソウル / "Looking Glass Knight Soul" |
 | AI scripts | `ai504000` ミラーナイト, `ai504010` 上位：ミラーナイト | the same |
 | Material | "c5040　ミラーナイトの盾用" (for the Mirror Knight's shield) | the same |
 | Test AI | `ai009983` (下位：吉田テスト用, "for Yoshida's tests"): states 【テスト】ミラーナイト and 【テスト】ミラーナイトバレットテスト "Mirror Knight bullet test" | gone |
 | Armour, Japanese | none | 鏡の戦士の仮面 / 鎧 / 手甲 / 足甲, "the mirror warrior's mask" etc.; the descriptions say the trial is to fight the 鏡の戦士 (English: Looking Glass set) |
 
 The NT does not place him (its one map is Huntsman's Copse). Retail keeps ミラーナイト in developer names: the m20_21
-boss-music region and developer signs (`boss-region-names.md`, `developer-signs.md`), the m20_21 event state
+boss-music region and developer signs ([boss working names](boss-region-names.md), `developer-signs.md`), the m20_21 event state
 ボス：ミラーナイト_戦闘, the Aldia's Keep events ミラーナイトの間 "the Mirror Knight's room" and ミラーナイトの鏡_1 / 4 / 5
 "the Mirror Knight's mirror", and in the 2014 PC rows: `BossParam` 504000, `ChrNetworkPhantomParam` 14 ミラーナイト霊
 "Mirror Knight phantom" (the summoned player's phantom type; retail English "mirror squire", Japanese 鏡の従者), the soul-
 weapon shop rows 鏡の騎士：両手剣 / 大盾, and two map objects 【岩峰城】ミラーナイトが壊せる柱 "[rock-peak castle] pillar the
 Mirror Knight can break" (`MapObjectParam` 212000) and 【岩峰城】鏡 "mirror" (219051). 岩峰城 "Rock-peak Castle" is the
 developers' working name for Drangleic Castle (m20_21); the E3 2013 demo's castle map m20_63 was "E3 Rock-peak Castle
-(past)" (`e3-demo-leftovers.md`, which also compares the NT's Mirror Knight with retail's).
+(past)" ([E3 2013 demo leftovers](e3-demo-leftovers.md), which also compares the NT's Mirror Knight with retail's).
 
 The old text dump `..\DS2NT\Unpacking stuff\English_Text\English\talk\charaname.txt` lists "Mirror Knight" under 7026,
 7404 and 9150. `fmg.py` reads the file with "Mirror Knight" at 504000 only, so that dump's ids look misaligned.

@@ -8,7 +8,7 @@ demo From Software showed before it (E3 June 2013 and later events), in which pl
 saw small, slightly different parts of the Forest of Fallen Giants. The demo's map data is known not to be in the NT.
 Builds: the JP NT's base data (NPJB90625 01.00, packed 23 Aug 2013; the US NT has the same), v1.00 (BLUS41045), the
 PS3 patches and Scholar, PC 1.02 for retail sound banks (the same sizes as the PS3 disc's), current PC, and the
-developer row names of the PC builds of 31 Mar to 28 Apr 2014 (`..\..\DS2 Vanilla PC\BUILDS.md`). Translations are
+developer row names of [the PC builds of 31 Mar to 28 Apr 2014](../builds/early-pc-builds.md) (`..\..\DS2 Vanilla PC\BUILDS.md`). Translations are
 mine. Tools: `tools\e3_leftovers.py` (rows, banks, HP, classes, files; `builds` and `pc` modes) and `tools\fsb_music.py`.
 
 **Revision.** The first version read every row named 抵抗の砦 or 岩峰城 as belonging to the E3 maps. The retail map list
@@ -71,7 +71,7 @@ themselves, so they show what the areas held around the demo's time, not necessa
 - **Fort of Resistance:** hollow lower-rank soldiers "(present)" in five loadouts; a stone guardian; the spell seller
   "(Fort of Resistance, present)", Carhillion, whom retail moved to No-man's Wharf; 129 objects of the Forest's `o10`
   series, among them 【汎用】抵抗の砦：親衛隊長_石化 "[generic] Fort of Resistance: the Guard Captain, petrified" (four
-  versions, `o00_4900`-`4903`), the phantom Giant Guard Captain (`o10_9200`) and the Giant King (`o10_9230`). The NT's AI
+  versions, `o00_4900`-`4903`), [the phantom Giant Guard Captain (`o10_9200`) and the Giant King (`o10_9230`)](../unused/unused-models.md#objects-355-plus-95-placed-some-other-way). The NT's AI
   debug states also name the past fort: 上位ステート：抵抗の砦（過去）_王国兵士用 / _巨人下級兵士 "Fort of Resistance (past):
   for kingdom soldiers / giant lower soldiers".
 - **Rock-peak Castle:** a stone guardian, a door-haunter, hollow jailers, hollow demon armour with katana and bow; 40
@@ -79,7 +79,7 @@ themselves, so they show what the areas held around the demo's time, not necessa
   and the queen's chair, a Dullahan-head puzzle (one right head, four wrong), and **the pillar the Mirror Knight can
   break** (`o21_2000`) and **a mirror** (`o21_9051`).
 
-The Giant Guard Captain (`nt-bosses-not-in-retail.md`, the NT's one named boss retail lacks) was therefore a Forest of
+The Giant Guard Captain ([Network Test bosses not in retail](nt-bosses-not-in-retail.md), the NT's one named boss retail lacks) was therefore a Forest of
 Fallen Giants boss. Whether the E3 fort used him (its bonfire 01 appears after a boss) is not recorded.
 
 ## 2. What the NT carries
@@ -122,7 +122,7 @@ Fallen Giants boss. Whether the E3 fort used him (its bonfire 01 appears after a
 ## 4. The castle and the Mirror Knight
 
 - **Name:** E3 Rock-peak Castle (past) = the E3 copy of m20_21, the past castle, which retail ships as Drangleic Castle.
-- **Music:** `sm2063`'s `m206300001` (2:44) is byte-identical to retail Drangleic Castle's `m202100001`. The castle's
+- **Music:** `sm2063`'s `m206300001` (2:44) is byte-identical to retail Drangleic Castle's `m202100001` (see [Network Test music](network-test-music.md)). The castle's
   only boss in the demo was the Mirror Knight, so this is very likely his theme; I have not traced which retail fight
   plays it. The NT's own Drangleic Castle track (`sm2021`, the same audio as the unknown map m10_22's `sm1022`, 3:03) is not
   byte-identical to any retail track. Its best envelope match is 0.63, with retail's `m102800001` (4:34) in the same
@@ -162,7 +162,7 @@ summoned". Retail also adds オンライン敵生成 "online enemy spawning" sta
 
 The NT also has the test script `ai009983` (下位：吉田テスト用, "for Yoshida's tests") with 【テスト】ミラーナイト and
 【テスト】ミラーナイトバレットテスト "Mirror Knight bullet test" states, gone from retail; and its English boss name is
-"Mirror Knight" (`mirror-names.md`).
+"Mirror Knight" ([Mirror names](mirror-names.md)).
 
 ## 5. The classes
 
@@ -211,7 +211,7 @@ Dual Swordsman, exactly the demo's four. Japanese: 戦士, 神殿騎士, 魔術�
 | JP NT 01.00, US NT, JP NT 01.02 | 221 (all 22 E3) | the 50 missing are working-name rows in `EnemyDefaultLogicParam` (12; the param is new after the NT), `MapObjectParam` (19), `MapObjectGDParam` (15), `MapObjectDefaultInstanceParam` (4) |
 | US v1.00, Asia disc, Japan disc | **271** | identical in all three |
 | PS3 1.01, 1.02 | **271** | every row byte-identical to v1.00 |
-| PS3 1.03 | 270 | 1.03 drops the old item-lot params wholesale (`ItemLotParam`, `ItemLotParam2`, `ItemLotTicketParam`, `ItemLotWeightParam`; `..\..\DS2 Vanilla Patches\findings\1.01-to-1.03.md`), and the E3 corpse lot 120635500 goes with them. Nothing else changes |
+| PS3 1.03 | 270 | 1.03 drops the old item-lot params wholesale (`ItemLotParam`, `ItemLotParam2`, `ItemLotTicketParam`, `ItemLotWeightParam`; [patches 1.01 to 1.03](../builds/1.01-to-1.03.md)), and the E3 corpse lot 120635500 goes with them. Nothing else changes |
 | PS3 1.08, 1.09 | 270 | 163 map-object rows differ from v1.00, but only in one field that changed in 1,353 of 1,435 `MapObjectParam` rows: a global change |
 | PS3 1.10, PS3 Scholar | 270 | the old `ItemLotParam` is back (with the E3 lot), but `EnemyAttackParam` is not in the regulation, so Carhillion's Fort of Resistance row 766010 is missing |
 | PC pre-release, 1.01, 1.02, reg 1.06, 1.03 | 271 | |
@@ -252,7 +252,7 @@ row for an m20 map is labelled past: 2010000 巨人の記憶（過去）, 201100
 | Working name | Present | Past | Retail ships |
 |---|---|---|---|
 | 抵抗の砦 Fort of Resistance | m10_10 | m20_10 | both: the Forest of Fallen Giants and its giant memories |
-| 妖精のほとり "the fairy waterside" | m10_11 | m20_11 | past only: the Shrine of Amana |
+| 妖精のほとり "the fairy waterside" | m10_11 | m20_11 | past only: [the Shrine of Amana](shrine-of-amana-name.md) |
 | 龍の研究所 "dragon laboratory" | m10_15 | m20_15 | present only: Aldia's Keep |
 | 岩峰城 Rock-peak Castle | m10_21 | m20_21 | past only: Drangleic Castle |
 | 龍の祠祭場 "dragon shrine festival ground" | m10_27 | m20_27 | present only: Dragon Aerie / Shrine |
@@ -270,14 +270,14 @@ row for an m20 map is labelled past: 2010000 巨人の記憶（過去）, 201100
 | Undead Crypt / sunken castle | 水没城：半身（過去） "half-submerged (past)" (stone guardian 213006, door-haunter 216001) against 水没城：満水（現代） "full of water (present)" (debug loadout 300110000; stone guardian 213009 満水) and 全貌 "the whole" (Dark Wraith 136001, door-haunter 216003) |
 | Majula | (present): 33 rows, the shops and NPCs "in Majula (present)"; (past): debug loadout マデューラ（過去） |
 | Dragon's lair | (present): hollows in sick-person's clothes 147000, debug loadout 300102000; (past): one debug loadout; its objects (`o03` series) include 古龍の竜眼のまぶた "the Ancient Dragon's eyelid" and a ring "for an in-engine cutscene" |
-| 霧の城下町 "the misty castle town" | (present): a Dark Wizard (118110); (past): a Dark Wraith (136000). Not in the map list; no retail area is known by this name |
-| 生きている森 / 生きてる森 "the living forest" | (past): a stone guardian (213005), debug loadout 300113000; also 前半 / 後半 "first / second half" rows (a giant basilisk 222001). Not in the map list; the NT's dialogue about a forest that became a demon (`nt-bosses-not-in-retail.md` section 5) may be the same place, unconfirmed. **2026-11-04: probably the Shaded Woods.** Basilisk 222001 is named 虚ろな影の森 in `EnemyParam` and 生きている森（後半） in `EnemyDefaultLogicParam`, and v1.00 places it in m10_32 (`two-soul-bosses.md` section 3) |
+| 霧の城下町 "the misty castle town" | (present): a Dark Wizard (118110); (past): a Dark Wraith (136000). Not in the map list; no retail area is known by this name (see [the NT's "Dran Castle Town"](community-cut-sheet-crossref.md#characters)) |
+| 生きている森 / 生きてる森 "the living forest" | (past): a stone guardian (213005), debug loadout 300113000; also 前半 / 後半 "first / second half" rows (a giant basilisk 222001). Not in the map list; the NT's dialogue about a forest that became a demon ([Network Test bosses not in retail](nt-bosses-not-in-retail.md#5-dialogue-nt-only-talk-text-all-japanese-unless-noted) section 5) may be the same place, unconfirmed. **2026-11-04: probably the Shaded Woods.** Basilisk 222001 is named 虚ろな影の森 in `EnemyParam` and 生きている森（後半） in `EnemyDefaultLogicParam`, and v1.00 places it in m10_32 ([two-soul bosses](two-soul-bosses.md#3-the-shaded-woods-had-a-past-stage) section 3) |
 
 **Characters and the player:**
 - King Vanclad (Vendrick) in both: ヴァンクラッド王（過去） and （現代）, each with cutscene rows, and armour 5130
   【ヴァングラット王（過去）】 "King Vangrad (past)" (head to legs).
 - The queen: 王妃（過去） / （現代）, both with cutscene rows.
-- 王国軍師 "the kingdom's strategist": armour 7210 【王国軍師（過去）】 and behaviour rows （現代）.
+- 王国軍師 "the kingdom's strategist": [armour 7210 【王国軍師（過去）】](llewellyn-references.md#cut-and-leftover) and behaviour rows （現代）.
 - Pate: armour 7440 （作成中）【パッチ（現代）】 "(in progress) Pate (present)".
 - The shops: armour shop, spell sellers 1 & 4 and 2 & 3, the general store, the materials shop and weapon smith 1, each
   "(present)".
@@ -290,8 +290,8 @@ These are all row names, so they exist only in the three 2014 PC builds; the row
 
 - Which retail fight plays `m202100001`, from the event or sound-event data.
 - What m10_22 was: an NT-only music and ambience bank whose track is also the NT's Drangleic Castle track.
-- What m10_21, the present Rock-peak Castle, was: listed in the map list and in the NT's talk files, but no map in v1.00.
-- Decoded durations (FFmpeg via PyAV) differ from `network-test-music.md`'s frame counts for some tracks: `sm2063`
+- What m10_21, the present Rock-peak Castle, was: listed in the map list and in the NT's talk files, but no map in v1.00 (see [its talk file](cut-content-scholar.md#4-text-scholar-deleted-two-cut-dialogues-from-the-network-test-era)).
+- Decoded durations (FFmpeg via PyAV) differ from [Network Test music](network-test-music.md)'s frame counts for some tracks: `sm2063`
   decodes to 2:44 there listed 4:22 (retail's identical bytes also decode to 2:44); the two `sm1010` tracks decode to 2:55 /
   2:24, listed 1:27 / 1:11. Not resolved.
 

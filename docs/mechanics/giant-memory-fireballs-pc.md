@@ -51,7 +51,7 @@ Group 3000 runs once per map load:
    intact. So the head is put back and **rolls again on every visit** until the Giant Lord is dead.
 3. It waits for the player to enter region **300000** (a 30 x 5 x 10 box about 24 m from the Giant Lord's
    fight-start box 800000 and about 38 m from the Jeigh arrival point).
-4. Launcher 20103680 fires once. **5.6 s later the script itself** sends the head into state 70 (falls and
+4. Launcher 20103680 fires once. **5.6 s later the script itself** sends the head into [state 70](../modding-scripts/map-object-states.md#1-what-an-object-state-is) (falls and
    rolls), if the head is still intact. A timer drives it, not the fireball's hit.
 
 The head carries SystemDamageParam **220100000: 9999 x10, hitbox x5, i.e. a kill**. Group 3010 then switches
@@ -70,12 +70,12 @@ navmesh 301000 once the head lies in state 20 (fallen).
 **Live flag writes (CE)**
 - 105300 = 1 while inside: each ambient launcher stops at its next loop (8-10 s). The 5-minute limit (section 6)
   stays off for this visit, because group 12000 only reads the flag at load. The next corpse warp rewrites the flag.
-- 210000081 = 1 before the memory loads: the head stays put, **but the Giant Lord is gone too** (it is his kill
+- 210000081 = 1 before the memory loads (a map-local flag: see [Event flags and choosing safe ids](../modding-scripts/event-flags-and-free-ids.md#2-which-blocks-are-in-memory)): the head stays put, **but the Giant Lord is gone too** (it is his kill
   flag; group 8000 ends at once when it is set). Good for exploring, not for the fight.
 - Front line: no flag. Clearing 210020080 mid-fight should drop the boss pattern (nothing sets it again until the
   next fight), but this is untested.
 
-**Permanent (data change):** delete these rows from `EventParam_m20_10_00_00`. This is the route that was built and
+**Permanent (data change):** [delete these rows](../modding-scripts/event-script-groups.md#b-disable-a-fromsoftware-group) from `EventParam_m20_10_00_00`. This is the route that was built and
 tested (section 5).
 - Ambient fireballs: 1000, 1010, 1020, 1030, 1040, 1050, 1060, 1070.
 - Front line: 2000, 2012, 2013. 2012 and 2013 are started by 2000 (command 130003); their rows have Unk0B = 3
@@ -122,3 +122,7 @@ timer 0. At 5 s they show mapevent 2011 "One cannot reside within memory for lon
 ashen mist has thinned...". At 290 s they set flag 210010001. At 300 s they show 2013 "The ashen mist fades..."
 and warp you back to that corpse's point in the Forest (3700000 / 3701000 / 3702000). The Giant Lord's death
 pauses the timer for 9 s. Deleting row 12000 (as in section 5) switches the limit off for that entrance.
+
+## Related pages
+
+- [Quieting and removing enemies near an arena](../modding-world/removing-enemies.md): the rest of the Giant Lord memory clean-up: the 14 corridor enemies between the fog and the Giant Lord, and what wakes him.

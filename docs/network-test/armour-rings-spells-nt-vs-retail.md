@@ -4,11 +4,11 @@
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
 Question: which Network Test armour pieces, rings and spells are missing from retail, given that display names
-changed between the builds? This is the follow-on to `weapons-nt-vs-retail.md`, done the same way. It is static work
+changed between the builds? This is the follow-on to [weapons: Network Test vs retail](weapons-nt-vs-retail.md), done the same way. It is static work
 only: `regulation\ArmorParam / RingParam / SpellParam / BulletParam / ItemParam`, both builds' `SpEffectRing.emevd`,
 the ItemName / DetailedExplanation FMGs and both archive indexes.
 Tool: `tools\equip_compare.py` (`armour [all|new]`, `rings`, `spells`, `--md`; with no argument, one line per table).
-The Japanese network test's final regulation has the same ArmorParam, RingParam, SpellParam and SpEffectRing as the US
+[The Japanese network test's final regulation](jp-network-test-vs-us.md#1-order-of-the-builds) has the same ArmorParam, RingParam, SpellParam and SpEffectRing as the US
 demo. Its 01.00 ArmorParam lacks three rows (13081100 / 101 / 103), and its 01.04 ItemParam has 16 more armour items,
 so everything below holds for it too.
 
@@ -107,7 +107,7 @@ The demo's ArmorParam has 492 rows: 412 real pieces (ids 11xxxxxx-17xxxxxx), 77 
 - **All 77 test rows map onto retail pieces** by part and model: the 45 named pieces below and 32 unnamed test rows
   (91060100-91320103, 92000000-92000503) on the Elite Knight (1060), Faraam (1320), Archdrake (2310), Black Hood
   (7680) and Hexer's (7700) models.
-- **Retail added no named armour.** Its 9 extra rows are unnamed: a dummy body 9800, a test set 991800-991803 on
+- **Retail added no named armour.** Its 9 extra rows are unnamed: a dummy body 9800, [a test set 991800-991803](broken-status.md#5-other-developer-names-31-march-2014-pc) on
   the Knight model 1050, and four model-0 rows 11002100-11002103. The two system rows 10 and 14 changed from model 0
   to 1050.
 - **Armour got lighter.** 385 of the 408 shared pieces changed weight; retail's weight is a median 0.80 of the demo's.
@@ -118,7 +118,7 @@ The demo's ArmorParam has 492 rows: 412 real pieces (ids 11xxxxxx-17xxxxxx), 77 
 
 | demo id | part, model | weight / poise | what the demo has | what retail kept |
 |---|---|---|---|---|
-| 12231100 | head, 2231 | 3.64 / 0 | item 22231100, plus items 22231101-103 for a body, arms and legs that have no rows; stats identical to the Shadow Mask (12230100, model 2230) | nothing: no row, no model (HD_2231 is in neither build), no text |
+| 12231100 | head, 2231 | 3.64 / 0 | item 22231100, plus items 22231101-103 for a body, arms and legs that have no rows; stats identical to the Shadow Mask (12230100, model 2230) | nothing: no row, [no model](../unused/nt-only-equipment-models.md) (HD_2231 is in neither build), no text |
 | 17521100 | head, 7521 | 3.06 / 4.8 | no item; stats identical to Lucatiel's Mask (17520100, model 7520) | **the model** (`HD_7521_M/F.bnd` and their `_L` versions, 304 KB against 309 KB for HD_7520) and **a new EquipInterfereParam row 17521100**, a copy of Lucatiel's Mask's. The demo's EquipInterfereParam has no such row, so retail added it after the demo while dropping the armour row |
 | 17830102 | arms, 7830 | 3.6 / 6.5 | item 27830102; the arms of the Despatcher's set (retail: Nahr Alma) | nothing: retail's set is hood and robes only (17830100 / 101); no AM_7830 model in either build |
 | 17830103 | legs, 7830 | 4.48 / 8.1 | item 27830103; the legs of the same set | nothing; no LG_7830 model |
@@ -126,8 +126,8 @@ The demo's ArmorParam has 492 rows: 412 real pieces (ids 11xxxxxx-17xxxxxx), 77 
 The demo's test copy of that set agrees: items 892002202 / 892002203 point at test rows 92002202 / 92002203, which
 don't exist. Their provisional names are 仮・黒ファントム屋・腕 / 足 ("black phantom outfit, arms / legs").
 
-12231100 is the armour counterpart of the Shadow Claws' twin 3511000: a "1" variant on the next model number, in
-the same Shadow kit. 17521100 looks like a second version of Lucatiel's Mask, perhaps the NPC's own; nothing in
+12231100 is the armour counterpart of [the Shadow Claws' twin 3511000](weapons-nt-vs-retail.md#shadow-claws-in-the-network-test): a "1" variant on the next model number, in
+the same Shadow kit. [17521100 looks like a second version of Lucatiel's Mask](cut-content-scholar.md#1-models), perhaps the NPC's own; nothing in
 retail's params equips it.
 
 ### Renamed (the 45 pieces the demo names)
@@ -175,7 +175,7 @@ arms, legs).
 |---|---|---|---|---|
 | 892001802 / 803 | arms / legs | 囚人の篭手 / 囚人の腰巻き | second Prisoner's set (2271) | no such pieces |
 | 892001902 / 903 | arms / legs | 仮・ダークウィザード・腕 / 足 ("dark wizard, arms / legs") | Hollow Mage (2180) | no such pieces |
-| 892002100 | head | 仮・王国軍師・頭 ("royal strategist, head") | Llewellyn (7210) | no head (the demo's 17210100 item also has no row) |
+| 892002100 | head | [仮・王国軍師・頭 ("royal strategist, head")](llewellyn-references.md#cut-and-leftover) | Llewellyn (7210) | no head (the demo's 17210100 item also has no row) |
 | 892002202 / 203 | arms / legs | 仮・黒ファントム屋・腕 / 足 | Despatcher's / Nahr Alma (7830) | cut, see above |
 
 ## Rings
@@ -202,15 +202,15 @@ the twentieth NT session found, four of those are no-ops.
 "Nothing" means: no text under the id in any retail FMG, no event in retail's ring script, no retail param holding
 the id, and no retail text using the name (nor, for the longer names, the name without の指輪). The four starstone rings sit
 next to the four quartz rings (晶石, same four elements), which retail kept. Retail instead gave the quartz rings +1
-and +2 versions, so the starstones may have been a second tier that the upgrade system replaced. That is a guess:
+and +2 versions, so [the starstones may have been a second tier](../unused/unused-ring-icons.md#what-the-starstones-might-have-done-the-code-2026-10-26) that the upgrade system replaced. That is a guess:
 the demo has no text or effect for them.
 
-Icons (`unused-ring-icons.md`): no PS3 build and not PC Scholar has an icon file under a cut ring's id, but **every
+Icons ([unused ring icons](../unused/unused-ring-icons.md)): no PS3 build and not PC Scholar has an icon file under a cut ring's id, but **every
 vanilla PC build does** (found 2026-11-09; the files have no name in any dictionary, so the earlier checks missed
 them). All four starstones, the Rainbow Tearstone, Dragon Claw, the demo's Ring of Thorns, Rusted Iron and Great
 Eagle Crest have one. They are the source of the community wiki's "unknown" star and rainbow ring icons. Four of them
 are pixel-identical to retail icons: Flame Starstone = Old Sun Ring, Dragon Claw = Ring of Giants, the demo's Ring of
-Thorns = Old Leo Ring, Rusted Iron = Stone Ring (`hidden-pc-icons.md`). The Network Test's own Ring of War icon became the DLC
+Thorns = Old Leo Ring, Rusted Iron = Stone Ring ([hidden PC icons](../unused/hidden-pc-icons.md)). The Network Test's own Ring of War icon became the DLC
 Ivory Warrior Ring's.
 
 ### Same id, same ring (17)
@@ -225,7 +225,7 @@ physical defense".
 
 The other comparable effects changed in strength, not kind:
 - Dispelling Ring: demo +15 to types 1-4, retail +6.
-- Ring of Resistance: demo +20 to types 5-8, retail +12 to types 5-9. The demo's text lists poison, bleeding,
+- Ring of Resistance: demo +20 to types 5-8, [retail +12 to types 5-9](broken-status.md#4-break-resistance-left-in-the-retail-scripts). The demo's text lists poison, bleeding,
   **weapon breakage** and curse; retail's lists poison, bleeding, **petrification** and curses.
 - Royal Soldier's Ring, Red Tearstone, Ring of Restoration and Binding Ring are no-ops in the demo's script and
   real effects in retail.
@@ -244,7 +244,7 @@ the retail ring under that id does. English readings of the provisional names ar
 | 40100000 | 解毒の指甲 (Antidote Knuckle Ring) | Poisonbite Ring: poison resistance (script type 5) | same ring |
 | 40110000 | 止血の指甲 (Staunching Knuckle Ring) | Bloodbite Ring: bleed resistance (type 6) | same ring |
 | 40130000 | 阻呪の指甲 (Curse-ward Knuckle Ring) | Cursebite Ring: curse resistance (type 8) | same ring |
-| 40120000 | 防護の指甲 (Protective Knuckle Ring) | Bracing Knuckle Ring 封壊の指甲: slows equipment wear | same family (指甲 knuckle rings) |
+| 40120000 | 防護の指甲 (Protective Knuckle Ring) | [Bracing Knuckle Ring 封壊の指甲](break-element.md#update-2026-11-16-the-break-resistance-knuckle-ring): slows equipment wear | same family (指甲 knuckle rings) |
 | 40210000 | ストレイドの知恵の指輪 (Straid's Wisdom Ring) | Ring of Knowledge: INT, sold by Straid (below) | same ring |
 | 40220000 | ローネスの祈りの指輪 (Rhoness's Prayer Ring) | Ring of Prayer: FTH, sold by Licia of Lindelt (below) | same ring (retail credits Ivory Rhones with the Soul Protection rings) |
 | 40160000 | 王の剣の指輪 (King's Sword Ring) | Ring of Blades: physical attack | probably the same |
@@ -280,7 +280,7 @@ and retail's Ring of Soul Protection text calls Ivory Rhones (白のローネス
 (リンデルトの大賢者). So each ring is sold by the person its demo name pointed to, or by a cleric of that person's
 land. Only the names and texts changed: both retail descriptions now credit the High Priest of Volgen instead. The
 demo has no shop rows for either ring (its ShopLineupParam stocks vendors 7540 and 7830 only), but its npcMenu
-already has both vendor slots: 7680 スペルマニア ("spell maniac", the label `nt-ai-labels-retail-enemies.md` ties to
+already has both vendor slots: 7680 スペルマニア ("spell maniac", the label [Network Test AI labels](nt-ai-labels-retail-enemies.md) ties to
 Straid) and 7690 奇跡の人 ("the miracle person"). That the rings were planned for these two is a reading of the
 names; nothing in the demo's data links them. Prompted by a Japanese blog post of 17 January 2014 (ebiflynageruyo
 on livedoor, via the Wayback Machine) that lists the demo's text; its 49 ring names match the demo's ItemName
@@ -309,7 +309,7 @@ Retail has 31 sorcery (29), 32 miracle (26), 33 pyromancy (21), 34 hexes (10, sc
   begins with: level and stats, weapons, armour, items, spells and gestures. Retail's class table has 18 rows, the
   debug table 224 (groups 800, 900, 1000, 1100, 1200, 3000 and 300101000-300245000), and none of them is a class
   a player can pick.
-- **Rows 900-949 (41 rows)** look like maxed-out test characters. Row 900, for example, has:
+- [**Rows 900-949 (41 rows)**](nt-bosses-not-in-retail.md#boss-weapons-on-the-debug-list-dbgplayerstatusparam) look like maxed-out test characters. Row 900, for example, has:
   - stats at 99;
   - consumables: Lifegems, Estus Flask, herbs, Green Blossom, Witching Urn;
   - weapons: Spider Fang, Falchion, Claymore;
@@ -336,7 +336,7 @@ simply not have shipped the debug table.
 The cast animations show which catalyst a school was built for:
 - **Sorceries** use the staff animations (38110xxx) in both builds.
 - **Demo pyromancies use the same staff animations**; retail pyromancies have their own (38111xxx). The demo has
-  no pyromancy flame (it is new in retail; see the weapon note), so in the demo pyromancies were cast with a staff.
+  no pyromancy flame (it is new in retail; see [the weapon note](weapons-nt-vs-retail.md#new-in-retail)), so in the demo pyromancies were cast with a staff.
 - **Demo hexes use the miracle (chime) animations** (39110xxx), all 21 of them. The demo's chime texts call the
   bells catalysts for "miracles and 闇術 (hexes)". Retail splits hexes: the 34xxxxxx ones use the staff animations,
   and the 35xxxxxx ones start with a chime animation.
@@ -344,7 +344,7 @@ The cast animations show which catalyst a school was built for:
 - **How spells are cast changed too** (2026-11-17, live): every demo spell has eight cast setups with their own
   projectile and damage row (two-handed and heavy casts hit harder, up to ×2.1), two-handed staves and chimes get a
   bow-style aiming mode, and catalysts have power-stance categories (though they cannot power stance in the demo).
-  Retail flattened all of it. See `nt-casting-setups.md`.
+  Retail flattened all of it. See [Network Test cast setups](nt-casting-setups.md).
 
 ### Matched (21)
 
@@ -472,7 +472,7 @@ Even if every "likely" and "possible" reading is right, 36 demo spells have no r
 - Healing and protection miracles tied to **a saint (聖女) and three goddesses**.
 - Hexes built on **cold flame (冷たい炎)** and **grudges (怨念)**.
 
-Apart from Swollen Fireball, which the retail debug loadouts still list, none of the 48 left a trace in retail:
+Apart from Swollen Fireball, which the retail debug loadouts still list, none of the 48 left a trace in retail (but see [hidden PC icons](../unused/hidden-pc-icons.md#artwork)):
 - no text under the old ids;
 - no retail param holding the ids. The only hit, PlayerDamageParam 33171000, is retail's own sub-id of Flame
   Weapon (33170000);
@@ -496,7 +496,7 @@ names; the "possible" readings name the candidates. `equip_compare.py spells` li
 
 ## Can the cut armour and rings be used? (2026-10-16)
 
-From the data only; none of these has been tried live yet. Weapons are covered in `weapons-nt-vs-retail.md`.
+From the data only; none of these has been tried live yet. Weapons are covered in [weapons: Network Test vs retail](weapons-nt-vs-retail.md).
 
 **In the demo:** every cut piece and ring still has its param row, so the cheat table (Hands and armour / ring
 slots, or `tools\weapon_swap.py`) can equip it.
@@ -514,7 +514,7 @@ would be needed to bring it back. Retail kept the Ring of Thorns name, but for a
 
 ## Limits
 
-- "Cut" means in the demo's data but not in retail v1.00. The Scholar edition and the DLC were not checked.
+- "Cut" means in the demo's data but not in retail v1.00. [The Scholar edition](cut-content-scholar.md#3-items) and the DLC were not checked.
 - Rings and spells have no model, so the provisional names carry most of the weight. Where the demo has neither
   text nor an effect script (most rings, 44 spells), "same ring", "different ring" and "possible counterpart" are
   readings of the names, marked as such.
@@ -527,3 +527,7 @@ would be needed to bring it back. Retail kept the Ring of Thorns name, but for a
   effects look alike was not checked: that would need the DLsE effect files parsed, or both games run.
 - The two armour variants (12231100, 17521100) could be equipped live in the demo, but neither has a model there
   (17521100's exists only in retail), so they would be invisible.
+
+## Related pages
+
+- [Unused armour icons](../unused/unused-armour-icons.md): one of the Network Test's orphan armour items, set 2481 (items 22481100-22481103), has a complete model set in retail: the unused hooded sister of the Peasant set.

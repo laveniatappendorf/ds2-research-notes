@@ -27,7 +27,7 @@ Image: `patch-1.08-weapon-copies.png` (ordinary icon left, copy right).
 - **Nothing gives them out.** In PC Scholar no param (item lots, shops, NPC loadouts, starting classes, server-event
   lots) and none of 597 event, talk-script and map files holds any of the seven ids. They can only be had by editing
   the params or the save, which is why an "every weapon" list picks them up.
-- The community wiki lists three of them (Caestus, Greataxe, Rapier) as "Unused ... reskin" (`wiki-unused-content-crossref.md`).
+- The community wiki lists three of them (Caestus, Greataxe, Rapier) as "Unused ... reskin" ([wiki Unused Content cross-check](../network-test/wiki-unused-content-crossref.md)).
 
 ## What they were for: the Majula server chest
 

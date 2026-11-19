@@ -8,7 +8,7 @@ shared icon sheet, the Network Test's loose `menu\tex\02\Icon_tex.tpf` (US and J
 (8,2). The matches below stand as near copies. Also corrected there: vanilla PC (every build) does have
 `menu\04.febnd` with the level-up sheet; PS3 retail and PC Scholar don't.
 
-The author pasted a table of 15 "unknown" DS2 menu icons from a website (screenshot, icons ~39 px). Question: can they be
+The author pasted [a table of 15 "unknown" DS2 menu icons](../network-test/wiki-unused-content-crossref.md) from a website (screenshot, icons ~39 px). Question: can they be
 matched to the Network Test's icons at that resolution? **Yes**: the game's cells are 26 px, so the website copies
 are about 1.5x the original; template matching (OpenCV, normalised correlation, grey, scales 20-44 px) scored the true
 matches 0.81-0.93, and every pairing below was checked by eye (`unused-menu-icons-compare.png`). Textures decoded with
@@ -76,8 +76,8 @@ Action speed, Trap disabling, Break ATK, Break resist.
 ## What the level-up icons stand for: not established
 
 The Network Test's executable has the help-text lists per screen (`iconHelp.fmg` ids in display order at VA
-0x159b49c, 0x159c828, 0x159d0f4, 0x159d7c4). They include the stats retail cut: Resistance 909012, Agility 909013,
-Evasion 909037, Action speed 909038, Trap disabling 909039. **Break ATK (909027) and Break resist (909035) have text
+0x159b49c, 0x159c828, 0x159d0f4, 0x159d7c4). They include [the stats retail cut](../mechanics/agility-timeline.md#3-vanilla-is-the-nt-system-edited-in-place): Resistance 909012, Agility 909013,
+Evasion 909037, Action speed 909038, Trap disabling 909039. **[Break ATK (909027) and Break resist (909035)](../network-test/break-element.md#network-test) have text
 but appear in none of the lists**, so the Network Test no longer displays them. The menu layouts (`.flo`) hold
 neither sprite names nor help-text ids in plain form, and the text binding is in code, so the icon-to-stat pairing
 was not recovered. Ways to settle it: read the Network Test's status / level-up screens live in RPCS3, or decode the

@@ -23,15 +23,15 @@ SL200, with every stat balanced). v1.00 also gave every weapon type the full bon
   (v1.00, patches 1.01-1.10, PC vanilla 2014-2022, PC Scholar). **Code-confirmed in v1.00** (2026-11-01): the stat
   builder `FUN_008609f0` loops over the attribute array (0x861208-0x8612cc: start 99, keep the smaller, skip the
   10th / 11th entries), looks up that row and stores column +0x8c to out +0x2c. The array is the builder's `attrs`
-  argument, the effective attributes (base + equipment bonus, clamped 1-99, agility-iframes.md), so gear stat
+  argument, the effective attributes (base + equipment bonus, clamped 1-99, [roll i-frames and Agility](agility-iframes.md)), so gear stat
   boosts count toward the lowest stat. Where the weapon side multiplies it (and whether v1.00 has any type factor)
   was not traced.
 - No item or menu text in any build says which stat Mundane uses: the Old Mundane Stone only says "power of the
   mundane" (Japanese 無明, "unenlightenment"). The highest -> lowest text change in patch 1.03 is the **Dark** bonus
   help (iconHelp 909190), and that was a text fix: v1.00 code already used the lower of INT / FTH
-  (`DS2 Vanilla Patches\findings\1.01-to-1.03.md`).
+  ([patches 1.01 to 1.03](../builds/1.01-to-1.03.md)).
 - Mundane infusion row (WeaponStatsAffectParam stats id + 9): base x0.5, STR / DEX scaling halved.
-- `WeaponTypeParam.mundane_scaling_mult` is 0 on every type in v1.00-1.03 and first has values in 1.08 (100 on most,
+- `WeaponTypeParam.mundane_scaling_mult` is 0 on every type in v1.00-1.03 and [first has values in 1.08](../builds/balance-vanilla-vs-scholar.md#3-weapons) (100 on most,
   47-80 on a few, 0 on bows / crossbows in PC Scholar). Mundane obviously worked at launch, so v1.00 code cannot have
   multiplied by that field: **every weapon got the full bonus** (inferred; the v1.00 code was not traced). Community
   reports: a PC "1.06" update cut Mundane Avelyn 30 % and Mundane Santier's Spear 21.5 % (gameranx; Santier's
@@ -43,7 +43,7 @@ SL200, with every stat balanced). v1.00 also gave every weapon type the full bon
 ## SL50 stats
 
 Every class has stat total = SL + 53, so SL50 = 103 points: all nine stats 11 with 4 spare (lowest stat 11 ->
-+116). The spare points cover requirements (two-handing counts STR x1.5) or go to DEX. **Caveat (added 2026-11-01, later):** the community rule is that two-handing halves the STR requirement and adds no STR scaling (`sl1-large-club-vs-old-knight-hammer.md`), so the two-handed figures below (requirements and STR scaling at x1.5) need redoing.
++116). The spare points cover requirements (two-handing counts STR x1.5) or go to DEX. **Caveat (added 2026-11-01, later):** the community rule is that two-handing halves the STR requirement and adds no STR scaling ([SL1: Large Club vs Old Knight Hammer](sl1-large-club-vs-old-knight-hammer.md)), so the two-handed figures below (requirements and STR scaling at x1.5) need redoing.
 
 ## Method
 
@@ -58,7 +58,7 @@ Every class has stat total = SL + 53, so SL50 = 103 points: all nine stats 11 wi
   powerstance attack). Treat swing times as +-30 %. One hit per swing.
 - Normal builds: uninfused, best STR / DEX split with STR + DEX = 61 (others 6: "all-in") or 41 (VGR / END / VIT /
   ADP 11 like the Mundane build: "balanced").
-- Availability: v1.00 ground pickups (`DS2 Scholar\findings\item_placements.tsv`), ShopLineupParam (NPC, boss-soul
+- Availability: [v1.00 ground pickups](../builds/item-placements-vanilla-vs-scholar.md) (`DS2 Scholar\findings\item_placements.tsv`), ShopLineupParam (NPC, boss-soul
   trades) and ItemLotParam2_Chr drops mapped to enemy families per map (`enemy_counts_families_v110_vs_pc.tsv`).
   Excluded as post-Shrine: Avelyn (Undead Crypt), Lucerne / Yellow Quartz Longsword (Wellager), Drakekeeper weapons
   (Dragon Aerie), Giant Warrior Club (memories), Curved Dragon Greatsword (Ancient Dragon soul).
@@ -89,7 +89,7 @@ Mundane-infusable too.)
   DPS with Mundane, below the two-handed R1 chain.
 - Flat defence works against the "fast weapon" idea: each hit loses defence / 6 (Pursuer: -86 per hit), a third
   to half of a 190-AR dagger hit but a fifth of a 450-AR halberd hit.
-- Flat scaling is not Mundane's own: DS2's STR / DEX bonus is also flat per hit (scaling-letters-and-infusion.md).
+- Flat scaling is not Mundane's own: DS2's STR / DEX bonus is also flat per hit ([scaling letters and infusion](scaling-letters-and-infusion.md)).
   What is special is that Mundane's bonus ignores the weapon's own coefficients, so weapons with low base damage and
   little scaling (daggers, thief weapons) gain most.
 
@@ -104,7 +104,7 @@ Mundane-infusable too.)
   198. Mundane passes Raw from about SL81 (lowest 14, 234); SL100 246, SL150 276, SL200 294, cap 350 (all stats 99).
 - SL50 two-handed R1 DPS (0.543 s, MV 1.213, same TAE method) vs defence 0 / 300 / 514: Mundane 456 / 344 / 264, plain
   447 / 335 / 255, Raw 514 / 402 / 322. Below the Mundane Dagger (582 at 300) and far below the early halberds.
-- Patch history: PC regulation 1.06 (2014-06-02, `DS2 Vanilla PC\2014-06-02`) moves it to WeaponStatsAffectParam
+- Patch history: [PC regulation 1.06](../builds/early-pc-builds.md#102-103) (2014-06-02, `DS2 Vanilla PC\2014-06-02`) moves it to WeaponStatsAffectParam
   1006030: Mundane base 0.5 -> 0.15 (Mundane = 30 + bonus), Raw 1.15 -> 1.1, base still 200. (100 + b -> 30 + b) is
   -21.5 % at b = 225 (lowest stat 50), which matches the gameranx figure. PS3 1.08 / PC 1.04 (July 2014) and later:
   base 200 -> 350, so Mundane = 52.5 + bonus, never better than plain (max 302.5 vs 350). PS3 1.03 still has the
@@ -145,7 +145,7 @@ when requirements bite. Same model and swing-time caveats as above; bleed / pois
   so ~215 DPS with Heavy Bolts at defence 300: burst and range, far below the daggers' DPS. Avelyn and the Black
   Flamestone Dagger are post-Shrine (Undead Crypt / Wellager). `avelyn120.py`.
 - History: the reduced bolt rows are the **powerstance** (L1 / L2) ones, not Avelyn's: 0.686 in v1.00 / 1.01 (-30 %),
-  0.882 from PS3 1.02 and on every PC build (-10 %), 0.247 vs 0.392 after the rework (-37 %, as Radai says). PC
+  [0.882 from PS3 1.02](../builds/1.01-to-1.03.md#101-102-a-balance-patch-calibrations-102-103) and on every PC build (-10 %), 0.247 vs 0.392 after the rework (-37 %, as Radai says). PC
   regulation 1.06 (2 Jun 2014) then cut Avelyn's Mundane base 0.5 -> 0.15 (WeaponStatsAffectParam 1006030, like
   Santier's), its hand multiplier 0.9 -> 0.865, and reworked every bolt (flat 20 / 50 / 110 -> 200 / 280 / 200 + 200
   physical, Dm 0.98 -> 0.392), so the crossbow's AR, and with it Mundane, counts 40 % as much. PS3 got the rework
@@ -167,7 +167,7 @@ when requirements bite. Same model and swing-time caveats as above; bleed / pois
   are attack_type 11, so the reduced group belongs to powerstance. Check against gameranx (PC 1.05 -> 1.06, Mundane
   Avelyn + Lightning Bolts, 192 per bolt after the patch): on the reduced rows (0.247) a bolt could deal at most ~144
   even with a 250 Mundane bonus, zero defence and zero resistance. On the normal rows (0.392) the formula can reach 192.
-- **Formula:** Radai's ranged formula (data-checked on PC Scholar, `DS2 Scholar PC\findings\damage-formula-radai.md`):
+- **Formula:** Radai's ranged formula (data-checked on PC Scholar, [Radai's damage formula guide](damage-formula-radai.md)):
   physical = (h x (pAR + atkAR) - DEF / 6) x Dm, elemental atkAR = h x atkAR x (1 - res) x Dm, with h 0.9 for every v1.00
   crossbow. The combining code itself was not found in the v1.00 EBOOT (the DS2V Ghidra project is read-only and
   misses many functions), so "crossbow AR added to every bolt" rests on that guide plus the gameranx check.
@@ -181,7 +181,7 @@ when requirements bite. Same model and swing-time caveats as above; bleed / pois
 ## Open
 
 - The bolt damage combining code in v1.00 (formula taken from Radai, data-checked; physical_damage_floor units
-  unknown) and a live timing of the crossbow reload. Live test planned in `avelyn-live-test-plan.md` (2026-11-01).
+  unknown) and a live timing of the crossbow reload. Live test planned in [Avelyn live test plan](../tools/avelyn-live-test-plan.md) (2026-11-01).
 - Code check of the weapon-side Mundane multiplication in v1.00 (no type multiplier assumed). The lowest-stat
   lookup itself is confirmed (above).
 - Which TAE event really opens the next attack; an in-game timing of one dagger and one halberd chain would

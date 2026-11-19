@@ -14,11 +14,11 @@ inventory and text) confirmed in play by the author at 3440 x 1440 with Stretch 
 - There is no 16/9 constant anywhere: not in the EBOOT (float or double, +-1 ulp) and not stored in the render camera.
   RPCS3's patch.yml (16 Oct copy) has no DS2 aspect patch; Demon's Souls has one (aspect floats + separate HUD
   centring patches), which is the model for the notes / settings.
-- Render camera `[App+0x878]` (vtable `0x1c36c20`), retail layout (the demo's +0xc further on):
+- [Render camera](port-live-check.md) `[App+0x878]` (vtable `0x1c36c20`), retail layout (the demo's +0xc further on):
   +0xa0 eye, **+0xb0 vertical FOV** (rad), +0xc0 view 4x4, **+0x110 projection** (a = b / aspect at +0x110,
   b = 1 / tan(fov/2) at +0x124, c 1.00002, w +1, d -0.1), +0x150 view x projection, +0x190 camera world,
   +0x1d0 view x projection again. Rebuilt every frame (a junk write at +0x110 was gone within 50 ms).
-- The App update feeds it from the camera manager M = [App+0x10] (the free-camera route, 0x5511xx): picks slot
+- The App update feeds it from the camera manager M = [App+0x10] ([the free-camera route](cheat-table-port.md#2-per-entry), 0x5511xx): picks slot
   [M+0x24], builds a temporary parameter object (ctor `0xc1fd84`, converter **`0xc1fb2c`**), then calls the render
   camera methods `0xcc9070` and `0xcca1e0` with it.
 - Camera slot (0x80 bytes at M+0x30+0x80*i) additions to the demo's map: **+0x5c width, +0x60 height (u32, 1280 x 720

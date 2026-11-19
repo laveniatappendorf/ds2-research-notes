@@ -3,7 +3,7 @@
 !!! warning "Status: Not yet rated"
     Not yet given a status. Treat as a research note and check anything you plan to rely on. See [status labels](../status-labels.md).
 
-Question (the author): the Shrine of Amana's spellcasting maidens, once knocked down, never stand up again although they
+Question (the author): [the Shrine of Amana's spellcasting maidens](../builds/shrine-of-amana-pc.md#2-the-spellcasters-amana-shrine-maidens), once knocked down, never stand up again although they
 aren't dead. A get-up animation exists (viewable in SmithBox). Does the AI have anything for standing up, and why don't
 they?
 
@@ -166,12 +166,12 @@ Scan of all 173 PC networks (135 have a down loop): `DownDuration` on a fall-sta
   | `eparam ... hp / slot / set / like / restore` | edit EnemyParam rows in memory |
   | `regist ... ai / restore` | edit spawn records' AI ids in memory |
   | `downwatch` | read-only knock-down timer watch |
-  | `near` | nearest spawns (doesn't work yet: the live position uses another origin than the map files) |
+  | `near` | nearest spawns (doesn't work yet: the live position uses [another origin than the map files](../modding-world/warping-by-script.md#the-coordinate-frame)) |
 - `..\Ghidra Project\scripts\DecompRange.java` decompiles every function in an address range. The Ghidra project
   runs headless via PowerShell: `& "...\Ghidra Project\script.cmd" X.java args`.
 - **Live layout found:**
   - `CharacterCtrl +0x28` = behaviour id;
-  - `+0x38` → its EnemyParam row;
+  - `+0x38` → its EnemyParam row (see [memory map for PC](../tools/memory-map-pc.md#other-characters));
   - `+0x168` = HP / min / max / cap;
   - `+0xE8` → `EnemyOperator` (AI ids at `+0xD8` / `+0xDC`);
   - generator objects (0xA0 apart) point at their EnemyParam row;

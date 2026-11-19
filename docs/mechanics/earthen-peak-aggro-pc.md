@@ -30,13 +30,13 @@ row) is **identical, every field**, for every enemy type in Earthen Peak in both
 
 Game-wide, only 16 of 333 shared LogicComParam rows differ between 1.12 and Scholar; none is an Earthen Peak enemy.
 Only the maidens change a field whose meaning is known:
-- 105010, 105030 Amana Shrine Maidens: sight lit + dark 40 -> 30 m, `Unk68` (online sync radius) 0 -> 1.
+- 105010, 105030 [Amana Shrine Maidens](../builds/shrine-of-amana-pc.md#2-the-spellcasters-amana-shrine-maidens): sight lit + dark 40 -> 30 m, `Unk68` (online sync radius) 0 -> 1.
 - 305010, 305011 Smelter Demon (two rows), 318010 Pursuer, 506110 Darklurker, 600010 Ancient Dragon, 619110
   Executioner's Chariot, 627010 Nashandra, 628010 Royal Rat Authority: `Unk36` 3 -> 4 (unknown; same edit on all eight
   bosses).
 - 132010, 132030, 132040, 132100 Skeletons: `Unk28` 0.5 -> 0.35, `Unk2C` 0.4 (0.2 on 132100) -> 0.5 (unknown).
 - 113020 Varangian Sailor (Scimitars): `Unk24` 3 -> 9 (unknown).
-- 900010 (no name in the community sheet): `Unk43`, `Unk66`, `Unk67` 0 -> 1 (unknown).
+- 900010 (no name in the community sheet): `Unk43`, `Unk66`, `Unk67` 0 -> 1 (unknown) (`Unk66` and `Unk67` are identified in [Yearn and the Alluring Skull](yearn-decoy-pc.md#2-the-mechanism-step-by-step)).
 Names are row id - 10 in the community enemy sheet (the logic row sits 10 above its enemy row), so treat them as likely.
 
 ## 2. Leash: unchanged
@@ -46,7 +46,7 @@ GeneratorParam `LeashDistance` is 50 m on almost every Earthen Peak spawn in bot
 
 ## 3. What Scholar did change
 
-- **Placement**: 62 -> 66 enemies, a different mix (Manikins 15 -> 21, now 9 Claws + 6 Knife + 3 Sabre + 2 Bow + 1
+- **[Placement](../builds/enemy-counts-v110-vs-pc.md#by-location-regular-enemies-generators)**: 62 -> 66 enemies, a different mix (Manikins 15 -> 21, now 9 Claws + 6 Knife + 3 Sabre + 2 Bow + 1
   124070; Steelworkers 9 -> 4; Beetles 17 -> 12; new Undead Supplicants x3; Desert Sorceresses moved, one now stands
   with the bow Manikins).
 - **Linked aggro groups** (GeneratorParam `AggroGroup`; SmithBox: entities in one group "become aggressive at the same
@@ -57,7 +57,7 @@ GeneratorParam `LeashDistance` is 50 m on almost every Earthen Peak spawn in bot
   scripts query regions (f7310 / f7020 / f7091 / f7092; meaning inferred, not confirmed), e.g. Manikin logic ai124010:
   think mode 100 + `f7310(0, 0)` -> straight to battle mode 15. Scholar put Knife Manikin 4100 in mode 100 with new
   region 50032000.
-- **New AI modes** (GeneratorParam `AIThinkID` = mode group in the behaviour script): Scholar added Manikin 106 / 107 /
+- **New AI modes** (GeneratorParam `AIThinkID` = [mode group in the behaviour script](yearn-decoy-pc.md#2b-which-states-search-and-when-static-14-nov-late-tracker-decoy-2u16)): Scholar added Manikin 106 / 107 /
   110 / 111, Desert Sorceress 100, Grave Warden 410, Supplicant 110, and uses them here (Claw Manikins 111 x4 /
   106 x2, Sorceresses 100 x2, Grave Warden 410). These groups start when logic mode 15 (battle) is set or hold a pose
   (action 0) until noticed: they change how an enemy behaves once hostile, not its sight range.
@@ -137,4 +137,4 @@ Groups stay small and tight in both (median spread mostly 5-15 m).
 
 Unchanged: Majula (m10_29), Doors of Pharros, Undead Crypt (one regrouping), Dark Chasm, DLC. Huntsman's Copse,
 Things Betwixt, Majula (m10_04), Grave of Saints: small changes. `AggroGroup` meaning (enemies in one group turn
-hostile together) is the SmithBox community description, not checked in code.
+hostile together) is the SmithBox community description, not checked in code (seen live later: see [GeneratorParam fields](../modding-world/generatorparam-fields.md#aggrogroup)).

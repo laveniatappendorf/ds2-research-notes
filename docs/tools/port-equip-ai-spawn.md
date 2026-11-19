@@ -14,14 +14,14 @@ piece of evidence or inferred from structure), **N** = not found.
 
 | item | NT | retail | st | evidence |
 |---|---|---|---|---|
-| static App pointer | 0x01b09e50 | **0x01d98310** | C | AI think NT 0x74cc08 / retail 0x95c228 load the global, `lwz +0x14` and pass it to the AI-off reader; 2053 code sites load 0x1d98310 (NT global: 1575). `cheat-table-port.md`'s "probably 0x1edfbe0" has only 150 sites: **use 0x1d98310** |
+| static App pointer | 0x01b09e50 | **0x01d98310** | C | AI think NT 0x74cc08 / retail 0x95c228 load the global, `lwz +0x14` and pass it to the AI-off reader; 2053 code sites load 0x1d98310 (NT global: 1575). [Cheat table port](cheat-table-port.md)'s "probably 0x1edfbe0" has only 150 sites: **use 0x1d98310** |
 | App+0x14 | AiManager | **AiManager (same offset)** | C | as above |
 | App+0x54 | -> Q = [App+0x54]+8 holder | **same** | C | NT 0x2bd240 = retail 0x2e8290 (identical hops `lwz 0x54`, `lwz 8`, accessor `lwz r3,4(r3)` NT 0x36d370 = retail 0x2d9710) |
-| App+0x0c, +0x20 | CharacterManager, generator system | same | C / P | +0x0c: think / CharMgr sites below; +0x20 kept per state-28 handler (`cheat-table-port.md`) |
+| App+0x0c, +0x20 | CharacterManager, generator system | same | C / P | +0x0c: think / CharMgr sites below; +0x20 kept per state-28 handler ([cheat table port](cheat-table-port.md)) |
 
 ## 1. Player data, equipment block
 
-P = [chr+0x2d4] retail (character.md). **P is a 0x28-byte handle**, not the big player-data block: NT ctor 0x5d9a68 =
+P = [chr+0x2d4] retail ([port: player character](port-character.md)). **P is a 0x28-byte handle**, not the big player-data block: NT ctor 0x5d9a68 =
 retail **0x7cea50** (byte-identical layout: vtable, +4, +8, +0x0c..+0x20 pointers, +0x24 flags).
 
 | item | NT | retail | st | evidence |
@@ -130,7 +130,7 @@ Retail freeze recipe (untested): for each enemy chr in [CharMgr+0xc..+0x10), AI 
 
 ## 5. Not done / open
 
-**Closed later the same day in `equipment-inventory.md`:** the first two points (node layout, mirror, free list, list
+**Closed later the same day in [port: equipment and inventory](port-equipment-inventory.md):** the first two points (node layout, mirror, free list, list
 codes = the demo's, record +0 = 0 / +4 = param id / +8 category byte, the 14 slots are attunement slots), the generator
 chain (no code twin: retail scans for the object vtable) and the load-wait release. Corrections to the tables above:
 the record's +0 is a zero word and its +8 byte the slot's category, not "0xff when empty"; the "0xd2.. / 0xfa" codes are
@@ -142,4 +142,4 @@ lists are per menu category and hold every owned item, so 0x8c / 0x96 are not th
 - Which id the E record +4 holds for weapons (WeaponParam or item id; retail mostly shares them) and what record +0
   (category word) must be for a swap to apply.
 - The derived player values (equip load, active weapons, cast counter, last cast) and the AI enable byte.
-- Everything here is static: confirm live once a retail save boots.
+- Everything here is static: [confirm live](port-live-check.md) once a retail save boots.

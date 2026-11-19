@@ -6,7 +6,7 @@
 Static only (2026-10-17, game not running). Method: two-level TOC resolution of each site, callers / vtable slots,
 `xmatch.py` pairs, side-by-side disassembly of NT and retail functions, plus a linear symbolic register tracker over the
 whole text of both EBOOTs (scratch: `agentA\symscan.py`, `fnacc.py`, `rng.py`, `annot.py`, `callers.py` in the session
-scratchpad). Nothing here was read live: every retail value still wants one live read before a table entry trusts it.
+scratchpad). Nothing here was read live: every retail value still wants [one live read](port-live-check.md) before a table entry trusts it.
 
 ## 1. Table
 
@@ -27,7 +27,7 @@ scratchpad). Nothing here was read live: every retail value still wants one live
 | MO+0xc88 / +0xc8c list | works live on NT | **does not port** (see 3) | n/a |
 | Collision part vtable | 0x19b46d0 | **0x1c2b770** | confirmed |
 | part+0x18 -> loaded MSB entry | +0x18 | **+0x18** | confirmed |
-| entry+0x40 display mask (4 x u32) | read by MM::Update | **read by MM::Update** | confirmed |
+| entry+0x40 [display mask](../unused/hidden-map-parts.md) (4 x u32) | read by MM::Update | **read by MM::Update** | confirmed |
 | part+0x0c component | +0x0c | **+0x0c** | probable |
 | MapHitBackreadComponent vtable | 0x19b5fa0 | **0x1c2cee0** | probable (state byte +0x18 not re-derived) |
 | part+0x14 -> map info (+4 id, +8 index) | +0x14 | +0x14 | confirmed |
@@ -46,7 +46,7 @@ scratchpad). Nothing here was read live: every retail value still wants one live
   global 0x1d98310. The only store to each global. Retail has 2102 code sites reading 0x1d98310 (NT 1591 for 0x1b09e50).
   Matched readers: NT 0x409c04 (App -> +0x1c -> +0xcc) = retail 0x55734c (App -> +0x1c -> +0xd4); NT 0x3c1a60 = retail
   0x4da248; the part ctor NT 0x69e3d0 = retail 0x8a9010.
-  **0x1edfbe0 is not the App global**: it is the counterpart of NT 0x1c51680 (a 64-byte vector block the collision part
+  **[0x1edfbe0 is not the App global](cheat-table-port.md#2-per-entry)**: it is the counterpart of NT 0x1c51680 (a 64-byte vector block the collision part
   ctor copies into part+0x20..+0x5f: NT 0x69e3fc = retail 0x8a903c).
 - **App vtable.** App dtor NT 0x4057bc `lwz r0,-0x7f60(r30)` = 0x19ac3b8 / retail 0x54ffd4 = 0x1c1f7b8. Slot +0x10 is the
   state machine in both (NT 0x3fdf38 = retail 0x545e48, the known pair); slots +0x00..+0x0c are ctor/dtor pairs.
@@ -125,3 +125,7 @@ scratchpad). Nothing here was read live: every retail value still wants one live
 3. Map id for logging: MM+0xb4 (retail), not W+0x1c.
 4. **Player pointer: App+0x64 in retail**, not +0x60 (MM::Update; 225 reads of App+0x64 vs 4 of App+0x60). Check every
    other table entry that roots at [App+0x60].
+
+## Related pages
+
+- [Draw the whole map on PC](draw-whole-map-pc.md): the same chain carried over to PC Scholar 1.0.3.0, with each retail offset here beside its PC counterpart.

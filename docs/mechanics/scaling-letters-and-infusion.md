@@ -53,7 +53,7 @@ fills those was not traced (the record is built at runtime, not a param row). Lo
 
 Network Test: **no working infusion machinery**: no CustomAttrSpecParam / CustomAttrCostParam, and
 WeaponStatsAffectParam has 16 shared curves (ids 0-12, 1010-1050, 2010-2060; 12 x 9 floats, no per-weapon or
-per-infusion rows). Only the 27 handed-out weapons (8400-8426) have their own reinforce rows; 417 rows use the
+per-infusion rows). Only [the 27 handed-out weapons](../network-test/weapons-nt-vs-retail.md) (8400-8426) have their own reinforce rows; 417 rows use the
 placeholder curve 1010. **But infusion was already planned** (corrected 2026-10-26, same day):
 - the stones are ItemParam rows with Japanese names and short descriptions (no English): 星光石 Faintstone 61060000
   "gives equipment the 魔力 (magic) attribute", 月光石 Boltstone lightning, 火竜石 Firedrake fire, 暗月石 Darknight
@@ -69,8 +69,8 @@ placeholder curve 1010. **But infusion was already planned** (corrected 2026-10-
   bells, 10 / 20 the Dragonknight's Shield, 35 / 70 Golden Wing Shield): uniform across elements, the second always
   double the first. Possibly the element share at two strengths (two catalyst crystals?): a guess, not traced.
 - The NT ships no blacksmith menu text (no npcMenu.fmg), so the missing infusion menu proves nothing.
-- The destruction stone belongs to a whole cut element, **Break**: see `break-element.md`.
-- The two catalyst crystals: see `cut-infusion-crystals.md` (rainbow crystal = Bell Keeper invasion reward; its icon
+- The destruction stone belongs to a whole cut element, **Break**: see [Break element](../network-test/break-element.md).
+- The two catalyst crystals: see [cut infusion crystals](../network-test/cut-infusion-crystals.md) (rainbow crystal = Bell Keeper invasion reward; its icon
   survives in retail as the Magic Stone's picture).
 
 Retail has **no unused infusion types** (checked 2026-10-26 in v1.00, PS3 Scholar and PC): CustomAttrSpecParam uses
@@ -86,7 +86,7 @@ scaling by **0.75** on every weapon (v1.00 648/648; PC 742/752, the rest roundin
 x1.5, base damage x1.4 for most (v1.00 556 of 757). WeaponReinforceParam `infusion_mult_<element>` = the element's
 share: 50 % for most weapons, 55 % for some (Twin-headed Greatbow), 30 % / 20 % for a few. Same structure in v1.00 and
 PC; ~54 weapons' infused rows were rebalanced by PC, and PS3 Scholar nudged infused fire / lightning / dark scaling up
-a few per cent (balance-vanilla-vs-scholar.md).
+a few per cent ([balance: vanilla vs PS3 Scholar](../builds/balance-vanilla-vs-scholar.md)).
 
 ## Why DEX has its own scale
 
@@ -118,5 +118,9 @@ distribution rather than the value. v1.00 had two 130 % DEX weapons (Ricard's Ra
 
 - The attack-rating formula (flat bonus = coefficient x table? does the infusion split scale the physical bonus?):
   the PC code around it is behind the exe's anti-tamper stubs (jump-obfuscated second .text); PS3 v1.00 code is
-  clean but was not searched. Candidate next step: a live read of the weapon screen (AR + letters) at known stats.
+  clean but was not searched. Candidate next step: [a live read of the weapon screen](../tools/ar-live-check-plan.md) (AR + letters) at known stats.
 - What the Network Test's five graded values are, so whether NT scaling was "weak".
+
+## Related pages
+
+- [Infused or uninfused at SL120](infusion-vs-uninfused-sl120.md): runs these infusion rules over every infusable melee weapon at SL120 with the community calculator.

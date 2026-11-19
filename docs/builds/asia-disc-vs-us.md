@@ -3,7 +3,7 @@
 !!! info "Status: From the data"
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
-Broad pass, 2026-10-27, after the Japanese disc (`..\..\DS2 Japan\findings\jp-disc-vs-us.md`). Result: **the Asian
+Broad pass, 2026-10-27, after the Japanese disc ([Japanese disc vs US disc](jp-disc-vs-us.md)). Result: **the Asian
 disc is the US v1.00 game, byte for byte.** Only the disc identity and the server list's last field differ.
 
 ## 1. Files

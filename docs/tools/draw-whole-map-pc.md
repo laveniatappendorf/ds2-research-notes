@@ -3,11 +3,11 @@
 !!! warning "Status: Not yet rated"
     Not yet given a status. Treat as a research note and check anything you plan to rely on. See [status labels](../status-labels.md).
 
-The Network Test table's entry 16 ("Draw the whole map", `..\..\DS2 Network Test\tools\drawall.py`) and the retail PS3
-port (`..\..\DS2 Vanilla\findings\port\map-draw.md`, DS2V entry 13, works live) ported to PC Scholar 1.0.3.0:
+[The Network Test table's entry 16](cheat-table-port.md#3-draw-the-whole-map-on-retail) ("Draw the whole map", `..\..\DS2 Network Test\tools\drawall.py`) and the retail PS3
+port ([port: draw the whole map](port-map-draw.md), DS2V entry 13, [works live](port-live-check.md)) ported to PC Scholar 1.0.3.0:
 `tools\pcdrawall.py` and the new table `cheat-tables\DS2SPC.CT`.
 
-**Status: works live from `pcdrawall.py` (2026-10-30)**: the author saw the hidden PvP arenas with it on. The chain and the
+**Status: works live from `pcdrawall.py` (2026-10-30)**: the author saw [the hidden PvP arenas](../unused/hidden-map-parts.md) with it on. The chain and the
 applied-collision offset are confirmed in the game (section 5). The table (`DS2SPC.CT`) ticks and re-applies after a
 reload, but **the game crashed on the level transition into Majula while it was ticked** (section 6, not yet
 diagnosed). Don't walk between maps with it ticked until that's fixed.
@@ -42,7 +42,7 @@ Read off two sources:
 
 | Item | PS3 retail v1.00 | PC 1.0.3.0 | Source on PC |
 |---|---|---|---|
-| Root | App global 0x1d98310 | GameManagerImp static (RVA 0x16148f0, `pcmem.py` BaseA) | community AOB, RTTI |
+| Root | App global 0x1d98310 | [GameManagerImp static](memory-map-pc.md) (RVA 0x16148f0, `pcmem.py` BaseA) | community AOB, RTTI |
 | Map manager MM | [App+0x1c] | [GameManagerImp+0x38] | DebugManager, word-7 analogy |
 | W | [MM+4], [W+4] = MM | [MM+8], [W+8] = MM | DebugManager; back pointer live |
 | Current collision | W+0x10 | W+0x20 | DebugManager (kind 2); live |
@@ -135,7 +135,7 @@ Suspects, untested:
 3. The much larger draw set while Majula streams in.
 
 Next session:
-- Read the crash record: Windows Application log, event 1000 for DarkSoulsII.exe (exception code + fault offset). Map
+- [Read the crash record](../modding-scripts/crash-diagnosis.md): Windows Application log, event 1000 for DarkSoulsII.exe (exception code + fault offset). Map
   the offset in Ghidra and see whether it reads W+0x28 / a part's entry.
 - Repeat with `pcdrawall.py on` (one shot, no timer) and walk into Majula. A crash then points at the draw set itself
   (3), no crash points at the timer (1, 2).

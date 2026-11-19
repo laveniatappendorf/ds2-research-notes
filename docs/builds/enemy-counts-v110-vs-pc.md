@@ -55,7 +55,7 @@ Route order, tier as above. "First play" = without the NG+-only copies. "ids" = 
 | Heide's Tower of Flame / Cathedral of Blue (m10_31) | early | 13 | 17 | +4 | +31 % | 10 → 14 | 11 / +6 / −2 | Heide Knights 0 → 6, Old Knights 13 → 11 |
 | Lost Bastille / Sinners' Rise / Belfry Luna (m10_16) | early | 104 | 107 | +3 | +3 % | 93 → 98 | 89 / +18 / −15 | Rupturing Hollows 30 → 34; Stray Dogs 26 → 22, Jailers 11 → 7 |
 | No-man's Wharf (m10_18) | early | 49 | 68 | +19 | +39 % | 47 → 66 | 46 / +22 / −3 | Hollow Infantry 6 → 12, Stray Dogs 2 → 7, Sailors 26 → 31 |
-| Harvest Valley / Earthen Peak (m10_17) | early | 90 | 104 | +14 | +16 % | 81 → 98 | 70 / +34 / −20 | Undead Supplicants 0 → 8, Manikins 15 → 22; Steelworkers 11 → 6, Beetles 17 → 12 |
+| [Harvest Valley / Earthen Peak (m10_17)](../mechanics/earthen-peak-aggro-pc.md#3-what-scholar-did-change) | early | 90 | 104 | +14 | +16 % | 81 → 98 | 70 / +34 / −20 | Undead Supplicants 0 → 8, Manikins 15 → 22; Steelworkers 11 → 6, Beetles 17 → 12 |
 | Unseen Path to Heide (m10_30) | early | 11 | 14 | +3 | +27 % | 11 → 14 | 7 / +7 / −4 | Hollow Infantry 3 → 6; Old Knights 5 → 1 |
 | Iron Keep / Belfry Sol (m10_19) | mid | 48 | 54 | +6 | +12 % | 40 → 48 | 43 / +11 / −5 | Alonne Knights 16 → 26; Alonne Captains 16 → 13 |
 | Huntsman's Copse / Undead Purgatory (m10_23) | mid | 93 | 123 | +30 | +32 % | 88 → 119 | 79 / +44 / −14 | Hollow Prisoners 3 → 13, Skeletons 25 → 35, Captive Undead 10 → 17, Moths 5 → 11 |
@@ -65,7 +65,7 @@ Route order, tier as above. "First play" = without the NG+-only copies. "ids" = 
 | Brightstone Cove Tseldora (m10_14) | mid | 112 | 162 | +50 | +45 % | 107 → 157 | 25 / +137 / −87 | Parasite Spiders 56 → 97, Hollow Falconers 0 → 7; most generators redone |
 | Grave of Saints (m10_34) | mid | 42 | 40 | −2 | −5 % | 42 → 40 | 39 / +1 / −3 | Rupturing Hollows 6 → 3 |
 | Aldia's Keep (m10_15) | mid | 25 | 39 | +14 | +56 % | 25 → 39 | 24 / +15 / −1 | Mimics 1 → 6, Dragon Acolytes 5 → 7 |
-| Shrine of Amana (m20_11) | late | 94 | 118 | +24 | +26 % | 88 → 113 | 80 / +38 / −14 | Maidens 16 → 21, Clerics 12 → 16, Basilisks 0 → 4, Aberrations 48 → 52 |
+| [Shrine of Amana (m20_11)](shrine-of-amana-pc.md#1-enemies-how-many-of-each) | late | 94 | 118 | +24 | +26 % | 88 → 113 | 80 / +38 / −14 | Maidens 16 → 21, Clerics 12 → 16, Basilisks 0 → 4, Aberrations 48 → 52 |
 | Dragon Aerie / Dragon Shrine (m10_27) | late | 30 | 62 | +32 | +107 % | 30 → 62 | 21 / +41 / −9 | Rupturing Hollows 4 → 25, Black Dragon Knights 3 → 20; Drakekeepers 10 → 4 |
 | Memories of the Giants: Vammar / Orro / Jeigh (m20_10) | late | 37 | 54 | +17 | +46 % | 37 → 54 | 30 / +24 / −7 | Royal Soldiers 16 → 27, Ironclad Soldiers 0 → 7 |
 | Drangleic Castle / King's Passage / Throne of Want (m20_21) | late | 64 | 59 | −5 | −8 % | 62 → 59 | 33 / +26 / −31 | Stone Soldiers 19 → 10, Alonne Captains 9 → 1; Old Knights 0 → 3 |
@@ -81,7 +81,7 @@ Steelworkers 11 → 6.
 
 ## Not counted (shown separately in the report, section C)
 
-- Bosses and mini-bosses (boss models, Pursuers, Belfry Gargoyles, Ruin Sentinels, Dragonriders, Guardian Dragons,
+- [Bosses and mini-bosses](../mechanics/bosses-pc.md#ai-ezstate-scripts) (boss models, Pursuers, Belfry Gargoyles, Ruin Sentinels, Dragonriders, Guardian Dragons,
   Flexile Sentries, the Executioner's Chariot): **55 → 66** (+7 early, 0 mid, +4 late). Pursuers +5 (four in the Lost
   Bastille, one in Things Betwixt), Belfry Gargoyles +2 (one new in Aldia's Keep, one in Drangleic Castle, both
   respawning up to 12 times with an item drop; the five of the Belfry Luna boss fight are unchanged), Dragonriders +2.
@@ -90,7 +90,7 @@ Steelworkers 11 → 6.
   for good once the boss flag 116000091 is set. Vanilla has 8010 only. PC sends two waves, each started by its own
   trigger region (1605000, a new spot; 1605001, vanilla's 1605000 spot) and spaced 0 / 1.2 / 1.8 s. Corrected
   2026-11-01: the first version counted these as mini-bosses (56 → 71, Belfry Gargoyles +6).
-- NPCs, summons, invaders, the Forlorn, Aldia, human bodies, cats: **266 → 353** (+87): the Forlorn 17 in the base
+- NPCs, summons, invaders, the Forlorn, Aldia, human bodies, cats: **266 → 353** (+87): [the Forlorn](../mechanics/forlorn-pc.md) 17 in the base
   maps, 33 unequipped "human" bodies (EnemyParam 696000: 10 HP, no equipment, spawn state 12 / 14, probably corpses
   or scenery, 13 of them in the Undead Crypt), and a net 37 more named NPC invaders and summons.
 - DLC maps (m50_35-38).
@@ -99,8 +99,8 @@ Steelworkers 11 → 6.
 
 - **Baseline = vanilla 1.10**: the v1.00 disc + patch 1.10 (`DS2_GAME=v110`). Its 2,094 generators are identical
   (enemy, position, spawn limits, gating) to the PS3 Scholar disc's, so PS3 Scholar is the same baseline. Against
-  v1.00 only Aldia's 8 generators and 10 Drangleic Castle rows differ.
-- **PC** = Steam 1.0.3.0 (2,458 generators), read as in `placements-balance-pc.md`.
+  v1.00 only [Aldia's 8 generators](1.08-to-1.10.md#3a-the-base-game-patch-archive-patchdata-109-110-independent-of-the-read-order) and 10 Drangleic Castle rows differ.
+- **PC** = Steam 1.0.3.0 (2,458 generators), read as in [placements and balance: PS3 Scholar vs PC Scholar](placements-balance-pc.md).
 - **Counting unit**: one `GeneratorParam` row = one spawn point = one enemy. The community sheet's spawn counts equal
   these rows for 584 of 644 enemies, which shows both count the same thing; I have not confirmed in game that one row
   never spawns more than one enemy.
@@ -109,7 +109,7 @@ Steelworkers 11 → 6.
   Knights, the Shaded Woods humans, Insolent Knights, the Amana Pyromancers). Borderline: the Gutter Denizen
   (887000, counted as an NPC invader) and the 696000 bodies (excluded). The fly-by gargoyles are their own kind
   ("scripted", `SCRIPTED` in the script), so they count as neither enemies nor bosses.
-- **Gating** by `AppearanceEventID`: 0 and the small flags 10 / 30 / 50 = always; 1 = NG only (replaced by an NG+
+- **[Gating](../modding-world/ng-plus-differences.md#ng-content-is-extra-generator-rows-data)** by `AppearanceEventID`: 0 and the small flags 10 / 30 / 50 = always; 1 = NG only (replaced by an NG+
   copy at the same spot: the Torturers and Lindelt Clerics pair up this way); 2-9 = NG+ cycles (the Majula basement
   skeleton waves are 2 to 8, matching the sheet's NG+ tags); 100 and up = an event flag. "First playthrough" drops
   the 2-9 copies (90 in vanilla, 63 on PC). "Core" (+25 % overall, in the report) also drops the event-gated ones
@@ -124,7 +124,7 @@ Steelworkers 11 → 6.
 
 - Nothing was verified in game (no in-game enemy counts).
 - The meaning of `AppearanceEventID` 10 / 30 / 50 (Things Betwixt, Shaded Woods, the Gutter) and of the large event
-  ids; treated as always present (event-gated ones are shown separately).
+  ids; treated as always present (event-gated ones are shown separately) (see [GeneratorParam fields](../modding-world/generatorparam-fields.md#appearanceeventid-and-the-condition-bytes)).
 - NG+ cycles beyond the 2-9 gating, respawn limits (12 times against once) and enemy strength: counts only.
 - Whether the unnamed human ids 838000 / 838100 / 838300 (Shaded Woods) behave as ordinary enemies; counted as such.
 - Whether vanilla's single fly-by gargoyle plays at all: its generator's AppearanceEventID is 1605000, which in this map

@@ -40,7 +40,7 @@ m10_19 34, m10_23 28, m10_25 50, m10_27 28, m10_29 4, m10_30 4, m10_31 10, m10_3
 m20_10 23, m20_11 34, m20_21 26, m20_24 24. The Dragon Memories (m20_26) and the Dark Chasm (m40_03) have none.
 DLC maps (Scholar only; names from MapName.fmg): Shulva, Sanctum City m50_35 85, Brume Tower m50_36 106, Frozen
 Eleum Loyce m50_37 81, Memory of the King m50_38 none. (Eleum Loyce's map names include two empty '（No Text）'
-slots, 50370002 and 50370003, between Grand Cathedral and Frigid Outskirts: worth a look in the cut-content pass.)
+slots, 50370002 and 50370003, between Grand Cathedral and Frigid Outskirts: worth a look in [the cut-content pass](../network-test/cut-content-scholar.md#5-new-in-scholar-the-dlcs-own-leftovers).)
 
 Lots that no map object places (boss, NPC and event rewards, and variants such as 10026001 = Rusted Coin x5 beside
 the placed 10026000 Rusted Coin): vanilla 317, Scholar 434; **312 identical, 5 changed, 117 new, none removed.**
@@ -57,13 +57,13 @@ makes online play pay more:
 | "Dark spirit %s has been vanquished." | 1200, 2400 | nothing | Human Effigy (lots 10250, 10260) |
 | "Arbiter spirit %s has been vanquished." | 1100 | nothing | Human Effigy (10270) |
 | "Gray spirit %s has been vanquished." | 1300 | nothing | Titanite Chunk 90 % / Titanite Slab 5 % / Twinkling Titanite 3 % / Petrified Dragon Bone 2 % (10280) |
-| "Defeated world master %s." (invader win) | 411 | Titanite Chunk | the same 90 / 5 / 3 / 2 gamble (10180) |
+| "Defeated world master %s." (invader win) | 411 | Titanite Chunk | the same 90 / 5 / 3 / 2 gamble ([10180](../network-test/cut-infusion-crystals.md)) |
 | "Defeated world master %s." | 412 | Pharros' Lockstone | + Smooth & Silky Stone (10200) |
 | "Defeated world master %s." | 2015 | Bonfire Ascetic | + Human Effigy (10220) |
 | "Abyss spirit %s has been vanquished." | 2100, 2115 | Bonfire Ascetic | + Human Effigy (10030, 10220) |
 | "Destination reached. Returning to your world..." | 212 | Pharros' Lockstone | + Smooth & Silky Stone (10190) |
 
-Two rows also changed a flag byte only (1205 `0x04020001` -> `0x04020101`, 2510 `0x04020100` -> `0x04020200`).
+Two rows also changed [a flag byte only](balance-vanilla-vs-scholar.md#1-which-patch-level-is-on-the-disc) (1205 `0x04020001` -> `0x04020101`, 2510 `0x04020100` -> `0x04020200`).
 
 ### Enemy drops (`ItemLotParam2_Chr`: vanilla 532, Scholar 615; 529 same, 3 changed, 83 new)
 
@@ -93,7 +93,7 @@ vanilla already made to a lot that did not exist:
   soul, 60016000 / 60020000 / 60031000 the three crowns, 60030000 Aava's soul + Garrison Ward Key; 1788000-1788030
   Loyce armour and Alsanna's soul (100 % chance rows); 862000 / 862001 Twinkling Titanite x3, Petrified Dragon Bone
   x3, Titanite Slab.
-- **Second copies of base-game boss rewards**: 60040000 Soul of the Last Giant (vanilla lot 309600), 60041000 Ancient
+- **[Second copies of base-game boss rewards](1.08-to-1.10.md#3-109-110-data-built-26-nov-2014-with-scholar-two-layers)**: 60040000 Soul of the Last Giant (vanilla lot 309600), 60041000 Ancient
   Dragon Soul (60005000), 60042000 Forgotten Key (60001000), 60043000 Giant's Kinship + 60044000 Giant Lord Soul +
   60044001 Giant Lord Soul and Ring of Giants+2 (vanilla 309700 / 309701, one lot each), 60045000 Rotunda Lockstone
   (60006000), 60046000 Key to the Embedded + 60046001 Demon of Song Soul (602000). Vanilla's lots are all still there,
@@ -104,7 +104,7 @@ vanilla already made to a lot that did not exist:
 ## 4. Text
 
 ItemName: Scholar has every vanilla entry unchanged (1,163) plus 171 new ones (1,334). Vanilla's leftover names of
-cut items survive: 3510000 **Shadow Claws** is still named in Scholar, still with no WeaponParam or ItemParam row, as in
+cut items survive: 3510000 **[Shadow Claws](../network-test/weapons-nt-vs-retail.md)** is still named in Scholar, still with no WeaponParam or ItemParam row, as in
 vanilla. Scholar's params grew to 456 weapons (vanilla 403) and 1,268 items (1,076).
 
 ## 5. Open
@@ -112,4 +112,8 @@ vanilla. Scholar's params grew to 456 weapons (vanilla 403) and 1,268 items (1,0
 - What hands out the duplicate boss lots 60041000 / 60043000-60046001 (code? a fallback so key items can't be missed?).
 - The dropper of lot 6000000 (Awestone).
 - Balance changes beyond items (damage, scaling, poise in WeaponParam / PlayerDamageParam etc.): the patch work
-  the author expects in the PS3 build. Next comparison.
+  the author expects in the PS3 build. [Next comparison](balance-vanilla-vs-scholar.md).
+
+## Related pages
+
+- [Placements and balance: PS3 Scholar vs PC Scholar](placements-balance-pc.md): the same placement chain carried on to PC Scholar, where items did change (new pickups, new contents, moved items).

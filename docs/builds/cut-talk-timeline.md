@@ -3,8 +3,8 @@
 !!! info "Status: From the data"
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
-Question (the author, 2026-10-23): the m20_04 talk text (the little girl and the man who sells her, see
-`..\..\DS2 Scholar\findings\cut-content-scholar.md` and `cut-dialogue-translation.md`) is in v1.00 and gone from
+Question (the author, 2026-10-23): the m20_04 talk text ([the little girl](../network-test/child-herald-c7015.md) and the man who sells her, see
+[cut content in PS3 Scholar](../network-test/cut-content-scholar.md) and `cut-dialogue-translation.md`) is in v1.00 and gone from
 Scholar: how early was it cut?
 
 ## Answer
@@ -20,7 +20,7 @@ byte-identical in the Japanese network test (August 2013), the Western test and 
 
 Every patch's `PatchData` lists whole categories, unchanged files included, either as byte-identical copies or as
 0-byte stubs that fall back to the disc (1.01: 1,368 copies and 1,442 stubs among 3,054 files; see
-`v1.00-vs-1.01.md`). The cut talk files were full copies in 1.01 / 1.02 and are not listed at all from 1.03. So a
+[v1.00 vs patch 1.01](v1.00-vs-1.01.md)). The cut talk files were full copies in 1.01 / 1.02 and are not listed at all from 1.03. So a
 file that stops being listed while its neighbours carry on was deleted from the developers' build.
 
 | Build | Data build date (archive stamp) | Cut talk files shipped | Byte-identical to v1.00 |
@@ -40,18 +40,18 @@ file that stops being listed while its neighbours carry on was deleted from the 
 files m10_21 (old Shanalotte dialogue), m20_04 (girl + dealer), m90_00 ("cutscene test text") and Japanese m99_97,
 plus `bofireName.fmg` ("Test") and `regulation.fmg` ("The letters are worn beyond recognition."), in every
 language. Every other talk file is still shipped (275). Later patches only add files. So 1.03 was a single,
-deliberate clean-up of unused text, done alongside its other changes (it also starts shipping the player's TAE files
+deliberate clean-up of unused text, done alongside [its other changes](1.01-to-1.03.md#102-103-data-scripts-and-a-second-balance-pass-calibrations-103-104) (it also starts shipping the player's TAE files
 c000100_pl/_sfx/_snd and drops 5 params from the regulation, 252 -> 247).
 
 ## Caveats
 
 - A patch cannot delete disc files: on a PS3 with 1.03+ installed, the v1.00 disc's copies are still in GameData,
   just never referenced. The text is physically gone only from the Scholar disc, whose GameData was built from the
-  same tree as 1.10, 78 minutes later on 26 Nov 2014.
+  [same tree as 1.10](1.08-to-1.10.md#1-read-order-there-is-no-single-order), 78 minutes later on 26 Nov 2014.
 - Missing 1.04-1.07 does not matter: the removal is already in 1.03, and 1.08 / 1.09 / 1.10 confirm it stayed out.
 - PC Dark Souls II, checked 2026-10-27: no PC build has the files, from a pre-release build on 31 Mar 2014 on. That
   build's regulation is 1.04, the same as PS3 1.03's. So the cut was in the tree by 31 March and came before the PC
-  version. See `..\..\DS2 Vanilla PC\findings\cut-text-on-pc.md`.
+  version. See [cut text on PC](cut-text-on-pc.md).
 
 Scratch tools used (session scratchpad, not kept): talkscan.py (talk files per PatchData), patchdiff.py (what each
 patch stops / starts shipping), patchinfo.py (stamps, regulation versions).

@@ -10,7 +10,7 @@ Short answer:
 
 - **Scholar, or vanilla 1.08+ with the DLCs:** the Old Knight Hammer, by about 25 % per hit.
   - Both weapons need exactly the same gear (Strength Ring + Vessel Shield), so the gear doesn't separate them.
-  - The hammer was buffed to 500 base in 1.08 and takes Raw well, having no scaling to lose.
+  - The hammer was [buffed to 500 base in 1.08](../builds/balance-vanilla-vs-scholar.md#3-weapons) and takes Raw well, having no scaling to lose.
 - **PS3 v1.00 to 1.03 (no DLC):** neither weapon is usable. No gear raises Strength in those builds, and both miss
   their requirement by a long way.
 
@@ -42,12 +42,12 @@ Two-handing in DS2 halves the Strength requirement and adds nothing to scaling. 
 - Community Damage Calculator v2.44: "Two Hand Only" when STR >= ROUNDDOWN(req x 0.5); the STR bonus uses the
   unmodified STR.
 
-**This contradicts the x1.5 rule used in `mundane-sl50-v100.md` and `scratchpad dps3.py`** (requirements and scaling
+**This contradicts the x1.5 rule used in [Mundane at SL50](mundane-sl50-v100.md) and `scratchpad dps3.py`** (requirements and scaling
 both x1.5). Those two-handed figures need redoing.
 
 ## Strength gear
 
-- **PS3 v1.00:** `SpEffectArmor/Ring/Weapon.emevd` (big-endian, 32-bit; stat change = command 1000:0, byte 0 = stat,
+- **PS3 v1.00:** `SpEffectArmor/Ring/Weapon.emevd` (big-endian, 32-bit; [stat change = command 1000:0](../modding-world/difficulty-levers.md), byte 0 = stat,
   byte 8 = amount) has **no STR, DEX or ADP source at all**, only INT / FTH hoods, Velstadt's Helm (END / VIT) and the
   Rings of Knowledge / Prayer. Flynn's Ring doesn't exist yet either. Ring of Blades +20 / +35 / +50 does.
 - **PS3 1.10 and Scholar:** the DLC items add Strength. Base STR 6 at SL1 (Deprived) can reach:
@@ -99,7 +99,7 @@ Notes:
 
 ## PS3 v1.00
 
-STR 6 against 13 / 15 two-handed, so both take the weapon group of PlayerLackOfStatsParam (`armour-requirement-penalties.md`):
+STR 6 against 13 / 15 two-handed, so both take the weapon group of PlayerLackOfStatsParam ([stat requirement penalties](armour-requirement-penalties.md)):
 
 | Penalty | Range |
 |---|---|
@@ -109,7 +109,7 @@ STR 6 against 13 / 15 two-handed, so both take the weapon group of PlayerLackOfS
 | Stamina per attack | 30-50 % more |
 | Swing wobble / stagger | blended in |
 
-How the weapon shortfall is computed isn't traced.
+How the weapon shortfall is computed isn't traced (see [SL1 naked damage](sl1-naked-damage.md#under-requirement)).
 
 - **Before the penalty** (Ring of Blades+2 only): Raw Large Club 430 + 50, Raw Old Knight Hammer 460 + 50.
 - **If the penalty scales with the fraction of Strength missing:** the club loses about 57 % and the hammer about
@@ -121,7 +121,7 @@ Scripts (scratchpad): `sl1club.py` (params, every build), `sl1moves.py` (moveset
 
 ## Fourth ring: Simpleton's vs Royal Soldier's+2, and roll i-frames (added 2026-11-01)
 
-Rules, from `agility-iframes.md` (code-traced in v1.00; the Agility columns are unchanged through PC Scholar):
+Rules, from [roll i-frames and Agility](agility-iframes.md) (code-traced in v1.00; the Agility columns are unchanged through PC Scholar):
 
 - **Roll i-frames** = max(4, 3 + floor(14 x r)) at 30 fps, where r = PhysicalStats[floor((3 ADP + ATN) / 4)]
   roll column. PC Scholar's code gives the same window in seconds: 0.1 + 0.467 r.

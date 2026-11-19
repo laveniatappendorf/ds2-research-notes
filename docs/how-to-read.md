@@ -26,7 +26,8 @@
 
 ## The modding pages
 
-The three sections called *Modding* (and two pages in *Tools and patches*, the memory map and the teleport recipe) are
+The three sections called *Modding* (and two pages in *Tools and patches*, the [memory map](tools/memory-map-pc.md)
+and the [teleport recipe](tools/teleport-and-facing.md)) are
 written for people making their own mods of the **PC** game, *Scholar of the First Sin* 1.0.3.0. They come from
 building one mod, the Boss Arena, so each result says which test showed it. Unless a page says otherwise, everything on
 them is for that PC build.
@@ -40,7 +41,8 @@ them is for that PC build.
 - **Dated tags.** A tag with a date instead of a test id, such as `[live 30 Oct]`, is a result seen in the game before
   test ids were kept. "The trainer" is the author's own memory-editing tool, which keeps a log of the values it wrote.
 - **Script commands** are written `1:132125(...)` (a command that does something) and `f130421()` (a function that reads
-  state). Their names are the developers' own debug labels, mostly Japanese, given with a short English gloss.
+  state). Their names are the developers' own debug labels, mostly Japanese, given with a short English gloss. The
+  ones the mod used are listed on [Event and talk script commands](modding-scripts/script-command-reference.md).
 - **Addresses.** `+0x1234` is an offset from the start of the game's exe, or from the start of the object the page names.
   In Ghidra, add `0x140000000` to an exe offset.
 - **Mod tools.** Pages name small scripts the mod was built with (`tools/something.py`). They are not published; the

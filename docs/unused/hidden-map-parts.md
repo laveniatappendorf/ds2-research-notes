@@ -9,10 +9,10 @@ with `render3d.py` (flat-shaded top / front / oblique views). Renders: `findings
 ## How drawing works (why hidden things stay hidden)
 
 Every map piece and object in an MSB carries a set of draw groups (128-bit mask at part +0x30). Every floor collision
-carries a set of groups to display (+0x40). The game draws only the pieces whose groups overlap the display groups of
+carries a set of [groups to display](../tools/port-map-draw.md) (+0x40). The game draws only the pieces whose groups overlap the display groups of
 the floor you're standing on. That's room-by-room culling, not distance: most floors show two groups (a shared base
 group and their own area). So a piece in a group that no floor lists is never drawn, however close you get. The PvP
-arenas in m10_23 (groups 70/71/72) are the deliberate case: only each arena's own floor shows its group, and you only
+[arenas in m10_23](../tools/cheat-table-port.md#3-draw-the-whole-map-on-retail) (groups 70/71/72) are the deliberate case: only each arena's own floor shows its group, and you only
 stand on it once the game puts you in the arena. The network test's developer signs (group 96, shown by no floor) are
 the "parked" case.
 
@@ -50,7 +50,7 @@ Group 127, the last group, holds three of these: it looks like a "park it here" 
 
 | Map | Object | Group | What it is |
 |---|---|---|---|
-| m10_10 Forest of Fallen Giants | `o00_6090` | 110 | **a giant eagle**, 19 m wingspan, animated (textures `c2190`). Fits the "hawk taxi" in the Lost Bastille signs and the Pursuer's eagle that carries you to the Bastille |
+| m10_10 Forest of Fallen Giants | `o00_6090` | 110 | **[a giant eagle](../network-test/community-cut-sheet-crossref.md)**, 19 m wingspan, animated (textures `c2190`). Fits the "hawk taxi" in the Lost Bastille signs and [the Pursuer's eagle](../network-test/boss-region-names.md#the-pursuer-was-vagrant) that carries you to the Bastille |
 | m10_10 | `o10_8510` | 110 | a 50 m mass of rubble/rock, at the same spot as the hidden blockout `m0640` |
 | m10_16 Lost Bastille | `o16_8501` | 110 | a spiky beetle- or tick-like creature (animated) |
 | m10_19 Iron Keep | `o19_8500` | 110 | a flat disc 101 m across (lava or fog plane?) |
@@ -65,4 +65,9 @@ m10_23 `o23_1000`, m10_32 five `o32_7000`, m20_10 twelve (mostly `o00_2000`), Dr
 Separately from draw groups, 874 of the 2,863 map-piece models in retail's map archives aren't used by any MSB part
 (749 not even listed, 125 listed but never placed; shadow `_s` models excluded). Most per map: Lost Bastille 150,
 Huntsman's Copse 110, Dark Chasm 104, Majula 102, Undead Crypt 70, Harvest Valley 63. That's where the developer signs
-were found. Surveyed since: `unused-map-pieces.md`. Lists: `tools\devsigns\unplaced.py`.
+were found. Surveyed since: [unused map pieces](unused-map-pieces.md). Lists: `tools\devsigns\unplaced.py`.
+
+## Related pages
+
+- [Cut content in PS3 Scholar](../network-test/cut-content-scholar.md): the same hidden-parts scan run on the PS3 Scholar disc, with the same list on every base map.
+- [Cut content in PC Scholar](../network-test/cut-content-pc.md): the scan repeated on PC Scholar: the same lists, plus 12 new parts with no draw group in the Lost Bastille.

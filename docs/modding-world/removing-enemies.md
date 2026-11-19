@@ -141,7 +141,7 @@ the author reported it or after a check. The generator ids are in the table.
 | Cave of the Dead trio | 8302 | the last statue-backed bug, 28 m | row passed [live B17] |
 | Blue Smelter Demon (DLC) | 8414, 8313, 9502 | the archer is one of two raised enemies (22 m and 28 m out, 5 and 8 m up); 9502 is an NG+2-only NPC phantom 4 m away | row passed [live B17] |
 | Duke's Dear Freja | 7000-7003, 7006-7008, 7010, 7032 | area spiders (EnemyParam 203001) between the arrival and the fog; found from kill counts. With the rule's four, 13 removals in all | [live B13] |
-| Mytha | 935 | the Forlorn (`Unk84` 2), 21 m from the arrival; its spawn group 4002000 is also switched off (below) | built 5 Nov; Mytha still wins in later runs [live B52]; no check that he is gone [untested] |
+| Mytha | 935 | [the Forlorn](../mechanics/forlorn-pc.md) (`Unk84` 2), 21 m from the arrival; its spawn group 4002000 is also switched off (below) | built 5 Nov; Mytha still wins in later runs [live B52]; no check that he is gone [untested] |
 | Darklurker's own bonfire (m40_03) | 1000 | the enemy 3 m from the new bonfire (see [Adding a bonfire](adding-a-bonfire.md)); removed at load by the Darklurker's group | built 10 Nov; the bonfire passed [live B2] [live B54]; the enemy's absence was not noted [untested] |
 | Giant Lord | 3000, 3010, 3012, 3021, 3022, 3031, 3032, 3100, 3110, 3120, 3121, 3122, 3131, 3132 | the corridor, below | [live B19] |
 | NG+ phantoms | see below | exist only from NG+ | not seen [untested] |
@@ -186,7 +186,7 @@ one.
 | **Switch off the spawning script group**: delete its `EventParam_<map>` row | Rat maps' offline invaders (group 118220 in m10_33 and m10_34: Bowman Guthry and Rhoy the Explorer), Mytha's Forlorn spawn group 4002000, the Belfry's Bell Keeper invader group 111284 | built; both Rat rows still arrive, fight and win [live B15]; the invaders' absence is not separately seen [untested] |
 | `1:131742` on the spirit | none | designed for the Rat maps, never built [untested] |
 
-The deleted-row route is the same switch that removes the Giant Lord memory's time limit and fireballs, and it is
+The deleted-row route is the same switch that removes the [Giant Lord memory's time limit and fireballs](../mechanics/giant-memory-fireballs-pc.md), and it is
 proven there for the fireballs: 13 rows for the ambient fireballs (1000-1070, eight launchers every 8-10 s), the
 front-line and fight fireballs (2000, 2012, 2013) and the rolling statue head (3000, 3010), plus row 12000 (the
 five-minute limit). With the 14 rows gone the memory had no fireballs and no head. [live B53] The limit itself was

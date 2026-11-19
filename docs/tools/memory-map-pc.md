@@ -505,7 +505,8 @@ entry and the player's position without writing anything: a good first pass.
 
 - **Does the game's set-flag function do more than set the bit?** We never compared a raw write with a call [untested].
 - **What are `GameManagerImp +0x38`, the warp object at `EventManager +0x70` and the object at `GameManagerImp +0xA8`?** We
-  named only what we used.
+  named only what we used. `GameManagerImp +0x38` is the start of the map chain traced on
+  [Draw the whole map on PC Scholar](draw-whole-map-pc.md#2-the-chain).
 - **What does the `5` passed to the warp's destination function mean?** We copied it from the community table.
 - **Why do `can_give` and `give` start with `mov rcx, [rcx + 0x10]`?** The stub's `bag` is then one hop from the object that works.
 - **What are the 4 bytes between the bag's two lists, the rest of a kill-counter slot (+0x410 to +0xB10) and the bonfire mask?**

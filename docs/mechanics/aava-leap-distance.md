@@ -122,7 +122,7 @@ Choosing a leap is a dice roll; the leap itself has no randomness. Inputs to the
 - **Distance band at the roll.** The roll happens when her previous action ends. If you are 60° or more off her nose
   and 10 m or further away, she first turns to face you (state s18, until within 15°), then rolls.
 - **Angle** only matters inside 8 m (separate front / side tables), where leaps are dropped anyway (section 5).
-- **Cooldowns.** Each pick is checked with `f5091(attack)`. Taken with the Amana orb work, that is the attack's
+- **Cooldowns.** Each pick is checked with `f5091(attack)`. Taken with [the Amana orb work](../builds/shrine-of-amana-pc.md#2-the-spellcasters-amana-shrine-maidens), that is the attack's
   cooldown being over. An unavailable pick sends her back to roll again, so its share goes to the others. Not confirmed
   in code: no instruction compares against 5091, so the ezstate dispatch is indirect. Her rows
   (EnemyBehavior*Param 679000, `atk_cooldown_min/max`): leaps 14 and 15 **none**, grab 16 **15 s**, attack 21 15 s,
@@ -174,7 +174,7 @@ second. At a sprint of about 6 m/s that is ~34°/s at 10 m, ~57°/s at 6 m and ~
 likely) 90°/s in the air and 180°/s through the landing hit, after a 360°/s snap at take-off. So sprinting sideways
 only out-turns her within about 4 m, when the landing turn is already 180°/s. Running straight away is matched by the
 distance blend. With no roll, a launched leap can be outrun only when it starts near the top of its range and the long
-clip can't stretch further. Sprint speed is taken from the baby-jump work (5.9-6.15); the root-motion length of the
+clip can't stretch further. Sprint speed is taken from [the baby-jump work](baby-jumps-pc.md) (5.9-6.15); the root-motion length of the
 `_L` clips is not decoded.
 
 ## 8. Run-off distances and the race (13 Nov)
@@ -182,7 +182,7 @@ clip can't stretch further. Sprint speed is taken from the baby-jump work (5.9-6
 The author asked how far the run-off goes, and whether running the other way gets you past 25 m before she leaps (a friend
 reported outrunning the leap after the run-off).
 
-**Developer names** (PS3 Scholar `ai679000.edd`, 32-bit layout: base 0x94 as on PC; string table offset / count at
+**[Developer names](npc-invaders-pc.md#3-the-edd-files)** (PS3 Scholar `ai679000.edd`, 32-bit layout: base 0x94 as on PC; string table offset / count at
 0xC0 / 0xC4 with 8-byte entries {u32 offset, u32 UTF-16 length}; functions at 0xA0 / 0xA4, 8-byte {s32 id, u16 string,
 u16}; commands at 0x98 / 0x9C, 16-byte {s32 id, s32 -1, s32 0, u16 string, u16}):
 - 1:7005 【索敵】ナビポイント_ターゲット設定 "set a nav point as the target";
@@ -268,7 +268,7 @@ Aava's rows (`EnemyBehaviorSecondParam` 679000, groups 5-7):
 - **Turning (section 3) in real time:** the 360°/s snap is at about 0.77-0.87 s (16: 0.79-0.92 s), if those values are per real second.
 - **Not measured live.** The rule comes from the toolset's event tooltips, and the render project applies it to every boss.
   Sections 7-8 and race.py used clip times. A start-up twice as slow gives a no-roll player about 0.37 s more warning
-  before take-off than they assumed. The live test plan's Run B / C timings should use these real times.
+  before take-off than they assumed. The [live test plan](../tools/aava-leap-live-test-plan.md)'s Run B / C timings should use these real times.
 
 ## 10. Rolling the leap with under 92 AGL (13 Nov, model)
 
@@ -287,7 +287,7 @@ capsules move with her body while your roll moves you.
 | 15 | 570, 580+585, 590+595 | 510+511 (1.267-1.500 s) | 1.100-1.500 s, 24 frames |
 | 16 grab | 970, 975, 980+985, 990 | 910+920 (1.208-1.492 s) | 0.917-1.492 s, 34 frames |
 
-Your roll i-frames (counter frames): `floor(60 x max(0.133, 0.1 + 0.467 r)) - 2`, live ±1. That gives:
+Your [roll i-frames](agility-iframes.md) (counter frames): `floor(60 x max(0.133, 0.1 + 0.467 r)) - 2`, live ±1. That gives:
 - 85 AGL: 11-14 (0.18-0.23 s);
 - 88: 16;
 - 90-91: 17;
@@ -317,7 +317,7 @@ long one). The torso comes down to 1.6-1.9 m, so its capsule's underside is at a
 - **Her capsules.** Placed on the glTF exports of the six leap clips (short and `_L` for each leap), with the section 9
   game speed applied.
 - **Your body.** A real logged roll (6 Nov run 6, roll 1752: 1.71 m at 15 frames), fitted per frame as one upright capsule.
-- **Hit rules** (6 Nov live log):
+- **Hit rules** ([6 Nov live log](phantom-hitboxes-pc.md#live-test-2026-11-06-pc-scholar-1030-main-steam-install-steam-offline)):
   - contact is tested on the previous frame's poses;
   - a hitbox's first frame never hurts;
   - the current frame's i-frame counter decides;
@@ -354,7 +354,7 @@ long one). The torso comes down to 1.6-1.9 m, so its capsule's underside is at a
 - The 2200 rows and the capsule axis are inferred.
 - The game-speed rule is not measured live.
 
-The planned logger (`aava-leap-live-test-plan.md`) records her colliders; a roll run would check this.
+The planned logger ([Aava leap live test plan](../tools/aava-leap-live-test-plan.md)) records her colliders; a roll run would check this.
 
 ## Why it sometimes falls short
 

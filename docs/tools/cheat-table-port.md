@@ -32,15 +32,15 @@ save, the App object and chr offsets confirmed live).
 | 2 | Enemy AI off | yes (AI update matched: NT 0x74a8c0 -> retail 0x95cc20, same frame-skip test) | frame-skip byte **AI+0x2a8 -> AI+0x19c**; the output block (NT AI+0x2b0..+0x32f), chr -> AI chain and vtables still to read. |
 | 3 | Ghost (no-clip) | likely (Havok library code identical, see 4) | chr -> Havok entity (NT chr+0x5f24), pad buffer (NT 0x100aae5c), OOB-check internals used by the landing ([chr+0x588], skip counter [chr+0x84]+0x3b4, on-ground byte) all to re-find. |
 | 4 | No gravity | likely | Havok code matches byte for byte apart from TOC offsets (e.g. NT 0x111f544 -> 0x13368d4, 0x1156d84 -> 0x136e05c), so world gravity (+0x14) and the body transform should be the same; only the chain from the chr differs. |
-| 5 | Out-of-bounds kill off | yes | ChrMoveParam row 100 has the **same 772-byte layout; kill time +0x150 = 7.0 s in retail** (demo 60.0; the JP test's 01.02 already had 7 s). More important on retail: Ghost needs it within 7 s. |
+| 5 | Out-of-bounds kill off | yes | ChrMoveParam row 100 has the **same 772-byte layout; kill time +0x150 = 7.0 s in retail** (demo 60.0; [the JP test's 01.02 already had 7 s](../network-test/jp-network-test-vs-us.md)). More important on retail: Ghost needs it within 7 s. |
 | 6-7 | Save position / Teleport | likely | same dependencies as Ghost. |
 | 8 | Player cannot die | likely | HP is at chr+0xFC on PC vanilla (demo +0xF0), so min HP is probably +0x100; confirm on PS3. |
 | 9 | Infinite stamina | likely | PC vanilla stamina near chr+0x140 / +0x14C (demo +0x17C); confirm. |
-| 10-11 | Apply / make permanent (weapons, armour, spells, rings, ammo, items) | probably, rebuilt | equipment block differs (retail **four ring slots**, so later slots shift), inventory layout and saved index table to re-find. Dropdowns rebuilt from retail params: weapons 300/306 and armour 408/412 keep their ids, rings 43/51, **spells all renumbered**; the demo-only cut items have no retail rows. The grey placeholder weapons are still in retail (whip 6470000 untested there). |
-| 12 | Player i-frames always on | yes, already decoded | **S = [chr+0x94], counter S+0x5a0** (demo [chr+0x84]+0x3dc), second counter S+0x5b4, ratio S+0xa4 (`agility-iframes.md`). Super / ultra armour counters not mapped yet. |
+| 10-11 | Apply / make permanent (weapons, armour, spells, rings, ammo, items) | probably, rebuilt | equipment block differs (retail **four ring slots**, so later slots shift), inventory layout and saved index table to re-find. Dropdowns rebuilt from retail params: [weapons 300/306](../network-test/weapons-nt-vs-retail.md) and [armour 408/412 keep their ids, rings 43/51](../network-test/armour-rings-spells-nt-vs-retail.md), **spells all renumbered**; the demo-only cut items have no retail rows. The grey placeholder weapons are still in retail (whip 6470000 untested there). |
+| 12 | Player i-frames always on | yes, already decoded | **S = [chr+0x94], counter S+0x5a0** (demo [chr+0x84]+0x3dc), second counter S+0x5b4, ratio S+0xa4 ([roll i-frames and Agility](../mechanics/agility-iframes.md)). Super / ultra armour counters not mapped yet. |
 | 13 | Enemy swap | probably | App+0x20 member keeps its offset (state-28 handler); generator chain, object vtable / +0x40, and the load-hang release ([[App+0x0c]+0x3b0]+8) unverified. Retail has 24 maps, so the picks become per map. |
-| 14 | Free camera | **yes, same design** | retail 0x551150 is the demo's 0x4071b0: camera manager **[App+0x10], index +0x24, six 0x80-byte slots from +0x30** (unchanged). Render camera **App+0x1d28 -> App+0x878**, feed switch byte **App+0x1d2c -> App+0x87c**. FOV = slot +0x50 (slot copied whole). Body pinning needs the chr offsets. |
-| 15 | World speed | **yes, identical** | frame function NT 0x927010 = retail **0xb26d38** (byte-identical apart from TOC offsets): switch byte +0xe4, mode +0xe0, mode-2 constant **0x1cac3b0** (1/60 at 0x1cac3a8, 0.05 at 0x1cac3a0). main() (NT 0x8f95d8 = retail 0xaeeb48) is identical, so the game object is again main's stack frame (demo 0xd0040aa0 via pointer 0x01b0b1d8); the retail pointer is not located yet (read it live). |
+| 14 | Free camera | **yes, same design** | retail 0x551150 is the demo's 0x4071b0: camera manager **[App+0x10], index +0x24, six 0x80-byte slots from +0x30** (unchanged). [Render camera](ultrawide.md#where-the-169-comes-from) **App+0x1d28 -> App+0x878**, feed switch byte **App+0x1d2c -> App+0x87c**. FOV = slot +0x50 (slot copied whole). Body pinning needs the chr offsets. |
+| 15 | World speed | **yes, identical** | frame function NT 0x927010 = retail **0xb26d38** (byte-identical apart from TOC offsets): switch byte +0xe4, mode +0xe0, mode-2 constant **0x1cac3b0** (1/60 at 0x1cac3a8, 0.05 at 0x1cac3a0). main() (NT 0x8f95d8 = retail 0xaeeb48) is identical, so the game object is again main's stack frame (demo 0xd0040aa0 via pointer 0x01b0b1d8); the retail pointer is not located yet ([read it live](port-live-check.md)). |
 | 16 | Draw the whole map | **yes**, section 3 | |
 
 Value groups: "Player", "Attunement", "Spell school", "Inventory" and "Checks" are fixed demo heap addresses: rebuild.
@@ -53,7 +53,7 @@ shorter: App state +0x23ec -> **+0xe5c** (state machine NT 0x3fdf38 = retail 0x5
 (App init NT 0x4059f0 = retail 0x54d7c0), +0x21d0 -> +0xd20.
 
 PPU patches (not the table): "Disarmable Trapped Chests" and "Force Enable ThreadDebugger" patch demo code by address
-and hash; neither applies. Retail dropped the fuse rows from EventCommonParamFloat; whether the disarm roll survives is
+and hash; neither applies. [Retail dropped the fuse rows from EventCommonParamFloat](../mechanics/agility-timeline.md#4-the-change-came-in-steps-and-the-trap-system-kept-growing-first); whether the disarm roll survives is
 the open stage-1 trap topic.
 
 ## 3. Draw the whole map on retail
@@ -75,7 +75,7 @@ match, its two callees do: 0x3c1828 -> 0x4da004, 0x3c144c -> 0x4d9c08).
    collision's +0x40 when ticking (or read the current map's MSB) and restore that; re-apply after loads per map.
 3. Frame rate: 60 FPS was measured on the demo's one map; retail maps are bigger, so test on a large one.
 
-**What it would show in m10_23.** The demo's three hidden arenas are still there in retail, unchanged: collisions
+**What it would show in m10_23.** The demo's [three hidden arenas](../unused/hidden-map-parts.md) are still there in retail, unchanged: collisions
 h06_7000 / 7100 / 7200 (display groups 70 / 71 / 72, same masks) and the same map pieces (6 / 161 / 161), with more
 objects. Retail adds three regions that name them: 決闘_死合_吊り橋 / 立体部屋 / 中央足場 _BGM再生範囲 ("duel / death
 match: suspension bridge / multi-level room / central platform, BGM range"). With retail's map offset (+336, -11, -363
@@ -90,7 +90,7 @@ The author (2026-10-17) went and looked: groups 70-72 are the retail PvP arenas.
 
 ## 4. Rebuild started (2026-10-17, same day)
 
-Three static investigations (`port\map-draw.md`, `port\character.md`, `port\equip-ai-spawn.md`) gave the retail values;
+Three static investigations ([port: draw the whole map](port-map-draw.md), [port: player character](port-character.md), [port: equipment, AI freeze and enemy swap](port-equip-ai-spawn.md)) gave the retail values;
 each value has a twin code site in the demo unless marked probable there. Highlights:
 
 - **Root:** App global 0x1d98310 (`new App` of 0xf10 bytes at 0x878a4c, the only store), App vtable 0x1c1f7b8, state
@@ -124,7 +124,7 @@ and `..\tools\ct_mocktest.py` runs it against a fake memory image built from the
 finder, chains, draw-all over two map instances with a reload, world speed, the body entries, free camera, a full
 Teleport and Ghost flight and landing, AI freeze). None of it has touched the retail game.
 
-**Equipment, inventory and enemy swap ported (2026-10-17, later; `port\equipment-inventory.md`).** The open static
+**Equipment, inventory and enemy swap ported (2026-10-17, later; [port: equipment and inventory](port-equipment-inventory.md)).** The open static
 questions closed: inventory nodes are 0x20 bytes (id +0xc, ItemParam word 0 +0x10, index +0x14, flags +0x16, the
 demo's tail at +0x18), mirror entries are 16 bytes at X+0x18, the store keeps a free-list head at S+0x1e014 and item
 counters, and its list objects sit in seven arrays with the **demo's list codes** (MenuCategoryIconParam). Equipment
@@ -138,10 +138,14 @@ apply / make permanent / the refusal / enemy swap on one fake demo image with id
 old table in `Ghidra Project\export\win\port\DS2NT_before_equip_port.CT`). DS2V.CT gains entries 14-16 with retail item
 lists and one enemy list per map (`..\tools\ct_items_vanilla.py`) and eight inventory rows in "Checks";
 `ct_mocktest.py` (harness now the shared `ctmock.py`) covers them: 60 / 60. Then read live (read only) on the author's
-Warrior (`port\equipment-inventory.md` section 5): E, the records, the store, all 25 lists, the equipped nodes and
+Warrior ([port: equipment and inventory](port-equipment-inventory.md#5-read-live-2026-10-17-read-only-warrior-sl-12-things-betwixt-bonfire) section 5): E, the records, the store, all 25 lists, the equipped nodes and
 mirror entries, the pointer / saved tables and 46 generator objects matched, and the table's own Lua lookups (equipment,
 inventory with its consistency check, the generator scan, the map vote) ran against the live process without a write.
 One correction: a list holds every owned item of its menu category (weapons by WeaponTypeParam +0x130), so on retail
 the Lua never moves nodes between lists (`LIST_BY_ITEM`); the demo's 0x8c / 0x96 "hands' lists" were its character's
-two weapon categories. Untested: the writing paths (README steps 7-9). Also from the first live read: min HP's normal
+two weapon categories. Untested: the writing paths (README steps 7-9). Also from [the first live read](port-live-check.md): min HP's normal
 value is -99999 (profile `MINHP_NORMAL`, restored by "Player cannot die"), chr+0x108 is not the HP cap.
+
+## Related pages
+
+- [Draw the whole map on PC](draw-whole-map-pc.md): the "Draw the whole map" entry carried one build further, to PC Scholar 1.0.3.0, with the retail chain of section 3 beside its PC counterpart.

@@ -8,7 +8,7 @@ Betwixt bonfire. Read with `..\..\tools\vmem.py checks` (host-side ReadProcessMe
 first: retail saves to **`dev_hdd0\home\00000001\savedata\NPUB31358-GAME_000`** (not the disc id); copy in
 `..\..\saves\20261017_first_boot_things_betwixt` (46 files).
 
-At the title screen (App state 10) the static root already read as predicted: guest base 0x300000000, App = [0x1d98310]
+At the title screen (App state 10) the static root already read [as predicted](cheat-table-port.md#4-rebuild-started-2026-10-17-same-day): guest base 0x300000000, App = [0x1d98310]
 = 0x30a00170 (vtable 0x1c1f7b8), camera manager 0x1c2f860, CharacterManager 0x1c29f08, game object [0x1d99650] =
 0xd0040aa0 (the demo's address too), switch 0 / mode 1 / step 1/30.
 
@@ -27,17 +27,17 @@ In game (App state 30):
 | S = [chr+0x94] | | 0x32729990, counters 0 at rest | consistent |
 | pparam = [chr+0x378] | VGR END VIT ATN STR DEX INT FTH ADP | 7 6 6 5 15 11 5 5 5 (+0x16 = 1, +0x18 = 6), copy identical | = the Warrior class; INT / FTH / ADP all 5, so their order is still open |
 | SL +0xcc / souls +0xe8 | | 12 / 0 | SL OK |
-| Havok wrapper / entity / world | chain + vtables | all three vtables OK, gravity -9.80665, filter 0x10001 (layer 1) | OK |
+| Havok wrapper / entity / world | [chain + vtables](port-character.md#1-table) | all three vtables OK, gravity -9.80665, filter 0x10001 (layer 1) | OK |
 | on-ground byte [[chr+0xb8]+8]+0xb4 | 1 standing | 1 | OK |
 | OOB check [[chr+0xa8]+0x8c] | +0 = chr | OK, flag 0, timer 0 | OK |
 | ChrMoveParam kill time | 7.0 | 7.00 | OK |
 | player data [chr+0x2d4] | vtable 0x1c29a70 | OK | OK |
 | map W = [[App+0x1c]+4] | W+4 = MM | OK; current = applied part | OK |
-| map instances | s16 W+0xc8 | **34** (every world map); only instance 0 (id 0x0a020000 = m10_02, Things Betwixt) has its collision list loaded: 31 parts, part vtable OK, first h01_0200_0000 | OK: draw-all walks all 34, the empty ones add nothing |
-| enemies | AI = [[[chr+0xac]+0xc]+0x10], vtable 0x1c2dc60 | 5 characters, 4 enemies with that AI | OK |
+| [map instances](port-map-draw.md#1-table) | s16 W+0xc8 | **34** (every world map); only instance 0 (id 0x0a020000 = m10_02, Things Betwixt) has its collision list loaded: 31 parts, part vtable OK, first h01_0200_0000 | OK: draw-all walks all 34, the empty ones add nothing |
+| [enemies](port-equip-ai-spawn.md#3-ai-freeze) | AI = [[[chr+0xac]+0xc]+0x10], vtable 0x1c2dc60 | 5 characters, 4 enemies with that AI | OK |
 
 Not checked yet: anything that writes (every script entry), the INT / FTH / ADP order, +0x108, the floor-loader state,
-the pad buffer, the equipment and inventory layout.
+the pad buffer, [the equipment and inventory layout](port-equipment-inventory.md).
 
 ## Script entries ticked in Cheat Engine (the author; watched read-only with `..\..\tools\vwatch.py`)
 
@@ -57,7 +57,7 @@ the pad buffer, the equipment and inventory layout.
   only in the frame-step function (0xb26e18 / e20 / e28), like the demo.
 - **Draw the whole map (entry 13): works.** 10:52:58 tick: 31 of 31 loaded collisions drawing every group; walking
   on, a second map instance loaded 44 more at 10:53:15 and the re-apply timer covered them within one read (75 of 75).
-- **Free camera (entry 11): works, controls fixed.** Camera slot 2 -> 3 on every tick, back to 2 on untick; the render
+- **Free camera (entry 11): works, controls fixed.** [Camera slot](ultrawide.md#where-the-169-comes-from) 2 -> 3 on every tick, back to 2 on untick; the render
   camera ([App+0x878]+0xa0, vtable 0x1c36c20, feed byte App+0x87c = 1) followed slot 3 exactly: Space / C moved it up and
   down, the arrows turned it. Forward / sideways never moved because retail had no pad address (keyboard I J K L only)
   and the left stick still drove the pinned character. **Pad 0's CellPadData found at guest 0x10721bbc** (the demo's
@@ -66,7 +66,7 @@ the pad buffer, the equipment and inventory layout.
   has PAD = 0x10721bbc with PAD_SIG: ct_move.lua's ds2ntPadOK() trusts it only while len = 24 and the sensors read
   0x100-0x300, else the keyboard (the demo path is unchanged: no PAD_SIG). Tools: `..\..\tools\vcamprobe.py`,
   `vpadfind.py` (scan / narrow).
-- **Unlock all bonfires (new, 2026-10-17).** The bonfire array is where the PC Scholar tables' path halves to:
+- **Unlock all bonfires (new, 2026-10-17).** [The bonfire array](../modding-world/bonfire-lit-state.md#where-the-list-lives) is where the PC Scholar tables' path halves to:
   manager [[App+0x38]+0x2c], entries [mgr+0x10], count [mgr+0x14] = 58 (MapObjectBonfireParam has 64 rows; names in
   BonfireName.fmg). Entry = 0x10 bytes {u16 bonfire id, u8 flags (0x80 = lit: the PC tables' bit 0, PPC bit fields
   run from the top bit), u8, u32 param row, 8 bytes}. The character had Fire Keepers' Dwelling (2650) and The Far Fire

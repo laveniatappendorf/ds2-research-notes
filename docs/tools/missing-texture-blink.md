@@ -3,7 +3,7 @@
 !!! warning "Status: Not yet rated"
     Not yet given a status. Treat as a research note and check anything you plan to rely on. See [status labels](../status-labels.md).
 
-Retail v1.00 draws any texture it can't find (a map piece's diffuse or lightmap, see `unused-map-pieces.md`) as flat
+Retail v1.00 draws any texture it can't find (a map piece's diffuse or lightmap, see [unused map pieces](../unused/unused-map-pieces.md)) as flat
 white for 0.5 s, then black for 0.5 s. That's the engine's own placeholder, a two-frame flip-book, and one instruction
 makes both frames white.
 
@@ -31,7 +31,7 @@ one appears later, merge the entry into it), then tick "Missing textures stay wh
 Patches and boot. RPCS3 rewrites `patch.yml` when it updates, so the entry must not go there.
 
 **In a running game:** `DS2 Vanilla\tools\vwhite.py on` writes the white handle over frame B (`off` restores black,
-`status` shows the chain). Chain: owner = `[0x1d99650]` (the address in `[[TOC-0x72b4]-0x7fec]`), manager =
+`status` shows the chain). Chain: [owner](port-map-draw.md) = `[0x1d99650]` (the address in `[[TOC-0x72b4]-0x7fec]`), manager =
 `[owner+0x24]`, flip-book = `[manager+0x264]`. It checks frame A is white, frame B is white or black and the timer is
 between 0 and 1 before writing. Lasts until the game restarts.
 

@@ -58,7 +58,7 @@ Darklurker Soul ("Soul of what lurks in the Dark Chasm"). Neither text mentions 
 
 No c506x models, sound bank or params, and no 闇潜み anywhere. But it already has Agdayne, as a boss:
 - `npcMenu.fmg` 5060 = 墓守 "Grave Warden" (no name yet);
-- `ItemName.fmg` 60742000 = **アガドゥランのソウル "Agdayne's Soul"**, in a run of 26 boss souls, 60730000-60755000
+- `ItemName.fmg` 60742000 = **アガドゥランのソウル "Agdayne's Soul"**, in [a run of 26 boss souls, 60730000-60755000](nt-bosses-not-in-retail.md#2-the-27-nt-boss-souls-itemname-60730000-60755000-and-50140000)
   (Japanese only, placeholder descriptions 仮テキスト / "No Text Settings"; the first ten were added 2026-10-22):
 
   | Id | Name | Literal | Retail |
@@ -66,7 +66,7 @@ No c506x models, sound bank or params, and no 闇潜み anywhere. But it already
   | 60730000 | 紅炎トカゲのソウル | crimson-flame lizard | |
   | 60731000 | 大蛙のデーモンのソウル | giant frog demon | |
   | 60732000 | 蜘蛛の女王のソウル | spider queen | the Duke's Dear Freja: retail's AI ai603020 for her model c6030 is labelled 蜘蛛の女王 |
-  | 60733000 | 宿り大蟹のソウル | dwelling (hermit) giant crab | probably the crab tower in the early Bastille `m0000` (unused-map-pieces.md) |
+  | 60733000 | 宿り大蟹のソウル | dwelling (hermit) giant crab | probably the crab tower in the early Bastille `m0000` ([unused map pieces](../unused/unused-map-pieces.md)) |
   | 60734000 | 幼生ナーガのソウル | larval naga | |
   | 60735000 | 地竜の化身のソウル | incarnation of the earth dragon | |
   | 60736000 | ヘル・スコーピオンのソウル | Hell Scorpion | |
@@ -103,7 +103,7 @@ centre, inside a ring of the seven empty c5062 "enemies" about 8 m out. アガ�
 ト for ド, and スタンド reads as "Stand", a spirit that a person manifests (the JoJo's Bizarre Adventure sense is
 the obvious reading, but that's an interpretation). So the designers named the Darklurker's fight after Agdayne:
 **the Darklurker was Agdayne's Stand.** This is the most direct link in the data, and it goes with the shared c506x
-model family above and the network test's "Agdayne's Soul". See `boss-region-names.md` for the other bosses'
+model family above and the network test's "Agdayne's Soul". See [boss working names](boss-region-names.md) for the other bosses'
 working names.
 
 ## The scripts call the Darklurker "Agdayne" (spelling search, 2026-10-21)
@@ -146,7 +146,7 @@ What this shows:
 - "Agaturan" is a variant (ト for ド) confined to the Dark Chasm's map and event files, which were probably one
   person's work. That person also wrote アガドゥラン in the same event script, so it reads as a slip rather than an
   older name. Every other team (AI, NPC talk, text) wrote アガドゥラン.
-- The AI programmers named the Darklurker "Agdayne's Stand", and the event and talk scripters went further and simply
+- The AI programmers named the Darklurker "Agdayne's Stand" (see also [the soul rows' working names](nt-bosses-not-in-retail.md#7-the-developers-own-names-pc-pre-release-2026-10-28)), and the event and talk scripters went further and simply
   called it Agdayne: its split copy is "Agdayne's double", and killing it is "defeating Agdayne".
 - The seven empty c5062 "enemies" round the arena are the boss's wormholes (the Darklurker's teleport points).
 - The network tests had Agdayne's own fighting AI (`ai506500` "Agdayne", `ai506510` "in-game version") next to the

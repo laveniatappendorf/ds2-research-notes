@@ -12,7 +12,7 @@ from what they saw online, and the open-server project (ds3os) copied those comm
 
 - **The counter.** The counter sits in PlayerParam (SOTFS PC +0xF4 / +0xFC, from the CE work in
   `DS2NT-automation-plan.md`). It shows on the status screen as text 909050 "Soul Memory". That text was added in
-  retail: the NT status screen has no Soul Memory line (`agility-timeline.md`).
+  retail: the NT status screen has no Soul Memory line ([Agility timeline](agility-timeline.md)).
 - **What it sends.** Every sign, invasion, arena and "good area" request carries a protobuf `MatchingParameter`.
   Field list from ds3os `Protobuf/DarkSouls2/DS2_Frpg2RequestMessage.proto` (worked out from traffic; DS2 uses
   protobuf-lite, so the game has no field names):

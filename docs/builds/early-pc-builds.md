@@ -21,7 +21,7 @@ a build). 1.02 is downloaded in full. From the 31 March build I also fetched `Ga
 
 - The exe was linked on 31 Mar 2014 11:49 UTC and has no version resource. The manifest was made at 12:42. Its regulation is
   **1.04**, the same number as PS3 1.03's (data 1 Apr 2014).
-- **None of the 51 text files PS3 1.03 cut** are in it, in any of the 10 languages. The control file is present in
+- **None of [the 51 text files PS3 1.03 cut](cut-talk-timeline.md)** are in it, in any of the 10 languages. The control file is present in
   all 10. So the cut was already in the tree the PC build came from on 31 March, a day before PS3 1.03's data date.
 - Its regulation is PS3 1.03's in PC form. 213 of the 220 params both have share identical row IDs. 175 params
   decode on both platforms (their row layout fits both), and in those, 35,218 of 36,331 shared rows (97 %) are
@@ -46,7 +46,7 @@ Every file in both builds was decrypted, unpacked and compared byte for byte (`t
 What the 63 are:
 
 - **Text, 57 files** (`text_pc0331_to_pc101.tsv`, all 10 languages, 1,287 entries), below.
-- **Two event scripts** (`esd.py diff`; the commands have no names on record):
+- **Two event scripts** (`esd.py diff`; [the commands](../modding-scripts/script-command-reference.md) have no names on record):
   - `event_m10_02` (Things Betwixt), event 5000 (objects 10021400 / 102000030): a step is wrapped in a new pair of
     commands that set `1:132242` and `1:130432` to 1, then back to 0, with an extra check on `f132202()`.
   - `event_m10_32` (Shaded Woods), event 9000 (objects 10320405 / 10320406): a new routine resets both objects
@@ -89,7 +89,7 @@ Keep placeholders (`text_ps3v103_to_pc0331.tsv`). Its credits were still the PS3
 - **Not examined:** the other changes to `win32onlymessage` (Chinese 4, French 1, German 15, Italian 3, Polish 13,
   Russian 3, Spanish 3) and `TitleMenu` (French 17, Spanish 17, Korean 2, Italian 1).
 
-So several things I'd put down as "PC vs PS3" in `cut-text-on-pc.md` actually happened between 31 March and 1.01: the
+So several things I'd put down as "PC vs PS3" in [cut text on PC](cut-text-on-pc.md) actually happened between 31 March and 1.01: the
 full stops, the credits and the two English item descriptions.
 
 ### 31 March -> 1.01: regulation (`..\..\DS2 Vanilla Patches\findings\regulation_pc0331_to_pc101.tsv`)
@@ -112,7 +112,7 @@ The regulation changed in 5 params: 12 rows changed, 197 added, 10 removed.
 
 ### EnemyCommonParam rows for 9 DLC enemies (PS3 1.03 and PC 31 March; gone from PC 1.01)
 
-PS3 1.03's regulation (1 Apr 2014) **added** EnemyCommonParam rows at the IDs that PC Scholar's EnemyParam uses for
+[PS3 1.03's regulation](1.01-to-1.03.md#102-103-data-scripts-and-a-second-balance-pass-calibrations-103-104) (1 Apr 2014) **added** EnemyCommonParam rows at the IDs that PC Scholar's EnemyParam uses for
 these DLC enemies. v1.00 doesn't have them. The 31 March PC build has them, PC 1.01 removed them, and PS3 still has
 them in 1.08.
 
@@ -141,7 +141,7 @@ The developers' labels inside them, and the enemy that uses that ID in PC Schola
 - **ai671000 / ai671010:** `下位 / 上位：こけし背負い`, a lower and upper "kokeshi carrier": the **Poison Statue
   Cluster** of Shulva (EnemyParam 671000; character c6710; Crown of the Sunken King). The petrifying statues on its
   back are the "kokeshi". PC Scholar's unplaced object `o99_0036` is c6710 with kokeshi textures
-  (`..\..\DS2 Scholar PC\findings\cut-content-pc.md`).
+  ([cut content in PC Scholar](../network-test/cut-content-pc.md)).
 
 Neither character's model is in PC 1.02 or 1.03, so on launch PC these were orphan scripts. On PS3, the AI and models
 first appear together in 1.08's DlcData.

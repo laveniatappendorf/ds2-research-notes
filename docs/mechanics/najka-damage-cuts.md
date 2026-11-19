@@ -27,7 +27,7 @@ She has a second, milder cut: **x0.5** on her whole body during her two magic-sp
 | damage | `FUN_1401373B0` (damage ctrl vtable slot 13) | if the hit character's +0x28D is set, damage x **EnemyCommonParam +0x26C** (`[chr+0x40]` is the EnemyCommonParam row itself) |
 | value | EnemyCommonParam +0x26C | **0.2 on all 225 rows** (vanilla PC 1.12). SmithBox / DSMapStudio call it `crit_damage_mult`; "bind-state damage rate" fits better |
 
-The multiplier goes into attack block +0x78. `FUN_140138D50` (slot 32) multiplies that **after** defence is subtracted,
+The multiplier goes into attack block +0x78. `FUN_140138D50` (slot 32) multiplies that **after** defence is subtracted (see [distance damage cut](distance-damage-cut-pc.md)),
 so it is a straight x0.2 on the final number.
 
 The same event is on **65 character networks** (PC Scholar scan; the c0001 dummy left out). They are always the
@@ -79,7 +79,7 @@ Neither changes during the moves above.
   - its EnemyCommonParam rows are the same.
 - Not tested live. A test: hit her during the tail stab and during a magic-spear cast with the same attack. Expect a
   fifth and a half of the usual damage.
-- Morpheme event times are read as clip fractions. The fit with the TAE (window opening 0.03 s before ultra armour)
+- Morpheme event times are read as clip fractions (see [Aava leap live test plan](../tools/aava-leap-live-test-plan.md)). The fit with the TAE (window opening 0.03 s before ultra armour)
   supports it.
 
 Tools: `tools\tae_pc32.py` (vanilla PC 32-bit TAE), `tools\hitparts.py` (hit-capsule damage parts),

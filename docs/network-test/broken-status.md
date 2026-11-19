@@ -7,7 +7,7 @@ The author asked about a darksouls2.wiki.gg note: non-player characters can get 
 they deal by 5 % and raises the damage they take by 5 % for 60 s. It stacks, each copy has its own timer, it shows
 cracks on the character's equipment, and it builds up from Destructive Greatarrows, Acid Surge and Corrosive Urns.
 Question: does the Network Test, PS3 v1.00 or the pre-release PC build say anything about it?
-Background: `break-element.md` (the cut Break element), `upgrade-paths-pc-dev-names.md` section 3.
+Background: [Break element](break-element.md) (the cut Break element), [upgrade paths and PC developer names](upgrade-paths-pc-dev-names.md#3-break-leftovers-the-names-identify) section 3.
 
 Static work only: params, SpEffect scripts and code from the NT (US and JP), PS3 v1.00 and its patches, the six vanilla
 PC builds and both Scholars. Nothing tested in game. Scripts: `..\tools\broken_status\` (`spfx.py` reads the SpEffect
@@ -18,7 +18,7 @@ disassemble the PC exes; `ppcimm.py` finds constants in a PS3 EBOOT).
 
 - **The wiki's numbers are correct**, and the effect is live in every retail build. It is SpEffect **900301**:
   outgoing damage x0.95 and incoming damage x1.05, each for 60 s, plus visual id 660. The script is the same in PS3
-  v1.00, the 31 March 2014 PC build, PC 1.12, PS3 Scholar and PC Scholar.
+  v1.00, [the 31 March 2014 PC build](../builds/early-pc-builds.md#31-march-pre-release), PC 1.12, PS3 Scholar and PC Scholar.
 - **It is not a cut feature.** It is what retail put in place of the Network Test's Break status. In the NT, Break
   was one status for everyone: when the build-up filled, the target got SpEffect 900300, which deals the
   "weapon break" damage row 9030. There is no x0.95 / x1.05 anywhere in the NT.
@@ -28,7 +28,7 @@ disassemble the PC exes; `ppcimm.py` finds constants in a PS3 EBOOT).
   The two flagged categories are most likely the player's own character types. **Not confirmed**: the
   table is indexed by a byte at character +0x54 that we haven't mapped.
 - Break is still a damage type in retail (damage type 8). Retail added Acid Surge with it, after the NT.
-  The "Break resist" defence slot also survives in the SpEffect scripts: the Ring of Resistance quietly raises it.
+  The "Break resist" defence slot also survives in the SpEffect scripts: [the Ring of Resistance](armour-rings-spells-nt-vs-retail.md#same-id-same-ring-17) quietly raises it.
 
 ## 1. The status in code
 
@@ -118,14 +118,14 @@ most likely the weapons and 16 the armour. The exact index meanings aren't code-
 |---|---|
 | NT | not present (the NT urn has no explosion row) |
 | PS3 v1.00, 1.01, 1.02; PC 31 Mar, 24 Apr, 1.02, 1.03, 2 Jun 2014 | 13 -10, 14 -10 (weapons only) |
-| PS3 1.03 onward, PS3 Scholar, PC 1.12, PC Scholar | 13 -5, 14 -5, **16 -10** (armour added) |
+| [PS3 1.03 onward](../builds/1.01-to-1.03.md#effect-scripts), PS3 Scholar, PC 1.12, PC Scholar | 13 -5, 14 -5, **16 -10** (armour added) |
 
 On an enemy, these durability changes probably do nothing. What an enemy feels is the Break build-up that ends in
 900301.
 
 ## 4. Break resistance left in the retail scripts
 
-The defence-side command `100090:4 (duration, element, amount)` keeps Break as **element 7**. The rings give the
+[The defence-side command](../unused/unused-ring-icons.md#what-the-starstones-might-have-done-the-code-2026-10-26) `100090:4 (duration, element, amount)` keeps Break as **element 7**. The rings give the
 mapping: 0 physical, 1 magic, 2 lightning, 3 fire, 4 dark, 5 poison, 6 bleed, **7 Break**, 8 curse (Cursebite), 9 petrify
 (Ash Knuckle).
 
@@ -140,7 +140,7 @@ mapping: 0 physical, 1 magic, 2 lightning, 3 fire, 4 dark, 5 poison, 6 bleed, **
 
 ## 5. Other developer names (31 March 2014 PC)
 
-- ArmorParam 991800-991803 and EquipInterfereParam 199180-199183: 【魔術兵士破壊テスト】 "sorcerer soldier break /
+- [ArmorParam 991800-991803](armour-rings-spells-nt-vs-retail.md#armour) and EquipInterfereParam 199180-199183: 【魔術兵士破壊テスト】 "sorcerer soldier break /
   destruction test", head / chest / arms / legs. The armour rows are in v1.00 and later but not in the NT. The rows
   give no sign whether this tested Break or something else (for example armour parts breaking off).
 - SpEffects are scripts, not params, so 900301 itself has no developer name.

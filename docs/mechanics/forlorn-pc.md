@@ -53,9 +53,9 @@ draw and spawn"; Forest: "..._グローバルフラグ版", global-flag version;
 **Draw** (runs at every map load):
 1. Wait until in game. Guest (1:130602) -> stop.
 2. Kill flag on (block 00, saved) -> stop for good.
-3. Draw-done flag on -> skip to the spawn step. It sits in the map's **02 flag block, which resets at every load**
-   (live-proven for block 53702 in the Boss Arena work), so in practice every load draws again.
-4. Roll 0-99 (1:1). Hit if **roll <= chance** (1:140531 comparison 5; scripts that split 0-99 into bands always end
+3. Draw-done flag on -> skip to the spawn step. It sits in the map's **[02 flag block](../modding-scripts/event-flags-and-free-ids.md#1-a-flag-id-is-a-block-and-a-bit), which resets at every load**
+   ([live-proven for block 53702 in the Boss Arena work](../modding-world/removing-enemies.md#removing-bosses-and-allies)), so in practice every load draws again.
+4. [Roll 0-99 (1:1)](../modding-scripts/randomness-in-scripts.md#2-the-forlorns-draw-the-games-own-recipe). Hit if **roll <= chance** (1:140531 comparison 5; scripts that split 0-99 into bands always end
    on "<= 99", so 5 = "<="; the arg is 14, Forest 39 -> 15 % / 40 %) **or flag 109990 is on**. The edd calls that
    flag a debug switch: "【【DEBUG】】フラグ109990 ONで確実にアタリ可" ("DEBUG flag 109990 ON makes a sure hit"). No script,
    param or the exe sets it.
@@ -77,7 +77,7 @@ when the ring is picked up. Chance arg 39. Its 4th trigger spot uses spawn point
 
 **Huntsman's Copse (fixed)**: no roll and no kill-flag check in the spawn event. Enter EventLocation 6000000 (a
 32 x 22 m box at about (-132, 34, 15)), wait 0-2 s, spawn, set 123020043. What stops it after a kill is the
-generator: `SpawnLimit` 1 and `SpawnLimitGameClear` 1 (the other Forlorn generators have 0 = default).
+generator: `SpawnLimit` 1 and `SpawnLimitGameClear` 1 (the other Forlorn generators have [0 = default](../modding-world/generatorparam-fields.md#spawnlimit-and-spawnlimitgameclear)).
 
 **Human or hollow**: neither the Forlorn events nor the other NPC invasion events (e.g. Merciless Roenna's
 "NPC黒ファントム出現：オンライン：無条件", "unconditional") check the player's form. If the game blocks NPC invasions while
@@ -89,7 +89,7 @@ hollow, that is in the engine, not the scripts. Not checked.
 
 The kill check sets the area's kill flag and steps a **global** counter (block 10): 1st kill 102750, 2nd 102752,
 3rd 102753, 4th 102751, 5th and later 102754 (greatsword Forlorn) or 102755 (scythe Forlorn). The edd names them
-head / hands / legs / body / weapon flags. They are the `enable_flag`s of **Straid of Olaphis**'s shop
+head / hands / legs / body / weapon flags. They are the `enable_flag`s of **Straid of Olaphis**'s [shop](../modding-menus/vendor-shops.md#the-two-params)
 (ShopLineupParam 768xxxxx):
 
 | Kill | Flag | Straid sells |
@@ -111,16 +111,16 @@ The 4 Aldia's Keep Forlorn don't count (no kill check). Those flags are listed i
   invaders. Events 【DC】灯火台やランタンと連動する敵_1-4 ("enemies linked to the braziers / lanterns"): lighting
   brazier 10150700-703 sets 115000070-073 (the generators' AppearanceEventID) and the Forlorn appears; killing it
   lights the matching lantern (10150710-713). Ordinary enemies, no kill counter.
-- **No-man's Wharf, generator 938** (694001, HP 1,680): set up as an invader (Unk84 = 2, activation flag 118020033),
+- **No-man's Wharf, generator 938** (694001, HP 1,680): [set up as an invader](npc-invaders-pc.md#2-how-an-npc-spirit-is-made) (Unk84 = 2, activation flag 118020033),
   but no event spawns it or uses that flag. Never appears.
 - **EnemyParam 695000** (scythe, HP 2,450): no generator.
 
 ## 6. Open
 
-- Whether resting at a bonfire (no loading screen) counts as a load for the re-roll. Deaths, warps, map crossings
+- Whether resting at a bonfire (no loading screen) counts as a load for the re-roll (a live test of what counts as a load is on [Warping by script](../modding-world/warping-by-script.md#b38-what-counts-as-a-load)). Deaths, warps, map crossings
   and quit-outs reload the map.
 - Engine-side gates on 1:131741 (hollow form, other phantoms present).
-- Whether the Ascetic also resets the Copse generator's kill count (needed for the fixed one to come back).
+- Whether the Ascetic also resets the Copse generator's [kill count](../modding-world/respawning-bosses.md#the-kill-counter) (needed for the fixed one to come back).
 - Whether a trigger box counts only within its height (section 7).
 
 ## 7. Where the trigger spots are (added 2026-11-06)
@@ -130,7 +130,7 @@ The author asked whether the spots are contiguous or whether you could weave bet
 `forlorn_spots\sheet_<map>.png` (all of a map's spots, 150 m each), table `forlorn_spots.tsv`. Visual map mesh only
 (no collision, doors, gates or invisible walls); **not checked in game**.
 
-**Frame.** EventLocation positions are in the map's own frame: MSB world minus the map origin (the position of the
+**Frame.** EventLocation positions are in [the map's own frame](../modding-world/warping-by-script.md#the-coordinate-frame): MSB world minus the map origin (the position of the
 baked map pieces: Forest (208, 10, -133), Tseldora (-631, 94, -88), Copse (-166, -11, -10) ...; 0 for the three DLC
 maps). With that shift every spot lands on a floor; without it most float in the air.
 
@@ -173,3 +173,7 @@ Per area (my reading of the pictures; "fills" = the box spans the way through):
 
 The tool's own walk-round test (connectivity of the floor round each spot) is in the tsv as `test`; it is rough
 (a 2-cell sliver next to a box counts as a "side"), so the table above is read from the pictures.
+
+## Related pages
+
+- [Event script groups](../modding-scripts/event-script-groups.md): how a Forlorn draw is switched off in a mod: deleting the EventParam row of its draw-and-spawn group (Earthen Peak's group 4002000).

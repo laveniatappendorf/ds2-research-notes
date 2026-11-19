@@ -4,7 +4,7 @@
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
 PC stage 3, 2026-10-25. The author asked after the Amana sorceress's three-shot volley turned out to be fully set up but never
-cast (`shrine-of-amana-pc.md`, section 2): do other enemies have attacks like that?
+cast ([Shrine of Amana across builds](../builds/shrine-of-amana-pc.md#2-the-spellcasters-amana-shrine-maidens), section 2): do other enemies have attacks like that?
 
 Tool: `tools\unused_attacks_pc.py`. Output:
 - `unused_attacks_pc.tsv`: every spawn kind (enemy row + its two AI scripts) and every attack it has set up, in v1.00,
@@ -36,7 +36,7 @@ Tool: `tools\unused_attacks_pc.py`. Output:
   - only one attack lost its request in a vanilla patch: the **Grave Wardens' attack 18**, in 1.10;
   - from 1.10 to PC, only the Varangian Sailor's 15 (on a mid-fight row, so the first scan missed it);
   - one attack went unused through a placement change: the **Captive Undead's shot** (attack 20, bullet 112700310). In
-    vanilla, 3 Gutter spawns running script ai337000 used it, and Scholar's Gutter rework removed those spawns.
+    vanilla, 3 Gutter spawns running script ai337000 used it, and [Scholar's Gutter rework](../builds/placements-balance-pc.md#1-enemies) removed those spawns.
 
 ## Method
 
@@ -61,10 +61,10 @@ Checks on the method:
 - **"Never requested" is game-wide**: an attack counts as used if any spawn of that behaviour row, with any scripts,
   requests it. Requests are collected from every state group of a script, even groups a given enemy doesn't run. So the
   list errs towards *used*: it may miss some unused attacks, not invent them.
-- **Network**: c<behaviour row ÷ 100>.nmb, PC only. "Routed" = some state machine has a transit on
+- **Network**: c<behaviour row ÷ 100>.nmb, PC only (rule checked in [the maidens note](maidens-stay-down-pc.md#4-other-characters-with-the-same-stray-event)). "Routed" = some state machine has a transit on
   `AttackCategory_Enemy` = that id.
 - **Network Test**: whether the NT's script of the same id (`DS2_GAME=nt`) requests the attack. The NT's own spawn
-  records were not used; many of these enemies weren't placed in the NT.
+  records were not used; [many of these enemies weren't placed in the NT](../network-test/nt-ai-labels-retail-enemies.md).
 - **Combos** (added 12 Nov): a script requests a combo as 50, 51, 52 ... The combo param (EnemyComboBehaviorParam)
   group *g* is requested as 50 + *g* − 1, and its `ai_action_id` is the attack whose animations it plays as a chain
   (`Attack_NN_1`, `_2`, `_3`).
@@ -170,7 +170,7 @@ plays their animations, so they are seen in game. The "hits" column compares the
 - **same first hit**: a requested combo starts with the attack's own damage row, so nothing is unused at all;
 - **own rows**: the combo hits with other rows, so the animation plays but the single version's own damage / bullet
   rows are never used. Several of these are stubs (the Dragonrider's 11 = 100000001, the Lost Sinner's 10 =
-  162400000), which is why some showed up as "broken on PC" in `attack-swap-candidates.md`;
+  162400000), which is why some showed up as "broken on PC" in [attack swap candidates](attack-swap-candidates.md);
 - **no rows**: the combo group names no damage row (how it then hits is not known).
 
 | enemy (behaviour row) | attack | hits | combos the AI requests (id = action) |
@@ -237,7 +237,7 @@ that is unused in one phase only would not show up.
 
 For a routed attack, the param rows, the animation (with its hit or shot events) and the network transition are all
 in place, so the only change is in the AI script. Either:
-- add a branch that calls the enemy's attack routine with the attack id; or
+- [add a branch](../modding-scripts/writing-esd-files.md) that calls the enemy's attack routine with the attack id; or
 - for a quick test, swap the id in an existing call.
 
 A data-only attack would also need a network edit.
@@ -250,7 +250,7 @@ player. The other routed attacks should behave the same way, but each needs its 
 - 30 name projectile or damage rows that no longer exist on PC; most were deleted between 1.00 and PC.
 - 7 fire projectiles with effect 0 or the placeholder 1300.
 
-Only 12 are both complete and visibly different from the enemy's normal attacks; see `attack-swap-candidates.md`.
+Only 12 are both complete and visibly different from the enemy's normal attacks; see [attack swap candidates](attack-swap-candidates.md).
 
 (12 Nov: these counts are from the 25 Oct list of 104. Several of the broken bosses' attacks have since turned out to
 be combo moves, whose single versions are stubs because only the combo version is used: the Smelter Demon's 13, the

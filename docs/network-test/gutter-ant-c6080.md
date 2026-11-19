@@ -45,10 +45,10 @@ Nothing else in retail uses its textures (byte search of all 11,457 files: only 
 sound bank).
 
 Community name: **"Corrosive Ant Queen"** (the SOTFS enemy-defences sheet and the community cut-content sheet). The game
-has no name for it, and no developer row says "queen" (`community-cut-sheet-crossref.md`). **PC Scholar adds four small
+has no name for it, and no developer row says "queen" ([community cut-content sheet](community-cut-sheet-crossref.md)). **PC Scholar adds four small
 "Corrosive Ants"** (enemy 672002) in The Gutter. Their model is c6720, which is new in Scholar (no c6720 files in the NT or v1.00),
 so nothing ties them to the young (623000). They replace Captive Undead at generators 2520-2523, about (-220, 8, -25),
-roughly 30 m from the big ant at (-226, 3, -54) and 5 m above it. PS3 v1.10 has none (`enemy-counts-v110-vs-pc.md`).
+roughly 30 m from the big ant at (-226, 3, -54) and 5 m above it. PS3 v1.10 has none ([enemy counts: 1.10 vs PC Scholar](../builds/enemy-counts-v110-vs-pc.md)).
 
 ### The rig is built for more than retail uses
 
@@ -82,7 +82,7 @@ in the data says whether the gas was meant to help the player or to protect its 
 
 ## The developers' names (PC pre-release, 31 March 2014)
 
-The early PC builds (31 Mar pre-release, 1.01, 1.02) keep the developers' Japanese row names in their params, as UTF-16.
+[The early PC builds (31 Mar pre-release, 1.01, 1.02)](../builds/early-pc-builds.md) keep the developers' Japanese row names in their params, as UTF-16.
 `paramdef.py` reads them since 2026-10-28; PS3 builds and later PC builds have none. Every row tied to the ant:
 
 | Param | Rows and names |
@@ -128,7 +128,7 @@ the body was to look like.
   `DeadDamageMotionWeightParam` differs), and `EnemyAttackParam 608000` is the generic default row.
 - So by August 2013 the ant already had a number in the 60xx block, the block for big creatures and bosses, between
   Freja (6030), the Old Iron King (6070) and the Giant Guard Captain (6090). The NT has nothing more: none of the 27 NT
-  boss souls (`nt-bosses-not-in-retail.md`) is an insect, no AI label names an ant, and no developer sign in the NT's
+  boss souls ([Network Test bosses not in retail](nt-bosses-not-in-retail.md)) is an insect, no AI label names an ant, and no developer sign in the NT's
   Gutter model (`developer-signs.md`, m10_25) mentions one.
 - **The NT also has the other two parts** (2026-10-28): `EnemyParam` 622000 (body 6220) and 623000 (body 6230), the same
   1200-HP placeholder, plus `EnemyAttackParam` 622000 (identical to 608000's). Earlier notes listed them as "unnamed
@@ -165,7 +165,7 @@ the body was to look like.
 
 Retail's Corrosive Urn (60610000) is filled with "secretions of giant corrosive ants", and their anthills "line the
 horizon of the desert land of Jugo" (Japanese 腐蝕虫と呼ばれる大型の蟻, the land ウーゴ). The NT already had the item,
-as 紅液瓶 "crimson-fluid bottle", "destroys equipment with an acid solution", with no long description. So the ant lore
+as 紅液瓶 "crimson-fluid bottle", ["destroys equipment with an acid solution"](break-element.md#network-test), with no long description. So the ant lore
 was written after the NT.
 
 The link is the name (corrected 2026-10-28; this said "nothing links" before the developer names turned up). The

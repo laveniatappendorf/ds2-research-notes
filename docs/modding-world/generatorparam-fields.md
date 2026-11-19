@@ -60,7 +60,9 @@ Row size 0xA0, little-endian. "Sure?" is the best evidence we have for the line,
 
 Never touched, so unknown: `Unk02` (+0x02), `LeashDistance` (+0x4C, a float), `AIThinkID` (+0x58),
 `ModelMask` (+0x85), `ItemLotID1` / `2` (+0x88, +0x8C), `GraveEventID` (+0x90), the `LocationEventID` slots and the
-other `Unk` fields.
+other `Unk` fields. What `LeashDistance` and `AIThinkID` hold on one map's rows, in vanilla PC and Scholar, is read on
+[Earthen Peak aggro](../mechanics/earthen-peak-aggro-pc.md) (sections 2 and 3). What `AIThinkID` selects in the AI script is traced on
+[Yearn and the Alluring Skull](../mechanics/yearn-decoy-pc.md#2b-which-states-search-and-when-static-14-nov-late-tracker-decoy-2u16).
 
 ### SpawnLimit and SpawnLimitGameClear
 
@@ -84,7 +86,8 @@ other `Unk` fields.
   Looking Glass Knight (generator 3010, group 75, 34 m out) attacked in the first run, with its three mates already
   removed. [live B14] The link was not isolated there. [inference]
 - 373 groups hold two or more generators, 1,124 of the 2,458 rows. The largest is m10_23's group 43, 21 rows: the
-  Skeleton Lords' skeletons and two of the three Lords. [data]
+  Skeleton Lords' skeletons and two of the three Lords. [data] How the linked share changed from vanilla PC 1.12
+  to Scholar, map by map, is on [Earthen Peak aggro](../mechanics/earthen-peak-aggro-pc.md#5-linked-aggro-groups-game-wide-2026-11-02)).
 - **The number means nothing across maps.** 240 is Freja's group in m10_14, the Looking Glass Knight's in m20_21 and the
   Guardian Dragon's in m10_15; close a group over one map at a time. [data]
 - A fight's adds do not always share the boss's group. Freja's generator 803 is group 240 and her 12 spiders are group
@@ -194,7 +197,7 @@ carries 8. That is an inference from the pattern, and the ally's gate stays open
 
 - **The kind of NPC spirit** that an event script makes from this generator with `1:131741` (【ジェネレータ】NPC霊体生成,
   "create an NPC spirit"): 1 white sign, 3 shade sign, 2 dark-spirit invader, 0 the Dragon Shrine's spirit. [data] This
-  comes from a separate survey of the event scripts (4 Nov); the developer names in the `.edd` agree on all 157 calls
+  comes from a [separate survey of the event scripts](../mechanics/npc-invaders-pc.md#2-how-an-npc-spirit-is-made) (4 Nov); the developer names in the `.edd` agree on all 157 calls
   to the command (119 generators).
 - In the 28 maps: 0 on 2,293 rows, 1 on 52, 2 on 52, 3 on 15, 4 on 6, 5 on 1, 6 on 39. [data]
 - **4, 5 and 6 are not in our sources.** 4 and 5 appear only in Majula (Saulden, Maughlin's four rows, Rosabeth's row);

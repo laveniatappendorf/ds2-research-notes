@@ -179,11 +179,11 @@ retail, type 145 casts sorceries only and has the straight swords' category, 50.
 | Claim (forum thread or comments) | Verdict | Evidence |
 |---|---|---|
 | Staves could cast pyromancies | Confirmed | NT pyromancies use the staff animations; all cast with a staff live (NT session 11) |
-| There was a pyromancy called 炎の波 | Confirmed | NT Flame Lash 炎の波, retail Fire Whip (`armour-rings-spells-nt-vs-retail.md`) |
+| There was a pyromancy called 炎の波 | Confirmed | NT Flame Lash 炎の波, retail Fire Whip ([armour, rings and spells: Network Test vs retail](armour-rings-spells-nt-vs-retail.md)) |
 | War (戦争) was the forerunner of Sacred Oath | Confirmed | matched by description and cast animations (same file) |
 | Sacred Oath went from 1 slot to 4 | Confirmed | NT War uses 1 attunement slot, retail Sacred Oath 4 |
 | Two-handing a catalyst made spells stronger; R1 and R2 differed; "charged" casts | **Confirmed live** | sections 1 and 4; the heavy cast's longer wind-up may be what players called charging. No separate hold-to-charge was seen |
-| Zweihander scaled STR A / DEX D | Half right | STR 1.7 = A (A is 1.6-2.0); DEX 0, rising to 0.27, below D's 0.4 (no grade). It shares the general scaling row with 111 weapons, the Great Axe and the catalysts among them |
+| Zweihander scaled STR A / DEX D | Half right | [STR 1.7 = A (A is 1.6-2.0)](../mechanics/scaling-letters-and-infusion.md#letter-cut-offs-feweaponthreshold); DEX 0, rising to 0.27, below D's 0.4 (no grade). It shares the general scaling row with 111 weapons, the Great Axe and the catalysts among them |
 | Arrows flew much faster | Confirmed (data) | NT arrows and bolts: speed 50 for 1.2 s. Retail arrows 40 for 1.5 s (same 60 m reach), bolts 30 for 1.4 s. Bow-specific modifiers not checked |
 | Lightning Spear was like a lightning Dark Hail, with huge knockback | Partly | the impact burst (section 2); knockback not read (the NT damage layout is not decoded) |
 | An invader killed someone with lightning sprayed from the hand | Not identified | the NT's provisional 放電 ("discharge") miracle has empty placeholder projectiles; the Lightning Spear burst is a candidate |
@@ -192,7 +192,7 @@ retail, type 145 casts sorceries only and has the straight swords' category, 50.
 | The weapon screen showed "weapon length" | Not supported | no such stat in the NT menus; the only distance stat is 射程距離 (shot range, for bows), which retail also has |
 | 技量転化: "a sorcery used in swordplay, turns INT into DEX" | Quoted correctly | the NT's own text for item 30108000, which has no spell row (`cut-item-descriptions.md`) |
 | 肉体強化 ("body strengthening") was also sealed | Not supported | not in any NT text |
-| Break items: dissolving stone, dragon's crimson fluid, sulphur jellyfish pills | NT text | their short descriptions match the NT's own; already in `break-element.md`. The same list mixes in retail-only leftovers (Barrel, Illusory Rings, Pungent Ooze) |
+| Break items: dissolving stone, dragon's crimson fluid, sulphur jellyfish pills | NT text | their short descriptions match the NT's own; already in [Break element](break-element.md). The same list mixes in [retail-only leftovers](cut-content-scholar.md#3-items) (Barrel, Illusory Rings, Pungent Ooze) |
 
 ## 7. How it was tested
 

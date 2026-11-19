@@ -46,7 +46,7 @@ for human NPCs, their gear. Translations of labels are mine.
 
 ## 1. Enemies
 
-Data per map: GeneratorParam (`GeneratorRegistParam` field) → GeneratorRegistParam (+0 = EnemyParam id) and
+Data per map: [GeneratorParam](../modding-world/generatorparam-fields.md#where-the-rows-live) (`GeneratorRegistParam` field) → GeneratorRegistParam (+0 = EnemyParam id) and
 GeneratorLocation (same row id; +0 = position), matched by generator id. Columns below: same / moved > 1 m / another
 enemy / added / removed.
 
@@ -57,7 +57,7 @@ enemy / added / removed.
 | m10_10 Forest of Fallen Giants | 124 | 149 | 68 / 17 / 12 / 52 / 27 | Skeletons 0 → 6, Hollow Infantry up, Old Ironclad Soldiers moved to Soldier's Rest, Royal Swordsmen 0 → 3 |
 | m10_14 Brightstone Cove Tseldora | 131 | 185 | 21 / 0 / 21 / 143 / 89 | **Parasite Spiders 44 → 85**, peasants 10 → 17, Hollow Falconers new; most of the map's generators were redone |
 | m10_15 Aldia's Keep | 37 | 60 | 35 / 1 / 0 / 24 / 1 | Mimics, Forlorn, Dragon Acolytes 5 → 7, a Belfry Gargoyle |
-| m10_16 Lost Bastille / Sinners' Rise | 130 | 149 | 90 / 21 / 4 / 34 / 15 | **The Pursuer 0 → 4** (the multi-Pursuer fights), Belfry Gargoyles 6 → 10 (the 4 extra are a scripted fly-by, see enemy-counts-v110-vs-pc.md), jailers 8 → 4 |
+| m10_16 Lost Bastille / Sinners' Rise | 130 | 149 | 90 / 21 / 4 / 34 / 15 | **The Pursuer 0 → 4** (the multi-Pursuer fights), Belfry Gargoyles 6 → 10 (the 4 extra are a scripted fly-by, see [enemy counts: 1.10 vs PC Scholar](enemy-counts-v110-vs-pc.md)), jailers 8 → 4 |
 | m10_17 Harvest Valley / Earthen Peak | 106 | 122 | 43 / 22 / 20 / 37 / 21 | Steelworkers 11 → 2 (+4 on Earthen Peak), Undead Supplicants 0 → 8, beetles 17 → 12 |
 | m10_18 No-man's Wharf | 58 | 80 | 33 / 17 / 5 / 25 / 3 | dogs 2 → 7, sailors 12 → 16, Hollow Infantry 2 → 6 |
 | m10_19 Iron Keep / Belfry Sol | 64 | 76 | 34 / 16 / 9 / 17 / 5 | **Alonne Knights (katana) 11 → 21** |
@@ -71,14 +71,14 @@ enemy / added / removed.
 | m10_33 Doors of Pharros | 36 | 37 | 34 / 1 / 0 / 2 / 1 | |
 | m10_34 Grave of Saints | 46 | 45 | 41 / 2 / 0 / 2 / 3 | |
 | m20_10 Memory of Vammar / Orro / Jeigh | 44 | 61 | 31 / 4 / 2 / 24 / 7 | Ironclad Soldiers 0 → 7, Royal Soldiers up |
-| m20_11 Shrine of Amana | 102 | 131 | 58 / 30 / 0 / 43 / 14 | Aberrations, maidens and clerics up, Basilisks and Pyromancers new |
+| m20_11 [Shrine of Amana](shrine-of-amana-pc.md#1-enemies-how-many-of-each) | 102 | 131 | 58 / 30 / 0 / 43 / 14 | Aberrations, maidens and clerics up, Basilisks and Pyromancers new |
 | m20_21 Drangleic Castle / King's Passage | 100 | 104 | 50 / 17 / 0 / 37 / 33 | Alonne Captains (bow) 9 → 1, Stone Soldiers 19 → 10, more Mimics / Old Knights |
 | m20_24 Undead Crypt | 69 | 96 | 41 / 11 / 0 / 44 / 17 | **Insolent Knights 0 → 12**, unequipped human NPCs 0 → 13 (696000) |
 | m20_26, m40_03, m50_35-38 | 588 | 594 | 588 / 0 / 0 / 6 / 0 | new NPC invaders (Forlorn, O'Harrah, Luet), Velstadt in the Memory of the King |
 
 **New on PC**:
-- **The Forlorn**: human invaders 694000-695008 in the Forlorn set, one per map;
-- more named NPC invaders and summons (Bradley of the Old Guard, Sellsword Luet, Manhunter O'Harrah, Fencer Sharron,
+- **[The Forlorn](../mechanics/forlorn-pc.md)**: human invaders 694000-695008 in the Forlorn set, one per map;
+- more [named NPC invaders and summons](../mechanics/npc-invaders-pc.md) (Bradley of the Old Guard, Sellsword Luet, Manhunter O'Harrah, Fencer Sharron,
   Felicia the Brave, Masterless Glencour, Ruined Aflis …);
 - Bashful Rays in six maps, Belfry Gargoyles outside the belfries, the Executioner's Chariot in Drangleic Castle;
 - 696000, an unequipped human with no AI script of its own number, 33 generators (13 in the Undead Crypt).
@@ -91,7 +91,7 @@ the PC reading is right; the PS3 side of this comparison uses the same code.
 
 ## 2. Items
 
-Chain as on PS3 (`..\..\DS2 Scholar\findings\item-placements-vanilla-vs-scholar.md`): MSB object part entity id
+Chain as on PS3 ([item placements: vanilla vs PS3 Scholar](item-placements-vanilla-vs-scholar.md)): MSB object part entity id
 (PS3 +0x9c, PC +0xa0) → `MapObjectInstanceParam_<map>` +0x24 → `ItemLotParam2_Other`.
 
 | | count |
@@ -118,8 +118,8 @@ Valley, the Wharf and Shaded Woods now hold other items, and new shards appear i
 Gutter, Heide and the Copse. Full list: `item_placements_pc.tsv`.
 
 **Lots no map object places**: PS3 434, PC 464. 4 changed:
-- the Second Dragon Ring lot gains a Black Scorpion Stinger;
-- lot 1721000 (Royal Dirk + Espada Ropera) gains Llewellyn's armour;
+- [the Second Dragon Ring lot](../network-test/tark-najka-duo-claim.md#retail-story-for-comparison) gains a Black Scorpion Stinger;
+- lot 1721000 (Royal Dirk + Espada Ropera) gains [Llewellyn's armour](../network-test/llewellyn-references.md#shipped-v100-to-scholar-text-unchanged);
 - Smooth & Silky Stone → Petrified Something;
 - Green Blossom x3 → Ring of Binding.
 
@@ -138,9 +138,9 @@ Gutter, Heide and the Copse. Full list: `item_placements_pc.tsv`.
 
 | | |
 |---|---|
-| shared params | 195; **59 differ**, 136 identical (PS3-only: the four old item-lot params; PC-only: 10, e.g. camera params, `PlayerWeaponReinforceParam`, `MapObjectPlayGoParam`) |
+| shared params | 195; **59 differ**, 136 identical (PS3-only: the four old item-lot params; PC-only: 10, e.g. camera params, `PlayerWeaponReinforceParam`, `MapObjectPlayGoParam` (see [the PlayGo doors](../mechanics/chunk-phase-playgo.md#2-the-doors-mapobjectplaygoparam))) |
 | rows | 1,591 changed, 1,710 new (Forlorn, new NPCs and enemy variants, damage rows of new attacks), 77 gone (63 of them `LogicComParam`) |
-| grown params (layout) | AreaParam 80 → 108 B (more mimicry-object slots), ChrMultiplayParam 24 → 36, MapObjectParam 28 → 32, NetworkParam 588 → 616 |
+| grown params (layout) | AreaParam 80 → 108 B ([more mimicry-object slots](../mechanics/chameleon-objects.md#areaparam-layout)), ChrMultiplayParam 24 → 36, MapObjectParam 28 → 32, NetworkParam 588 → 616 |
 
 Highlights (`balance_pc.py fields <Param>` gives the detail):
 - **Weapons** (WeaponParam 80 rows changed, 17 new):
@@ -156,7 +156,7 @@ Highlights (`balance_pc.py fields <Param>` gives the detail):
     Singer's Dress.
 - **Enemies** (EnemyParam 303 rows changed, 144 new):
   - `coop_time_reduction` down for 250 enemies (median x0.75: 12 → 10, 60 → 48);
-  - Mimics +30 % HP (1,160 → 1,500); Ruin Sentinel in Drangleic Castle 3,260 → 2,070; Black Dragon Knights 2,290 →
+  - Mimics +30 % HP (1,160 → 1,500); [Ruin Sentinel in Drangleic Castle](../mechanics/bosses-pc.md#short-answer) 3,260 → 2,070; Black Dragon Knights 2,290 →
     1,570; Body of Vengarl 1,340 → 2,340 and his summon 6,850 → 13,180;
   - Varangian Sailors and a Giant Undead Boar gain poise (0 → 22);
   - souls: The Pursuer 3,000 → 6,000 / 7,000, Corrosive Ant Queen 300 → 1,800, Bowman Guthry 2,806 → 7,483, Prowling
@@ -167,7 +167,7 @@ Highlights (`balance_pc.py fields <Param>` gives the detail):
   Soul Flash, Focus Souls, Emit Force, Scraps of Life and Resonant Soul get their own bullet and damage rows.
 - **Items**: the Peasant set gets its own special effect per piece (-1 → 22480100-103); 11 spells get an
   `item_additional_type`; ng_behavior_type of the three DLC keys 15 → 11.
-- **AI**: two logic rows see less far (`LogicComParam` 105010 / 105030: sight 40 → 30 m); skeleton logics (132xxx)
+- **AI**: [two logic rows see less far](shrine-of-amana-pc.md#2-the-spellcasters-amana-shrine-maidens) (`LogicComParam` 105010 / 105030: sight 40 → 30 m); [skeleton logics (132xxx)](../mechanics/earthen-peak-aggro-pc.md#1-sight-and-notice-radius-unchanged)
   retimed; 63 logic rows gone.
 - **PvP / system**: riposte, backstab and guard-break animations re-pointed for four weapon action categories; the
   co-op / network tables changed in layout, hardly in content (ChrMultiplayParam grew 24 → 36 B with all 28 rows'
@@ -202,7 +202,7 @@ bytes are identical on both platforms, the PS3 value now reads the way the PC an
 Re-check of the PS3 work:
 - the vanilla-vs-Scholar and patch-to-patch tables were regenerated: the same changed rows and the same counts, with
   different flag-bit names and readable values for mis-sized fields;
-- no figure quoted in a PS3 note was affected (`..\..\DS2 Scholar\findings\balance-vanilla-vs-scholar.md`,
+- no figure quoted in a PS3 note was affected ([balance: vanilla vs PS3 Scholar](balance-vanilla-vs-scholar.md),
   `..\..\DS2 Vanilla Patches\README.md`);
 - the enemy-defence sheet's fields (HP, defences, absorptions, poise, `is_hollow`) are plain fields and read the same
   on both platforms.
@@ -215,9 +215,13 @@ Re-check of the PS3 work:
   1,591 changed rows, 5,056 → 4,758 fields: ChrMultiplayParam's 26 "changed" rows were an alignment artefact).
 - PC enemy loader: 584 of 644 community-sheet spawn counts match.
 - Not checked:
-  - NG+ rules: per-generator spawn limits are in the TSV, not analysed;
+  - NG+ rules: per-generator spawn limits are in the TSV, not analysed (see [NG+ near boss arenas](../modding-world/ng-plus-differences.md));
   - what the 9 empty new pickups are for (event-filled?);
   - why 60 sheet rows differ (sheet made from an older PC version?);
   - whether the 696000 humans are statues or corpses;
   - the effect scripts (SpEffect EMEVD, now in the regulation);
   - the PC patch history (all of this is 1.0.3.0 / Calibrations 2.02).
+
+## Related pages
+
+- [Damage calculator on vanilla PC](damage-calculator-vanilla.md): the same PC Scholar regulation (Calibrations 2.02) compared with vanilla PC 1.12 instead of PS3 Scholar.

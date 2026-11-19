@@ -35,12 +35,12 @@ Hollow:
   Supplicants 147004); the Prowling Magus 137021 is not
 - Executioner's Chariot: the Black Hollow Mages 118001 only; the Chariot 619110 and its skeletons are not
 
-Not hollow: Last Giant, Pursuer (all rows), Dragonriders (Heide + castle), Old Dragonslayer, Flexile Sentry and
+Not hollow: Last Giant (although his soul's working name is "Giant King (Hollow)": see [two-soul bosses](../network-test/two-soul-bosses.md#1-retail-who-has-two-souls)), Pursuer (all rows), Dragonriders (Heide + castle), Old Dragonslayer, Flexile Sentry and
 its Suspicious Shadows, Ruin Sentinels, Belfry Gargoyles, Lost Sinner, Skeleton Lords (Lords, Bonewheels,
 skeletons), Covetous Demon, Mytha, Smelter Demon, Old Iron King, Scorpioness Najka, Freja and her spiders, Demon of
 Song, Looking Glass Knight, Velstadt, Throne Watcher, Throne Defender, Nashandra, Darklurker, Guardian Dragon, Giant
 Lord, Ancient Dragon. DLC bosses are not in the v1.00 regulation.
 
-Fights and rows: the community SOTFS defence sheet's boss rows, grouped and matched to v1.00 generators as in
+Fights and rows: the community SOTFS defence sheet's boss rows, [grouped and matched to v1.00 generators](bosses-pc.md#how-it-was-done) as in
 `DS2 Scholar PC\tools\bosses_pc.py`. Script: `tools\hollow_bosses.py` (`all` = every EnemyParam row). Later
 patches not compared.

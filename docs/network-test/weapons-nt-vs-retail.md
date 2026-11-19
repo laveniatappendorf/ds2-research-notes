@@ -6,7 +6,7 @@
 Question: which Network Test weapons are missing from retail, given that display names changed between the builds?
 Static work only: `regulation\WeaponParam / ItemParam / WeaponTypeParam` of both builds, both builds' ItemName FMGs,
 both archive indexes. Tool: `tools\weapon_compare.py` (summary, `all` for every row, `new` for retail additions).
-The Japanese network test (01.00-01.04) has a byte-identical WeaponParam, so everything here holds for it too.
+[The Japanese network test](jp-network-test-vs-us.md#1-order-of-the-builds) (01.00-01.04) has a byte-identical WeaponParam, so everything here holds for it too.
 
 ## How weapons are matched without names
 
@@ -40,7 +40,7 @@ The demo has 437 WeaponParam rows: 306 real weapons (ids of 1,000,000 and up), 1
 - **6 real weapons are not in retail** (below). None of them came back under another id: no retail row uses their
   models, and where retail added a weapon of the same kind it differs in model, weight and requirements.
 - I found no demo weapon that retail kept in its tables but stopped handing out: every named retail weapon that the
-  demo also has turns up in a retail item lot, shop, starting-class or NPC param, except Santier's Spear, which I
+  demo also has turns up in a retail item lot, shop, starting-class or NPC param, except [Santier's Spear](../mechanics/mundane-sl50-v100.md#santiers-spear-added-2026-11-01), which I
   did not chase further (probably given by a map script).
 
 ### Cut between the Network Test and retail
@@ -49,10 +49,10 @@ The demo has 437 WeaponParam rows: 306 real weapons (ids of 1,000,000 and up), 1
 |---|---|---|---|---|
 | 3510000 | Fists | 0.7, 7/7/0/0 | **Name and description**: "Shadow Claws" / 影の鉤爪, claws used by those who lurk in the shadows, a blade on each finger, wielded by knights who gave up their code for coin. No WeaponParam row, no item, no model | Shadow Claws |
 | 3511000 | Fists | 0.7, 7/7/0/0 | nothing; identical stats to 3510000, so a variant of the same claws | - |
-| 2450000 | Hammer | 3.6, 18/0/0/0 | nothing (no model in either build) | Floral Club (cut) |
+| 2450000 | Hammer | 3.6, 18/0/0/0 | nothing ([no model in either build](../unused/nt-only-equipment-models.md)) | Floral Club (cut) |
 | 2510000 | Hammer | 3.6, 9/0/0/0 | **model WP_2510_M.bnd** (0.72 m long and thin, which fits tongs), no row, no text | "Blackmith's Tongs (cut)" |
-| 11095000 | Small Shield | 1.0, 5/8/0/0 | **model SD_1095_M.bnd** (0.48 m, Iron Parma-sized), and **retail params still equip it**: NPCGenerateParam 814000, 814009, 833000 (an NPC with Butcher's Knives; the demo's NPCGenerateParam 813000 has the same loadout) and the debug start loadout DbgPlayerStatusParam 300101000, all pointing at a WeaponParam row that no longer exists. (DbgPlayerStatusParam is a table of developer test characters in the starting-class format, which the retail EBOOT never names; see `armour-rings-spells-nt-vs-retail.md`. The demo's own PlayerStatusParam also has a row 300101000, but it doesn't hold this shield.) Most likely an NPC's shield | - |
-| 7000000 | Bare fists | 0, no req | model WP_7000_M.bnd (0.81 m, five meshes and a cloth simulation); retail has a sibling row 7010000 on model 7010. Probably an equipped prop or hand rather than a player weapon | - |
+| 11095000 | Small Shield | 1.0, 5/8/0/0 | **model SD_1095_M.bnd** (0.48 m, Iron Parma-sized), and **retail params still equip it**: NPCGenerateParam 814000, 814009, 833000 (an NPC with Butcher's Knives; the demo's NPCGenerateParam 813000 has the same loadout) and the debug start loadout DbgPlayerStatusParam 300101000, all pointing at a WeaponParam row that no longer exists. (DbgPlayerStatusParam is a table of developer test characters in the starting-class format, which the retail EBOOT never names; see [armour, rings and spells: Network Test vs retail](armour-rings-spells-nt-vs-retail.md). The demo's own PlayerStatusParam also has a row 300101000, but it doesn't hold this shield.) Most likely an NPC's shield | - |
+| 7000000 | Bare fists | 0, no req | model WP_7000_M.bnd (0.81 m, five meshes and a cloth simulation); [retail has a sibling row 7010000 on model 7010](child-herald-c7015.md#the-model). Probably an equipped prop or hand rather than a player weapon | - |
 
 The demo has an item for each of the six, but no name or model file for any of them, so nothing in the demo itself
 says what they are. The Scholar table's "Floral Club" and "Blacksmith's Tongs" names are community labels; retail
@@ -78,7 +78,7 @@ get it.
   weapon and shield models, and none of the claws or the Caestus are among them); no item lot, shop, NPC or enemy loadout points
   at either id. The Japanese test has the same rows. **Correction 2026-11-09:** no PS3 build has a `WP_3510` /
   `WP_3511` model, but every vanilla PC build does, as unnamed files (`model\parts\weapon\WP_3510_M.bnd` and
-  `WP_3511_M.bnd`, found by path hash; `nt-only-equipment-models.md`). Rendered: 3510 is five loose finger blades
+  `WP_3511_M.bnd`, found by path hash; [Network Test-only equipment models](../unused/nt-only-equipment-models.md)). Rendered: 3510 is five loose finger blades
   and a thumb spike whose material is named after enemy c1230 (異形の影, the "shadow" the claws' text names); 3511 is a
   full armoured claw gauntlet. In the same render set, `WP_7000` turns out to be a peacock-feather fan, a held prop.
 
@@ -121,7 +121,7 @@ appear, and I have not checked whether that NPC spawns anywhere.
 - **Who carries it:** the pre-release PC params' developer names say who. 814000 / 814009 are
   マルチ用NPC：肉断ち（女） "multiplayer NPC: butcher (female)", white and black phantom. That is **Melinda the
   Butcher**: her summon sign at Dragon Aerie (814000) and her invasion in The Gutter (814009), both spawned in retail
-  (`..\..\DS2 Scholar PC\findings\npc-invaders-pc.md`).
+  ([NPC invaders](../mechanics/npc-invaders-pc.md)).
 - **Where it sits in her loadout:** it is her right-hand slot 1, with a Butcher's Knife in right slot 2 and both left
   slots. With no WeaponParam row, that slot can't show the shield; what she holds there in play wasn't checked.
 - **A third row:** 833000 is アマナの祭壇：人食い番長 ("Shrine of Amana: cannibal boss"), the same loadout, with a
@@ -131,9 +131,9 @@ appear, and I have not checked whether that NPC spawns anywhere.
 - **The model,** `SD_1095_M` (render: `unused-shield-1095.png`, tool `tools\unused_models\shieldview.py`): a round
   shield of wooden planks, 0.47 m across, one face plain and the other braced with an H-shaped batten, much like a
   barrel lid. That suits a butcher dressed in prisoner's rags.
-- **Its icon** `IC_0011095000` is in every retail build (the community wiki's "Unknown Wooden Shield").
-- **No name anywhere.** No build has text for it. Our earlier label "Shadow shield" (`unused-models.md` and the
-  Scholar notes) had no source and has been dropped.
+- **Its icon** `IC_0011095000` is in every retail build ([the community wiki's "Unknown Wooden Shield"](wiki-unused-content-crossref.md)).
+- **No name anywhere.** No build has text for it. Our earlier label "Shadow shield" ([unused models](../unused/unused-models.md) and the
+  [Scholar notes](cut-content-scholar.md#1-models)) had no source and has been dropped.
 
 ### Renamed (the 27 weapons the demo names)
 
@@ -213,7 +213,7 @@ Wooden Shield, Homunculus Mace / Wooden Shield, Transgressor's Staff / Leather S
 
 ## Limits
 
-- "Cut" means in the demo's data but not in retail v1.00. The Scholar edition and the DLC were not checked.
+- "Cut" means in the demo's data but not in retail v1.00. [The Scholar edition](cut-content-scholar.md#3-items) and the DLC were not checked.
 - For the 267 shared named weapons the demo has no text of its own, so any rename among them can't be seen; only
   that the id and model are the same.
 - The model descriptions are bounding boxes and mesh counts read from the FLVER headers. The models were not

@@ -3,13 +3,13 @@
 !!! info "Status: From the data"
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
-The author pasted the community wiki's table of cut ring icons (darksouls2.wiki.gg, "Cut Content", rings: five
+The author pasted [the community wiki's table of cut ring icons](../network-test/wiki-unused-content-crossref.md) (darksouls2.wiki.gg, "Cut Content", rings: five
 "Unknown Ring" icons, the Ring of War and the two itemless Illusory Rings). Question: do any of them belong to the
-Network Test's unused rings (`armour-rings-spells-nt-vs-retail.md`, "Rings")?
+Network Test's unused rings ([armour, rings and spells: Network Test vs retail](../network-test/armour-rings-spells-nt-vs-retail.md#rings), "Rings")?
 
 Image: `unused-ring-icons.png` (wiki crops left of the bar, game files right). Tool: `tools\wiki_icons.py`
 (`dump`, `unused`, `compare rings`; first written as `ring_icons.py`); the wiki crops are in
-`unused-ring-icons\wiki1-8.png`. The same session matched the wiki's cut upgrade materials: `unused-material-icons.md`.
+`unused-ring-icons\wiki1-8.png`. The same session matched the wiki's cut upgrade materials: [unused material icons](unused-material-icons.md).
 
 ## Answer
 
@@ -83,10 +83,10 @@ not traced in code. No ring id points at it. The wiki's Hornet Ring reading has 
 whether the art was first drawn for a planned ring can't be told.
 
 **Ring of War (wiki 6).** The demo's own icon, unchanged in the JP test. In retail, id 40050000 became the Ring of
-Steel Protection, with the same +50 physical defence effect (see the rings note) and **a new icon** (an ornate
+Steel Protection, with the same +50 physical defence effect (see [the rings note](../network-test/armour-rings-spells-nt-vs-retail.md#same-id-same-ring-17)) and **a new icon** (an ornate
 oval signet). The demo's art came back in the Crown of the Ivory King DLC as the Ivory Warrior Ring
 (IC_0041030000, from v1.10 and PS3 / PC Scholar), shifted one pixel. After that shift the mean difference is 2.7
-out of 255, which is re-encoding noise; the same thing happened to the rainbow crystal's icon (`cut-infusion-crystals.md`).
+out of 255, which is re-encoding noise; the same thing happened to the rainbow crystal's icon ([cut infusion crystals](../network-test/cut-infusion-crystals.md)).
 In the demo the ring isn't unused: it is an item-lot pickup with a working effect.
 
 ## What the starstones might have done: the code (2026-10-26)
@@ -100,7 +100,7 @@ so the code has no special case to find. **The demo's quartz rings have no event
 with elemental defence is the Dispelling Ring (`90[11]`, +15 to types 1-4). The quartz rings' +5 each is retail's.
 
 **But the demo's engine already had the mechanism the theory needs.** Bank 90 keeps two per-damage-type bonus lists,
-nine types each (0 physical, 1-4 the elements, 5-8 the statuses):
+nine types each (0 physical, 1-4 the elements, [5-8 the statuses](../network-test/broken-status.md#4-break-resistance-left-in-the-retail-scripts)):
 
 | demo command | wrapper (summing `FUN_0048cea0`) | meaning | used in the demo by | retail command |
 |---|---|---|---|---|
@@ -145,7 +145,7 @@ per-element starstones. The starstones follow the physical-attack ring exactly a
 physical-defence ring, same element order. Retail leaves 40170000-40200000 empty. Supporting, not proof (the King's
 Sword's attack effect is retail's). Side find: the 防護の指甲 knuckle ring sits in the status-7 slot, which the demo's
 Ring of Resistance text calls weapon breakage; retail renamed it 封壊の指甲 (Bracing Knuckle Ring, slows equipment
-wear), so it was most likely the Break-resistance ring (`break-element.md`). Added to the wiki-team Google Doc
+wear), so it was most likely the Break-resistance ring ([Break element](../network-test/break-element.md)). Added to the wiki-team Google Doc
 ("Where the starstones sit in the Network Test's ring list", under Rings) the same day.
 
 **Verdict.** The code doesn't say what the starstones did. It shows that the demo's engine supported elemental-attack
@@ -167,7 +167,7 @@ about 560 such files. Hashing every possible ring-icon path (`menu\tex\Icon\IC_0
 40000000-42999999) against each index named ten of them as ring icons. (Three other hits were weapon model binders
 whose hashes happen to collide; they are not icons.)
 
-**Which builds.** All six vanilla PC builds we have: the 31 March 2014 pre-release, 1.01 (launch), 1.02, the
+**Which builds.** [All six vanilla PC builds we have](../builds/early-pc-builds.md): the 31 March 2014 pre-release, 1.01 (launch), 1.02, the
 regulation-only update of 2 June 2014, 1.03, and today's 1.12. Three of them hold the archive data (31 March, 1.02,
 1.12), and in those the ten files are byte-identical. The other three were checked by index only. No PS3 build has
 them (their archives are fully named), and PC Scholar dropped them.
@@ -200,7 +200,7 @@ wasn't.
 
 So the wiki's mystery icons almost certainly came from the vanilla PC files. Of the four other cut rings, only the
 Great Eagle Crest has art of its own. The icons of Dragon Claw, the demo's Ring of Thorns and Rusted Iron are retail
-ring icons, found to match pixel for pixel by the full survey (`hidden-pc-icons.md`, same day). Like the Flame
+ring icons, found to match pixel for pixel by the full survey ([hidden PC icons](hidden-pc-icons.md), same day). Like the Flame
 Starstone and the Old Sun Ring, the files can't say whether the art moved from the cut ring to the kept one, or a kept
 icon was copied in as a stand-in.
 

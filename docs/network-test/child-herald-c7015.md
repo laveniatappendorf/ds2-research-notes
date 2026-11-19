@@ -9,17 +9,17 @@ character as the Network Test's "sparkling girl", which might share the Herald's
 ## Short answer
 
 - **Yes, retail has the model: `c7015`**, a 1.21 m girl. It is one of the three character models no enemy places
-  (`unused-models.md`). Its textures are named `c7010` (`BD_ / FC_ / HR_ / EYE_c7010_F`).
+  ([unused models](../unused/unused-models.md)). Its textures are named `c7010` (`BD_ / FC_ / HR_ / EYE_c7010_F`).
 - **It is the Herald's child version by every id the files use.** The Herald's numbers come in a matching pair: adult
   NPC 7000 -> model c7005 -> enemy rows 7005xx, and child NPC 7010 -> model c7015 -> enemy row 701500. Retail's own
   NPC name list calls **both** 7000 and 7010 "Emerald Herald" (緑衣の巡礼).
 - **It is not the sparkling girl.** キラキラ娘 is NPC 7860, retail's Dyna & Tillo, with an invisible body (c2250)
-  (`sparkling-girl-dyna-tillo.md`). The Network Test character in the Herald's child slot is 龍の巫女（子供） "dragon's
+  ([sparkling girl (Dyna & Tillo)](sparkling-girl-dyna-tillo.md)). The Network Test character in the Herald's child slot is 龍の巫女（子供） "dragon's
   shrine maiden (child)". The earlier memory that the sparkling girl had the Herald's id mixed the two up.
 - **The Network Test already had this character, but not the model.** It has her name, her AI scripts and her enemy
   row pointing at body 7015, but no `c70xx` model file at all. Retail v1.00 adds the model, textures, animations
   and sound bank.
-- **She is very likely the cut `m20_04` girl** (the child the "slave merchant" sells; `..\..\DS2 Scholar\findings\cut-content\cut-dialogue-translation.md`).
+- **She is very likely the cut `m20_04` girl** ([the child the "slave merchant" sells](cut-content-scholar.md#4-text-scholar-deleted-two-cut-dialogues-from-the-network-test-era); `..\..\DS2 Scholar\findings\cut-content\cut-dialogue-translation.md`).
   That girl's talk ids are 70100xxx, i.e. NPC 7010, the same slot. This is by the id rule only: nothing places c7015
   in a map, so no file shows the model speaking those lines.
   **A text link too (2026-10-27):** the Network Test's language-less draft talk folder has the *adult* Herald recognise
@@ -69,15 +69,15 @@ decoder (NT 320-byte rows, v1.00 356), so only the first words were read.
 
 ## Later builds
 
-PS3 Scholar keeps c7015 unchanged (`..\..\DS2 Scholar\findings\cut-content-scholar.md`). PC Scholar dropped it, with
-c2020 and c6031, because no enemy uses it (`..\..\DS2 Scholar PC\findings\cut-content-pc.md`). The `m20_04` girl's
-lines left the game in patch 1.03 (`..\..\DS2 Vanilla Patches\findings\cut-talk-timeline.md`).
+PS3 Scholar keeps c7015 unchanged ([cut content in PS3 Scholar](cut-content-scholar.md)). PC Scholar dropped it, with
+c2020 and c6031, because no enemy uses it ([cut content in PC Scholar](cut-content-pc.md)). The `m20_04` girl's
+lines left the game in patch 1.03 ([cut talk timeline](../builds/cut-talk-timeline.md)).
 
 ## Not known or not checked
 
-- Whether any map ever placed her: no generator in v1.00 names enemy 701500 (`unused-models.md`). The NT places neither row.
+- Whether any map ever placed her: no generator in v1.00 names enemy 701500 ([unused models](../unused/unused-models.md)). The NT places neither row.
   **Intended map found 2026-10-28**: the PC pre-release names EnemyParam 701500 龍の巫女（子供）＿インゲーム用：アン・ディールの館,
-  "in-game version: **Aldia's Keep**" (701000 is the ＿カットシーン用 cutscene version) (`community-cut-sheet-crossref.md`).
+  "in-game version: **Aldia's Keep**" (701000 is the ＿カットシーン用 cutscene version) ([community cut-content sheet](community-cut-sheet-crossref.md)).
 - What `sound\frpg2_c7010.bnd` holds (child voice or foley); not opened. **The credits are confirmed (later the same
   day, `herald-lines-to-1.03.md`)**: v1.00 `Staffroll.fmg` lists "Shanalotte (Child)" (Amy Nolan) apart from
   "Shanalotte" (Ruth Negga), and the Network Test's speaker list `talk\charaname.fmg` names both 7000 and 7010

@@ -13,7 +13,7 @@ tab inside). Scripts: `..\tools\damage_calc\`.
 Installed build 1.12 (exe 1.0.12.0): `enc_regulation.bnd.dcx` copied to `..\1.12\`, decrypted with
 `pccrypto.py regulation` (BND4 version **01001500**; PC Scholar 02000200), unpacked with `bndx.py x` into
 `..\1.12\regulation\` (221 files). Vanilla has 4 params Scholar lacks (ItemLotParam, ItemLotParam2, ItemLotTicketParam,
-ItemLotWeightParam) and lacks 10 of Scholar's (camera params, ChunkPhaseParam, MapObjectPlayGoParam,
+ItemLotWeightParam) and lacks 10 of Scholar's (camera params, [ChunkPhaseParam, MapObjectPlayGoParam](../mechanics/chunk-phase-playgo.md),
 PlayerWeaponReinforceParam, 3 GeneralLocationEventParam). AreaParam, ChrMultiplayParam, MapObjectParam and
 NetworkParam have smaller rows than Scholar's (the DS2S defs don't fit them).
 
@@ -31,7 +31,7 @@ EMEVD, Scholar 64-bit, so the bytes always differ).
   EnemyDamageParam rows (19xxxxxxx). Player spells are identical. RingParam: two repair costs. ItemParam: sort /
   NG-behaviour fields only.
 - EMEVD: Ring, Weapon, Armor, AbnormalState, Condition, PassiveItem identical. Spell / ActiveItem: Chameleon and Silver
-  Talisman get 5 forms in Scholar (3 in vanilla). WideUse: 3 Scholar-only events (170000000, 170001000, 170100000), no
+  Talisman get [5 forms in Scholar (3 in vanilla)](../mechanics/chameleon-objects.md). WideUse: 3 Scholar-only events (170000000, 170001000, 170100000), no
   param references them. Enemy: 2 Scholar-only events + command 100090:2 -> 100090:9 with the same arguments.
 - So the calculator's weapon, moveset, armour, ring, spell, buff, stat and level data is the same in vanilla.
   **Only the enemy table differs.** The exe's damage code was not compared.
@@ -44,7 +44,7 @@ EnemyCommonParam (`enemycheck.py sotfs`). Spawn Count = generators per EnemyPara
 counts ("All Variants" family sums, NPCs with several generators counted once, the Belfry Gargoyles as 5, etc.).
 Spawn Count feeds no formula; it is only an anchor for an OFFSET into the HP columns.
 
-Vanilla 1.12 (`enemydata.py vanilla`: 2,094 generators in 28 maps, the PS3 Scholar count; PC Scholar has 2,458):
+Vanilla 1.12 (`enemydata.py vanilla`: 2,094 generators in 28 maps, [the PS3 Scholar count; PC Scholar has 2,458](placements-balance-pc.md)):
 
 - 124 rows removed: 120 ids not in vanilla's EnemyParam (Scholar's new placements: Forlorn, Sellsword Luet, Bashful
   Ray, Heide Knights in Heide's Tower, Falconers in Tseldora / Shaded Woods, Pursuer in Things Betwixt, ...), 4 ids
@@ -57,7 +57,7 @@ Vanilla 1.12 (`enemydata.py vanilla`: 2,094 generators in 28 maps, the PS3 Schol
 - 11 rows added. The method: match generators by (map, generator id). 98 of the 121 placed-but-unlisted vanilla ids sit
   in slots that hold the same id in Scholar too, so the sheet's author left them out on purpose (duplicate NPCs, stat
   twins). The rest are new: Skeleton Lords minions 157003 / 157022 (Scholar's 157008 / 157025), Forest Guardians
-  838000 + 838100 (Scholar 8382xx), Prowling Magus at Amana 137022, Giant Basilisk in Shaded Woods 222001, Heide
+  838000 + 838100 (Scholar 8382xx), [Prowling Magus at Amana 137022](shrine-of-amana-pc.md#3-the-other-enemies), Giant Basilisk in Shaded Woods 222001, Heide
   Knights 301001 (Forest of Fallen Giants) / 301003 (Shaded Woods), Flexile Sentry 303301 (Shaded Woods), NPC phantoms
   851000 (Brigand set, Earthen Peak, no name text) and 853300 / 853400 (Drangleic Castle, Guthry's name text 8530).
   Stat twins of listed rows were not added. **Not checked in game**: whether events enable these generators.

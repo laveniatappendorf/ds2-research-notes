@@ -5,7 +5,7 @@
 
 Static comparison only. US = the Western test as installed (APP_VER 01.00, `..\..\DS2 Network Test`); JP = this
 folder (base 01.00 + updates 01.02 / 01.03 / 01.04). Dates are the binder stamps (YY, month letter with B = January,
-day, hour letter, minute; see `..\..\DS2 Vanilla\findings\agility-timeline.md`).
+day, hour letter, minute; see [Agility timeline](../mechanics/agility-timeline.md)).
 
 ## 1. Order of the builds
 
@@ -67,7 +67,7 @@ fonts (`dbgfont12`, `dbgfont14h`), debug / GUI shaders (`shader\debug`, `guishad
 `debug\network` server lists.
 - `c0001.anibnd`: 867 -> 882 files, 778 identical; mostly attack animations (some fist / rapier / jump / plunge variants
   dropped, new spear and straight sword 0330-0336 series), a few stagger / death animations.
-- **ChrMoveParam row 100 (the player)**, US -> JP 01.02 (retail): out-of-bounds kill time +0x150 **60 -> 7 s** (7);
+- **ChrMoveParam row 100 (the player)**, US -> JP 01.02 (retail): [out-of-bounds kill time](../tools/port-character.md#3-retail-oob-check-behaviour-changes-worth-knowing-for-ghost-teleport) +0x150 **60 -> 7 s** (7);
   the angular speeds (multiples of pi rad/s) mostly drop by 40-60 %: +0x2c 1080 -> 640 deg/s (720), +0x30 1260 -> 540
   (1080), +0x54 1440 -> 640 (520), +0x58 720 -> 440 (640), +0x78 1440 -> 900 (1600), +0x9c 1440 -> 900 (1080), +0xa0
   720 -> 421 (540); +0x27c / +0x28c / +0x29c / +0x2ac / +0x2bc (20 / 50 / 40 / 30 / 30) -> 0 as in retail. Which turn

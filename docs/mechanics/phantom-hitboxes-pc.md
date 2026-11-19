@@ -49,7 +49,7 @@ hkpSimpleShapePhantom 0x141229738, hkpCachingShapePhantom 0x14122f708, hkpAabbPh
 
 **Selector FUN_1403b09d0** (called by FUN_1403186a0, FUN_1403f1ab0, FUN_140446270) gets a request whose +0x00 is
 the damage id; it looks the DAMAGE_PARAM row up in the damage tables ([[0x1416148f0]+0x10]+0xb40, the same container
-as the distance-cut work) and branches:
+as [the distance-cut work](distance-damage-cut-pc.md)) and branches:
 
 ```c
 row = lookup(table + 0xb40, request[+0x00]);
@@ -218,7 +218,7 @@ tested.
   - Likely explained since (18 Nov) by [contact margin](contact-margin-pc.md): Havok reports a shallow first contact
     one frame late. Not re-checked, because these hits were measured on the ragdoll, not the hit model.
 - A controlled i-frame hold / release (write +0x5F0) would give boundary hits on demand.
-- Leading edge (DS2 i-frames "come out early"): plan in `leading-edge-test-plan.md` (2026-11-07, not run).
+- Leading edge (DS2 i-frames "come out early"): plan in [leading-edge test plan](../tools/leading-edge-test-plan.md) (2026-11-07, not run).
 - Grabs: ANSWERED live 18 Nov ([grab timing](grab-timing-pc.md), Ogre).
   - Same lag as normal hits: caught on the first physics frame with real overlap, 1 frame after the drawn touch.
   - Visible hold 2 frames after the catch.

@@ -3,7 +3,7 @@
 !!! info "Status: From the data"
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
-2026-10-17, follow-on from `developer-signs.md` and `hidden-map-parts.md`. Retail BLUS41045 v1.00, static work plus
+2026-10-17, follow-on from `developer-signs.md` and [hidden map parts](hidden-map-parts.md). Retail BLUS41045 v1.00, static work plus
 three in-game tests (the Undead Crypt statue, and an Iron Keep hall and a Huntsman's gatehouse for missing textures, under
 "Can they be seen in game?"). Renders and tables: `findings\unused-map-pieces\`. Tools: `tools\devsigns\unused_*.py`,
 `labels.py`.
@@ -186,7 +186,7 @@ What else the files say:
   naga". It has no English name, and its short description is 仮テキスト "placeholder text". 宿り is the 宿 of
   ヤドカリ (宿借り, hermit crab, "borrowed lodging"), so a giant hermit crab, which fits a creature wrapped round a
   tower like a shell. That's a reading: nothing in the data ties the soul to this model. Retail has no 6073xxxx items.
-- Every file of all three builds was searched (as for Agdayne, UTF-16 / Shift-JIS / UTF-8 / ASCII) for 蟹, カニ,
+- Every file of all three builds was searched ([as for Agdayne](../network-test/agdayne-darklurker.md), UTF-16 / Shift-JIS / UTF-8 / ASCII) for 蟹, カニ,
   ヤドカリ, ザリガニ, 甲殻, 門番, crab and similar. Apart from the soul, the only crustacean text is retail's two Aldia
   weapons, whose descriptions say their origin is unknown: Malformed Shell 2700000 ("a fragment of a giant shell", JP
   "seems to be part of a crustacean's body", a pickup in Aldia's Keep, lot 10155020) and Malformed Claws 3420000
@@ -199,7 +199,7 @@ With `show-m10_16` applied the creature sits in the free-camera gallery at about
 
 **No character model for it (searched 2026-10-22).** Every character model in the three builds was surveyed (retail
 166, each network test 18) for size, skeleton bone names and spawns (`GeneratorRegistParam` enemy id // 100 = model).
-- Retail models no map spawns: only c0001 (player), c1400 (a 5 m winged woman), c2020 (a small white c2010 variant),
+- [Retail models no map spawns](unused-models.md): only c0001 (player), c1400 (a 5 m winged woman), c2020 (a small white c2010 variant),
   c2250 (empty), c7015 and c7210 (human NPC bodies). The network test adds only c1560 and c8100 to retail's set, and its
   unspawned models are c0001, c3270 (a dragon) and c7310 (a human). None is a crab.
 - The many-legged models all spawn in retail and the AI script labels name them: c2050 毒角虫 "poison horn beetle"
@@ -210,7 +210,7 @@ With `show-m10_16` applied the creature sits in the free-camera gallery at about
 - A second search of every file for 宿り / ヤドリ / ヤドカ / 巨蟹 / 大カニ (and yadokari / hermit) finds only the soul
   name, plus an unrelated bonfire-ascetic message in retail.
 
-So the crab boss never got further than its soul's name and the stand-in mesh in the early Bastille.
+So [the crab boss](../network-test/nt-bosses-not-in-retail.md) never got further than its soul's name and the stand-in mesh in the early Bastille.
 
 ### Dark Chasm of Old (m40_03): an earlier, larger cave
 
@@ -218,7 +218,7 @@ So the crab boss never got further than its soul's name and the stand-in mesh in
 
 Nearly all of the Dark Chasm's 104 unused pieces use textures named `m10_03_*` (wall, ground, wood, cloth, brick, door,
 rock, plant, spider, ray, smoke). Retail has no map m10_03, but the Dark Chasm's *placed* pieces use `m10_03`
-textures too. So m10_03 is the Dark Chasm's working map number, in the same way Amana's pieces use `m10_11` (m20_11),
+textures too. So m10_03 is the Dark Chasm's [working map number](../network-test/e3-demo-leftovers.md#9-past-and-present-the-other-time-labelled-areas-added-2026-11-03), in the same way Amana's pieces use `m10_11` (m20_11),
 Drangleic's `m10_21` (m20_21) and the Undead Crypt's `m10_24` (m20_24).
 
 `m0000` (150k triangles, 343 x 102 x 198 m) is a whole cave level. Drawn in the same frame as the placed map, its central
@@ -353,7 +353,7 @@ a 5 km sea plane; `m0209`, an empty model.
 
 Twelve pieces exist in both maps with identical geometry, unused in both, all with `m10_25` textures:
 - `m0100`: an **86 m statue of a woman** with spread arms; `m0101`: a **97 m statue of a crowned, robed king**
-  (`king_01`-`07`, `BD_c7020` textures). Seen in game 2026-10-21 (showcase patch): the king is **Vendrick before hollowing**, the woman
+  (`king_01`-`07`, `BD_c7020` textures). Seen in game 2026-10-21 (showcase patch): the king is **[Vendrick before hollowing](../network-test/community-cut-sheet-crossref.md)**, the woman
   looks like the **(false) Nashandra** of Drangleic Castle.
 - `m0040`: a 351 m field of about 60 block pillars (`enkei` textures: a distant view); `m0020`: a 120 m round tank or
   tower with a chimney building; `m0102`: a 136 m cylinder tower; `m0103`: a 288 m aqueduct; `m0104`: a 544 m
@@ -416,7 +416,7 @@ Huntsman's `m0278`), giant bones and vertebrae lying in the area (`m0006`, `m002
 
 **Four ships**, all own-frame and unplaced: an 18 m galleon with sails and rigging (`m0300`), a 7 m sailing boat
 (`m0301`), a 50 m tall ship (`m0302`) and a 25 m longship with oars (`m0303`). That's alongside the hidden three-master
-`m0078` in `hidden-map-parts.md`. Also two versions of one harbour house (`m0093`/`m0094`), a broken hull, an 8 m
+`m0078` in [hidden map parts](hidden-map-parts.md). Also two versions of one harbour house (`m0093`/`m0094`), a broken hull, an 8 m
 Dummy-textured cube (`m0400`, the floor square the PC mod swaps in), and `m0212` / `m0901` / `m0902`. Those three are
 cliffs and rock pillars that lie 95-100% on geometry the **Lost Bastille's** layout places (`m0901` = Bastille
 `m3901`): the Wharf-side cliffs are drawn by the Bastille map instead.
@@ -516,7 +516,7 @@ material here. The Undead Crypt result needs the (-1115, -157, -196) origin. At 
 
 ## Can they be seen in game?
 
-- **Retail, normal play: none.** No MSB part places them, and the cheat table's "Draw the whole map" can't help: it
+- **Retail, normal play: none.** No MSB part places them, and the cheat table's ["Draw the whole map"](../tools/cheat-table-port.md#3-draw-the-whole-map-on-retail) can't help: it
   only switches on the draw groups of parts that exist.
 - **Network test: two can be seen now.** The test's m10_23 places `m0031` (the waterfall) in 26 draw groups shown by 25
   floor collisions, and `m0278` (the bony growths) in 5 groups shown by 5 floors. Both have their textures in the
@@ -597,7 +597,7 @@ windows and strategies tried on chunk 0). The side effect: `m1045` (one
 flat "Statue_Plane" card, 230 x 163 m, groups 8-9, with a lightmap) is gone from the crypt while the patch is in.
 That's the piece the PC mod also gives up.
 
-**Choosing the spot.** Bonfire objects are `o00_0100` parts: one per bonfire in every map. Their entity ids
+**Choosing the spot.** [Bonfire objects](../modding-world/moving-a-bonfire.md) are `o00_0100` parts: one per bonfire in every map. Their entity ids
 (20240650 / 20240651) match `MapObjectInstanceParam` rows naming the bonfire: 24650 Undead Ditch = `o00_0100_0000` at
 (-1053.0, -126.9, -182.3), and 24655 Undead Crypt Entrance = `o00_0100_0001`. Heights sampled from the placed map
 pieces put Undead Ditch in a room about 8 x 5 m with a 7 m ceiling, and the floor 3 m west within a few cm of the
@@ -660,7 +660,7 @@ frames a phase at 30 fps. The author saw it by eye as flashing white and black. 
 clean, steady 1 Hz, so it is probably the engine's own missing-texture marker. The executable names per-slot fallback
 textures `t_dummy_d`, `t_dummy_s`, `t_dummy_n` and `t_dummy_0` (UTF-16 strings at `0x17ef339`-`0x17ef381`, next to
 `dummy128` and `g_GITexture`). No archive ships them (only a few character FLVERs mention them), so they are presumably
-made in code. Real PS3 hardware wasn't tried. **Traced 2026-10-22** (`missing-texture-blink.md`): the engine's
+made in code. Real PS3 hardware wasn't tried. **Traced 2026-10-22** ([missing-texture blink](../tools/missing-texture-blink.md)): the engine's
 placeholder is a flip-book of its built-in white and black 1x1 textures with a 0.5 s period; an RPCS3 patch
 (`rpcs3-patches\imported_patch.yml`) or `tools\vwhite.py on` keeps it white.
 
@@ -721,3 +721,8 @@ and the save was backed up to `saves\20261017_190157_before_ironkeep_hall` first
   `unused_textures.py <pkl>` (the texture check), `msbpatch.py status|plan|apply|undo [preset]` (the in-game test's ISO
   patch, run `--with zopfli`). Run with `uv run --no-project --python 3.12 --with numpy --with scipy --with pillow python -I -X utf8
   <script>` and `DS2_GAME=vanilla` (or `nt`). The survey takes about a minute for all maps, the tiles 35 s.
+
+## Related pages
+
+- [Cut content in PS3 Scholar](../network-test/cut-content-scholar.md): all 874 pieces are still on the PS3 Scholar disc, byte for byte and still unused.
+- [Cut content in PC Scholar](../network-test/cut-content-pc.md): all 874 pieces survive in PC Scholar (854 unchanged, 20 edited, none placed).

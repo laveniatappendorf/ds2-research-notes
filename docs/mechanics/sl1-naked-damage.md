@@ -5,8 +5,8 @@
 
 Question (the author): best damage output for an SL1 character with no weapon upgrades, rings or armour.
 
-Data: PC Scholar weapons through the community Damage Calculator v2.44 formulas (engine from
-`tools\infusion_sl120`, scripts in `tools\sl1_naked`). Vanilla PC 1.12 weapon data is identical. PS3 v1.00 not checked.
+Data: PC Scholar weapons through the community Damage Calculator v2.44 formulas ([engine](infusion-vs-uninfused-sl120.md) from
+`tools\infusion_sl120`, scripts in `tools\sl1_naked`). [Vanilla PC 1.12 weapon data is identical](../builds/damage-calculator-vanilla.md). PS3 v1.00 not checked.
 Nothing tested in game.
 
 Stats: SL1 = Deprived, all nine stats 6. At stat 6 every scaling stat already gives a bonus of 52-63
@@ -47,9 +47,9 @@ percentage. **Best all-round: Lightning Hand Axe, two-handed.**
 
 ## Under requirement
 
-PlayerLackOfStatsParam row 0 (attack down 30-80 %; also slower wind-up / recovery, +30-50 % stamina). How the weapon
+[PlayerLackOfStatsParam row 0](armour-requirement-penalties.md) (attack down 30-80 %; also slower wind-up / recovery, +30-50 % stamina). How the weapon
 shortfall feeds it is not traced. With penalty = 30 % + 50 % x worst fraction missing (the model used for the
-Large Club), the best is Smelter Hammer at ~161 AR, below the Hand Axe and slower. Only a flat 30 % would change the
+[Large Club](sl1-large-club-vs-old-knight-hammer.md#ps3-v100)), the best is Smelter Hammer at ~161 AR, below the Hand Axe and slower. Only a flat 30 % would change the
 answer (Fire Smelter Hammer ~395): one in-game look at the AR shown at SL1 would settle it.
 
 ### Live check (PAUSED 2026-11-15 at the author's request, nothing measured yet)

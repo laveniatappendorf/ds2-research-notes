@@ -4,15 +4,15 @@
     Read straight from game files or compared between builds. What the files contain is checked; why they are that way (developer intent) is interpretation. See [status labels](../status-labels.md).
 
 Question (the author, 2026-10-27): PS3 patch 1.03 stopped shipping the leftover text from the cut girl + dealer questline
-and some test text (`..\..\DS2 Vanilla Patches\findings\cut-talk-timeline.md`). Was that cut made before the PC
+and some test text ([cut talk timeline](cut-talk-timeline.md)). Was that cut made before the PC
 version, or did the PC version still have the files?
 
 ## Answer
 
 **Before PC. No PC build on Steam has any of the files, starting with a pre-release build from 31 March 2014.** The cut
 was made in the console tree between 24 February and 31 March 2014. The oldest PC build carries regulation 1.04, the
-same as PS3 1.03 (97 % of comparable rows identical). Launch build 1.01 (22 April) carries 1.05. So PC was built
-from the same tree as PS3 1.03, after the clean-up. The early builds are covered in `early-pc-builds.md`.
+same as [PS3 1.03](1.01-to-1.03.md#102-103-data-scripts-and-a-second-balance-pass-calibrations-103-104) (97 % of comparable rows identical). Launch build 1.01 (22 April) carries 1.05. So PC was built
+from the same tree as PS3 1.03, after the clean-up. The early builds are covered in [earliest PC builds](early-pc-builds.md).
 
 | Build | Data / exe date | Regulation | Cut text files |
 |---|---|---|---|
@@ -32,11 +32,11 @@ expected.
 
 ## Why the missing files mean "deleted", not "left out by the PC packer"
 
-PC Scholar was packed from references (unused models and AI scripts dropped; `..\..\DS2 Scholar PC\findings\cut-content-pc.md`),
+PC Scholar was packed from references (unused models and AI scripts dropped; [cut content in PC Scholar](../network-test/cut-content-pc.md)),
 so I checked that launch-day PC wasn't packed the same way:
 
-- **Unused models stay on launch PC.** It still has c2020 (model only), c7015 (child Emerald Herald), c1400, c7210,
-  all the unused Peasant set 2481 armour, wp_5510 and objects o00_9111 / o14_6000 / o23_9050. PC 1.12 still has
+- **[Unused models](../unused/unused-models.md) stay on launch PC.** It still has c2020 (model only), c7015 (child Emerald Herald), c1400, c7210,
+  all [the unused Peasant set 2481 armour](../unused/unused-armour-icons.md), wp_5510 and objects o00_9111 / o14_6000 / o23_9050. PC 1.12 still has
   them too, so the reference-based purge only came with Scholar.
 - **Every PS3 text file with real text is on PC except the cut ones.** In PS3 1.01, 66 English FMGs have data. 61
   are on PC 1.02. The other 5 are the cut set: `bofireName`, `regulation` and talk `m90_00` hold one entry each, and
@@ -79,16 +79,16 @@ Only the exe and the regulation changed (manifests: the other 320 files are byte
 403 rows in 15 params (`..\..\DS2 Vanilla Patches\findings\regulation_pc102_to_pc103.tsv`): parry windows on 14
 weapons, player attack damage / durability (71 rows), 45 weapon attack motions, DEX scaling on 10 curves, defence
 stat curves (99 rows), HP of 2 enemies. All of these actually shipped on 2 June as regulation 1.06; 1.03 only added
-the exe and one event file (`early-pc-builds.md`).
+the exe and one event file ([earliest PC builds](early-pc-builds.md)).
 
 `regulation_compare.py` PS3-vs-PC output is still noise: vanilla PC params are little-endian with the old 12-byte row
 table and PS3-era layouts, but `paramdef.py` gives little-endian files PC Scholar's layouts.
 `regulation_ps3v103_to_pc102*.tsv` is therefore noise. Comparing decoded rows directly, limited to the 175 params
-whose layout fits both platforms, does work; `early-pc-builds.md` uses that.
+whose layout fits both platforms, does work; the [earliest PC builds](early-pc-builds.md) page uses that.
 
 ## Correction: which text changes are pre-launch PC edits
 
-The 31 March build's GameData was downloaded later the same day (`early-pc-builds.md`). Its English is already PS3 1.03
+The 31 March build's GameData was downloaded later the same day ([earliest PC builds](early-pc-builds.md)). Its English is already PS3 1.03
 minus the cut files, plus `win32onlymessage`, "profile" and the PC title-screen text. But it still has PS3's credits,
 the charamaking full stops and the two old item descriptions. Those were changed between 31 March and 1.01.
 

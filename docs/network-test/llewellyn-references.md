@@ -17,7 +17,7 @@ for all of these ids, so vanilla PC is almost certainly the same.
 
 | Item | Id | What the text says about him | How it is obtained (data) |
 |---|---|---|---|
-| Royal Dirk | 1130000 | Geisteel was Mirrah's secret alloy; Vendrick had Chancellor Wellager hire the smith Llewellyn on a lifetime contract (JP: on high pay) to bring it to Drangleic | Wellager's talk script, Drangleic Castle (`talk_m20_21_00_00.esd`, lot 1721000 with Espada Ropera, gift flag 102260) |
+| Royal Dirk | 1130000 | Geisteel was Mirrah's secret alloy; Vendrick had Chancellor Wellager hire the smith Llewellyn on a lifetime contract (JP: on high pay) to bring it to Drangleic | Wellager's talk script, Drangleic Castle (`talk_m20_21_00_00.esd`, lot 1721000 with Espada Ropera, gift flag 102260 (see [PC Scholar's change to this lot](../builds/placements-balance-pc.md#2-items))) |
 | Espada Ropera | 1440000 | Wellager's rapier; a Llewellyn masterpiece he brought from Mirrah as a gift | same Wellager hand-over |
 | Llewellyn Shield | 11080000 | Small geisteel shield; same "masterpiece brought from Mirrah as a gift" text | Stone Soldiers (117000 / 117010), Drangleic Castle, 2 % (lot 11700000). Stone Knight lot lists it at 0 %. 1.10 / Scholar: both Wall Watchmen in Frozen Eleum Loyce (883000 / 883200) carry it, no drop |
 | Llewellyn Armor | 27210101 | Belonged to Wellager; made by the castle's resident master smith for a select few; plain, no-frills style | Stone Knights (150000, 4 placed), Drangleic Castle, 2 % (lot 15000000) |
@@ -39,9 +39,9 @@ for all of these ids, so vanilla PC is almost certainly the same.
    a treasure corpse (o00_0240_0001, object 10235540) holds lot 110235540 = Defender Helm + the set; the set is also in
    the NT full-kit row PlayerStatusItemParam 4120 (used by PlayerStatusParam 7 and 8). The NT Royal Dirk (900008401)
    says only that the king gave it to his chancellor (JP 軍師): the Llewellyn / Mirrah backstory was written after the NT.
-2. **Planned head piece**: NT 892002100, JP name 仮・王国軍師・頭 ("placeholder: kingdom strategist, head"), text
+2. **Planned head piece**: [NT 892002100, JP name 仮・王国軍師・頭](armour-rings-spells-nt-vs-retail.md#renamed-the-45-pieces-the-demo-names) ("placeholder: kingdom strategist, head"), text
    仮テキスト, no English. Retail keeps only ReinforceCostParam 30012400 "7210 【王国軍師（過去）】・頭"; no ItemParam /
-   ArmorParam row (27210100 / 17210100) in any retail build.
+   ArmorParam row (27210100 / 17210100) in any retail build (see [its placeholder icon on vanilla PC](../unused/hidden-pc-icons.md#placeholder-cards)).
 3. **NT text left in retail**: the English names and descriptions of 892002101-103 survive in v1.00 to Scholar with no
    item rows. Japanese retail keeps the names, but its descriptions in the 8920019xx-8920022xx block are shifted five
    slots: the Lind armour and gloves text sits under 892002202 / 892002203 (named 仮・黒ファントム屋・腕 / 足,
@@ -49,7 +49,7 @@ for all of these ids, so vanilla PC is almost certainly the same.
 4. **Developer row names** (PC 31 Mar 2014 to 1.02): set = リンドの鎧 / 篭手 / 靴（【王国軍師（過去）】・胸 / 腕 / 足）;
    Royal Dirk = 王の短剣（NPC：王国軍師：短剣）, Espada Ropera = （NPC：王国軍師：刺突剣）, Llewellyn Shield =
    ドランシールド（NPC：王国軍師：小盾）; WeaponParam 王国軍師の短剣 / 刺剣 / 小盾. The whole Llewellyn kit was the
-   loadout of a "past" Wellager (王国軍師（過去）); the shipped Wellager is his spirit (EnemyParam 721100 宰相の霊). The
+   loadout of [a "past" Wellager (王国軍師（過去）)](community-cut-sheet-crossref.md#characters); the shipped Wellager is his spirit ([EnemyParam 721100 宰相の霊](cut-content-pc.md#3-characters-and-a-correction)). The
    past version survives only as EnemyDefaultLogicParam 721100 and EnemyEquipWeaponParam 72110000; no enemy row or
    generator places him.
 

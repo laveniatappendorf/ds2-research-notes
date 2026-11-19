@@ -6,15 +6,15 @@
 **Question.** DS2's roll i-frames are said to "come out really early" compared with DS1 and DS3. The calculation
 itself is ordinary (`live-pc.md` section 3), so where could extra early protection come from, and how many frames is it?
 
-Builds on `phantom-hitboxes-pc.md` (live test of 6 Nov, sections 3-5). PC Scholar 1.0.3.0, same tools and logs.
+Builds on [phantom hitboxes](../mechanics/phantom-hitboxes-pc.md) (live test of 6 Nov, sections 3-5). PC Scholar 1.0.3.0, same tools and logs.
 
 ## Candidates
 
 | | what | expected size | status |
 |---|---|---|---|
 | L1 lag | Damage on frame F is judged on positions drawn at F-1, but with the counter of frame F. So the first counter frame covers a contact drawn on the frame **before** the roll is invincible. | 1 frame every roll (16.8 ms at 60 fps; 33 ms on PS3 at 30 fps) | follows from rules 3 + 4, no clean example yet |
-| L2 late contact | 3 of 12 clean hits landed a frame **after** the physics touch. If that happens at a roll's start, the first counter frame also blocks a touch that physics found on the frame before. | a 2nd frame, some of the time (~1 in 4 if the rate holds) | open; may be the same mechanism as the end-of-roll carry-over |
-| L3 blend | The roll's i-frames run from its first TimeAct update (event 110100 starts at -0.167 s). The model may still be blending out of the previous pose, so it looks like it hasn't rolled yet. | visual only, 0-3 frames? | not measured |
+| L2 late contact | 3 of 12 clean hits landed a frame **after** the physics touch (see [contact margin](../mechanics/contact-margin-pc.md)). If that happens at a roll's start, the first counter frame also blocks a touch that physics found on the frame before. | a 2nd frame, some of the time (~1 in 4 if the rate holds) | open; may be the same mechanism as the end-of-roll carry-over |
+| L3 blend | The roll's i-frames run from its first TimeAct update ([event 110100 starts at -0.167 s](../mechanics/agility-iframes.md)). The model may still be blending out of the previous pose, so it looks like it hasn't rolled yet. | visual only, 0-3 frames? | not measured |
 | L4 input | Frames from the button to the counter. Only matters for feel. | ? | not measured |
 
 ## Terms
@@ -49,7 +49,7 @@ Builds on `phantom-hitboxes-pc.md` (live test of 6 Nov, sections 3-5). PC Schola
    - Re-reads the frame counter after each write; a write that straddles a frame tick is flagged and not counted.
    - Writes go through pcmem (offline check + write log); restores on exit and stops on its own time limit. (The 6 Nov
      hard stop of `nodeath` skipped its clean-up.)
-   - The reader of +0x5F0 in the damage code isn't traced, and +0x608 moves with it. If +0x5F0 alone doesn't protect
+   - The reader of +0x5F0 in the damage code isn't traced, and +0x608 moves with it (see [grab timing](../mechanics/grab-timing-pc.md)). If +0x5F0 alone doesn't protect
      in a first standing check, write both.
 3. **`hitlog_analyse.py starts <log>`**. For every i-frame window, natural or forced, and every enemy hitbox that
    touches near s, list:

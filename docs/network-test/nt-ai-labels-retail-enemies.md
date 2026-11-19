@@ -10,13 +10,13 @@ Written 2026-10-25 (`tools\nt_ai_labels.py` regenerates it). The author asked wh
 ## What is listed
 
 - **306 scripts, 147 families** (first four digits of the id): every script that exists in both the Network Test (631 AI scripts) and retail v1.00 (427) and that no Network Test generator names (only 33 AI ids are used by the test's own maps). So these are enemies and NPCs retail places and the test does not. They are not all enemies: the 700000s are NPCs and merchants and the 600000s are mostly bosses.
-- **6 families have a script but no enemy row at all in the Network Test's regulation** (marked ⚑ below): rat king (2265), knight of life (3350), knight of death (3360), gravekeeper (5060), generic NPC (6900) and the weapon seller (7760).
+- **6 families have a script but no enemy row at all in the Network Test's regulation** (marked ⚑ below): [rat king (2265), knight of life (3350), knight of death (3360)](cut-content-pc.md#5-ai-scripts-51-unreferenced-ones-are-gone), gravekeeper (5060), generic NPC (6900) and the weapon seller (7760).
 - Not listed: the Network Test's own developer test scripts (`ai0095xx`, `ai0099xx`, some labelled with staff surnames) and the scripts only the Network Test has (variants such as `ai100011`).
 
 ## How to read it
 
 - **Script**: `aiNNNNNN`. A pair per enemy: the base script ends `000`, the paired `上位` (upper) script usually `010`; variants use other tens digits (`030` ambush, `040` route patrol ...).
-- **Label prefix** 下位 = *lower logic*, 上位 = *upper logic* (as in `agdayne-darklurker.md`). Where 上位 sits inside a name (`上位武器屋`, "high-grade weapon seller") it is part of the name.
+- **Label prefix** 下位 = *lower logic*, 上位 = *upper logic* (as in [Agdayne and the Darklurker](agdayne-darklurker.md)). Where 上位 sits inside a name (`上位武器屋`, "high-grade weapon seller") it is part of the name.
 - **亡者** (literally "dead person") is the developers' word for a hollow, **生者** ("living person") for the living version of the same enemy; **（イモータル）** = immortal, **（寄生）** = parasitised.
 - **Translation** is mine, best effort; a trailing `?` marks a guess, `[sic]` a probable typo in the original.
 - **Community sheet name** is what the community's SOTFS enemy sheet (`Misc\...Comprehensive Enemy Defenses V2.xlsx`) calls the enemy with exactly this id, when it has one (that is the retail name, not part of the label). It is a cross-reference only: ids can carry a different name in retail, and the sheet lists one row per variant.
@@ -45,7 +45,7 @@ Written 2026-10-25 (`tools\nt_ai_labels.py` regenerates it). The author asked wh
 | `ai742000` | 下位：仇討ちの戦士 | lower logic: warrior seeking vengeance | Creighton the Wanderer - Brightstone Cove Tseldora |
 | `ai752000` | 下位：女騎士 | lower logic: woman knight | Lucatiel of Mirrah - Aldia’s Keep |
 
-The three "queen's knights" are A / B / C in the labels; the sheet names them Throne Defender, Velstadt and Throne Watcher. The queen (王妃, scripts 703000 / 702010) is presumably Nashandra, but no label says so.
+The three "queen's knights" are A / B / C in the labels; the sheet names them Throne Defender, Velstadt and Throne Watcher. The queen (王妃, scripts 703000 / 702010) is presumably Nashandra, but no label says so (see [the developers' soul-row names](nt-bosses-not-in-retail.md#7-the-developers-own-names-pc-pre-release-2026-10-28)).
 
 ## Labels that changed between the Network Test and retail (14)
 
@@ -99,7 +99,7 @@ Seven are variant scripts (102040, 102052, 103041, 113020, 151040, 203030, 20305
 | `ai103090` | 上位：下級兵士（亡者）：BS待ち | upper logic: lower-rank soldier (hollow): waits for a backstab (BS)? |  |  |
 | `ai103100` | 下級兵士（生者） | lower-rank soldier (living) |  |  |
 | `ai103110` | 上位：下級兵士 | upper logic: lower-rank soldier |  |  |
-| `ai105000` | 妖精の巫女（亡者） | fairy shrine maiden (hollow) | Amana Shrine Maiden (Healer) |  |
+| `ai105000` | 妖精の巫女（亡者） | [fairy shrine maiden (hollow)](shrine-of-amana-name.md#the-priestesses-of-amana-are-the-singing-enemies) | Amana Shrine Maiden (Healer) |  |
 | `ai105010` | 上位：妖精の巫女（亡者）：汎用 | upper logic: fairy shrine maiden (hollow): generic | Amana Shrine Maiden (Sorceress) |  |
 | `ai105030` | 上位：妖精の巫女（亡者）：待ち伏せ | upper logic: fairy shrine maiden (hollow): ambush |  |  |
 | `ai106000` | ダークプリースト（亡者） | dark priest (hollow) |  |  |
@@ -258,7 +258,7 @@ Seven are variant scripts (102040, 102052, 103041, 113020, 151040, 203030, 20305
 | `ai316000` | 捕らわれた魔道士（生者） | captive mage (living) | Desert Sorceress - Drangleic Castle |  |
 | `ai316010` | 上位：捕らわれた魔道士（生者）：汎用 | upper logic: captive mage (living): generic |  |  |
 | `ai317000` | 龍の教授 | dragon professor? | Dragon Acolyte - Aldia’s Keep |  |
-| `ai318000` | 下位：ベイグランド | lower logic: Beigrand (reading of the name uncertain) | The Pursuer - Drangleic Castle | Retail's The Pursuer; ベイグランド is the developers' name for him. |
+| `ai318000` | 下位：ベイグランド | lower logic: Beigrand (reading of the name uncertain) | The Pursuer - Drangleic Castle | Retail's The Pursuer; ベイグランド is the developers' name for him (see [the Pursuer was "Vagrant"](boss-region-names.md#the-pursuer-was-vagrant)). |
 | `ai318010` | 上位：ベイグランド | upper logic: Beigrand (reading of the name uncertain) | The Pursuer - Forest of Fallen Giants (Boss) |  |
 | `ai319000` | デーモン鎧（量産型） | demon armour (mass-production model) | Alonne Knight (Katana) - Iron Keep |  |
 | `ai319010` | 上位：デーモン鎧（量産型）：汎用 | upper logic: demon armour (mass-production model): generic | Alonne Knight (Greatbow) - Iron Keep |  |
@@ -266,7 +266,7 @@ Seven are variant scripts (102040, 102052, 103041, 113020, 151040, 203030, 20305
 | `ai321010` | 上位：νミミック：汎用 | upper logic: nu mimic: generic | Mimic (Metal Chest) - Aldia's Keep |  |
 | `ai324000` | ガーゴイル | gargoyle | Belfry Gargoyle (Boss) |  |
 | `ai324010` | 上位：ガーゴイル：汎用 | upper logic: gargoyle: generic | Belfry Gargoyle - Drangleic Castle |  |
-| `ai325000` | 鏡の中の戦士 | warrior in the mirror | Ruin Sentinel (Boss) |  |
+| `ai325000` | 鏡の中の戦士 | [warrior in the mirror](mirror-names.md#2-the-ruin-sentinels-c3250) | Ruin Sentinel (Boss) |  |
 | `ai325010` | 上位：鏡の中の戦士：汎用 | upper logic: warrior in the mirror: generic | Ruin Sentinel - Drangleic Castle |  |
 | `ai326000` | ブッチャー | butcher | The Rotten (Boss) | Retail's The Rotten; the developers' name is Butcher. |
 | `ai327000` | 骨ドラゴン | bone dragon |  |  |
@@ -284,15 +284,15 @@ Seven are variant scripts (102040, 102052, 103041, 113020, 151040, 203030, 20305
 
 | Script | Japanese label | Translation | Sheet name (same id) | Note |
 |---|---|---|---|---|
-| `ai502000` | 下位：マンスコーピオン（男） | lower logic: man-scorpion (male) | Manscorpion Tark (NPC) |  |
+| `ai502000` | 下位：マンスコーピオン（男） | lower logic: [man-scorpion (male)](tark-najka-duo-claim.md#duo-boss) | Manscorpion Tark (NPC) |  |
 | `ai502010` | 上位：マンスコーピオン（男） | upper logic: man-scorpion (male) |  |  |
 | `ai503000` | マンスコーピオン♀ | man-scorpion (female) | Scorpioness Najka (Boss) |  |
 | `ai503010` | 上位：マンスコーピオン♀ | upper logic: man-scorpion (female) |  |  |
-| `ai504000` | ミラーナイト | mirror knight | Looking Glass Knight (Boss) |  |
+| `ai504000` | ミラーナイト | [mirror knight](e3-demo-leftovers.md#4-the-castle-and-the-mirror-knight) | Looking Glass Knight (Boss) |  |
 | `ai504010` | 上位：ミラーナイト | upper logic: mirror knight |  |  |
-| `ai506000` | 下位：墓守 | lower logic: gravekeeper |  | ⚑ no enemy row in the Network Test; agdayne-darklurker.md: retail kept this pair for the grave-warden NPC. |
-| `ai506010` | 上位：墓守 | upper logic: gravekeeper |  | ⚑ no enemy row in the Network Test; agdayne-darklurker.md: retail kept this pair for the grave-warden NPC. |
-| `ai508000` | レイス | wraith |  |  |
+| `ai506000` | 下位：墓守 | lower logic: gravekeeper |  | ⚑ no enemy row in the Network Test; [Agdayne and the Darklurker](agdayne-darklurker.md): retail kept this pair for the grave-warden NPC. |
+| `ai506010` | 上位：墓守 | upper logic: gravekeeper |  | ⚑ no enemy row in the Network Test; [Agdayne and the Darklurker](agdayne-darklurker.md): retail kept this pair for the grave-warden NPC. |
+| `ai508000` | レイス | [wraith](nt-bosses-not-in-retail.md#1-nt-only-boss-slots-what-the-nt-holds-and-what-retail-kept) |  |  |
 | `ai511000` | ファントムナイト | phantom knight | Imperious Knight |  |
 | `ai512000` | ファントムメイジ | phantom mage | Leydia Pyromancer |  |
 | `ai512010` | 上位：ファントムメイジ：汎用 | upper logic: phantom mage: generic |  |  |
@@ -325,7 +325,7 @@ Seven are variant scripts (102040, 102052, 103041, 113020, 151040, 203030, 20305
 |---|---|---|---|---|
 | `ai700000` | 下位：巫女 | lower logic: shrine maiden |  |  |
 | `ai700010` | 上位：巫女 | upper logic: shrine maiden |  |  |
-| `ai701000` | 下位：巫女（子供） | lower logic: shrine maiden (child) |  |  |
+| `ai701000` | 下位：巫女（子供） | lower logic: [shrine maiden (child)](child-herald-c7015.md) |  |  |
 | `ai701010` | 上位：巫女（子供） | upper logic: shrine maiden (child) |  |  |
 | `ai702000` | 下位：巫女（死骸） | lower logic: shrine maiden (corpse) |  |  |
 | `ai702010` | 上位：王妃（死骸） | upper logic: queen (corpse) |  | The lower script says shrine maiden (corpse); the upper one says queen (corpse). |
@@ -364,7 +364,7 @@ Seven are variant scripts (102040, 102052, 103041, 113020, 151040, 203030, 20305
 | `ai752010` | 上位：女騎士 | upper logic: woman knight | Lucatiel of Mirrah (Summon) - Grand Cathedral |  |
 | `ai753000` | 下位：鐘守 | lower logic: bell-keeper | Bell Keeper (NPC) - Belfry Luna |  |
 | `ai753010` | 上位：鐘守 | upper logic: bell-keeper |  |  |
-| `ai755000` | ストーカー戦士ウイックリー | stalker warrior Wickly (spelling uncertain)? |  | No sheet name; not identified. |
+| `ai755000` | ストーカー戦士ウイックリー | stalker warrior Wickly (spelling uncertain)? |  | No sheet name; not identified (but see [Wickley, NPC 7550](community-cut-sheet-crossref.md#characters)). |
 | `ai760000` | 下位：吟遊詩人の少女１ | lower logic: minstrel girl 1 | Milfanito - Shrine of Amana |  |
 | `ai760010` | 上位：吟遊詩人の少女１ | upper logic: minstrel girl 1 |  |  |
 | `ai760100` | 下位：吟遊詩人の少女２ | lower logic: minstrel girl 2 |  |  |
@@ -401,9 +401,13 @@ Seven are variant scripts (102040, 102052, 103041, 113020, 151040, 203030, 20305
 | `ai784010` | 上位：免罪の教戒師 | upper logic: chaplain of absolution |  |  |
 | `ai785000` | 下位：守護の騎士 | lower logic: guardian knight | Blue Sentinel Targray |  |
 | `ai785010` | 上位：守護の騎士 | upper logic: guardian knight |  |  |
-| `ai786000` | 下位：キラキラ娘 | lower logic: sparkling girl |  | Retail's Dyna & Tillo (ドネ＆ティロ), the pair in Things Betwixt who swap items: NPC name id 7860 reads キラキラ娘 in the Network Test's npcMenu and Dyna & Tillo in retail's, and retail's m10_02 talk script still names her states キラキラ娘 (sparkling-girl-dyna-tillo.md). |
+| `ai786000` | 下位：キラキラ娘 | lower logic: sparkling girl |  | Retail's Dyna & Tillo (ドネ＆ティロ), the pair in Things Betwixt who swap items: NPC name id 7860 reads キラキラ娘 in the Network Test's npcMenu and Dyna & Tillo in retail's, and retail's m10_02 talk script still names her states キラキラ娘 ([sparkling girl (Dyna & Tillo)](sparkling-girl-dyna-tillo.md)). |
 | `ai786010` | 上位：キラキラ娘 | upper logic: sparkling girl |  | Upper script of the same NPC (see ai786000). |
 
 ## Method
 
 Labels: the first `ai…_name` string in each `ezstate\ai*.esd` (UTF-16-BE), read from the Network Test (`DS2_GAME=nt`) and from retail v1.00 (`vanilla`) archives. Placed ids: `GeneratorParam_<map>` -> `GeneratorRegistParam_<map>` (`LogicParamID`, `DefaultLogicParamID`) over every map in the Network Test's GameData (`bosses_pc.generators`). Enemy-row check: any `EnemyParam` row in `regulation\EnemyParam.param` whose id starts with the script's first four digits. A generator is the only placement path this checks, so an enemy spawned some other way (event script) would show here as unplaced.
+
+## Related pages
+
+- [Unused enemy attacks](../mechanics/unused-attacks-pc.md): reads what these same Network Test scripts request and finds 18 attacks that retail's versions no longer ask for, such as the Amana sorceress's volley in ai105000.

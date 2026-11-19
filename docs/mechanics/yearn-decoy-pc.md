@@ -66,7 +66,7 @@ type 0 / 1 / 3 / 2, 4 = no target, 5 / 6 = a relation test, 8 = another); `f7302
    LogicComParam allows (+0x66 skull, +0x67 Yearn), **3D distance from the enemy below the command's first argument**, nearest first. **No cone, no line of sight, no team test.**
    If one is found it becomes the target and the normal search is skipped.
 3. **Otherwise the normal search** (`FUN_14043db50`) **clears the target** and picks from the candidate slots by perception: `FUN_14043bef0` (in sight: within
-   `detect_distance` +0x0C always; else within `sight_distance` +0x08 (13 m) or `Unk04` +0x04 (20 m) depending on a character state (+0x380 object, byte +0x0A) and `Unk32`;
+   `detect_distance` +0x0C always; else within `sight_distance` +0x08 (13 m) or `Unk04` +0x04 (20 m) [depending on a character state](earthen-peak-aggro-pc.md#4-light-vs-dark-same-in-both-builds-checked-2026-11-02) (+0x380 object, byte +0x0A) and `Unk32`;
    a larger constant when the target's owner has `[chr + 0xB8] + 0x6D4` set; inside the cone +0x10 / +0x14, all-round in a state at ChrAi + 0x960) and a raycast
    `FUN_140428f50` for line of sight. The orb never gets these bits (it is not a character), so a normal search **drops** the orb.
 4. **Reaction.** The shared logic framework enters battle (mode 10, whose entry runs 1:7301 -> `+0x3A9` = 1) when `f7303` and `f7300` are both true, i.e. a search just ran and
@@ -198,7 +198,7 @@ The Ogre is the key observation for the second gate: the flag gate passed (its `
 
 `tools\decoy_watch_pc.py 150 --trace` (log `decoy_watch_log.tsv`, trace `decoy_watch_trace_20261114-190827.tsv`). 7 skull orbs (8 thrown) landed 4–15 m from the author, 1.7–40 m from the 12 watched Hollow Soldiers.
 
-**Spawns identified** (live position + (−208.0, −10.51, +132.98) = MSB spawn position; all 12 within 0.7 m; now built into the logger's `--map`).
+**Spawns identified** (live position + (−208.0, −10.51, +132.98) = [MSB spawn position](../modding-world/warping-by-script.md#the-coordinate-frame); all 12 within 0.7 m; now built into the logger's `--map`).
 
 | Spawn (gen) | Enemy | Idle behaviour (AIThinkID) | Result |
 |---|---|---|---|
@@ -264,7 +264,7 @@ Setup: Cardinal Tower, 12 Hollow Soldiers tracked, the orb landing 14 to 16 m in
 
 ## 7. Method and tools (to repeat any of it)
 
-- **Game:** vanilla Scholar copy `<local path> Boss Arena ModEngine Test\Game` with `useModOverrideDirectory=0` in `modengine.ini` (original saved as `.bak-bossarena`); Steam in offline mode. The `DS2 Scholar PC Debug` copy has the Boss Arena data mod loose (it moves bonfires), so do not use it for this.
+- **Game:** vanilla Scholar copy `<local path> Boss Arena ModEngine Test\Game` with `useModOverrideDirectory=0` in `modengine.ini` (see [the legacy DS2 Mod Engine](../modding-scripts/mod-engine-ds2.md#the-ini)) (original saved as `.bak-bossarena`); Steam in offline mode. The `DS2 Scholar PC Debug` copy has the Boss Arena data mod loose (it moves bonfires), so do not use it for this.
 - **Character / items (no Cheat Engine):** `<local path> Boss Arena\tools\arenactl.py` run **without** `-I` (`give 31220000`, `give 60530000:20`, `give 50910000`, `stats 99`, `warp <bonfire id>`); `<local path> Scholar PC\tools\pcmem.py` (`bonfires light <ids>`, `near`, `player`).
 - **Memory routes:** ChrAi from a character: `[[[chr + 0xE8] + 0x18] + 0x20]`; lock-on target: `[GMI + 0x20] -> +0x28 -> +0xB0 -> +0x18 -> +0xC0`; enemy position: `hm = [[chr + 0xE0] + 0x1B8]`, body = `[hm + 0x80 + 6 * 0x80]`, position at body + 0x1A0 (the player-style chain is wrong for enemies); orb position: DamageManager `[[BaseA] + 0x10]` records (0x128 bytes, id at +0x1C, PXBullet at +0x08, position at PXBullet + 0x20).
 - **Finding live enemies** by EnemyParam id (`pcmem.live_chrs`) takes 60 to 90 s per scan and goes stale after every rest or reload: launch the tool, wait for "RECORDING", cast, do not rest in between. When launching with PowerShell `Start-Process`, **quote paths that contain spaces**.
@@ -275,7 +275,7 @@ Setup: Cardinal Tower, 12 Hollow Soldiers tracked, the orb landing 14 to 16 m in
 - **Logger, second version:** `tools\decoy_watch_pc.py` (14 Nov, not yet run live; `--test` first). Enemies from the AiManager list (no scan, survives reloads), per sample the target,
   battle flag, "search ran" byte and cooldown, the enemy's own perception bits for the player, positions; log `decoy_watch_log.tsv`, `--trace` per-sample file, `--tp` teleport hotkeys
   (Ctrl+F5-F7 save, F5-F7 jump; writes).
-- **Memory entrances:** the Forest (m10_10) event script starts the three Giants' memory entrances (groups 37000 / 37010 / 37020: objects 10101510 / 10101520 / 10101530, flags 105300 / 105301 / 105302, destinations 3700000 / 3701000 / 3702000 in m20_10). 105300 is Jeigh's (the Ashen Mist Heart, item 50910000, at the corpse by The Place Unbeknownst, bonfire 10675); Vammar is one of the other two.
+- **Memory entrances:** the Forest (m10_10) event script starts [the three Giants' memory entrances](giant-memory-fireballs-pc.md#1-one-map-three-entrances) (groups 37000 / 37010 / 37020: objects 10101510 / 10101520 / 10101530, flags 105300 / 105301 / 105302, destinations 3700000 / 3701000 / 3702000 in m20_10). 105300 is Jeigh's (the Ashen Mist Heart, item 50910000, at the corpse by The Place Unbeknownst, bonfire 10675); Vammar is one of the other two.
   The large Giants stand in the west of m20_10 (x -90 to -195); the Forgotten Giants and the Giant Lord are in Jeigh's.
 
 ## 8. Files

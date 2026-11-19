@@ -3,14 +3,14 @@
 !!! warning "Status: Plan, not run"
     A test or idea written down. Nothing here has been tried. See [status labels](../status-labels.md).
 
-Follow-up to `aava-leap-distance.md`, section 8. The frame-by-frame model of Aava's leaps failed its own control: it
+Follow-up to [Aava's leap](../mechanics/aava-leap-distance.md#8-run-off-distances-and-the-race-13-nov), section 8. The frame-by-frame model of Aava's leaps failed its own control: it
 had leaps 14 and 15 missing a player standing still 12-20 m away. The data can't settle whether a sprint outruns a
 launched leap, so this session measures it in game.
 
 ## Questions
 
 1. **How long does the distance keep updating?** Event 125 sets the counter `[chr+0xB8]+0x504` while it runs. As clip
-   fractions (what the Najka work found) the windows are about 1.0 s (14), 0.9 s (15) and 0.67 s (16) of clip time.
+   fractions (what [the Najka work](../mechanics/najka-damage-cuts.md) found) the windows are about 1.0 s (14), 0.9 s (15) and 0.67 s (16) of clip time.
    With the slowed take-off (findings section 9, added 13 Nov) that is about **1.37 / 1.27 / 0.83 s real**. Read as
    seconds they would be 0.40 / 0.36 / 0.235 s of clip (0.80 / 0.72 / 0.29 s real), which would freeze each leap's
    length at take-off. The counter's rise and fall settle this, and its length also checks the slow-down
@@ -58,7 +58,7 @@ Side questions the same logs answer:
   - **`aavalog.py analyse <log>`.** It splits a log into leaps (the counter rising, and the damage ids) and
     run-offs (her speed above about 8 m/s outside an attack). Per leap:
     - version, gap when the counter rises, gap when it falls, gap when the first hit capsule appears;
-    - her travel; how close the capsule surfaces came to your hurtbox (the ragdoll capsules `hitlog_pc` already reads);
+    - her travel; how close the capsule surfaces came to your hurtbox ([the ragdoll capsules](../mechanics/phantom-hitboxes-pc.md) `hitlog_pc` already reads);
     - whether your HP dropped.
     Per run-off: start and end points, the nearer spot, speed, gap at her next roll, the next attack id, and whether
     a leap was dropped.
@@ -99,7 +99,7 @@ After each run I analyse at once and say which questions are answered, so the se
 what it needs.
 
 **If leaps are too rare** (optional, only with the author's yes): `pcmem.py attackswap 679000 22 14 on` WRITES her
-ranged-attack sites as leap 14. That changes her behaviour, so it is used only for extra leap 14 samples and switched
+ranged-attack sites as leap 14 (see [attack swap candidates](../mechanics/attack-swap-candidates.md#how-a-test-works)). That changes her behaviour, so it is used only for extra leap 14 samples and switched
 `off` straight after. Checked offline first: the tool must find the literal 22 passed to her attack routine.
 
 ## What the results mean

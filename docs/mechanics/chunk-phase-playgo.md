@@ -17,7 +17,7 @@ Scholar, PC vanilla 1.12 and PC Scholar 1.0.3.0. Tool: `tools\playgo_pc.py` (eve
   ("phase") behind them is installed, then say "Path opened". A companion param, `MapObjectPlayGoParam` (internal type
   MAP_OBJECT_PLAY_GO_DOOR_PARAM), defines those doors, and the exe has the classes that run them. On a full PC
   install the doors are presumably never shut; that is not tested.
-- It has nothing to do with the cut time-travel plan's past / present labels (`..\..\DS2 Vanilla\findings\e3-demo-leftovers.md`
+- It has nothing to do with the cut time-travel plan's past / present labels ([E3 2013 demo leftovers](../network-test/e3-demo-leftovers.md#9-past-and-present-the-other-time-labelled-areas-added-2026-11-03)
   section 9): "phase" here is an install phase.
 
 ## 1. The rows
@@ -31,7 +31,7 @@ Scholar, PC vanilla 1.12 and PC Scholar 1.0.3.0. Tool: `tools\playgo_pc.py` (eve
   whose other messages are current-gen platform text: voice chat, the DualShock 4 / Xbox One / Xbox 360 controller
   names, and "Unable to start multiplayer session ... due to reputation issues".
 - **Unk02** (107200, 107210) is no row id in any PC Scholar param, no field value in any other param, and no literal in
-  any event or AI script. The numbers sit in the range of the game's global event flags (the bosses' map-clear flags
+  any event or AI script. The numbers sit in the range of [the game's global event flags](../modding-scripts/event-flags-and-free-ids.md#5-how-the-free-global-flags-were-found) (the bosses' map-clear flags
   are 100958-101001), so they are probably "phase reached" flags the program sets itself. Unconfirmed.
 - **Unk03** is 0.0 in both rows; unknown.
 

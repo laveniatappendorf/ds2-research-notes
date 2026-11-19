@@ -264,7 +264,7 @@ What we have disabled this way (all by `tools/rollout_table.py` `DISABLE_GROUPS`
 
 | Map | Group (developer label, gloss) | What it did | Result |
 |---|---|---|---|
-| m20_10 (the Giant Lord's memory) | 1000-1070 にぎやかし火球発射_n, "ambient fireballs" (8 rows) | A fireball launcher every 8-10 s | **Gone, live B53** |
+| m20_10 ([the Giant Lord's memory](../mechanics/giant-memory-fireballs-pc.md)) | 1000-1070 にぎやかし火球発射_n, "ambient fireballs" (8 rows) | A fireball launcher every 8-10 s | **Gone, live B53** |
 | m20_10 | 2000 前線火球_発射管理, "front-line fireball manager", with 2012 / 2013 (normal and boss launchers) | Volleys while the player stands in region 200000 and during the boss fight | **Gone, live B53** |
 | m20_10 | 3000 火球発射_石像頭ゴロゴロ用, "fireball for the rolling statue head", and 3010 (the navmesh change after it falls) | The statue head: a fireball, the scripted fall 5.6 s later, a 9999 x10 hit | **Gone, live B53** |
 | m20_10 | 12000 巨人の記憶の時間制限_王の扉後, "the memory's time limit, after the King's door" | "The ashen mist fades" and a warp out at 300 s | Row deleted since 5 Nov; staying past 5 minutes was an optional step of B53 and no result is recorded [untested] |

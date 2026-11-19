@@ -3,7 +3,7 @@
 !!! warning "Status: Plan, not run"
     A test or idea written down. Nothing here has been tried. See [status labels](../status-labels.md).
 
-Follow-up to `..\..\DS2 Vanilla\findings\scaling-letters-and-infusion.md`. The static work could not trace the AR
+Follow-up to [scaling letters and infusion](../mechanics/scaling-letters-and-infusion.md). The static work could not trace the AR
 code (it sits behind the PC exe's anti-tamper stubs), so this reads the weapon screen at controlled stats and scores
 competing formulas. Predictions: `tools\ar_predict.py` (`spawns`, `predict [set]`, `check obs.csv`).
 
@@ -18,7 +18,7 @@ competing formulas. Predictions: `tools\ar_predict.py` (`spawns`, `predict [set]
 5. Does innate bleed take part of the infusion split? The calculator keeps physical at 1 - share / n (n = elements
    after infusion, innate bleed counted), so Dark Manikin Claws (bleed) keep 75 % physical and Dark Malformed Claws
    (no bleed) 50 %. Bandit's Knife and Flamberge (both innate bleed) test the same rule on fire.
-6. How much does Dark Weapon (bFlat 15, bMod 0.3) add, and Dark Pine Resin (40, 0.2)? Radai's guide and the
+6. How much does Dark Weapon (bFlat 15, bMod 0.3) add, and Dark Pine Resin (40, 0.2)? [Radai's guide](../mechanics/damage-formula-radai.md) and the
    calculator: bMod x (bFlat + dark scaling x Dark bonus + dark base x base mult), plus share x bFlat when the
    weapon is dark-infused. Open: is the base term there on an uninfused weapon, and is the matching bonus real?
 7. Which weapons refuse which buffs? ItemParam `item_speffect_application_type` 2 (Claws, Flamberge, Manslayer,
@@ -146,7 +146,7 @@ Infusion codes 0 none, 1 fire, 2 magic, 3 lightning, 4 dark ... 8 enchanted, 9 m
 5. Optional: equip the Fire Dagger at S1 and run `pcmem.py arblock 30` while swinging at the air: it prints the stats,
    the equipped hand items (with their 0x14-byte slot records, which may hold upgrade / infusion) and the community
    table's "Attack Rating" block `[[PlayerCtrl+0x230]]+0xF08` (group A +0x1C.. and group B +0x50.., physical, magic,
-   lightning, fire, dark), then one line per change. Unrounded numbers if either group turns out to be the AR.
+   lightning, fire, dark), then one line per change. Unrounded numbers if either group turns out to be the AR (see [SL1 naked damage](../mechanics/sl1-naked-damage.md)).
 6. Put the stats back if wanted (`setstats STR=26 DEX=4 ...`); the spawned weapons can stay.
 
 ## Capturing the screen
@@ -176,6 +176,6 @@ reading the numbers out.
   "FTH" = INT can stay at 16 (14 levels saved). "average" = INT and FTH trade freely. "INT" = FTH can stay at 14.
 - `phys:calc` beats `share` on the bleed weapons: innate bleed takes part of the split, as the calculator says.
 - Buffs fit `full`: Radai's formula holds and Dark infusion is worth what the build table says. `nobase` fits:
-  buffs ignore the weapon's base damage, so upgrade level matters less and the infused / uninfused gap shrinks.
+  buffs ignore the weapon's base damage, so upgrade level matters less and [the infused / uninfused gap](../mechanics/infusion-vs-uninfused-sl120.md) shrinks.
   `nomatch` fits only on the dark-infused weapons: the matching bonus isn't real (about 7 attack less).
 - Resin refused on Claws but not Manikin Claws: application type 2 = "no resins" is confirmed.

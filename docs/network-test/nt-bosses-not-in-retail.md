@@ -15,7 +15,7 @@ are mine. "Retail" below means v1.00 unless stated; where a later build matters 
 - **One NT-only boss is clearly identified: the "Giant Guard Captain" 巨人親衛隊長** (bodies c6090 / c6091): boss rows, a health-bar
   name, a test AI script and a stone-giant object, with no model and no retail enemy. (2026-11-03: the petrified
   Guard Captain objects `o00_4900`-`4903` are named 抵抗の砦 "Fort of Resistance", the developers' working name for the
-  Forest of Fallen Giants, so he was a Forest boss; `e3-demo-leftovers.md`.)
+  Forest of Fallen Giants, so he was a Forest boss; [E3 2013 demo leftovers](e3-demo-leftovers.md).)
 - **Several more are only slots**: three characters with no NT name (c6210 / c6220 / c6230), two giant-scale objects (c6240,
   c6245), a boss row for c6100, a Lich and a Wraith (both are boss-range ids; the Lich's script survives only in retail) and
   Agdayne as a boss. See table 1.
@@ -50,14 +50,14 @@ Evidence is by character number (cNNNN), checked in params (`EnemyParam` and the
 |---|---|---|---|
 | **Giant Guard Captain 巨人親衛隊長** c6090 / c6091 | `talk\charaname.fmg` 6090 and 6091 = 巨人親衛隊長; `BossParam` 6090, 6091, 609000, 609010; `EnemyParam` 609000, 609010, 609100; behaviour rows (two sets for c6090, one for c6091); test script `ai009988_巨人親衛隊長テスト用`; no model | two stray rows (`EnemyAttackParam` 609000, `EnemyDefaultLogicParam` x3). The 10 m armoured stone giant object `o10_9200` (textures `BossStone`, `c6090`) is a map piece, not a character | the strongest NT-only boss. Two bodies, one name, like the Ruin Sentinels |
 | **Old King 年老いた王 / King (present day) 王（現代）** c5140 / c5145 | `EnemyParam` 514000, 514500; AI `ai514000/514010` (年老いた王) and `ai514500/514510` (王（現代）＿インゲーム用, "in-game version") | Vendrick took c5146: retail's `ai514600/514610` carry the label **年老いた王**; the sound bank is still `frpg2_c5140.bnd`; lot 514500 still gives the **Soul of the King** (64210000) | Vendrick's earlier numbering, in two forms (old and present-day king). The time-travel dialogue (section 5) fits two eras, but nothing says so |
-| **c6210, c6220, c6230** | `EnemyParam` 621000, 622000, 623000, with attack (and for two, common / move) rows; no AI script, no text | one stray attack row and one default-logic row each | **Named (2026-10-28)** by the developers' row names in the PC pre-release build (31 Mar 2014): 621000 = 達磨 "daruma"; 622000 = 腐食虫（本体） and 623000 = 腐食虫（子）, the main body and young of the "corrosive insect", whose outer shell is the Gutter ant 608000 (`gutter-ant-c6080.md`). The earlier reading "probably bosses" by id range was wrong for 6220 / 6230 |
+| **c6210, c6220, c6230** | `EnemyParam` 621000, 622000, 623000, with attack (and for two, common / move) rows; no AI script, no text | one stray attack row and one default-logic row each | **Named (2026-10-28)** by the developers' row names in the PC pre-release build (31 Mar 2014): 621000 = 達磨 "daruma"; 622000 = 腐食虫（本体） and 623000 = 腐食虫（子）, the main body and young of the "corrosive insect", whose outer shell is the Gutter ant 608000 ([Gutter's giant ant](gutter-ant-c6080.md)). The earlier reading "probably bosses" by id range was wrong for 6220 / 6230 |
 | **c6240, c6245** | `EnemyParam` 624000, 624500 and behaviour rows; objects `o10_9230` (40 m rocky mass with a toothed mouth, textures `c6240_01-03`) and `o00_9111` (42 m emaciated giant, `BD_c6245`) | stray attack and default-logic rows | giant-scale, boss-sized. **Named 2026-10-28: both are the Giant King 巨人王** (624000 marked ※没 "scrapped"); see section 7 |
 | **c6100** | `BossParam` 610000, `EnemyAttackParam` and `EnemyMoveParam` 610000 | the same two param rows (no boss row) | a boss slot with no character, model or text. **Named 2026-10-28:** 重騎馬兵：重騎士（生者） "heavy cavalry: heavy knight (living)", the Dragonrider's family (the Dragonrider is 重騎馬兵：兵士のみ "soldier only") |
-| **Lich リッチ c5070, Wraith レイス c5080, c5130** | `EnemyParam` 507000, 508000, 513000 with behaviour rows (507 / 508 only); `ai508000` (レイス) | AI scripts only: `ai507000/507010` (リッチ) and `ai508000/508010/508030`, unreferenced in PS3 Scholar (`cut-content-pc.md`); no enemy rows. The Lich's script exists only in retail, its rows only in the NT | boss-range ids; whether they were bosses or ordinary enemies is not known. **2026-10-28:** retail does keep attack, logic, move, weapon, drop, bullet and damage rows for both, and the names show the Wraith's five spells and the Lich's "absorb into the body" grab; **c5130 is ヴァンクラッド王（過去） "King Vanclad (past)"** (section 7) |
-| **Agdayne, boss form** c5065 | `ai506500` (アガドゥラン) and `ai506510` (インゲーム用), soul 60742000 アガドゥランのソウル, NPC menu 5060 墓守 | retail dropped both scripts; Agdayne is an NPC (grave-warden scripts `ai506000/506010` kept) and has no soul | `agdayne-darklurker.md` has the full case |
+| **Lich リッチ c5070, Wraith レイス c5080, c5130** | `EnemyParam` 507000, 508000, 513000 with behaviour rows (507 / 508 only); `ai508000` (レイス) | AI scripts only: `ai507000/507010` (リッチ) and `ai508000/508010/508030`, unreferenced in PS3 Scholar ([cut content in PC Scholar](cut-content-pc.md)); no enemy rows. The Lich's script exists only in retail, its rows only in the NT | boss-range ids; whether they were bosses or ordinary enemies is not known. **2026-10-28:** retail does keep attack, logic, move, weapon, drop, bullet and damage rows for both, and the names show the Wraith's five spells and the Lich's "absorb into the body" grab; **c5130 is ヴァンクラッド王（過去） "King Vanclad (past)"** (section 7) |
+| **Agdayne, boss form** c5065 | `ai506500` (アガドゥラン) and `ai506510` (インゲーム用), soul 60742000 アガドゥランのソウル, NPC menu 5060 墓守 | retail dropped both scripts; Agdayne is an NPC (grave-warden scripts `ai506000/506010` kept) and has no soul | [Agdayne and the Darklurker](agdayne-darklurker.md) has the full case |
 | **Silver Chariot, earlier numbering** c6180 | `ai618000/618010` シルバーチャリオット; `BossParam` 619100 / 619110; object `o23_9050` with `c6180` textures | `ai619100/619110` and c6191 (the Executioner's Chariot); no 618xxx scripts | the chariot was renumbered 6180 -> 6191; in the NT both exist |
 | **Two-faced warriors 両面戦士** | `ai303000` (亡者), `ai303010`, `ai303020` (壁壊し, "wall breaker") | only `ai303300/303310` (ヘビ頭 "snake head" = the Flexile Sentry) | other non-snake-head variants of the warden |
-| **Crab 宿り大蟹** | soul 60733000; also (found 2026-10-28) `EnemyAttackParam` 606000, behaviour rows and three weapon rows for c6060 | attack and weapon rows | **Named 2026-10-28:** c6060 = ヤドカリ城 "Hermit Crab Castle" (logic row 6060 ヤドカリ城（仮）, weapon row 60601000 ヤドカリ城（石化後）, "after petrification"). The crab tower in `unused-map-pieces.md` fits it, perhaps as the petrified form |
+| **Crab 宿り大蟹** | soul 60733000; also (found 2026-10-28) `EnemyAttackParam` 606000, behaviour rows and three weapon rows for c6060 | attack and weapon rows | **Named 2026-10-28:** c6060 = ヤドカリ城 "Hermit Crab Castle" (logic row 6060 ヤドカリ城（仮）, weapon row 60601000 ヤドカリ城（石化後）, "after petrification"). The crab tower in [unused map pieces](../unused/unused-map-pieces.md) fits it, perhaps as the petrified form |
 
 Test scripts that name bosses (NT only, `ai0099xx`): `ai009916` 上位ボステスト and `ai009917` 下位ボステスト ("upper / lower boss test"),
 `ai009988` 巨人親衛隊長テスト用, `ai009989` BOSSテスト用, with the giant soldier tests `ai009900-902` (giant soldier, "rocket man",
@@ -65,7 +65,7 @@ wall-breaker), `ai009943/944` (last-sighting giant soldier) and `ai009987`. None
 
 ## 2. The 27 NT boss souls (`ItemName` 60730000-60755000 and 50140000)
 
-All have the placeholder description 仮テキスト / "No Text Settings" and no English name. No item lot in the NT holds any of them,
+All have the placeholder description 仮テキスト / "No Text Settings" and no English name (see [their placeholder icons on vanilla PC](../unused/hidden-pc-icons.md#placeholder-cards)). No item lot in the NT holds any of them,
 and retail has no 6073xxxx items (it renumbered its 34 boss souls 64000000-64330000).
 
 | NT id | Japanese | Translation | Retail counterpart | Basis |
@@ -76,13 +76,13 @@ and retail has no 6073xxxx items (it renumbered its 34 boss souls 64000000-64330
 | 60733000 | 宿り大蟹 | hermit crab | none (cut c6060 ヤドカリ城 "Hermit Crab Castle") | crab tower stand-in; developer row names for c6060 (section 7); a debug row tests "the hermit crab's claw" |
 | 60734000 | 幼生ナーガ | larval naga | Mytha | retail's script for Mytha, `ai501000`, is labelled ナーガ, and the developers' soul list calls Mytha's soul ナーガのソウル (section 7); confirmed |
 | 60735000 | 地竜の化身 | incarnation of the earth dragon | none | NT spell 33181000 仮・地竜の怒り "Earth Dragon's Wrath" is NT-only too |
-| 60736000 | ヘル・スコーピオン | Hell Scorpion | none | retail has man-scorpions (Najka c5030, Tark c5020) |
+| 60736000 | ヘル・スコーピオン | [Hell Scorpion](tark-najka-duo-claim.md#hell-scorpions) | none | retail has man-scorpions (Najka c5030, Tark c5020) |
 | 60737000 | デス・ストーカー | Death Stalker | none | |
 | 60738000 | 鏡の騎士 | mirror knight | Looking Glass Knight (same Japanese, soul 64180000) | exact name |
 | 60739000 | カゲロウ竜 | mayfly / heat-haze dragon | none | |
 | 60740000 | 岩の巨人カノッソフ | rock giant "Kanossof" | none | the stone giant c6090 is a candidate; nothing links them |
 | 60741000 | 黒炎トカゲ | black-flame lizard | salamander family? | with 60730000, two lizard variants; guess |
-| 60742000 | アガドゥラン | Agdayne | none (NPC only) | `agdayne-darklurker.md` |
+| 60742000 | アガドゥラン | Agdayne | none (NPC only) | [Agdayne and the Darklurker](agdayne-darklurker.md) |
 | 60743000 | 古の神木 | ancient sacred tree | none (cut c6130 脳幹の神木 "Brainstem Sacred Tree") | NT item 50360000 神木の小枝 "sacred tree twig", the demon-forest line (section 5), and c6130's rows; a debug row tests "the Brainstem Sacred Tree's spear" (section 7) |
 | 60744000 | 双頭竜 | two-headed dragon | none (cut c6140 双頭のワイバーン "Two-headed Wyvern") | c6140's attack and weapon rows (section 7); probable |
 | 60745000 | 竜騎兵 | dragon cavalryman | Dragonrider (same Japanese, soul 64020000) | exact name |
@@ -117,8 +117,8 @@ Pursuer, the Last Giant, the Flexile Sentry, the Ruin Sentinels, the Lost Sinner
 | The Rotten | ブッチャー "Butcher" (`ai326000`, `BossParam` 326000 / 326010) | AI, boss rows |
 | Old Dragonslayer | オーンスタイン "Ornstein" (`ai625000`) | AI |
 | Smelter Demon / Old Iron King | デーモンナイト "Demon Knight" (`ai305000`, in both builds) / 熔鉄デーモン "molten-iron demon" (`ai607000`) | AI |
-| Looking Glass Knight | **"Mirror Knight"** in the NT's English `charaname` 504000 (added 2026-11-03); 鏡の戦士 "mirror warrior" in the Japanese one (retail 鏡の騎士); scripts ミラーナイト (`ai504000`); soul 鏡の騎士 (60738000). See `mirror-names.md` | `charaname`, AI, soul |
-| Ruin Sentinels | 鏡の中の戦士 "warrior in the mirror" (`ai325000`, and the material entry for their model c3250); already in the JP test's base data of 23 Aug 2013, never "knight" (`mirror-names.md`) | AI, material |
+| Looking Glass Knight | **"Mirror Knight"** in the NT's English `charaname` 504000 (added 2026-11-03); 鏡の戦士 "mirror warrior" in the Japanese one (retail 鏡の騎士); scripts ミラーナイト (`ai504000`); soul 鏡の騎士 (60738000). See [Mirror names](mirror-names.md) | `charaname`, AI, soul |
+| Ruin Sentinels | 鏡の中の戦士 "warrior in the mirror" (`ai325000`, and the material entry for their model c3250); already in the JP test's base data of 23 Aug 2013, never "knight" ([Mirror names](mirror-names.md)) | AI, material |
 | Last Giant | 新・巨人上級兵士 "new elite giant soldier" (`ai309600`, `BossParam` 309600) | AI, boss row |
 | Dragonrider | 重騎馬兵：兵士のみ "heavy cavalry, soldier only" (`ai611000/611010`, `BossParam` 611000) | AI, boss row |
 | Skeleton Lords | スケルトンの王 "Skeleton King"; English `charaname` 1540 "Skeleton Lord" (singular; retail "Skeleton Lords") | text |
@@ -159,7 +159,7 @@ Searched every NT FMG, comparing each line with retail's at the same id. NT-only
 | same (NPC 7220, Velderig, the time researcher) | 72200700-720 | dragons sometimes hold a gem; "it seems related to the souls the 'Ancient Dragon' produces", so he hunts the soul-hungry demons | Ancient Dragon soul |
 | `talk\m10_04`, Japanese (NPC 7040, the ladder seller) | 70405330 / 340 | he has heard "something about a Rat King", and would gladly go down to the rats if that king is rich | the Rat King (NT `ai226500`, NPC menu 7560 ねずみの王; retail: Royal Rat Authority) |
 | ~~`talk\m20_11` (Shrine of Amana)~~ | 76006000 / 76006010, 76016000 / 76016010 | **Not NT-only (corrected 2026-10-27).** The Milfanito's "Did you calm that cursed singing voice?... take this" is in retail word for word, renumbered to 76007000 / 76007010 and 76017000 / 76017010 (retail moved the death cries to 76005xxx / 76015xxx and "All we can do is sing" to 76006000 / 76016000). The id-by-id comparison missed the move | the Demon of Song's defeat (retail too) |
-| ~~`talk\m20_11`~~ | 72600800 | **Corrected 2026-10-27:** NPC 7260 (Lonesome Gavlan) says カエル？ オマエ, which retail's English renders "You? Go home?" (帰る, "leave"), not "Frog? You". Retail has the line in all four of Gavlan's files (m10_17, m10_18, m10_25, m10_33). What is NT-only is that the NT also gives Gavlan's whole dialogue to the Shrine of Amana's file (see `shrine-of-amana-name.md`) | none |
+| ~~`talk\m20_11`~~ | 72600800 | **Corrected 2026-10-27:** NPC 7260 (Lonesome Gavlan) says カエル？ オマエ, which retail's English renders "You? Go home?" (帰る, "leave"), not "Frog? You". Retail has the line in all four of Gavlan's files (m10_17, m10_18, m10_25, m10_33). What is NT-only is that the NT also gives Gavlan's whole dialogue to the Shrine of Amana's file (see [the name Amana](shrine-of-amana-name.md)) | none |
 | `talk\m20_21` | 70004480 / 70004510 | "If you go on, Shandra will set upon you." / "Please calm Shandra." (retail: デュナシャンドラ) | Nashandra's earlier name |
 | `talk\charaname.fmg` | 6090, 6091 | 巨人親衛隊長 (the only NT health-bar name for an NT-only boss) | Giant Guard Captain |
 | `talk\charaname.fmg` | 7020, 7030, 504000 | ヴァンクラッド王, デュナシャンドラ王妃, 鏡の戦士 (English 504000: "Mirror Knight") | Vendrick, Nashandra, Looking Glass Knight |
@@ -168,14 +168,14 @@ Searched every NT FMG, comparing each line with retail's at the same id. NT-only
 Also NT-only items that belong to boss ideas: **神木の小枝** "sacred tree twig" (50360000, key-item range), **仮・地竜の怒り** "(tentative)
 Earth Dragon's Wrath" (spell 33181000), **龍卵の化石** "dragon-egg fossil" (50120000). None is in retail.
 
-The 98 cut `m20_04` lines (girl and dealer) and the Shanalotte lines are not boss dialogue; see `cut-dialogue-translation.md`.
+The 98 cut `m20_04` lines ([girl and dealer](cut-content-scholar.md#4-text-scholar-deleted-two-cut-dialogues-from-the-network-test-era)) and the Shanalotte lines are not boss dialogue; see `cut-dialogue-translation.md`.
 
 ## 6. What retail kept of the NT's boss material
 
 - **Stray rows** for c5070, c5080, c5130, c5140, c5145, c6090, c6091, c6210-c6245: `EnemyAttackParam` and `EnemyDefaultLogicParam`
   (`cnumtrace.py` output); c5145 also keeps behaviour rows and lot 514500 (Soul of the King).
 - **Unreferenced AI scripts**: Lich and Wraith (above), plus the knights of life and death (`ai335000/336000`) and the rat king
-  (`ai226500`) (`cut-content-pc.md`). The knights and the rat king have no NT enemy row either, so they are scripts only in both builds.
+  (`ai226500`) ([cut content in PC Scholar](cut-content-pc.md)). The knights and the rat king have no NT enemy row either, so they are scripts only in both builds.
 - **Objects**: `o10_9200`, `o00_9111`, `o10_9230` and the crab tower stand-in.
 - **The Soul of the King lot keyed to the NT's King (present day)**, and the Old King label on Vendrick's script.
 - Everything else (the souls, test scripts, `charaname` 6090 / 6091, the Agdayne scripts, the 年老いた王 / 王（現代） scripts, the older
@@ -183,7 +183,7 @@ The 98 cut `m20_04` lines (girl and dealer) and the Shanalotte lines are not bos
 
 ## 7. The developers' own names (PC pre-release, 2026-10-28)
 
-The PC builds of 31 March 2014 (pre-release), 1.01 and 1.02 keep the developers' Japanese row names in their params
+[The PC builds of 31 March 2014 (pre-release), 1.01 and 1.02](../builds/early-pc-builds.md) keep the developers' Japanese row names in their params
 (UTF-16; `paramdef.py` reads them since 2026-10-28). That covers the regulation and the per-map params in `GameDataEbl`.
 PS3 builds and later PC builds strip them. The rows themselves are the same in PS3 v1.00, so the names apply there.
 (This is where the known "Jabba the Hutt" and "Silver Chariot" nicknames came from.)
@@ -214,18 +214,18 @@ The exceptions are c5146 and c6191, the retail bodies, listed for comparison.
 | c6170 / c6180 / c6190 | シルバーチャリオット：本体 / 処刑人（亡者） / 馬（亡者） | chariot: main body / executioner (Hollow) / horse (Hollow) | the chariot as three parts before c6191 |
 | c6191 | シルバーチャリオット：馬のみ / 合体 / 崖しがみつき | horse only / combined / clinging to the cliff | retail; the horse breathes from both heads (bullets 1619106xx-9xx); 161919000 "crashes into the gate and damages itself" |
 | c6210 | 達磨 | daruma (a limbless figure) | weapon row 62000000 |
-| c6220 / c6230 | 腐食虫（本体） / 腐食虫（子） | corrosive insect (main body / young) | the Gutter ant's other parts (`gutter-ant-c6080.md`) |
+| c6220 / c6230 | 腐食虫（本体） / 腐食虫（子） | corrosive insect (main body / young) | the Gutter ant's other parts ([Gutter's giant ant](gutter-ant-c6080.md)) |
 | c6240 | 巨人王　※没 | Giant King ※scrapped | object `o10_9230` (40 m rocky mass with a toothed mouth) |
 | c6245 | 巨人王 | Giant King | object `o00_9111` (42 m emaciated giant) |
 
-Agdayne's boss rows (c5065; `agdayne-darklurker.md`) are named too:
+Agdayne's boss rows (c5065; [Agdayne and the Darklurker](agdayne-darklurker.md)) are named too:
 - EnemyParam 506500 墓守：不死廟 "grave warden: Undead Crypt";
 - 506501 墓守：幽霊：汎用 "ghost";
 - **506509 墓守：白霊：不死廟, "grave warden: white phantom: Undead Crypt"**;
 - his spells トリプルスペル（闇術） "Triple Spell (hex)", three stages, and 黒い稲妻（闇術） "Black Lightning (hex)";
 - grab 150650310 "parry-break stab".
 
-**The Giant King:** the soul list below calls the Last Giant's soul 巨人王亡者 "Giant King (Hollow)" and the Giant
+**The Giant King:** the soul list below calls [the Last Giant's soul 巨人王亡者 "Giant King (Hollow)"](two-soul-bosses.md#1-retail-who-has-two-souls) and the Giant
 Lord's 巨人王生者 "Giant King (living)". The Giant Lord's bullets are named "c3097 巨人王生者". So the Giant King
 began as its own boss slot (c6240, then c6245, each with a giant object) and was rebuilt in the giant family as c3096 /
 c3097.
@@ -236,7 +236,7 @@ Each retail soul row is named "<shipped name>（<working name>のソウル）". 
 
 | Soul | Boss | Working name |
 |---|---|---|
-| 64000000 | Pursuer | ベイグラント (Vagrant) |
+| 64000000 | Pursuer | [ベイグラント (Vagrant)](boss-region-names.md#the-pursuer-was-vagrant) |
 | 64010000 | Last Giant | 巨人王亡者 (Giant King, Hollow) |
 | 64020000 | Dragonrider | 重騎馬兵 (heavy cavalry) |
 | 64030000 | Old Dragonslayer | オーンスタイン (Ornstein) |
@@ -290,7 +290,7 @@ So the crab and the sacred tree were far enough along to have planned soul weapo
 
 - The NT-only bosses' stats and attacks: the NT's `EnemyParam` and behaviour rows have a different layout from retail's (320 against
   356 bytes), the shared decoder does not fit, and nothing here was decoded beyond which rows exist.
-- Whether c6210 (達磨), c5050, c6150, the Lich and the Wraith were bosses or ordinary enemies. Section 7 names them but
+- Whether c6210 (達磨), c5050, c6150, the Lich and the Wraith were bosses or ordinary enemies (see [the community cut-content sheet, section 5](community-cut-sheet-crossref.md#5-is-the-sheets-bosses-section-all-bosses-asked-2026-10-28)). Section 7 names them but
   doesn't say. The Lich and Wraith's damage-reaction size classes are 超特大 / 超超特大, "extra-large" (the Gutter ant's
   class too), which says they were big but not that they were bosses.
 - Which giant the soul 岩の巨人カノッソフ "rock giant Kanossof" belongs to: the petrified Guard Captain and the
@@ -298,17 +298,17 @@ So the crab and the sacred tree were far enough along to have planned soul weapo
   the mayfly dragon, the hands or the witch Lidirea.
 - Every "probable" and "guess" in tables 1 to 3 is an inference from names and ids; no file ties a soul to a body.
   (2026-11-04: the 27 souls have no NT `ItemParam` rows and no NT param refers to them. Soul pairs and the past /
-  present question are in `two-soul-bosses.md`.)
+  present question are in [two-soul bosses](two-soul-bosses.md).)
 - The JP network test was not scanned; the NT's other-language text is almost empty, so only Japanese was read.
-- NT audio was not re-read (`network-test-music.md` has the `bossout` jingle and no boss tracks identified).
+- NT audio was not re-read ([Network Test music](network-test-music.md) has the `bossout` jingle and no boss tracks identified).
 
 ## Notes this draws on
 
-`agdayne-darklurker.md` (soul list, Agdayne), `unused-map-pieces.md` (crab tower), `unused-models.md` (c6090, c6240, c6245, c7030,
-c6180), `boss-region-names.md` (working names of retail bosses), `cut-content-scholar.md` and `cut-dialogue-translation.md` (soul list not revived;
-Shandra), `cut-content-pc.md` / `cut_pc_ai.tsv` (unreferenced AI scripts), `unused-attacks-pc.md` (the attacks the NT's boss scripts
-requested: Last Giant 15, Ruin Sentinel 16, Demon of Song 15 and 16), `nt-ai-labels-retail-enemies.md`, `developer-signs.md`,
-`network-test-music.md`, and the NT session findings `Ghidra Project\export\win\s20` and `s21` (the Copse map).
+[Agdayne and the Darklurker](agdayne-darklurker.md) (soul list, Agdayne), [unused map pieces](../unused/unused-map-pieces.md) (crab tower), [unused models](../unused/unused-models.md) (c6090, c6240, c6245, c7030,
+c6180), [boss working names](boss-region-names.md) (working names of retail bosses), [cut content in PS3 Scholar](cut-content-scholar.md) and `cut-dialogue-translation.md` (soul list not revived;
+Shandra), [cut content in PC Scholar](cut-content-pc.md) / `cut_pc_ai.tsv` (unreferenced AI scripts), [unused enemy attacks](../mechanics/unused-attacks-pc.md) (the attacks the NT's boss scripts
+requested: Last Giant 15, Ruin Sentinel 16, Demon of Song 15 and 16), [Network Test AI labels](nt-ai-labels-retail-enemies.md), `developer-signs.md`,
+[Network Test music](network-test-music.md), and the NT session findings `Ghidra Project\export\win\s20` and `s21` (the Copse map).
 
 Method (scratch scripts, session scratchpad, not kept): `gamedata.py` reads of the NT and retail archives; param ids and rows by
 `paramdef` and raw words; AI labels from each `ai*.esd` header; `fmg.py` over every FMG of both builds with a same-id comparison;

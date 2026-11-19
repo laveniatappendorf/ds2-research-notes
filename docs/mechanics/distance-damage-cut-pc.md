@@ -49,10 +49,14 @@ So a straight sword (1.4-2.0 m, -30 %) does full damage up to 1.4 m between the 
 
 ## Not covered
 
-- No counter of targets already hit appears in slots 5 / 10 / 13 / 14 / 32. Several multipliers in slot 13 come from
+- No counter of targets already hit appears in slots 5 / 10 / 13 / 14 / 32. Several multipliers in slot 13 (see [Najka's damage cuts](najka-damage-cuts.md)) come from
   vfuncs (attacker / target pairs) that were not traced, and the protected getters were not read. So this is "not
   found", not "proven absent".
 - Not seen live. A test: two enemies at the same distance should take the same damage. Moving one enemy past the
   band should cost 30 %.
 - The hitbox-section multipliers (PlayerDamageParam damage_id_followup chains: polearm shaft x0.4625, UGS root,
   whip sections) are a separate, per-hitbox mechanism and were not traced in code.
+
+## Related pages
+
+- [Radai's damage formula guide](damage-formula-radai.md): counts the HP cut field +0xac over all player attack rows and sets the guide's 70 % figure against the distance ramps.

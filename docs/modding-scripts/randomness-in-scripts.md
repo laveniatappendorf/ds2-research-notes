@@ -4,7 +4,7 @@
     Seen working in the game or emulator, not only read from files. See [status labels](../status-labels.md).
 
 > Dark Souls II: Scholar of the First Sin, PC, Steam 1.0.3.0. Written 18 November 2026 from the Boss Arena project's tests.
-> Test ids such as B52 point to the project's test log (see the wiki's Home page). Evidence tags: `[live B52]` seen in the
+> Test ids such as B52 point to the project's test log (see [how to read this site](../how-to-read.md#the-modding-pages)). Evidence tags: `[live B52]` seen in the
 > game, `[code]` read in the exe, `[data]` read in the game files, `[inference]` reasoned, not proven, `[untested]` an idea only.
 
 ## Summary
