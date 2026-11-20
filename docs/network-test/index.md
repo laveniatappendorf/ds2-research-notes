@@ -18,7 +18,7 @@ What the 2013 Network Test had that the shipped game dropped or changed.
 | [Llewellyn (リンド) - every reference, cut and shipped (2026-11-10)](llewellyn-references.md) | From the data |
 | [Lore check: "Tark and Najka were duo bosses, code name Hell Scorpions" (2026-11-04)](tark-najka-duo-claim.md) | From the data |
 | [Network Test AI scripts for enemies the test never places: Japanese names and translations](nt-ai-labels-retail-enemies.md) | From the data |
-| [Network Test music: what is in the sound files (2026-10-23)](network-test-music.md) | From the data |
+| [Network Test music: what is in the sound files (2026-10-23, redone 2026-11-18)](network-test-music.md) | From the data |
 | [Network Test spell casting: eight cast setups, aiming catalysts and catalyst power stance (2026-11-17)](nt-casting-setups.md) | Confirmed live |
 | [The "Broken" status: what became of Break (2026-11-12)](broken-status.md) | From the data |
 | [The child Emerald Herald model (c7015), and whether it is the "sparkling girl" (2026-10-26)](child-herald-c7015.md) | From the data |

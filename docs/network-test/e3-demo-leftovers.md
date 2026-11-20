@@ -291,9 +291,9 @@ These are all row names, so they exist only in the three 2014 PC builds; the row
 - Which retail fight plays `m202100001`, from the event or sound-event data.
 - What m10_22 was: an NT-only music and ambience bank whose track is also the NT's Drangleic Castle track.
 - What m10_21, the present Rock-peak Castle, was: listed in the map list and in the NT's talk files, but no map in v1.00 (see [its talk file](cut-content-scholar.md#4-text-scholar-deleted-two-cut-dialogues-from-the-network-test-era)).
-- Decoded durations (FFmpeg via PyAV) differ from [Network Test music](network-test-music.md)'s frame counts for some tracks: `sm2063`
-  decodes to 2:44 there listed 4:22 (retail's identical bytes also decode to 2:44); the two `sm1010` tracks decode to 2:55 /
-  2:24, listed 1:27 / 1:11. Not resolved.
+- ~~Decoded durations differ from [Network Test music](network-test-music.md)'s frame counts~~ **Resolved 2026-11-18:** the 23 Oct
+  conversion behind that table read sample offsets at half their value. Redone: `sm2063` `m206300001` = 2:44, `sm1010` =
+  2:55 / 2:24, matching the decodes here ([Network Test music](network-test-music.md), redone table).
 
 ## Reproduce
 

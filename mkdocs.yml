@@ -60,7 +60,7 @@ nav:
       - "Llewellyn (リンド) - every reference, cut and shipped (2026-11-10)": network-test/llewellyn-references.md
       - "Lore check: 'Tark and Najka were duo bosses, code name Hell Scorpions' (2026-11-04)": network-test/tark-najka-duo-claim.md
       - "Network Test AI scripts for enemies the test never places: Japanese names and translations": network-test/nt-ai-labels-retail-enemies.md
-      - "Network Test music: what is in the sound files (2026-10-23)": network-test/network-test-music.md
+      - "Network Test music: what is in the sound files (2026-10-23, redone 2026-11-18)": network-test/network-test-music.md
       - "Network Test spell casting: eight cast setups, aiming catalysts and catalyst power stance (2026-11-17)": network-test/nt-casting-setups.md
       - "The 'Broken' status: what became of Break (2026-11-12)": network-test/broken-status.md
       - "The child Emerald Herald model (c7015), and whether it is the 'sparkling girl' (2026-10-26)": network-test/child-herald-c7015.md
@@ -91,6 +91,7 @@ nav:
       - "Najka's damage cuts: the tail grab (x0.2) and the spell casts (x0.5) (2026-11-02)": mechanics/najka-damage-cuts.md
       - "NPCs who also invade (PC Scholar 1.0.3.0)": mechanics/npc-invaders-pc.md
       - "Penalties for unmet stat requirements (PlayerLackOfStatsParam)": mechanics/armour-requirement-penalties.md
+      - "PlayerWeaponReinforceParam (PC Scholar only)": mechanics/player-weapon-reinforce-param.md
       - "Radai's 'Dark Souls II Damage Formula' guide and the game data (2026-11-01)": mechanics/damage-formula-radai.md
       - "Retail roll i-frames: how derived Agility becomes invincibility (2026-10-16)": mechanics/agility-iframes.md
       - "Scaling letter grades, DEX's own scale and elemental infusion (2026-10-26)": mechanics/scaling-letters-and-infusion.md

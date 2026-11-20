@@ -112,7 +112,60 @@ r27 = AI+0x1d0.
 | = -1 | +0x328 | **+0x248** | C |
 | = 0 | +0x32c | **+0x24c** | C |
 
-Retail freeze recipe (untested): for each enemy chr in [CharMgr+0xc..+0x10), AI = [[[chr+0xac]+0xc]+0x10] (check vt
+**Live 2026-11-18 (Dragon Shrine, `tools\vgens.py`):** the enemy list works as written (player first, then only the
+enemies created near the player; chr +0x14 = EnemyParam id). The Drakekeepers (331xxx) have chr vt 0x01c28ea8 and AI vt
+0x01c2dc60, so "Enemy AI off" froze them. The three Dragon Knights (835000 / 835100 / 835200) have chr vt **0x01c2aa58 =
+the player's own class** (type +0x1c still 2), and [[[chr+0xac]+0xc]+0x10] lands on an object whose first word is a heap
+address, not an AI vtable: the table skips them and they attacked (the author). Other humanoid 8xxxxx enemies probably share
+this class (unchecked); their AI object is not mapped.
+
+**Player-class enemies' AI path (2026-11-18, mapped the same day: code in DS2V by headless Ghidra + linear capstone
+listings, layouts read live (read only) on the three knights at Dragon Shrine).** The player class 0x01c2aa58 is a
+subclass of the enemy class 0x01c28ea8 (ctor 0x847f84 calls the enemy ctor 0x791b74; 11 of 80 vtable slots overridden;
+its init slot +0x108 = 0x847fdc adds objects at chr+0x370..+0x37c). chr+0xac is the same kind of object for both: a
+0x18-byte **control holder** handed in by the creator (init 0x792b08 takes it from its argument +0x24; default ctor
+0x79d940, base vt 0x01c29260), whose +0xc is the **current controller**. Its slot +0x20 = 0x79e1c0 picks the controller
+from the holder's own getters (+0x34 for mode 0, +0x30 for modes 1 / 2). Live:
+
+| chr | holder vt | controller [H+0xc] vt | AI |
+|---|---|---|---|
+| player (type 1) | 0x01c222b8 | 0x01c2a398 (pad controller) | none |
+| Drakekeepers 331xxx | 0x01c2b3e8 | 0x01c2a1b0 (AI owner: AI at +0x10, created by its slot +0x98 = 0x8215e4) | vt 0x01c2dc60 |
+| Dragon Knights 835xxx (type 2) | 0x01c22278 | **0x01c21e58 (player-type AI controller)** | **at controller+0x14, vt 0x01c1d550** |
+
+- **Player-type AI controller** (vt 0x01c21e58, methods 0x5b1cb8..0x5b20b0, ctor ~0x5b2060): +0x8 chr, **+0x10 virtual
+  pad** (0xd0-byte struct, +0 = chr), **+0x14 AI**. Update (slot +0x18 = 0x5b1e44): pad pre-step 0x5b0bc4 (clears the pad's
+  +0x74 block), AI think (AI vt +0x14) with the time step, post-step 0x5b1a90, then copies pad bytes +4..+5, +6..+8,
+  +9..+0xc into the controller output [ctl+0xc] (0x821cf4 / 0x821d5c / 0x821dcc, shared with the AI owner). Teardown
+  (slot +0xc = 0x5b1f30) unregisters +0x14 from the AiManager, so the AI is registered there like any other.
+- **Player-type AI** (vt 0x01c1d550, the only subclass of the enemy AI class 0x01c2dc60 in the EBOOT, ctor ~0x458714):
+  slots +0x08..+0x90 are the base class's, including **think +0x14 = 0x95c190** and **update +0x20 = 0x95cc20**, so the
+  **frame-skip byte +0x19c** works the same (think runs only while it is 0; update decrements it and returns while it is
+  not), +0x1c = chr, and the **output block at +0x1d0** has the base layout (its reset slot +0xb0 = 0x457c50 calls the
+  base reset 0x95dd74, then zeroes its own fields +0x8d8..+0x910). New: **+0x8d4 = the controller's virtual pad**; slot
+  +0x9c (0x457d14, called first by think) resets the pad (0x5b11a8: bytes +4..+0xc = 0, +0x10 = zero vector, +0x20 /
+  +0x30 = (0,0,1,0), +0x74 block); slot +0xa8 (0x457f5c, called by think after the AI has decided) **copies the output
+  block into the pad**: vectors +0x1d0 / +0x1e0 / +0x1f0 -> pad +0x10 / +0x20 / +0x30, input bits +0x230 and attack id
+  +0x23c -> pad buttons through 0x5b1238 / 0x5b04e8, the subclass fields +0x8d8.. -> pad requests.
+- So holding +0x19c at 0xff stops think and update for the knights too, but the pad keeps whatever the last think put
+  there (the controller copies it every frame). An idle AI frame leaves the pad with zero buttons and, after 0x457f5c,
+  zero vectors (the base reset vector is (0,0,0,0)).
+
+Retail freeze for player-class enemies (built into DS2V.CT 18 Nov, profile keys CHR_TYPE / PCTRL_* / PAI_* / VPAD_*):
+chr vt 0x01c2aa58 **and** u32 chr+0x1c = 2 (the player is type 1); ctl = [[chr+0xac]+0xc] with vt 0x01c21e58; AI =
+[ctl+0x14] with vt 0x01c1d550, AI+0x1c = chr and AI+0x8d4 = pad = [ctl+0x10]. Write the usual block below on the AI
+(frame-skip first), then zero pad bytes +4..+0xc and pad +0x10..+0x3f; untick: AI+0x19c = 0. Read-only dry run of the
+lookup at Dragon Shrine (18 Nov): 4 Drakekeeper AIs + 3 knight AIs with their pads; the player skipped.
+
+**Network Test:** `make_ct.py` filters on the enemy class 0x019b20f0 the same way, but its EBOOT has **one** AI class
+(0x019b6de0; no other vtable shares its think / update slots) and no counterpart of the player-type AI controller or the
+virtual pad (retail 0x457f5c / 0x5b11a8 / 0x5b1e44 have no NT twin by xmatch.py reversed), so this retail path cannot
+exist there. The NT's player class 0x019b39e8 has 3 creation sites (retail 4: 0x80f490 / 0x80fd54 / 0x810d94 /
+0x812a18; only 0x810d94 has an NT twin, 0x6086ec). Whether any NT character of the player class is AI-driven (it would
+then hang off the ordinary chain and be skipped only by the class test) is not checked; m10_23 registers 754000 /
+754001, 783000 / 783001 and 810000 (one spawn each, no names in the NT EnemyParam), the likely candidates.
+
+Retail freeze recipe (live 18 Nov: froze the Drakekeepers): for each enemy chr in [CharMgr+0xc..+0x10), AI = [[[chr+0xac]+0xc]+0x10] (check vt
 0x01c2dc60), zero 16 bytes at +0x1d0/+0x1e0/+0x1f0/+0x210/+0x220, u32 +0x200 = 0, u32 +0x230 = 1, bytes +0x235..+0x238
 = 0, +0x23c = -1, +0x248 = -1, +0x24c = 0, byte **+0x19c = 0xff**; untick: +0x19c = 0.
 
