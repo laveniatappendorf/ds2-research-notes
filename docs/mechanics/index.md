@@ -9,6 +9,7 @@ How combat, stats and enemy behaviour work, from code and live checks.
 | [Baby jumps (PC Scholar 1.0.3.0)](baby-jumps-pc.md) | Confirmed live |
 | [Best miracle catalyst for high Faith (PS3 v1.00, BLUS41045)](miracle-catalysts-v1.00.md) | From the data |
 | [Bosses: vanilla 1.10 vs PC Scholar (with vanilla 1.00 for context)](bosses-pc.md) | From the data |
+| [Brightbug: what it multiplies, and where in the chain (PC Scholar 1.0.3.0, 2026-11-20)](brightbug.md) | Confirmed in code |
 | [Chameleon: which objects you turn into (2026-11-14)](chameleon-objects.md) | Confirmed live |
 | [ChunkPhaseParam and the PlayGo doors (PC Scholar)](chunk-phase-playgo.md) | From the data |
 | [Contact margin: why a hit needs a few cm of overlap (PC Scholar 1.0.3.0, live 18 Nov 2026)](contact-margin-pc.md) | Confirmed live |
