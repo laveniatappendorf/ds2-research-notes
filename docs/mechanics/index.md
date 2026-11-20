@@ -32,6 +32,7 @@ How combat, stats and enemy behaviour work, from code and live checks.
 | [Soul memory matchmaking: what is in the game, what is on the server (2026-11-02)](soul-memory-matchmaking.md) | From the data |
 | [Staff of Amana: the hollowing penalty (PC Scholar 1.0.3.0, 2026-11-15)](staff-of-amana-hollowing.md) | Confirmed in code |
 | [The Forlorn: when they invade (PC Scholar 1.0.3.0)](forlorn-pc.md) | From the data |
+| [The tearstone rings: the threshold, the multiplier and what it lands on (PC Scholar 1.0.3.0, 2026-11-20)](tearstone-rings.md) | Confirmed in code |
 | [Unused attacks to try in game: swap candidates](attack-swap-candidates.md) | Plan, not run |
 | [Unused enemy attacks: set up but never requested by the AI](unused-attacks-pc.md) | From the data |
 | [When did Resistance / Agility become Adaptability / derived Agility? (2026-10-16)](agility-timeline.md) | From the data |
