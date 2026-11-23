@@ -92,6 +92,8 @@ nav:
       - "Mundane at SL50 before Shrine of Winter, PS3 v1.00 (2026-11-01)": mechanics/mundane-sl50-v100.md
       - "Najka's damage cuts: the tail grab (x0.2) and the spell casts (x0.5) (2026-11-02)": mechanics/najka-damage-cuts.md
       - "NPCs who also invade (PC Scholar 1.0.3.0)": mechanics/npc-invaders-pc.md
+      - "Parries and ripostes: which hits can be parried, and why Sir Alonne can't be riposted (PC Scholar 1.0.3.0, live 23 Nov 2026)": mechanics/parry-and-riposte-pc.md
+      - "Parryable but never riposted: enemies with an empty riposte zone (PC Scholar 1.0.3.0, 2026-11-23)": mechanics/riposte-zones-pc.md
       - "Penalties for unmet stat requirements (PlayerLackOfStatsParam)": mechanics/armour-requirement-penalties.md
       - "PlayerWeaponReinforceParam (PC Scholar only)": mechanics/player-weapon-reinforce-param.md
       - "Radai's 'Dark Souls II Damage Formula' guide and the game data (2026-11-01)": mechanics/damage-formula-radai.md

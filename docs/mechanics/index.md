@@ -22,6 +22,8 @@ How combat, stats and enemy behaviour work, from code and live checks.
 | [Mundane at SL50 before Shrine of Winter, PS3 v1.00 (2026-11-01)](mundane-sl50-v100.md) | Not yet rated |
 | [Najka's damage cuts: the tail grab (x0.2) and the spell casts (x0.5) (2026-11-02)](najka-damage-cuts.md) | Confirmed in code |
 | [NPCs who also invade (PC Scholar 1.0.3.0)](npc-invaders-pc.md) | From the data |
+| [Parries and ripostes: which hits can be parried, and why Sir Alonne can't be riposted (PC Scholar 1.0.3.0, live 23 Nov 2026)](parry-and-riposte-pc.md) | Confirmed live |
+| [Parryable but never riposted: enemies with an empty riposte zone (PC Scholar 1.0.3.0, 2026-11-23)](riposte-zones-pc.md) | From the data |
 | [Penalties for unmet stat requirements (PlayerLackOfStatsParam)](armour-requirement-penalties.md) | From the data |
 | [PlayerWeaponReinforceParam (PC Scholar only)](player-weapon-reinforce-param.md) | From the data |
 | [Radai's "Dark Souls II Damage Formula" guide and the game data (2026-11-01)](damage-formula-radai.md) | From the data |
