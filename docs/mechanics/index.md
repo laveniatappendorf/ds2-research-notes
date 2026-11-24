@@ -30,6 +30,7 @@ How combat, stats and enemy behaviour work, from code and live checks.
 | [Retail roll i-frames: how derived Agility becomes invincibility (2026-10-16)](agility-iframes.md) | Not yet rated |
 | [Scaling letter grades, DEX's own scale and elemental infusion (2026-10-26)](scaling-letters-and-infusion.md) | Not yet rated |
 | [Seven community claims checked (2026-11-02)](community-claims-2026-11-02.md) | Not yet rated |
+| [Sir Alonne's moves: the range slash, the parry counter and every attack recorded (PC Scholar 1.0.3.0, live 24 Nov 2026)](sir-alonne-moves-pc.md) | Confirmed live |
 | [SL1, +0 weapons, no rings, no armour: best damage (2026-11-15)](sl1-naked-damage.md) | From the data |
 | [SL1: Large Club vs Old Knight Hammer (2026-11-01)](sl1-large-club-vs-old-knight-hammer.md) | Not yet rated |
 | [Soul memory matchmaking: what is in the game, what is on the server (2026-11-02)](soul-memory-matchmaking.md) | From the data |
