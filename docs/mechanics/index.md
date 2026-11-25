@@ -4,7 +4,7 @@ How combat, stats and enemy behaviour work, from code and live checks.
 
 | Page | Status |
 |---|---|
-| ["Phantom" hitboxes (LordRadai's video) checked against PC Scholar (2026-11-02)](phantom-hitboxes-pc.md) | Confirmed live |
+| ["Phantom" hitboxes and hitbox timing: our tools checked against LordRadai's video (PC Scholar, 2026-11-02)](phantom-hitboxes-pc.md) | Confirmed live |
 | [Aava's leap: one move, stretched to fit the distance (PC Scholar 1.0.3.0, 2026-11-10)](aava-leap-distance.md) | Not yet rated |
 | [Baby jumps (PC Scholar 1.0.3.0)](baby-jumps-pc.md) | Confirmed live |
 | [Best miracle catalyst for high Faith (PS3 v1.00, BLUS41045)](miracle-catalysts-v1.00.md) | From the data |

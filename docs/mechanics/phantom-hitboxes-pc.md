@@ -1,43 +1,56 @@
-# "Phantom" hitboxes (LordRadai's video) checked against PC Scholar (2026-11-02)
+# "Phantom" hitboxes and hitbox timing: our tools checked against LordRadai's video (PC Scholar, 2026-11-02)
 
 !!! success "Status: Confirmed live"
     Seen working in the game or emulator, not only read from files. See [status labels](../status-labels.md).
 
-Source: Radai's follow-up video on hitbox timing (no audio; on-screen text read from the author's 56 screenshots,
-`<local path> 2026-11-02 2058*-2110*.png`). It corrects his earlier clip,
-which looked like hits landing a frame late. His claims:
+**Why this page exists.** We had started building our own ways of seeing hitboxes: a wireframe overlay for the PS3
+Network Test, then reading the hit code in the PC exe, counting damage rows, and logging every frame live. Before
+building more on them we wanted to know they read the game correctly, and that needs a reference we could rely on.
+LordRadai's follow-up video on hitbox timing is that reference. He made it with DebugManager, his own debug-menu
+add-on that draws the game's hitboxes, and his work has held up against the game files before (the numbers in his
+[damage formula guide](damage-formula-radai.md) that can be read from the params match them). So this page takes the
+points his video makes and checks whether our code reading, data and live logs give the same answers.
+
+They agree with the video on every point we could test; phantom timing is the one we have not yet logged live. The
+check also showed us where our own tools fell short: the PS3 overlay
+cannot see phantom hitboxes at all, and an earlier reading of it had missed the one-frame lag (see
+[PS3 Network Test side](#ps3-network-test-side)). The live logs then added two things on top of the video: a touch
+blocked by i-frames carries over to the first free frame, and some of those land as ghost hits (section 4 of the live
+test).
+
+Source: the video has no audio; its on-screen text was read from the author's 56 screenshots,
+`<local path> 2026-11-02 2058*-2110*.png`. It follows up his earlier clip,
+which seemed to show hits landing a frame late, and explains what was going on. The points it makes:
 
 1. Hurtboxes (character hit model) are one frame behind. The debug drawing matches the real data.
 2. Normal hitboxes (`PXBulletRigidBody`) are also one frame behind, but the debug drawing shows where they will be next
    frame. Hitbox and hurtbox lag cancel out, so damage shows up the frame after the drawn overlap.
 3. "Phantom" hitboxes (`PXBulletPhantom`) are made when the hitbox is expanding or can hit the same target more than
    once. They are on the current frame (one frame ahead of the hurtbox) and drawn correctly, so damage shows up on the
-   frame of the drawn overlap. Proof: setting a hollow's attack to a hit interval > 0, or to expanding with a maximum
-   radius of 0, makes it a phantom.
+   frame of the drawn overlap. He shows it by setting a hollow's attack to a hit interval > 0, or to expanding with a
+   maximum radius of 0: either makes it a phantom.
 4. About 90 % of hitboxes are normal. Examples of phantoms: twinblade two-hand light attacks, FoFG flame pillars
    (multi-hit); Force, Wrath of the Gods, explosions, Soul Bolt, Focus Souls (size-changing).
 5. Wheel skeleton rolls are not multi-hit hitboxes; they loop a short animation (blade dash) with an
    `InvokeWeaponDamage` TAE event.
 6. PX is FromSoftware's physics layer over Havok 2014.1.
 
-(A caption calls Wrath of the Gods "Satisfies 2"; it is the expanding case, his condition 1 / B.)
+## How our readings compare with the video
 
-## Verdict
-
-| Claim | Status | How |
+| Point in the video | Our reading | How we got it |
 |---|---|---|
-| Classes `PXBulletPhantom`, `PXBulletRigidBody` (base `PXBulletBase`) exist | **Confirmed** | RTTI in DarkSoulsII.exe 1.0.3.0 |
-| Phantom chosen for multi-hit OR expanding | **Confirmed in code** | FUN_1403b09d0, below |
-| "Expanding" means the expand-time field, not the size (his max-radius-0 test) | **Confirmed in code** | the test reads +0x78 only |
-| ~90 % normal | **Confirmed** (by row count) | 93.9 % of PC Scholar damage rows, 94.2 % of PS3 v1.00 |
-| His examples are phantoms | **Confirmed** (data) | developer row names, below |
-| Wheel skeleton roll is not multi-hit | **Confirmed** (data) | all its damage rows have cycle 0 |
-| Normal hitbox one frame behind its target | **Confirmed live** (2026-11-06) | body position and rotation = last frame's target, every frame |
-| Phantom on time | Mechanism in code only | phantom = immediate query; not tested live |
-| Hurtboxes one frame behind | **Confirmed in effect, live** | the hurtbox is set to the new pose after the physics step, so the step tests the previous pose |
-| Damage one frame after the drawn contact | **Confirmed live** | 8 of 12 clean hits exactly; never earlier |
-| End of roll: blocked touch carried over | **Found live** | 12 of 12 hits right after i-frames; 2 were ghost hits |
-| What DebugManager draws | Radai's statement only | the logged target is what it is said to draw |
+| Classes `PXBulletPhantom`, `PXBulletRigidBody` (base `PXBulletBase`) exist | **Matches** | RTTI in DarkSoulsII.exe 1.0.3.0 |
+| Phantom chosen for multi-hit OR expanding | **Matches, in code** | FUN_1403b09d0, below |
+| "Expanding" means the expand-time field, not the size (his max-radius-0 test) | **Matches, in code** | the check reads +0x78 only, which is why his test still made a phantom |
+| ~90 % normal | **Matches** (by row count) | 93.9 % of PC Scholar damage rows, 94.2 % of PS3 v1.00 |
+| His examples are phantoms | **Matches** (data) | developer row names, below |
+| Wheel skeleton roll is not multi-hit | **Matches** (data) | all its damage rows have cycle 0 |
+| Normal hitbox one frame behind its target | **Matches, live** (2026-11-06) | body position and rotation = last frame's target, every frame |
+| Phantom on time | Code fits; not yet logged live | phantom = immediate query |
+| Hurtboxes one frame behind | **Matches in effect, live** | the hurtbox is set to the new pose after the physics step, so the step tests the previous pose |
+| Damage one frame after the drawn contact | **Matches, live** | 8 of 12 clean hits exactly; never earlier |
+| What DebugManager draws | From the video (his own tool) | our logged target is what he describes it drawing |
+| *Added by our logs:* end of roll, a blocked touch carries over | **Found live** | 12 of 12 hits right after i-frames; 2 were ghost hits |
 
 ## Code (DarkSoulsII.exe 1.0.3.0, DS2SPC Ghidra project, headless)
 
@@ -81,9 +94,9 @@ type byte +0xb1 or +0xb2 == 3). What it builds is not identified.
   FUN_140bc2640). Then +0x40 = +0x20.
 
 So the rigid body's hits are found one physics step after its target is set; the phantom's are found in the same
-update, swept along the whole move. That is the mechanism behind claims 2 and 3. Not traced: where slots 8 / 9 sit
-relative to the hkpWorld step in the frame, how contact-callback hits become damage, and whether the character hit
-model is hard-keyframed too (claim 1). Those decide that the gap is exactly one frame.
+update, swept along the whole move. That is the mechanism behind points 2 and 3 of the video. Not traced: where slots
+8 / 9 sit relative to the hkpWorld step in the frame, how contact-callback hits become damage, and whether the
+character hit model is hard-keyframed too (point 1). Those decide that the gap is exactly one frame.
 
 ## Data
 
@@ -119,9 +132,9 @@ re-triggering the attack (Radai's blade-dash loop), not from one multi-hit box.
 
 - 2026-10-20 scan (side session "Draw attack hitboxes as 3D wireframe capsules"): melee attack capsules are
   hkpRigidBody (vtable 0x19e19a8), the "normal" kind. They kept a steady offset to the **same-frame** hand capsule of
-  the hit model (layer 3). That session read this as "no lag against the skeleton", but by Radai's account the hit
-  model is itself a frame behind the pose, so the test only shows that hitbox and hurtbox move in step. That fits
-  claim 2's "they cancel out" and cannot see the lag.
+  the hit model (layer 3). That session read this as "no lag against the skeleton". Radai's video put us right: the
+  hit model is itself a frame behind the pose, so the test only shows that hitbox and hurtbox move in step (his "they
+  cancel out"), and it cannot see the lag.
 - The demo does have Havok phantoms (hkpSimpleShapePhantom 0x19e1e48, hkpCachingShapePhantom 0x19f3518,
   hkpAabbPhantom 0x19e1d30) but no `PXBullet*` RTTI names (only PXUserData* classes), so its wrapper may differ.
 - `tools/hitboxes.py` and the overlay match only the hkpRigidBody vtable, so **they cannot show phantom hitboxes**.
@@ -160,7 +173,7 @@ read ~6 ms after GameManagerImp +0x104 (a frame counter, +1 per game frame) move
 
 **1. Hitbox lag (run 1, 453 frame pairs with the target moving 5 cm+):** the physics body is at **last frame's target**
 (median 0.0000 m, max 0.155 m), a median 0.160 m (max 0.392 m) short of this frame's target. Rotation the same (run 3,
-237 pairs, largest gap 0.0045). Claim 2 confirmed.
+237 pairs, largest gap 0.0045). This matches point 2 of the video.
 
 **2. Hurtbox (run 2, 404 running frames at 0.101 m / frame):** at the end of a frame the pelvis capsule is on **this**
 frame's root (0.018 m, body sway) and 0.105 m from last frame's. It is set to the new pose in characters part 2, after
@@ -211,7 +224,8 @@ tested.
 
 ## Still open
 
-- Phantom timing live (Force, a twinblade two-hand light, a map hazard): expect HP on the drawn-contact frame.
+- Phantom timing live (Force, a twinblade two-hand light, a map hazard): from the video, expect HP on the
+  drawn-contact frame.
 - Why 31617 / 31750 / 72761 hit a frame after the physics touch; what keeps a contact listed one frame after
   separation (the PXBullet hit list FUN_140bdd280 or Havok's contact persistence). Possibly one cause: the hit list
   being a frame stale.

@@ -74,7 +74,7 @@ nav:
       - "Weapons: Network Test vs retail v1.00, and what was cut (2026-10-16)": network-test/weapons-nt-vs-retail.md
   - Mechanics and formulas:
       - Overview: mechanics/index.md
-      - "'Phantom' hitboxes (LordRadai's video) checked against PC Scholar (2026-11-02)": mechanics/phantom-hitboxes-pc.md
+      - "'Phantom' hitboxes and hitbox timing: our tools checked against LordRadai's video (PC Scholar, 2026-11-02)": mechanics/phantom-hitboxes-pc.md
       - "Aava's leap: one move, stretched to fit the distance (PC Scholar 1.0.3.0, 2026-11-10)": mechanics/aava-leap-distance.md
       - "Baby jumps (PC Scholar 1.0.3.0)": mechanics/baby-jumps-pc.md
       - "Best miracle catalyst for high Faith (PS3 v1.00, BLUS41045)": mechanics/miracle-catalysts-v1.00.md
