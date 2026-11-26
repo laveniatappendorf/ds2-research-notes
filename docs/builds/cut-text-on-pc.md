@@ -35,9 +35,10 @@ expected.
 PC Scholar was packed from references (unused models and AI scripts dropped; [cut content in PC Scholar](../network-test/cut-content-pc.md)),
 so I checked that launch-day PC wasn't packed the same way:
 
-- **[Unused models](../unused/unused-models.md) stay on launch PC.** It still has c2020 (model only), c7015 (child Emerald Herald), c1400, c7210,
+- **[Unused models](../unused/unused-models.md) stay on launch PC.** It still has c2020 (model only), c7015 (child Emerald Herald),
   all [the unused Peasant set 2481 armour](../unused/unused-armour-icons.md), wp_5510 and objects o00_9111 / o14_6000 / o23_9050. PC 1.12 still has
-  them too, so the reference-based purge only came with Scholar.
+  them too, so the reference-based purge only came with Scholar. (Corrected 2026-11-26: this list also had c1400 and
+  c7210, but generators place both, so they aren't unused.)
 - **Every PS3 text file with real text is on PC except the cut ones.** In PS3 1.01, 66 English FMGs have data. 61
   are on PC 1.02. The other 5 are the cut set: `bofireName`, `regulation` and talk `m90_00` hold one entry each, and
   `m10_21` / `m20_04` are header-only in English (their dialogue is Japanese only).

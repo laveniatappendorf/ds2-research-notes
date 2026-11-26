@@ -9,9 +9,11 @@ they?
 
 ## Short answer
 
-- **The cause is one stray animation event.** The maidens' face-up fall animation `a00_16_0740 DmgDownFaceUPStart`
-  in their network `c1050.nmb` carries a `DownDuration` event (user value 270) that the equivalent animation of
-  enemies that get up does not have.
+- **A stray animation event is part of the cause, not all of it.** The maidens' face-up fall animation
+  `a00_16_0740 DmgDownFaceUPStart` in their network `c1050.nmb` carries a `DownDuration` event (user value 270)
+  that the same animation in c1030 (Hollow Infantry), the network it was compared with, doesn't have. Three other
+  networks carry the same event, though, and one of them gets up: see the correction below. (Corrected 2026-11-26:
+  this line said the event was the whole cause.)
 - **How it breaks the get-up** (my reading of the code; the live log matches it):
   - when the fall cross-fades into the lying loop, the loop's own `DownDuration` starts while the fall's is still
     active;

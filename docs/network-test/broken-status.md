@@ -40,8 +40,17 @@ The status ailments go through one function, a switch on the ailment index.
 | 1 | bleed | 900200 | 900200 |
 | **2** | **Break** | **900300 for everyone** | **900300 if the character's category is flagged, else 900301** |
 | 3 | curse | 900400 | 900400 |
-| 4 | petrify | 900500 | 900500 |
+| 4 | burning (燃焼) | 900500 | 900500 |
 | 5 | toxic | 900600 | 900600 |
+
+Where the ailment names come from: the 31 Mar 2014 PC build's developer names for the generic status-ailment rows,
+DamageCtrlParam 99987010-99987060, run in the same order: 毒 poison, 出血 bleed, 武器破壊 weapon break, 呪 curse,
+燃焼 burning, 猛毒 toxic. For index 4 there's more: 900500 deals PlayerDamageParam 9051, then 9050 every 0.2 s, and
+the developers named those rows 燃焼-開始 "burning, start" and 燃焼 "burning". The exe's own ailment-type list (UTF-16
+at PC Scholar file offset 0x10ce2a0) has 燃焼 as type 4, the type 900500 sets. Petrification (石化) is a separate type
+there, 10. Which resistance the burning build-up checks isn't traced. (Corrected 2026-11-26: index 4 said petrify,
+with no source given. The correction started from checking our notes against the SpEffect script dumps on
+LordRadai's GitHub. Every value here comes from our own reading of the game's files.)
 
 So Break is still ailment 2, between bleed and curse. That's the NT's menu order (poison, bleed, Break, curse).
 

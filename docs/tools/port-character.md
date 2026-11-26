@@ -34,7 +34,7 @@ chains: `[chr+0x98] = chr+0x500` (component C), `[C+0x88] = [chr+0x588]` (OOB ob
 | HP | 0xf0 | **0xfc** | C | GetHP slot +0xdc `lwz 0xfc` (NT +0xcc `lwz 0xf0`); IsAlive slot +0xd8 (NT +0xc8); PC vanilla CT also +0xFC |
 | min HP (1 = cannot die) | 0xf4 | **0x100** | P | ctor zeroes the 4-word block 0xfc-0x108 exactly where NT zeroes 0xf0-0xfc (0x791d08.. vs 0x5a5448..) |
 | max HP | 0xf8 | **0x104** | P | same block |
-| HP cap (current max) | 0xfc | **0x108** | P | same block; new retail getter slot +0xe0 `lwz 0x108` |
+| HP cap (current max) | 0xfc | **? (not 0x108)** | ? | same block, and retail's new getter slot +0xe0 does `lwz 0x108`, but the first live read had +0x108 = 827 with max HP 826, so it isn't the cap (corrected 2026-11-26) |
 | stamina cur / min / max (float) | 0x17c / 0x180 / 0x184 | **0x140 / 0x144 / 0x148** | P (+0x140 C-) | ctor float triples start 0x140 (NT 0x17c); 0x7a344c `lfs f1,0x140(chr)` = current stamina vs cost (retail-only roll penalty); PC vanilla CT writes +0x140 |
 | posture triple | 0x188 | **0x14c** | P | 2nd float triple in ctor (PC CT also writes +0x14C) |
 | build-ups (7 triples, 0xc apart) | 0x194.. | **0x158..0x1a0** | P | triples 3-9 in ctor |

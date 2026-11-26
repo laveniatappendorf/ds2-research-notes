@@ -199,8 +199,9 @@ With `show-m10_16` applied the creature sits in the free-camera gallery at about
 
 **No character model for it (searched 2026-10-22).** Every character model in the three builds was surveyed (retail
 166, each network test 18) for size, skeleton bone names and spawns (`GeneratorRegistParam` enemy id // 100 = model).
-- [Retail models no map spawns](unused-models.md): only c0001 (player), c1400 (a 5 m winged woman), c2020 (a small white c2010 variant),
-  c2250 (empty), c7015 and c7210 (human NPC bodies). The network test adds only c1560 and c8100 to retail's set, and its
+- [Retail models no enemy uses](unused-models.md): only c2020 (a small white c2010 variant), c6031 and c7015 (a human
+  NPC body). (Corrected 2026-11-26: this listed c0001, c1400, c2250 and c7210 too, from the enemy id // 100 survey;
+  counted by EnemyParam's `chr_id`, generators place all four, and c6031 was missed.) The network test adds only c1560 and c8100 to retail's set, and its
   unspawned models are c0001, c3270 (a dragon) and c7310 (a human). None is a crab.
 - The many-legged models all spawn in retail and the AI script labels name them: c2050 毒角虫 "poison horn beetle"
   and c2200 巨大毒角虫・酸 "giant acid horn beetle" (the domed back that looked like a shell is a beetle carapace),
@@ -606,8 +607,8 @@ vertex normals point -z. With the survey's rotation convention, a Y rotation of 
 bonfire. That's what the game shows, so the convention holds for rotations about Y at least.
 
 **Files touched:**
-- the disc image `C:\Games\PS3 Emulator\rpcs3-v0.0.39-18764-aeaa62a2_win64_msvc\games\Dark Souls II (USA)
-  (En,Fr,Es).iso`, 35,264 bytes at ISO byte `0x15b81576c` (GameData.bdt +`0xd93c9f6c`, entry
+- the disc image `Dark Souls II (USA) (En,Fr,Es).iso` in RPCS3's
+  `games` folder, 35,264 bytes at ISO byte `0x15b81576c` (GameData.bdt +`0xd93c9f6c`, entry
   `map\m20_24_00_00\m20_24_00_00.msb`). SHA-1 of the entry: original `b6a31c86...`, patched `a5ec3882...`. Nothing
   else in the ISO changed, and nothing in GameData.bhd, InstallData or RPCS3's folders.
 - backups: the original entry in `iso-patches\m20_24_00_00.msb.dcx.original` (`DS2 Vanilla\GameData.bdt` is also an

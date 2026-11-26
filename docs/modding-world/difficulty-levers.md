@@ -183,7 +183,7 @@ game's own effects:
 | 8, 9 | max stamina, equip load | rings x1.05 to x1.2 |
 | 25 | attack | a weapon effect x1.05 for 20 s (1990010); enemy states from x0.7 to x1.5 |
 | 26 | damage taken | a spell effect x0.85 for 20 s (34100010); many enemy states, some very low |
-| 59 | physical damage taken | three rings: x0.9, x0.9 and x0.875 |
+| 59 | damage taken, all five types (the code applies it to their sum) | three rings: x0.9, x0.9 and x0.875 |
 
 The meaning of an index is read from the items that use it [data, project's 10 Nov survey], so a name here is a reading,
 not a label from the game. A handicap is two or three `1000:1` lines in a new event: for example stat 7 x0.7 and stat 25

@@ -21,7 +21,17 @@
 ## Code (DS2SPC, headless on a copy; the MCP was locked by another session)
 - RTTI: 1000:15 builds `SpEffectActionImpl_ChrStatus_AtkRate<SpEffectChrStatus_AtkRateByHollowCount>`
   (vtable 0x1410ce6f8, constructor FUN_14021ec20: duration = args +0xC). A sibling `<...AtkRateBySoul>` (vtable
-  0x1410ce628, FUN_14021ed00) uses a 24-byte layout with int bounds; no SpEffect event uses it.
+  0x1410ce628, FUN_14021ed00) uses a 24-byte layout with int bounds.
+- That layout matches instruction **1000:14**. Its only use in PC Scholar's eleven `SpEffect*.emevd` files (all
+  decoded with `tools\speffect_pc.py`) is `SpEffectWeapon.emevd` event 1900000, which is ItemParam 1900000's
+  `speffect_id`: the **Ruler's Sword**. Its args are `(0, 10000, 1000000, 0.85f, 1.3f, 0)`: souls held from 10,000 to
+  1,000,000 give x0.85 to x1.3. The exe's own label for 1000:14 is 所持ソウル攻撃力倍率 "souls-held attack
+  multiplier" (UTF-16 string at file offset 0x10cd0f0, next to 1000:15's 亡者カウント攻撃力倍率 "Hollow-count attack
+  multiplier"). The item text agrees: the sword's strength "is relative to the number of souls possessed by its
+  wielder". Not traced: that 1000:14's dispatch builds this class. (Corrected 2026-11-26: this said no SpEffect
+  event uses the BySoul class. That came from a search for users of 1000:15 only. The correction started from
+  checking our notes against the SpEffect script dumps on LordRadai's GitHub. Every value here comes from our own
+  reading of the game's files.)
 - Getter = vtable slot +0xB8, FUN_14021f1e0: only for query kind 8, and only when the effect's source slot (byte
   +0x2E: 0x1A / -4, 0x1B / -3, other) matches the asking hand flag (1 / 2 / 4) — likely right / left weapon / other,
   not checked; otherwise 1.0.

@@ -58,7 +58,7 @@ Side questions the same logs answer:
   - **`aavalog.py analyse <log>`.** It splits a log into leaps (the counter rising, and the damage ids) and
     run-offs (her speed above about 8 m/s outside an attack). Per leap:
     - version, gap when the counter rises, gap when it falls, gap when the first hit capsule appears;
-    - her travel; how close the capsule surfaces came to your hurtbox ([the ragdoll capsules](../mechanics/phantom-hitboxes-pc.md) `hitlog_pc` already reads);
+    - her travel; how close the capsule surfaces came to your hurtbox ([the 11-part hit model](../mechanics/phantom-hitboxes-pc.md) `hitlog_pc` already reads as `hm`; not the ragdoll capsules, which attacks pass through);
     - whether your HP dropped.
     Per run-off: start and end points, the nearer spot, speed, gap at her next roll, the next attack id, and whether
     a leap was dropped.
