@@ -91,17 +91,21 @@ Two things follow:
 ## 4. Who it works against
 
 Both reads sit behind the same gate. The code asks for a category byte for the attacker and for the target
-(`FUN_14014eca0` = `byte [chr+0x54]`), looks each up in a 14-entry, 5-byte table at 0x1410bfff0 and tests byte 3 of
+(`FUN_14014eca0` = `byte [chr+0x54]`), looks each up in a 17-row, 5-byte table at 0x1410bfff0 and tests byte 3 of
 the entry:
 
 - slot 58 applies only when the **attacker's** byte 3 is set and the target's is not;
 - slot 59 applies only when the **target's** byte 3 is set and the attacker's is not.
 
-Byte 3 is set on categories 1 and 2 only. The "exactly one side" shape means the two multipliers do nothing when both
-sides are of the same kind, so if categories 1 and 2 are the player characters the effect is PvE only: no help when
-hitting another player, no protection from one. That reading also fits Numbness carrying an ungated slot 26 x0.85
-beside the gated slot 59 x0.8 - weaker against players than against enemies. What `+0x54` holds is **not traced**,
-so treat the PvE reading as inference, not fact. The same table is the one read by the
+Byte 3 is set on categories 1 and 2 only. What those are is now traced in code
+([character categories](character-categories-pc.md), 27 Nov): the category is set once, when a character is created,
+to **1 for your own character** and **2 for another real player's character** in your world. NPC invaders and summons
+are 5 or 12, ordinary enemies 14, and bosses 14 or 15. So byte 3 means "a real player's character", and the "exactly
+one side" shape makes the Brightbug **PvE only**: the x1.2 and the x0.8 work between a player and an enemy, a boss or
+an NPC invader, and do nothing when one player hits another (both sides flagged), so no help when hitting another
+player and no protection from one. That also fits Numbness carrying an ungated slot 26 x0.85 beside the gated slot 59
+x0.8 - weaker against players than against enemies. This rests on the code: category 2 hasn't been read on another
+player's character live, and the Brightbug hasn't been tried in co-op or PvP. The same table is the one read by the
 [Broken status](../network-test/broken-status.md) work.
 
 The item's own restriction looks separate and is enforced at use time: `ItemUsageParam` row 1615 is
@@ -127,7 +131,10 @@ be a little earlier. The slot numbers and both values are identical in every bui
 
 - **Not seen live.** A test: note the damage of one attack on a fixed enemy, drink, repeat. The prediction is a flat
   x1.2 on the number, and no change at all in the stats screen.
-- **What `byte [chr+0x54]` is**, which decides whether section 4 is really "PvE only".
+- ~~**What `byte [chr+0x54]` is**, which decides whether section 4 is really "PvE only".~~ Traced in code, 27 Nov:
+  the character's category, 1 / 2 = real players ([character categories](character-categories-pc.md)). Still to see
+  live: the byte on another player's character (expected 2), and the Brightbug against another player (expected no
+  change).
 - **The Red Tearstone Ring is a different slot (27) and a different consumer**: its read at 0x140027533 sits in the
   anti-tamper protected code, so where in the chain that one lands is still open. The same goes for slot 25, the
   general attack multiplier used by enemy rage buffs.
@@ -141,3 +148,4 @@ be a little earlier. The slot numbers and both values are identical in every bui
 - [Staff of Amana: the hollowing penalty](staff-of-amana-hollowing.md): the sibling command `1000:15`, a rate that
   varies with a counter instead of a fixed number.
 - [Broken status](../network-test/broken-status.md): slots 25 and 26, and the same character-category table.
+- [Character categories](character-categories-pc.md): what sets `chr + 0x54`, and every row of the table.

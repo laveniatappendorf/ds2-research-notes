@@ -22,11 +22,14 @@ disassemble the PC exes; `ppcimm.py` finds constants in a PS3 EBOOT).
 - **It is not a cut feature.** It is what retail put in place of the Network Test's Break status. In the NT, Break
   was one status for everyone: when the build-up filled, the target got SpEffect 900300, which deals the
   "weapon break" damage row 9030. There is no x0.95 / x1.05 anywhere in the NT.
-- **From v1.00 on, the code splits by character type.** Two of the 14 character categories still get 900300, but
-  retail data no longer has a 900300, so nothing happens to them. Every other category, enemies included, gets
-  900301. So enemies cannot lose equipment durability, and the Break build-up gives them a small debuff instead.
-  The two flagged categories are most likely the player's own character types. **Not confirmed**: the
-  table is indexed by a byte at character +0x54 that we haven't mapped.
+- **From v1.00 on, the code splits by character type.** Two character categories still get 900300, but retail data
+  no longer has a 900300, so nothing happens to them. Every other category, enemies included, gets 900301. So
+  enemies cannot lose equipment durability, and the Break build-up gives them a small debuff instead.
+  The two flagged categories are **real players' characters**: 1 is your own character and 2 is another real
+  player's character in your world. NPC invaders and summons, enemies and bosses are all other categories, so they
+  get 900301. That's traced in the PC Scholar code ([character categories](../mechanics/character-categories-pc.md),
+  27 Nov 2026), where the category byte at character +0x54 is set when the character is created. Category 2 hasn't
+  been read live yet.
 - Break is still a damage type in retail (damage type 8). Retail added Acid Surge with it, after the NT.
   The "Break resist" defence slot also survives in the SpEffect scripts: [the Ring of Resistance](armour-rings-spells-nt-vs-retail.md#same-id-same-ring-17) quietly raises it.
 
@@ -60,29 +63,35 @@ So Break is still ailment 2, between bleed and curse. That's the NT's menu order
 - **PC 31 March 2014** (exe 0x5a164d): `cmp [category*5 + 0x115bd6b], 0; sete cl; lea esi, [ecx + 900300]`.
   This is the same rule. So the exe has no literal 900301, only 900300 + 1.
 - **PC Scholar 1.0.3.0** (exe 0x140145d24): `category = byte [chr + 0x54]` (leaf 0x14014eca0);
-  `neg flag; sbb r14d, r14d; add r14d, 900301` (the same rule again). The table is at 0x1410bfff0, with 14 entries:
+  `neg flag; sbb r14d, r14d; add r14d, 900301` (the same rule again). The table is at 0x1410bfff0, with 17 entries
+  (0-16). The "who" column is from the functions that create characters
+  ([character categories](../mechanics/character-categories-pc.md)):
 
   ```
-  #   b0 b1 b2 b3 b4      b3 = the flag read here
-  0   00 04 01 00 01
-  1   02 00 01 01 01      <- flagged: 900300 (nothing in retail)
-  2   02 01 01 01 01      <- flagged
-  3   02 02 00 00 00
-  4   02 02 00 00 00
-  5   02 01 01 00 01
-  6   02 04 01 00 01
-  7   02 03 01 00 01
-  8   02 03 00 00 01
-  9   01 04 01 00 01
-  10  01 03 01 00 01
-  11  01 03 00 00 00
-  12  01 01 01 00 01
-  13  01 02 00 00 00
+  #   b0 b1 b2 b3 b4      who                                       b3 = the flag read here
+  0   00 04 01 00 01      default, never set by a creator
+  1   02 00 01 01 01      your own character                        <- flagged: 900300 (nothing in retail)
+  2   02 01 01 01 01      another real player's character           <- flagged
+  3   02 02 00 00 00      another player's ghost
+  4   02 02 00 00 00      preview (player body)
+  5   02 01 01 00 01      NPC phantom: invader or summon (player body)
+  6   02 04 01 00 01      other player-bodied character
+  7   02 03 01 00 01      NPC (player body)
+  8   02 03 00 00 01      NPC (player body), second variant
+  9   01 04 01 00 01      "Dummy" rows
+  10  01 03 01 00 01      NPC
+  11  01 03 00 00 00      NPC, second variant
+  12  01 01 01 00 01      NPC phantom
+  13  01 02 00 00 00      preview
+  14  01 04 01 00 01      ordinary enemy
+  15  01 05 01 00 01      "Boss" rows (EnemyParam +0x18 = 3; not every boss)
+  16  03 06 01 00 01      cutscene character
   ```
 
-  Byte 0 splits the entries into three groups: 0, then 1-8 (value 2) and 9-13 (value 1). Byte 3 is also read at
-  0x14032f061, where it adds 100 to an id, and at 0x14043a532. Byte 1 is read in many places. None of these name the
-  categories.
+  Byte 0 splits the entries into groups that match the class each one is built as: 0, then 1-8 (value 2, a
+  player-type character), 9-15 (value 1, an ordinary character) and 16 (value 3, a cutscene character). Byte 3 is
+  also read at 0x14032f061, where it adds 100 to an id, and at 0x14043a532. Byte 1 is read in many places.
+  *Corrected 27 Nov 2026: this said the table had 14 entries and that nothing named the categories.*
 
 ## 2. The SpEffect scripts
 
@@ -156,8 +165,8 @@ mapping: 0 physical, 1 magic, 2 lightning, 3 fire, 4 dark, 5 poison, 6 bleed, **
 
 ## What this means for the wiki note
 
-- 5 % / 5 % / 60 s / non-player: confirmed from data and code. The "non-player" part is really "not one of two
-  flagged character categories" (see 1).
+- 5 % / 5 % / 60 s / non-player: confirmed from data and code. The "non-player" part is really "not a real player's
+  character" (the two flagged categories, see 1). So NPC invaders and summons can get Broken too, like enemies.
 - Destructive Greatarrow, Acid Surge and Corrosive Urn: all three deal type 8 Break damage. So do several enemy acid
   attacks, which hit the player's durability.
 - "Stacks with separate timers" and "entities with equipment": not checked. The code picks the SpEffect by character
@@ -167,8 +176,9 @@ mapping: 0 physical, 1 magic, 2 lightning, 3 fire, 4 dark, 5 poison, 6 bleed, **
 
 ## Open
 
-- Which categories 1 and 2 are (character +0x54). Live check: read the byte on the player, a summon, an invader and
-  an enemy (PC Scholar), and watch an enemy's SpEffect list after an urn.
+- ~~Which categories 1 and 2 are (character +0x54).~~ Traced in code, 27 Nov: real players' characters (see 1). Read
+  live so far: your own character 1, an NPC invader 5, an ordinary enemy 14. Still to read: another player's
+  character (expected 2). Still to watch: an enemy's SpEffect list after an urn.
 - The Break build-up threshold for enemies and whether copies stack (SpEffect stacking flags, 100040:1 second
   argument 249?).
 - What visual 660 points to.
